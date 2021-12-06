@@ -7,7 +7,7 @@ namespace EnterTheGuncave
 {
     public class AssetLoader
     {
-        Dictionary<string, Texture2D> textures = new Dictionary<string, Texture2D>();
+        public static readonly Dictionary<string, Texture2D> textures = new Dictionary<string, Texture2D>();
         private readonly ContentManager contentManager;
 
         public AssetLoader(ContentManager contentManager)

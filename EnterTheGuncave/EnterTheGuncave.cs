@@ -1,19 +1,22 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace EnterTheGuncave
 {
-    public class Game1 : Game
+    public class EnterTheGuncave : Game
     {
+
+        private List<Entity> entities = new List<Entity>();
+
         private int windowWidth  = 500;
         private int windowHeight = 500;
-        
-        
-        private readonly GraphicsDeviceManager graphics;
-        private SpriteBatch spriteBatch;
 
-        public Game1()
+        private readonly GraphicsDeviceManager graphics;
+        public static SpriteBatch spriteBatch;
+
+        public EnterTheGuncave()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -25,7 +28,7 @@ namespace EnterTheGuncave
             graphics.PreferredBackBufferWidth  = windowWidth;  
             graphics.PreferredBackBufferHeight = windowHeight; 
             graphics.ApplyChanges();
-
+            
             base.Initialize();
         }
 
@@ -36,26 +39,35 @@ namespace EnterTheGuncave
             AssetLoader assetLoader = new AssetLoader(Content);
             
             assetLoader.loadTextures();
+            
+            entities.Add(new Player(new Vector2(50, 50)));
         }
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
-                Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
 
             Input.updateKeyboardState();
-
-            // TODO: Add your update logic here
+            
+            foreach( Entity entity in entities)
+            {
+                entity.update();
+            }
 
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
-            // TODO: Add your drawing code here
+            spriteBatch.Begin();
+            
+            foreach( Entity entity in entities )
+            {
+                entity.draw();
+            }
+            
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
