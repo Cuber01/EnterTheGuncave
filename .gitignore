@@ -1,0 +1,9 @@
+.git
+EnterTheGuncave/bin/*
+EnterTheGuncave/obj/*
+EnterTheGuncave.sln.DotSettings.user
+EnterTheGuncave.sln.DotSettings.user
+EnterTheGuncave.sln
+*.exe
+*.pdb
+*.dll
