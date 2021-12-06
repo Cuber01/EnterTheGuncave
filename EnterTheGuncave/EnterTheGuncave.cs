@@ -44,6 +44,8 @@ namespace EnterTheGuncave
                 Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            Input.updateKeyboardState();
+
             // TODO: Add your update logic here
 
             base.Update(gameTime);
