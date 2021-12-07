@@ -36,8 +36,6 @@ namespace EnterTheGuncave
             {
                 position.X -= 1 * speed;
             }
-
-            Console.WriteLine(Util.getTilePosition(position));
         }
 
         public override void draw()

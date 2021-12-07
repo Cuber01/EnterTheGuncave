@@ -19,7 +19,7 @@ namespace EnterTheGuncave
                 }
                 Console.Write(Environment.NewLine );
             }
-            Console.ReadLine();
+
         }
         
         public static int[,] fillInProximityMap(Point target, int[,] map)

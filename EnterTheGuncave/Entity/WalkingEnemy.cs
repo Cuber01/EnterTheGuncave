@@ -13,6 +13,7 @@ namespace EnterTheGuncave
         {
             this.position = position;
             this.texture = AssetLoader.textures["enemy"];
+            map = Util.fillInProximityMap(new Point(3, 3), map);
         }
 
         public override void update()
