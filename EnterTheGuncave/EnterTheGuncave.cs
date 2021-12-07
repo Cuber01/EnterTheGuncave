@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using EnterTheGuncave.Content;
+using EnterTheGuncave.General;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -68,11 +70,16 @@ namespace EnterTheGuncave
             GraphicsDevice.Clear(Color.Black);
 
             spriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: scaleMatrix);
+
+            DrawUtils draw = new DrawUtils(GraphicsDevice, spriteBatch);
+            draw.drawGrid(Color.Gray);
             
             foreach( Entity entity in entities )
             {
                 entity.draw();
             }
+
+            
             
             spriteBatch.End();
 

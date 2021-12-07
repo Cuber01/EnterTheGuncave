@@ -1,6 +1,6 @@
 using Microsoft.Xna.Framework.Input;
 
-namespace EnterTheGuncave
+namespace EnterTheGuncave.General
 {
     public class Input
     {

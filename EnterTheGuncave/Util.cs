@@ -22,6 +22,7 @@ namespace EnterTheGuncave
 
         }
         
+        
         public static int[,] fillInProximityMap(Point target, int[,] map)
         {
             // Where the target is

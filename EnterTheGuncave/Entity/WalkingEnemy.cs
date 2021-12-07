@@ -1,4 +1,5 @@
 using System;
+using EnterTheGuncave.Content;
 using Microsoft.Xna.Framework;
 
 namespace EnterTheGuncave
