@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Xna.Framework;
 
 namespace EnterTheGuncave
@@ -5,6 +6,8 @@ namespace EnterTheGuncave
     public class WalkingEnemy : Entity
     {
         private float speed = 1;
+        
+        private int[,] map = new int[EnterTheGuncave.roomWidth, EnterTheGuncave.roomHeight];
 
         public WalkingEnemy(Vector2 position)
         {
@@ -14,7 +17,7 @@ namespace EnterTheGuncave
 
         public override void update()
         {
-          
+              
         }
 
         public override void draw()

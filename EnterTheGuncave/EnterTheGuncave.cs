@@ -9,10 +9,10 @@ namespace EnterTheGuncave
         
         private readonly List<Entity> entities = new List<Entity>();
 
-        private const int roomWidth = 15;
-        private const int roomHeight = 9;
-        
-        private const int tileSize = 16;
+        public const int roomWidth = 15;
+        public const int roomHeight = 9;
+
+        public const int tileSize = 16;
         private const int scale = 2;
 
         private const int windowWidth = roomWidth * tileSize * scale;
