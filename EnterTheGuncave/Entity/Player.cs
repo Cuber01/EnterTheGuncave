@@ -14,7 +14,9 @@ namespace EnterTheGuncave
         public Player(Vector2 position)
         {
             this.position = position;
-            this.texture = AssetLoader.textures["player"];
+            this.texture  = AssetLoader.textures["player"];
+            this.myWidth  = texture.Width  / EnterTheGuncave.scale;
+            this.myHeight = texture.Height / EnterTheGuncave.scale;
         }
 
         public override void update()
@@ -38,6 +40,8 @@ namespace EnterTheGuncave
             {
                 position.X -= 1 * speed;
             }
+            
+            Console.WriteLine(Util.getTilePosition(position, myWidth, myHeight));
         }
 
         public override void draw()

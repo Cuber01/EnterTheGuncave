@@ -39,12 +39,12 @@ namespace EnterTheGuncave
             return map;
         }
 
-        public static Point getTilePosition(Vector2 pixelPosition)
+        public static Point getTilePosition(Vector2 pixelPosition, int myWidth, int myHeight)
         {
             Point tilePosition;
 
-            tilePosition.X = (int)(pixelPosition.X / EnterTheGuncave.tileSize);
-            tilePosition.Y = (int)(pixelPosition.Y / EnterTheGuncave.tileSize);
+            tilePosition.X = (int)((pixelPosition.X + myWidth/2 )  / EnterTheGuncave.tileSize);
+            tilePosition.Y = (int)((pixelPosition.Y + myHeight/2) / EnterTheGuncave.tileSize);
             
             return tilePosition;
         }

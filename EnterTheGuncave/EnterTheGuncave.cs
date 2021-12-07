@@ -15,7 +15,7 @@ namespace EnterTheGuncave
         public const int roomHeight = 9;
 
         public const int tileSize = 16;
-        private const int scale = 2;
+        public const int scale = 2;
 
         private const int windowWidth = roomWidth * tileSize * scale;
         private const int windowHeight = roomHeight * tileSize * scale;

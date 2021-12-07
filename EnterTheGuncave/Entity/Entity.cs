@@ -5,8 +5,11 @@ namespace EnterTheGuncave
 {
     public class Entity
     {
-        public Vector2 position;
-        public Texture2D texture;
+        protected Vector2 position;
+        protected Texture2D texture;
+
+        protected int myWidth;
+        protected int myHeight;
 
         public virtual void update() { }
         
