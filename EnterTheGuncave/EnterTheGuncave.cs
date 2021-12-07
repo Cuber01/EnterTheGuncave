@@ -1,18 +1,24 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 
 namespace EnterTheGuncave
 {
     public class EnterTheGuncave : Game
     {
+        
+        private readonly List<Entity> entities = new List<Entity>();
 
-        private List<Entity> entities = new List<Entity>();
+        private const int roomWidth = 15;
+        private const int roomHeight = 9;
+        
+        private const int tileSize = 16;
+        private const int scale = 2;
 
-        private int windowWidth  = 500;
-        private int windowHeight = 500;
+        private const int windowWidth = roomWidth * tileSize * scale;
+        private const int windowHeight = roomHeight * tileSize * scale;
 
+        private readonly Matrix scaleMatrix = Matrix.CreateScale(scale, scale, 1.0f);
         private readonly GraphicsDeviceManager graphics;
         public static SpriteBatch spriteBatch;
 
@@ -41,6 +47,7 @@ namespace EnterTheGuncave
             assetLoader.loadTextures();
             
             entities.Add(new Player(new Vector2(50, 50)));
+            entities.Add(new WalkingEnemy(new Vector2(80, 80)));
         }
 
         protected override void Update(GameTime gameTime)
@@ -60,7 +67,7 @@ namespace EnterTheGuncave
         {
             GraphicsDevice.Clear(Color.Black);
 
-            spriteBatch.Begin();
+            spriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: scaleMatrix);
             
             foreach( Entity entity in entities )
             {
