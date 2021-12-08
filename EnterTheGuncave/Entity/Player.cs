@@ -21,6 +21,8 @@ namespace EnterTheGuncave
 
         public override void update()
         {
+            tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
+            
             if (Input.keyboardState.IsKeyDown(Keys.Up))
             {
                 position.Y -= 1 * speed;
@@ -33,7 +35,7 @@ namespace EnterTheGuncave
             
             if (Input.keyboardState.IsKeyDown(Keys.Right))
             {
-                position.X += 1 * speed;
+                position = Util.tilePositionToPixelPosition(tilePosition, myWidth, myHeight);
             }
             
             if (Input.keyboardState.IsKeyDown(Keys.Left))
@@ -41,7 +43,8 @@ namespace EnterTheGuncave
                 position.X -= 1 * speed;
             }
             
-            Console.WriteLine(Util.getTilePosition(position, myWidth, myHeight));
+            Console.WriteLine(position);
+            Console.WriteLine(tilePosition);
         }
 
         public override void draw()
