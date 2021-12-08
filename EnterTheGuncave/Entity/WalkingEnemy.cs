@@ -19,12 +19,23 @@ namespace EnterTheGuncave
             this.texture = AssetLoader.textures["enemy"];
             this.myWidth  = texture.Width  / EnterTheGuncave.scale;
             this.myHeight = texture.Height / EnterTheGuncave.scale;
-            map = Util.fillInProximityMap(new Point(3, 3), map);
+            map = Util.fillInProximityMap(new Point(2, 2), map);
         }
 
+        private int counter = 100;
         public override void update()
         {
             tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
+            //System.Threading.Thread.Sleep(100);
+            counter--;
+
+            if (counter < 0)
+            {
+                counter = 100;                
+                position = Util.tilePositionToPixelPosition(whereToGo());
+
+            }
+            
         }
 
         public override void draw()
@@ -34,31 +45,66 @@ namespace EnterTheGuncave
 
         private Point whereToGo()
         {
-            Dictionary<int, Point> surroundingTiles = getSurroundingTiles();
-         
-            int[] tileValues = surroundingTiles.Keys.ToArray();
-            Point[] tilePositions = surroundingTiles.Values.ToArray();
-            
-            int smallest = Array.IndexOf(tileValues, tileValues.Min());
-
-            return tilePositions[smallest];
-        }
-
-        private Dictionary<int, Point> getSurroundingTiles()
-        {
-            Dictionary<int, Point> surroundingTiles = new Dictionary<int, Point>
+            if (map[tilePosition.X, tilePosition.Y] == 0)
             {
-                { map[tilePosition.X + 1, tilePosition.Y - 1  ], new Point(tilePosition.X + 1, tilePosition.Y - 1) },
-                { map[tilePosition.X + 1, tilePosition.Y      ], new Point(tilePosition.X + 1, tilePosition.Y      ) },
-                { map[tilePosition.X + 1, tilePosition.Y+1    ], new Point(tilePosition.X + 1, tilePosition.Y+1  ) },
-                { map[tilePosition.X,     tilePosition.Y+1    ], new Point(tilePosition.X,      tilePosition.Y+1    ) },
-                { map[tilePosition.X - 1, tilePosition.Y+1    ], new Point(tilePosition.X - 1, tilePosition.Y+1  ) },
-                { map[tilePosition.X - 1, tilePosition.Y      ], new Point(tilePosition.X - 1, tilePosition.Y      ) },
-                { map[tilePosition.X - 1, tilePosition.Y-1    ], new Point(tilePosition.X - 1, tilePosition.Y-1  ) },
-                { map[tilePosition.X,     tilePosition.Y+1    ], new Point(tilePosition.X,     tilePosition.Y+1    ) }
-            };
-
-            return surroundingTiles;
+                return new Point(tilePosition.X, tilePosition.Y);
+            }
+            
+            
+            int minValue = 999;
+            
+            Point newPosition = new Point(-1, -1);
+            if( map[tilePosition.X + 1, tilePosition.Y - 1  ] < minValue ) 
+            {
+                minValue = map[tilePosition.X + 1, tilePosition.Y - 1 ] ;
+                ( newPosition.X, newPosition.Y ) = (tilePosition.X + 1, tilePosition.Y);
+            } 
+            
+            if( map[tilePosition.X + 1, tilePosition.Y      ] < minValue ) 
+            {
+                minValue = map[tilePosition.X + 1, tilePosition.Y ] ;
+                ( newPosition.X, newPosition.Y ) = (tilePosition.X + 1, tilePosition.Y  );
+            } 
+            
+            if( map[tilePosition.X + 1, tilePosition.Y+1 ] < minValue ) 
+            {
+                minValue = map[tilePosition.X + 1, tilePosition.Y+1 ] ;
+                ( newPosition.X, newPosition.Y ) = (tilePosition.X + 1, tilePosition.Y+1);
+            }
+            
+            if( map[tilePosition.X, tilePosition.Y+1 ] < minValue ) 
+            {
+                minValue = map[tilePosition.X, tilePosition.Y+1] ;
+                ( newPosition.X, newPosition.Y ) = (tilePosition.X,     tilePosition.Y+1  );
+            }  
+            
+            if( map[tilePosition.X - 1, tilePosition.Y+1 ] < minValue ) 
+            {
+                minValue = map[tilePosition.X - 1, tilePosition.Y+1 ] ;
+                ( newPosition.X, newPosition.Y ) = (tilePosition.X - 1, tilePosition.Y+1);
+            }
+            
+            if( map[tilePosition.X - 1, tilePosition.Y ] < minValue ) 
+            {
+                minValue = map[tilePosition.X - 1, tilePosition.Y      ] ;
+                ( newPosition.X, newPosition.Y ) = (tilePosition.X - 1, tilePosition.Y  );
+            } 
+            
+            if( map[tilePosition.X - 1, tilePosition.Y-1 ] < minValue ) 
+            {
+                minValue = map[tilePosition.X - 1, tilePosition.Y-1    ] ;
+                ( newPosition.X, newPosition.Y ) = (tilePosition.X - 1, tilePosition.Y-1);
+            }
+            
+            if( map[tilePosition.X, tilePosition.Y+1 ] < minValue ) 
+            {
+                minValue = map[tilePosition.X,     tilePosition.Y+1    ] ;
+                ( newPosition.X, newPosition.Y ) = (tilePosition.X,     tilePosition.Y+1  );
+            } 
+            
+            Console.WriteLine(newPosition);
+            return newPosition;
         }
+        
     }
 }

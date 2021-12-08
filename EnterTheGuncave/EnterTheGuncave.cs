@@ -49,7 +49,7 @@ namespace EnterTheGuncave
             assetLoader.loadTextures();
             
             entities.Add(new Player(new Vector2(50, 50)));
-            entities.Add(new WalkingEnemy(new Vector2(80, 80)));
+            entities.Add(new WalkingEnemy(new Vector2(128, 80)));
         }
 
         protected override void Update(GameTime gameTime)

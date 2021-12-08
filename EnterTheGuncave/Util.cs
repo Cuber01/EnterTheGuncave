@@ -35,7 +35,7 @@ namespace EnterTheGuncave
                     map[x, y] = Math.Abs(x - target.X) + Math.Abs(y - target.Y);
                 }
             }
-
+            
             return map;
         }
 
@@ -49,12 +49,12 @@ namespace EnterTheGuncave
             return tilePosition;
         }
         
-        public static Vector2 tilePositionToPixelPosition(Point tilePosition, int myWidth, int myHeight)
+        public static Vector2 tilePositionToPixelPosition(Point tilePosition)
         {
             Vector2 pixelPosition;
 
-            pixelPosition.X = Math.Abs(tilePosition.X * EnterTheGuncave.tileSize );
-            pixelPosition.Y = Math.Abs(tilePosition.Y * EnterTheGuncave.tileSize );
+            pixelPosition.X = tilePosition.X * EnterTheGuncave.tileSize ;
+            pixelPosition.Y = tilePosition.Y * EnterTheGuncave.tileSize ;
             
             return pixelPosition;
         }

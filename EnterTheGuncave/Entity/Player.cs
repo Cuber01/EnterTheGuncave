@@ -35,16 +35,21 @@ namespace EnterTheGuncave
             
             if (Input.keyboardState.IsKeyDown(Keys.Right))
             {
-                position = Util.tilePositionToPixelPosition(tilePosition, myWidth, myHeight);
+                position.X += 1 * speed;
             }
             
             if (Input.keyboardState.IsKeyDown(Keys.Left))
             {
                 position.X -= 1 * speed;
             }
-            
-            Console.WriteLine(position);
-            Console.WriteLine(tilePosition);
+
+            if (Input.keyboardState.IsKeyDown(Keys.Space))
+            {
+                position = Util.tilePositionToPixelPosition(tilePosition);
+            }
+            //
+            // Console.WriteLine(position);
+            // Console.WriteLine(tilePosition);
         }
 
         public override void draw()
