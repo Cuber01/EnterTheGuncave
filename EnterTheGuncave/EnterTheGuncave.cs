@@ -9,7 +9,7 @@ namespace EnterTheGuncave
     public class EnterTheGuncave : Game
     {
         
-        private readonly List<Entity> entities = new List<Entity>();
+        public static readonly List<Entity> entities = new List<Entity>();
 
         public const int roomWidth = 15;
         public const int roomHeight = 9;
