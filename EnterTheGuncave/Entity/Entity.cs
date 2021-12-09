@@ -5,8 +5,10 @@ namespace EnterTheGuncave
 {
     public class Entity
     {
-        protected Vector2 position;
+        public Vector2 position;
         public Point tilePosition;
+
+        protected Vector2 velocity;
         protected Texture2D texture;
 
         protected int myWidth;

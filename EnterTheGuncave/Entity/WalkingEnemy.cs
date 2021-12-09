@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using EnterTheGuncave.Content;
 using Microsoft.Xna.Framework;
 
@@ -21,45 +19,41 @@ namespace EnterTheGuncave
             this.myHeight = texture.Height / EnterTheGuncave.scale;
         }
 
-        private int counter = 100;
+
         public override void update()
         {
             map = Util.fillInProximityMap(EnterTheGuncave.entities[0].tilePosition, map);
-            
-            Util.prettyPrint2DArray(map);
             tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
-            //System.Threading.Thread.Sleep(100);
-            counter--;
-
-            if (counter < 0)
-            {
-                counter = 100;                
-                position = Util.tilePositionToPixelPosition(whereToGo());
-
-            }
             
+            goToTile(EnterTheGuncave.entities[0].tilePosition);
+            move();
         }
-        //
-        // 6 5 4 3 4 5 6 7 8 
-        // 5 4 3 2 3 4 5 6 7 
-        // 4 3 2 1 2 3 4 5 6 
-        // 3 2 1 0 1 2 3 4 5 
-        // 4 3 2 1 2 3 4 5 6 
-        // 5 4 3 2 3 4 5 6 7 
-        // 6 5 4 3 4 5 6 7 8 
-        // 7 6 5 4 5 6 7 8 9 
-        // 8 7 6 5 6 7 8 9 10 
-        // 9 8 7 6 7 8 9 10 11 
-        // 10 9 8 7 8 9 10 11 12 
-        // 11 10 9 8 9 10 11 12 13 
-        // 12 11 10 9 10 11 12 13 14 
-        // 13 12 11 10 11 12 13 14 15 
-        // 14 13 12 11 12 13 14 15 16 
-
 
         public override void draw()
         {
             EnterTheGuncave.spriteBatch.Draw(texture, position, Color.White);
+        }
+        
+        private void goToPoint(Vector2 target)
+        {
+            float dist = Util.calculateDistance(position, target);
+            this.velocity.X = (target.X - position.X) / dist;
+            this.velocity.Y = (target.Y - position.Y) / dist;
+        }
+        
+        private void goToTile(Point target)
+        {
+            Vector2 pixelTarget = new Vector2();
+            pixelTarget = Util.tilePositionToPixelPosition(target);
+            
+            float dist = Util.calculateDistance(position, pixelTarget);
+            this.velocity.X = (pixelTarget.X - position.X) / dist;
+            this.velocity.Y = (pixelTarget.Y - position.Y) / dist;
+        }
+
+        private void move()
+        {
+            position += velocity;
         }
 
         private Point whereToGo()
@@ -72,6 +66,7 @@ namespace EnterTheGuncave
             int minValue = Int32.MaxValue;
             
             // Brute force >:(
+            // It's fast though...
             Point newPosition = new Point(-1, -1);
             if( map[tilePosition.X + 1, tilePosition.Y - 1  ] < minValue ) 
             {

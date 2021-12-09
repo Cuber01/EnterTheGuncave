@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace EnterTheGuncave
 {
-    public class Util
+    public static class Util
     {
         public static void prettyPrint2DArray(int[,] array)
         {
@@ -47,6 +47,14 @@ namespace EnterTheGuncave
             tilePosition.Y = (int)((pixelPosition.Y + myHeight/ 2 ) / EnterTheGuncave.tileSize);
             
             return tilePosition;
+        }
+
+        public static float calculateDistance(Vector2 point1, Vector2 point2)
+        {
+            float dx = Math.Abs(point2.X - point1.X);
+            float dy = Math.Abs(point2.Y - point1.Y);
+            float dist = (float)Math.Sqrt(dx * dx + dy * dy);
+            return dist;
         }
         
         public static Vector2 tilePositionToPixelPosition(Point tilePosition)
