@@ -1,4 +1,3 @@
-using System;
 using EnterTheGuncave.Content;
 using EnterTheGuncave.General;
 using Microsoft.Xna.Framework;

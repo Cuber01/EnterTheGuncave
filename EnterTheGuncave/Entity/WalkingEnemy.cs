@@ -43,8 +43,7 @@ namespace EnterTheGuncave
         
         private void goToTile(Point target)
         {
-            Vector2 pixelTarget = new Vector2();
-            pixelTarget = Util.tilePositionToPixelPosition(target);
+            Vector2 pixelTarget = Util.tilePositionToPixelPosition(target);
             
             float dist = Util.calculateDistance(position, pixelTarget);
             this.velocity.X = (pixelTarget.X - position.X) / dist;
@@ -53,7 +52,7 @@ namespace EnterTheGuncave
 
         private void move()
         {
-            position += velocity;
+            position += velocity * speed;
         }
 
         private Point whereToGo()
@@ -71,49 +70,48 @@ namespace EnterTheGuncave
             if( map[tilePosition.X + 1, tilePosition.Y - 1  ] < minValue ) 
             {
                 minValue = map[tilePosition.X + 1, tilePosition.Y - 1 ] ;
-                ( newPosition.X, newPosition.Y ) = (tilePosition.X + 1, tilePosition.Y);
+                ( newPosition.X, newPosition.Y ) = ( tilePosition.X + 1, tilePosition.Y);
             } 
             
             if( map[tilePosition.X + 1, tilePosition.Y      ] < minValue ) 
             {
                 minValue = map[tilePosition.X + 1, tilePosition.Y ] ;
-                ( newPosition.X, newPosition.Y ) = (tilePosition.X + 1, tilePosition.Y  );
+                ( newPosition.X, newPosition.Y ) = ( tilePosition.X + 1, tilePosition.Y  );
             } 
             
             if( map[tilePosition.X + 1, tilePosition.Y+1 ] < minValue ) 
             {
                 minValue = map[tilePosition.X + 1, tilePosition.Y+1 ] ;
-                ( newPosition.X, newPosition.Y ) = (tilePosition.X + 1, tilePosition.Y+1);
+                ( newPosition.X, newPosition.Y ) = ( tilePosition.X + 1, tilePosition.Y+1);
             }
             
             if( map[tilePosition.X, tilePosition.Y+1 ] < minValue ) 
             {
                 minValue = map[tilePosition.X, tilePosition.Y+1] ;
-                ( newPosition.X, newPosition.Y ) = (tilePosition.X,     tilePosition.Y+1  );
+                ( newPosition.X, newPosition.Y ) = ( tilePosition.X,     tilePosition.Y+1  );
             }  
             
             if( map[tilePosition.X - 1, tilePosition.Y+1 ] < minValue ) 
             {
                 minValue = map[tilePosition.X - 1, tilePosition.Y+1 ] ;
-                ( newPosition.X, newPosition.Y ) = (tilePosition.X - 1, tilePosition.Y+1);
+                ( newPosition.X, newPosition.Y ) = ( tilePosition.X - 1, tilePosition.Y+1);
             }
             
             if( map[tilePosition.X - 1, tilePosition.Y ] < minValue ) 
             {
                 minValue = map[tilePosition.X - 1, tilePosition.Y      ] ;
-                ( newPosition.X, newPosition.Y ) = (tilePosition.X - 1, tilePosition.Y  );
+                ( newPosition.X, newPosition.Y ) = ( tilePosition.X - 1, tilePosition.Y  );
             } 
             
             if( map[tilePosition.X - 1, tilePosition.Y-1 ] < minValue ) 
             {
                 minValue = map[tilePosition.X - 1, tilePosition.Y-1    ] ;
-                ( newPosition.X, newPosition.Y ) = (tilePosition.X - 1, tilePosition.Y-1);
+                ( newPosition.X, newPosition.Y ) = ( tilePosition.X - 1, tilePosition.Y-1);
             }
             
             if( map[tilePosition.X, tilePosition.Y - 1 ] < minValue ) 
             {
-                minValue = map[tilePosition.X,     tilePosition.Y - 1    ] ;
-                ( newPosition.X, newPosition.Y ) = (tilePosition.X,     tilePosition.Y - 1  );
+                ( newPosition.X, newPosition.Y ) = ( tilePosition.X,     tilePosition.Y - 1 );
             } 
 
             return newPosition;
