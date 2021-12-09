@@ -50,10 +50,6 @@ namespace EnterTheGuncave
             // Console.WriteLine(position);
             // Console.WriteLine(tilePosition);
         }
-
-        public override void draw()
-        {
-            EnterTheGuncave.spriteBatch.Draw(texture, position, Color.White);
-        }
+        
     }
 }

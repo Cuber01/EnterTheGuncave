@@ -28,11 +28,7 @@ namespace EnterTheGuncave
             goToTile(EnterTheGuncave.entities[0].tilePosition);
             move();
         }
-
-        public override void draw()
-        {
-            EnterTheGuncave.spriteBatch.Draw(texture, position, Color.White);
-        }
+        
         
         private void goToPoint(Vector2 target)
         {

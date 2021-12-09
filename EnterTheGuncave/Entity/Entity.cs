@@ -15,7 +15,10 @@ namespace EnterTheGuncave
         protected int myHeight;
 
         public virtual void update() { }
-        
-        public virtual void draw() { }
+
+        public void draw()
+        {
+            EnterTheGuncave.spriteBatch.Draw(texture, position, Color.White);
+        }
     }
 }

@@ -1,3 +1,4 @@
+using EnterTheGuncave.Content;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -5,6 +6,11 @@ namespace EnterTheGuncave.Projectile
 {
     public class Bullet
     {
+        private Texture2D texture;
+
+        private int myWidth;
+        private int myHeight;
+
         private int speed;
         private int penetration;
         private int lifetime;
@@ -15,6 +21,10 @@ namespace EnterTheGuncave.Projectile
 
         public Bullet(int speed = 1, int penetration = 1, int lifetime = 500, int damage = 5)
         {
+            this.texture = AssetLoader.textures["bullet"];
+            this.myWidth  = texture.Width  / EnterTheGuncave.scale;
+            this.myHeight = texture.Height / EnterTheGuncave.scale;
+            
             this.speed = speed;
             this.penetration = penetration;
             this.lifetime = lifetime;
@@ -29,7 +39,7 @@ namespace EnterTheGuncave.Projectile
 
         public void draw()
         {
-            
+            EnterTheGuncave.spriteBatch.Draw(texture, position, Color.White);
         }
         
         private void goToPoint(Vector2 target)
