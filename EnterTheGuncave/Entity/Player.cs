@@ -46,9 +46,7 @@ namespace EnterTheGuncave
             {
                 position = Util.tilePositionToPixelPosition(tilePosition);
             }
-            //
-            // Console.WriteLine(position);
-            // Console.WriteLine(tilePosition);
+
         }
         
     }

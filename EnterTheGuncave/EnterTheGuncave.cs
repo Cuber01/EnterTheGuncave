@@ -56,6 +56,7 @@ namespace EnterTheGuncave
         {
 
             Input.updateKeyboardState();
+            Input.updateMouseState();
             
             foreach( Entity entity in entities)
             {
