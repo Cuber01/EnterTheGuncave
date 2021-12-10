@@ -10,7 +10,7 @@ namespace EnterTheGuncave.Entities
     {
 
         private float speed = 1;
-        private float friction = 0.2f;
+        private float friction = 0.6f;
         private float maxVelocity = 2;
 
         public Player(Vector2 position)
@@ -27,6 +27,8 @@ namespace EnterTheGuncave.Entities
             
             reactToInput();
 
+            checkVelocity();
+            applyFriction();
             move();
         }
 
@@ -52,12 +54,9 @@ namespace EnterTheGuncave.Entities
                 velocity.X -= 1 * speed;
             }
 
-            applyFriction();
-            // checkVelocity();
-
             if (Input.mouseWasClicked())
             {
-                EnterTheGuncave.entitiesToBeSpawned.Add(new Bullet(Input.mouseState.X, Input.mouseState.Y, new BulletStats(1, 1, 500, 5)));
+                EnterTheGuncave.entitiesToBeSpawned.Add(new Bullet(Input.mouseState.X, Input.mouseState.Y, position, new BulletStats(1, 1, 500, 5)));
             }
         }
 
@@ -80,24 +79,24 @@ namespace EnterTheGuncave.Entities
             }
         }
 
-        // private void checkVelocity()
-        // {
-        //     if (velocity.X > maxVelocity)
-        //     {
-        //         velocity.X = maxVelocity;
-        //     } else if (velocity.X < -maxVelocity)
-        //     {
-        //         velocity.X = -maxVelocity;
-        //     }
-        //     
-        //     if (velocity.Y > maxVelocity)
-        //     {
-        //         velocity.Y = maxVelocity;
-        //     } else if (velocity.Y < -maxVelocity)
-        //     {
-        //         velocity.Y = -maxVelocity;
-        //     }
-        // }
+        private void checkVelocity()
+        {
+            if (velocity.X > maxVelocity)
+            {
+                velocity.X = maxVelocity;
+            } else if (velocity.X < -maxVelocity)
+            {
+                velocity.X = -maxVelocity;
+            }
+            
+            if (velocity.Y > maxVelocity)
+            {
+                velocity.Y = maxVelocity;
+            } else if (velocity.Y < -maxVelocity)
+            {
+                velocity.Y = -maxVelocity;
+            }
+        }
 
         private void move()
         {

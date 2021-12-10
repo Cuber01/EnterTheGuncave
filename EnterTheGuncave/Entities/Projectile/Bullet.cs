@@ -9,8 +9,9 @@ namespace EnterTheGuncave.Entities.Projectile
 
         private BulletStats stats;
 
-        public Bullet(int targetX, int targetY, BulletStats stats)
+        public Bullet(int targetX, int targetY, Vector2 position, BulletStats stats)
         {
+            this.position = position;
             this.texture = AssetLoader.textures["bullet"];
             this.myWidth  = texture.Width  / EnterTheGuncave.scale;
             this.myHeight = texture.Height / EnterTheGuncave.scale;
