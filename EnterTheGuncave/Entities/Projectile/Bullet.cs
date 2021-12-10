@@ -1,8 +1,7 @@
 using EnterTheGuncave.Content;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
-namespace EnterTheGuncave.Projectile
+namespace EnterTheGuncave.Entities.Projectile
 {
     public class Bullet : Entity
     {

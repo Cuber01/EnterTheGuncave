@@ -1,4 +1,4 @@
-namespace EnterTheGuncave.Projectile
+namespace EnterTheGuncave.Entities.Projectile
 {
     public struct BulletStats
     {

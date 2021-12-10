@@ -2,7 +2,7 @@ using System;
 using EnterTheGuncave.Content;
 using Microsoft.Xna.Framework;
 
-namespace EnterTheGuncave
+namespace EnterTheGuncave.Entities
 {
     public class WalkingEnemy : Entity
     {

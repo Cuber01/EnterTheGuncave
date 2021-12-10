@@ -1,10 +1,10 @@
 using EnterTheGuncave.Content;
+using EnterTheGuncave.Entities.Projectile;
 using EnterTheGuncave.General;
-using EnterTheGuncave.Projectile;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
-namespace EnterTheGuncave
+namespace EnterTheGuncave.Entities
 {
     public class Player : Entity
     {

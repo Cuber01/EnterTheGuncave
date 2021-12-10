@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using EnterTheGuncave.Content;
+using EnterTheGuncave.Entities;
 using EnterTheGuncave.General;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

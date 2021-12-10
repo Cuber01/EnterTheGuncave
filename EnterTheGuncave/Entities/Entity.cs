@@ -1,7 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace EnterTheGuncave
+namespace EnterTheGuncave.Entities
 {
     public class Entity
     {
