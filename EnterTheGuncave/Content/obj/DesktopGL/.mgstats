@@ -1,5 +1,6 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
 "/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/arrow.png","/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/bin/DesktopGL/assets/arrow.xnb","TextureProcessor","Texture2DContent",232,4181,0.112151
+"/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/bullet.png","/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/bin/DesktopGL/assets/bullet.xnb","TextureProcessor","Texture2DContent",142,341,0.100923
 "/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/enemy.png","/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/bin/DesktopGL/assets/enemy.xnb","TextureProcessor","Texture2DContent",191,1109,0.000822
 "/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/player.png","/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/bin/DesktopGL/assets/player.xnb","TextureProcessor","Texture2DContent",161,1109,0.000802
 "/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/stone.png","/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/bin/DesktopGL/assets/stone.xnb","TextureProcessor","Texture2DContent",223,1109,0.000779

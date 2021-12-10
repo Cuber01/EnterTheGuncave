@@ -20,7 +20,7 @@ namespace EnterTheGuncave.General
             mouseState = Mouse.GetState();
         }
         
-        public static bool mouseWasClicked(ButtonState btn)
+        public static bool mouseWasClicked()
         {
             if(mouseState.LeftButton == ButtonState.Pressed && oldMouseState.LeftButton == ButtonState.Released)
             {

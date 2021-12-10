@@ -20,6 +20,7 @@ namespace EnterTheGuncave.Content
             textures.Add("enemy", contentManager.Load<Texture2D>("assets/enemy"));
             textures.Add("arrow", contentManager.Load<Texture2D>("assets/arrow"));
             textures.Add("stone", contentManager.Load<Texture2D>("assets/stone"));
+            textures.Add("bullet", contentManager.Load<Texture2D>("assets/bullet"));
         }
     }
 }

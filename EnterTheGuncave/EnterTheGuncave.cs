@@ -10,9 +10,10 @@ namespace EnterTheGuncave
     {
         
         public static readonly List<Entity> entities = new List<Entity>();
+        public static readonly List<Entity> entitiesToBeSpawned = new List<Entity>();
 
-        public const int roomWidth = 15;
-        public const int roomHeight = 9;
+        public const int roomWidth = 18;
+        public const int roomHeight = 11;
 
         public const int tileSize = 16;
         public const int scale = 2;
@@ -57,7 +58,20 @@ namespace EnterTheGuncave
 
             Input.updateKeyboardState();
             Input.updateMouseState();
-            
+
+            try
+            {
+                foreach (Entity spawn in entitiesToBeSpawned)
+                {
+                    entities.Add(spawn);
+                    entitiesToBeSpawned.Remove(spawn);
+                }
+            }
+            catch (System.InvalidOperationException)
+            {
+                
+            }
+
             foreach( Entity entity in entities)
             {
                 entity.update();

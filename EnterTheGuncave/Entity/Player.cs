@@ -1,5 +1,6 @@
 using EnterTheGuncave.Content;
 using EnterTheGuncave.General;
+using EnterTheGuncave.Projectile;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
@@ -9,6 +10,8 @@ namespace EnterTheGuncave
     {
 
         private float speed = 1;
+        private float friction = 0.2f;
+        private float maxVelocity = 2;
 
         public Player(Vector2 position)
         {
@@ -22,32 +25,84 @@ namespace EnterTheGuncave
         {
             tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
             
+            reactToInput();
+
+            move();
+        }
+
+        private void reactToInput()
+        {
             if (Input.keyboardState.IsKeyDown(Keys.Up))
             {
-                position.Y -= 1 * speed;
+                velocity.Y -= 1 * speed;
             }
             
             if (Input.keyboardState.IsKeyDown(Keys.Down))
             {
-                position.Y += 1 * speed;
+                velocity.Y += 1 * speed;
             }
             
             if (Input.keyboardState.IsKeyDown(Keys.Right))
             {
-                position.X += 1 * speed;
+                velocity.X += 1 * speed;
             }
             
             if (Input.keyboardState.IsKeyDown(Keys.Left))
             {
-                position.X -= 1 * speed;
+                velocity.X -= 1 * speed;
             }
 
-            if (Input.keyboardState.IsKeyDown(Keys.Space))
+            applyFriction();
+            // checkVelocity();
+
+            if (Input.mouseWasClicked())
             {
-                position = Util.tilePositionToPixelPosition(tilePosition);
+                EnterTheGuncave.entitiesToBeSpawned.Add(new Bullet(Input.mouseState.X, Input.mouseState.Y, new BulletStats(1, 1, 500, 5)));
             }
-
         }
-        
+
+        private void applyFriction()
+        {
+            if (velocity.X < 0)
+            {
+                velocity.X += friction;
+            } else if (velocity.X > 0)
+            {
+                velocity.X -= friction;
+            }
+            
+            if (velocity.Y < 0)
+            {
+                velocity.Y += friction;
+            } else if (velocity.Y > 0)
+            {
+                velocity.Y -= friction;
+            }
+        }
+
+        // private void checkVelocity()
+        // {
+        //     if (velocity.X > maxVelocity)
+        //     {
+        //         velocity.X = maxVelocity;
+        //     } else if (velocity.X < -maxVelocity)
+        //     {
+        //         velocity.X = -maxVelocity;
+        //     }
+        //     
+        //     if (velocity.Y > maxVelocity)
+        //     {
+        //         velocity.Y = maxVelocity;
+        //     } else if (velocity.Y < -maxVelocity)
+        //     {
+        //         velocity.Y = -maxVelocity;
+        //     }
+        // }
+
+        private void move()
+        {
+            position += velocity * speed;
+        }
+
     }
 }
