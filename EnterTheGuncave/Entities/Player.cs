@@ -11,7 +11,7 @@ namespace EnterTheGuncave.Entities
 
         private float speed = 1;
         private float friction = 0.6f;
-        private float maxVelocity = 2;
+        private float maxVelocity = 4;
 
         public Player(Vector2 position)
         {
@@ -26,32 +26,43 @@ namespace EnterTheGuncave.Entities
             tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
             
             reactToInput();
-
-            checkVelocity();
+            
             applyFriction();
             move();
         }
 
         private void reactToInput()
         {
-            if (Input.keyboardState.IsKeyDown(Keys.Up))
+            if (!(velocity.Y < -maxVelocity))
             {
-                velocity.Y -= 1 * speed;
+                if (Input.keyboardState.IsKeyDown(Keys.Up))
+                {
+                    velocity.Y -= 1 * speed;
+                }
             }
-            
-            if (Input.keyboardState.IsKeyDown(Keys.Down))
+
+            if (!(velocity.Y > maxVelocity))
             {
-                velocity.Y += 1 * speed;
+                if (Input.keyboardState.IsKeyDown(Keys.Down))
+                {
+                    velocity.Y += 1 * speed;
+                }
             }
-            
-            if (Input.keyboardState.IsKeyDown(Keys.Right))
+
+            if (!(velocity.X < -maxVelocity))
             {
-                velocity.X += 1 * speed;
+                if (Input.keyboardState.IsKeyDown(Keys.Right))
+                {
+                    velocity.X += 1 * speed;
+                }
             }
-            
-            if (Input.keyboardState.IsKeyDown(Keys.Left))
+
+            if (!(velocity.X > maxVelocity))
             {
-                velocity.X -= 1 * speed;
+                if (Input.keyboardState.IsKeyDown(Keys.Left))
+                {
+                    velocity.X -= 1 * speed;
+                }
             }
 
             if (Input.mouseWasClicked())
@@ -76,25 +87,6 @@ namespace EnterTheGuncave.Entities
             } else if (velocity.Y > 0)
             {
                 velocity.Y -= friction;
-            }
-        }
-
-        private void checkVelocity()
-        {
-            if (velocity.X > maxVelocity)
-            {
-                velocity.X = maxVelocity;
-            } else if (velocity.X < -maxVelocity)
-            {
-                velocity.X = -maxVelocity;
-            }
-            
-            if (velocity.Y > maxVelocity)
-            {
-                velocity.Y = maxVelocity;
-            } else if (velocity.Y < -maxVelocity)
-            {
-                velocity.Y = -maxVelocity;
             }
         }
 
