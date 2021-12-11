@@ -9,9 +9,9 @@ namespace EnterTheGuncave.Entities
     public class Player : Entity
     {
 
-        private float speed = 1;
-        private float friction = 0.6f;
-        private float maxVelocity = 4;
+        private float speed = 1.1f;
+        private float friction = 0.65f;
+        private float maxVelocity = 6;
 
         public Player(Vector2 position)
         {
@@ -73,21 +73,8 @@ namespace EnterTheGuncave.Entities
 
         private void applyFriction()
         {
-            if (velocity.X < 0)
-            {
-                velocity.X += friction;
-            } else if (velocity.X > 0)
-            {
-                velocity.X -= friction;
-            }
-            
-            if (velocity.Y < 0)
-            {
-                velocity.Y += friction;
-            } else if (velocity.Y > 0)
-            {
-                velocity.Y -= friction;
-            }
+            velocity.X = velocity.X * friction;
+            velocity.Y = velocity.Y * friction;
         }
 
         private void move()
