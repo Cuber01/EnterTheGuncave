@@ -70,7 +70,7 @@ namespace EnterTheGuncave
             }
             catch (System.InvalidOperationException)
             {
-                
+                // Ignore.
             }
 
             foreach( Entity entity in entities)
@@ -93,10 +93,9 @@ namespace EnterTheGuncave
             foreach( Entity entity in entities )
             {
                 entity.draw();
+                entity.collider.draw(draw);
             }
 
-            
-            
             spriteBatch.End();
 
             base.Draw(gameTime);

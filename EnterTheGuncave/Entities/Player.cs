@@ -1,7 +1,10 @@
+using System;
 using EnterTheGuncave.Content;
 using EnterTheGuncave.Entities.Projectile;
 using EnterTheGuncave.General;
+using EnterTheGuncave.General.Collision;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
 
 namespace EnterTheGuncave.Entities
@@ -19,6 +22,8 @@ namespace EnterTheGuncave.Entities
             this.texture  = AssetLoader.textures["player"];
             this.myWidth  = texture.Width  / EnterTheGuncave.scale;
             this.myHeight = texture.Height / EnterTheGuncave.scale;
+
+            this.collider = new Hitbox(position, myWidth, myHeight);
         }
 
         public override void update()
@@ -26,6 +31,8 @@ namespace EnterTheGuncave.Entities
             tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
             
             reactToInput();
+
+            handleCollider();
             
             applyFriction();
             move();

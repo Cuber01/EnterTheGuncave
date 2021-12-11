@@ -1,5 +1,6 @@
 using System;
 using EnterTheGuncave.Content;
+using EnterTheGuncave.General.Collision;
 using Microsoft.Xna.Framework;
 
 namespace EnterTheGuncave.Entities
@@ -17,6 +18,8 @@ namespace EnterTheGuncave.Entities
             this.texture = AssetLoader.textures["enemy"];
             this.myWidth  = texture.Width  / EnterTheGuncave.scale;
             this.myHeight = texture.Height / EnterTheGuncave.scale;
+            
+            this.collider = new Hitbox(position, myWidth, myHeight);
         }
 
 
@@ -25,7 +28,9 @@ namespace EnterTheGuncave.Entities
             map = Util.fillInProximityMap(EnterTheGuncave.entities[0].tilePosition, map);
             tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
             
-            goToTile(EnterTheGuncave.entities[0].tilePosition);
+            handleCollider();
+
+            goToPoint(EnterTheGuncave.entities[0].position);
             move();
         }
         
