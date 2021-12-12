@@ -1,25 +1,31 @@
 using System;
 using EnterTheGuncave.Content;
+using EnterTheGuncave.Entities.Projectiles;
 using EnterTheGuncave.General.Collision;
 using Microsoft.Xna.Framework;
 
-namespace EnterTheGuncave.Entities
+namespace EnterTheGuncave.Entities.Baddies
 {
     public class WalkingEnemy : Entity
     {
-        private float speed = 1;
+        private EnemyStats stats;
         
         private int[,] map = new int[EnterTheGuncave.roomWidth, EnterTheGuncave.roomHeight];
 
         public WalkingEnemy(Vector2 position)
         {
             this.position = position;
+            this.team = dTeam.baddies;
             
             this.texture = AssetLoader.textures["enemy"];
             this.myWidth  = texture.Width  / EnterTheGuncave.scale;
             this.myHeight = texture.Height / EnterTheGuncave.scale;
             
             this.collider = new Hitbox(position, myWidth, myHeight);
+
+            stats.speed = 1;
+            stats.heartDamage = 1;
+            stats.hitpoints = 10;
         }
 
 
@@ -27,12 +33,13 @@ namespace EnterTheGuncave.Entities
         {
             map = Util.fillInProximityMap(EnterTheGuncave.entities[0].tilePosition, map);
             tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
-            
-            adjustColliderPosition();
+
             checkCollision();
 
             goToPoint(EnterTheGuncave.entities[0].position);
             move();
+            
+            adjustColliderPosition();
         }
         
         /* ---------------- MOVEMENT ------------------ */
@@ -55,7 +62,7 @@ namespace EnterTheGuncave.Entities
 
         private void move()
         {
-            Vector2 newPosition = position + velocity * speed;
+            Vector2 newPosition = position + velocity * stats.speed;
 
             if (CollisionUtils.checkCollisionAtPos(collider, newPosition))
             {
@@ -138,6 +145,14 @@ namespace EnterTheGuncave.Entities
                     Console.WriteLine("ASAAAAAAAAAAAAAAAA");
                 }
             }
+        }
+        
+        /* ------------------- DAMAGE ------------------- */
+
+        public override void takeDamage(int dmg)
+        {
+            stats.hitpoints = stats.hitpoints - dmg;
+            Console.WriteLine("Help!");
         }
         
     }

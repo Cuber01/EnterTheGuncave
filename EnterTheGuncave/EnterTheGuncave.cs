@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using EnterTheGuncave.Content;
 using EnterTheGuncave.Entities;
+using EnterTheGuncave.Entities.Allies;
+using EnterTheGuncave.Entities.Baddies;
 using EnterTheGuncave.General;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;

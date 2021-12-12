@@ -1,13 +1,11 @@
-using System;
 using EnterTheGuncave.Content;
-using EnterTheGuncave.Entities.Projectile;
+using EnterTheGuncave.Entities.Projectiles;
 using EnterTheGuncave.General;
 using EnterTheGuncave.General.Collision;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
 
-namespace EnterTheGuncave.Entities
+namespace EnterTheGuncave.Entities.Allies
 {
     public class Player : Entity
     {
@@ -23,6 +21,7 @@ namespace EnterTheGuncave.Entities
             this.myWidth  = texture.Width  / EnterTheGuncave.scale;
             this.myHeight = texture.Height / EnterTheGuncave.scale;
 
+            this.team = dTeam.allies;
             this.collider = new Hitbox(position, myWidth, myHeight);
         }
 
@@ -31,12 +30,12 @@ namespace EnterTheGuncave.Entities
             tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
             
             reactToInput();
-
-            adjustColliderPosition();
-            checkCollision();
             
             applyFriction();
             move();
+            
+            checkCollision();
+            adjustColliderPosition();
         }
         
         /* -------------- MOVEMENT --------------- */
@@ -77,7 +76,7 @@ namespace EnterTheGuncave.Entities
 
             if (Input.mouseWasClicked())
             {
-                EnterTheGuncave.entitiesToBeSpawned.Add(new Bullet(Input.mouseState.X, Input.mouseState.Y, position, new BulletStats(1, 1, 500, 5)));
+                EnterTheGuncave.entitiesToBeSpawned.Add(new Bullet(Input.mouseState.X, Input.mouseState.Y, position, new BulletStats(1, 1, 500, 5, dTeam.allies)));
             }
         }
 
@@ -107,7 +106,7 @@ namespace EnterTheGuncave.Entities
             {
                 if (collider.checkCollision(entity) != null)
                 {
-                    velocity = -velocity;
+                //    velocity = -velocity;
                 }
             }
         }

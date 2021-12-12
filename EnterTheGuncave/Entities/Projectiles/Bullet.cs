@@ -1,7 +1,8 @@
 using EnterTheGuncave.Content;
+using EnterTheGuncave.General.Collision;
 using Microsoft.Xna.Framework;
 
-namespace EnterTheGuncave.Entities.Projectile
+namespace EnterTheGuncave.Entities.Projectiles
 {
     public class Bullet : Entity
     {
@@ -19,12 +20,16 @@ namespace EnterTheGuncave.Entities.Projectile
             ( this.target.X, this.target.Y ) = ( targetX, targetY );
             this.stats = stats;
             
+            this.collider = new Hitbox(position, myWidth, myHeight);
             goToPoint();
         }
 
         public override void update()
         {
             move();
+            
+            checkCollision();
+            adjustColliderPosition();
         }
 
         private void goToPoint()
@@ -32,6 +37,23 @@ namespace EnterTheGuncave.Entities.Projectile
             float dist = Util.calculateDistance(position, target);
             this.velocity.X = (target.X - position.X) / dist;
             this.velocity.Y = (target.Y - position.Y) / dist;
+        }
+        
+        protected override void checkCollision()
+        {
+            foreach (Entity entity in EnterTheGuncave.entities)
+            {
+                if (collider.checkCollision(entity) != null)
+                {
+                    if (entity.team == stats.team)
+                    {
+                        return;
+                    }
+
+                    entity.takeDamage(stats.damage);
+
+                }
+            }
         }
         
         private void move()
