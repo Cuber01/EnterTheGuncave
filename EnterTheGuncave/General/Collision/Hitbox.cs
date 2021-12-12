@@ -5,9 +5,9 @@ namespace EnterTheGuncave.General.Collision
 {
     public class Hitbox
     {
-        public Vector2 position;
-        private readonly int     width;
-        private readonly int     height;
+        public Vector2      position;
+        public readonly int width;
+        public readonly int height;
 
 
         public Hitbox(Vector2 position, int width, int height)

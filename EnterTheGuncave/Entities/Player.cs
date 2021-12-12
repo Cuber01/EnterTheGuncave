@@ -32,11 +32,14 @@ namespace EnterTheGuncave.Entities
             
             reactToInput();
 
-            handleCollider();
+            adjustColliderPosition();
+            checkCollision();
             
             applyFriction();
             move();
         }
+        
+        /* -------------- MOVEMENT --------------- */
 
         private void reactToInput()
         {
@@ -86,8 +89,31 @@ namespace EnterTheGuncave.Entities
 
         private void move()
         {
-            position += velocity * speed;
+            Vector2 newPosition = position + velocity * speed;
+
+            if (CollisionUtils.checkCollisionAtPos(collider, newPosition))
+            {
+                return;
+            }
+            
+            position = newPosition;
         }
+        
+        /* ---------------- COLLISION ------------------ */
+
+        protected override void checkCollision()
+        {
+            foreach (Entity entity in EnterTheGuncave.entities)
+            {
+                if (collider.checkCollision(entity) != null)
+                {
+                    velocity = -velocity;
+                }
+            }
+        }
+
+
+
 
     }
 }

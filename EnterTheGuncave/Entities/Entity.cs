@@ -24,17 +24,11 @@ namespace EnterTheGuncave.Entities
             EnterTheGuncave.spriteBatch.Draw(texture, position, Color.White);
         }
 
-        protected void handleCollider()
+        protected virtual void checkCollision() { }
+
+        protected void adjustColliderPosition()
         {
             collider.position = this.position;
-            
-            foreach (Entity entity in EnterTheGuncave.entities)
-            {
-                if (collider.checkCollision(entity) != null)
-                {
-                    Console.WriteLine("Colliding!");    
-                }
-            }
         }
         
     }

@@ -28,12 +28,14 @@ namespace EnterTheGuncave.Entities
             map = Util.fillInProximityMap(EnterTheGuncave.entities[0].tilePosition, map);
             tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
             
-            handleCollider();
+            adjustColliderPosition();
+            checkCollision();
 
             goToPoint(EnterTheGuncave.entities[0].position);
             move();
         }
         
+        /* ---------------- MOVEMENT ------------------ */
         
         private void goToPoint(Vector2 target)
         {
@@ -53,7 +55,14 @@ namespace EnterTheGuncave.Entities
 
         private void move()
         {
-            position += velocity * speed;
+            Vector2 newPosition = position + velocity * speed;
+
+            if (CollisionUtils.checkCollisionAtPos(collider, newPosition))
+            {
+                return;
+            }
+            
+            position = newPosition;
         }
 
         private Point whereToGo()
@@ -116,6 +125,19 @@ namespace EnterTheGuncave.Entities
             } 
 
             return newPosition;
+        }
+        
+        /* ---------------- COLLISION ------------------ */
+        
+        protected override void checkCollision()
+        {
+            foreach (Entity entity in EnterTheGuncave.entities)
+            {
+                if (collider.checkCollision(entity) != null)
+                {
+                    Console.WriteLine("ASAAAAAAAAAAAAAAAA");
+                }
+            }
         }
         
     }
