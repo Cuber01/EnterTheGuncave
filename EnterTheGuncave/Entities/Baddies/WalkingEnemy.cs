@@ -142,7 +142,7 @@ namespace EnterTheGuncave.Entities.Baddies
             {
                 if (collider.checkCollision(entity) != null)
                 {
-                    Console.WriteLine("ASAAAAAAAAAAAAAAAA");
+                    // TODO
                 }
             }
         }
@@ -152,7 +152,7 @@ namespace EnterTheGuncave.Entities.Baddies
         public override void takeDamage(int dmg)
         {
             stats.hitpoints = stats.hitpoints - dmg;
-            Console.WriteLine("Help!");
+            this.texture = AssetLoader.textures["player"];
         }
         
     }

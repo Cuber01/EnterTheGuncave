@@ -7,7 +7,6 @@ namespace EnterTheGuncave.Entities.Projectiles
     public class Bullet : Entity
     {
         private Vector2 target;
-
         private BulletStats stats;
 
         public Bullet(int targetX, int targetY, Vector2 position, BulletStats stats)
@@ -51,6 +50,7 @@ namespace EnterTheGuncave.Entities.Projectiles
                     }
 
                     entity.takeDamage(stats.damage);
+                    dead = true;
 
                 }
             }

@@ -64,20 +64,27 @@ namespace EnterTheGuncave
 
             try
             {
+            
                 foreach (Entity spawn in entitiesToBeSpawned)
                 {
                     entities.Add(spawn);
                     entitiesToBeSpawned.Remove(spawn);
                 }
+                
+                foreach( Entity entity in entities)
+                {
+                    if (entity.dead)
+                    {
+                        entities.Remove(entity);
+                    }
+                
+                    entity.update();
+                }
+                
             }
             catch (System.InvalidOperationException)
             {
                 // Ignore.
-            }
-
-            foreach( Entity entity in entities)
-            {
-                entity.update();
             }
 
             base.Update(gameTime);

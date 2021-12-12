@@ -9,6 +9,9 @@ namespace EnterTheGuncave.Entities
     {
         public    Vector2 position;
         public    Point   tilePosition;
+        
+        public dTeam team;
+        public bool dead;
 
         protected Vector2   velocity;
         protected Texture2D texture;
@@ -16,8 +19,6 @@ namespace EnterTheGuncave.Entities
 
         protected int myWidth;
         protected int myHeight;
-
-        public dTeam team;
 
         /* -------------------- MAIN -------------------- */
         
