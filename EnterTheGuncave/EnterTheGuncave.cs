@@ -19,7 +19,7 @@ namespace EnterTheGuncave
         public const int roomHeight = 11;
 
         public const int tileSize = 16;
-        public const int scale = 2;
+        public const int scale = 4;
 
         private const int windowWidth = roomWidth * tileSize * scale;
         private const int windowHeight = roomHeight * tileSize * scale;
@@ -53,7 +53,7 @@ namespace EnterTheGuncave
             assetLoader.loadTextures();
             
             entities.Add(new Player(new Vector2(50, 50)));
-            entities.Add(new WalkingEnemy(new Vector2(128, 80)));
+            //entities.Add(new WalkingEnemy(new Vector2(128, 80)));
         }
 
         protected override void Update(GameTime gameTime)
