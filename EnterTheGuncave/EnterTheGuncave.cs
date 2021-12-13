@@ -14,6 +14,7 @@ namespace EnterTheGuncave
         
         public static readonly List<Entity> entities = new List<Entity>();
         public static readonly List<Entity> entitiesToBeSpawned = new List<Entity>();
+        public static readonly List<Entity> entitiesToBeKilled = new List<Entity>();
 
         public const int roomWidth = 18;
         public const int roomHeight = 11;
@@ -53,7 +54,7 @@ namespace EnterTheGuncave
             assetLoader.loadTextures();
             
             entities.Add(new Player(new Vector2(50, 50)));
-            //entities.Add(new WalkingEnemy(new Vector2(128, 80)));
+            entities.Add(new WalkingEnemy(new Vector2(128, 80)));
         }
 
         protected override void Update(GameTime gameTime)
@@ -62,30 +63,30 @@ namespace EnterTheGuncave
             Input.updateKeyboardState();
             Input.updateMouseState();
 
-            try
-            {
-            
-                foreach (Entity spawn in entitiesToBeSpawned)
+            foreach (Entity spawn in entitiesToBeSpawned)
+            { 
+                entities.Add(spawn);
+            }
+            entitiesToBeSpawned.Clear();
+                
+                
+            foreach( Entity entity in entities )
+            { 
+                if (entity.dead)
                 {
-                    entities.Add(spawn);
-                    entitiesToBeSpawned.Remove(spawn);
+                    entitiesToBeKilled.Add(entity);
                 }
                 
-                foreach( Entity entity in entities)
-                {
-                    if (entity.dead)
-                    {
-                        entities.Remove(entity);
-                    }
-                
-                    entity.update();
-                }
-                
+                entity.update();
             }
-            catch (System.InvalidOperationException)
+
+            foreach ( Entity victim in entitiesToBeKilled )
             {
-                // Ignore.
+                entities.Remove(victim);
             }
+            entitiesToBeKilled.Clear();
+                
+
 
             base.Update(gameTime);
         }

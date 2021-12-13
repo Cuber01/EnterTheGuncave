@@ -7,8 +7,8 @@ namespace EnterTheGuncave.Entities
 {
     public class Entity
     {
-        public    Vector2 position;
-        public    Point   tilePosition;
+        public Vector2 position;
+        public Point   tilePosition;
         
         public dTeam team;
         public bool dead;

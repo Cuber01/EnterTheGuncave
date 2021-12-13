@@ -1,4 +1,5 @@
 using EnterTheGuncave.Entities;
+using EnterTheGuncave.Entities.Projectiles;
 using Microsoft.Xna.Framework;
 
 namespace EnterTheGuncave.General.Collision
@@ -12,7 +13,7 @@ namespace EnterTheGuncave.General.Collision
             {
                 Hitbox otherHitbox = entity.collider;
 
-                if (myHitbox != otherHitbox)
+                if (myHitbox != otherHitbox && !(entity is Bullet))
                 {
                     if (myPosition.X < otherHitbox.position.X + otherHitbox.width  &&
                         myPosition.X + myHitbox.width > otherHitbox.position.X     &&
