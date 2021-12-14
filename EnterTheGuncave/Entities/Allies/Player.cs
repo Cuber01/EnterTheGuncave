@@ -93,11 +93,42 @@ namespace EnterTheGuncave.Entities.Allies
         {
             Vector2 newPosition = position + velocity * speed;
 
+
             if (CollisionUtils.checkCollisionAtPos(collider, newPosition))
             {
                 return;
             }
             
+            //     if (position.X < newPosition.X && (int)position.Y == (int)newPosition.Y)
+            //     {
+            //         for (int x = (int)position.X; x <= newPosition.X; x++)
+            //         {
+            //             drawPixel(x, position.Y, color);
+            //         }
+            //     }
+            //     else if (position.X > newPosition.X && (int)position.Y == (int)newPosition.Y)
+            //     {
+            //         for (int x = (int)position.X; x >= newPosition.X; x--)
+            //         {
+            //             drawPixel(x, position.Y, color);
+            //         }
+            //     }
+            //     else if (position.X == newPosition.X && (int) position.Y < (int)newPosition.Y)
+            //     {
+            //         for (int y = (int)position.Y; y <= newPosition.Y; y++)
+            //         {
+            //             drawPixel(position.X, y, color);
+            //         }
+            //     }
+            //     else if (position.X == newPosition.X && position.Y > newPosition.Y)
+            //     {
+            //         for (int y = (int)position.Y; y >= newPosition.Y; y--)
+            //         {
+            //             drawPixel(position.X, position.Y, color);
+            //         }
+            //     }
+           // }
+
             position = newPosition;
         }
         
@@ -119,3 +150,73 @@ namespace EnterTheGuncave.Entities.Allies
 
     }
 }
+
+
+
+
+
+
+
+        // move for faster movement prototype
+        // private void move()
+        // {
+        //     Vector2 newPosition = position + velocity * speed;
+        //     
+        //     if (CollisionUtils.checkCollisionAtPos(collider, newPosition))
+        //     {
+        //         if (position.X < newPosition.X && (int)position.Y == (int)newPosition.Y)
+        //         {
+        //             
+        //             for (int x = (int)position.X; x <= newPosition.X; x++)
+        //             {
+        //                 if (CollisionUtils.checkCollisionAtPos(collider, new Vector2(x, newPosition.Y)))
+        //                 {
+        //                     position = new Vector2(x - 1, newPosition.Y);
+        //                     return;
+        //                 }
+        //             }
+        //             
+        //         }
+        //         else if (position.X > newPosition.X && (int)position.Y == (int)newPosition.Y)
+        //         {
+        //             
+        //             for (int x = (int)position.X; x >= newPosition.X; x--)
+        //             {
+        //                 if (CollisionUtils.checkCollisionAtPos(collider, new Vector2(x, newPosition.Y)))
+        //                 {
+        //                     position = new Vector2(x + 1, newPosition.Y);
+        //                     return;
+        //                 }
+        //             }
+        //             
+        //         }
+        //         else if ((int)position.X == (int)newPosition.X && (int)position.Y < (int)newPosition.Y)
+        //         {
+        //             
+        //             for (int y = (int)position.Y; y <= (int)newPosition.Y; y++)
+        //             {
+        //                 if (CollisionUtils.checkCollisionAtPos(collider, new Vector2(y, newPosition.Y)))
+        //                 {
+        //                     position = new Vector2(newPosition.X, y - 1);
+        //                     return;
+        //                 }
+        //             }
+        //             
+        //         }
+        //         else if ((int)position.X == (int)newPosition.X && position.Y > newPosition.Y)
+        //         {
+        //             
+        //             for (int y = (int)position.Y; y >= newPosition.Y; y--)
+        //             {
+        //                 if (CollisionUtils.checkCollisionAtPos(collider, new Vector2(y, newPosition.Y)))
+        //                 {
+        //                     position = new Vector2(newPosition.X, y + 1);
+        //                     return;
+        //                 }
+        //             }
+        //             
+        //         }
+        //     }
+        //
+        //     position = newPosition;
+        // }

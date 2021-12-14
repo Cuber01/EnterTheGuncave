@@ -55,7 +55,7 @@ namespace EnterTheGuncave
             assetLoader.loadTextures();
             
             entities.Add(new Player(new Vector2(50, 50)));
-            entities.Add(new WalkingEnemy(new Vector2(128, 80)));
+           // entities.Add(new WalkingEnemy(new Vector2(128, 80)));
             entities.Add(new Stone(new Vector2(100, 100)));
         }
 
