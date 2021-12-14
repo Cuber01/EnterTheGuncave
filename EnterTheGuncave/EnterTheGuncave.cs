@@ -3,6 +3,7 @@ using EnterTheGuncave.Content;
 using EnterTheGuncave.Entities;
 using EnterTheGuncave.Entities.Allies;
 using EnterTheGuncave.Entities.Baddies;
+using EnterTheGuncave.Entities.Neutrals;
 using EnterTheGuncave.General;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -14,7 +15,7 @@ namespace EnterTheGuncave
         
         public static readonly List<Entity> entities = new List<Entity>();
         public static readonly List<Entity> entitiesToBeSpawned = new List<Entity>();
-        public static readonly List<Entity> entitiesToBeKilled = new List<Entity>();
+        private static readonly List<Entity> entitiesToBeKilled = new List<Entity>();
 
         public const int roomWidth = 18;
         public const int roomHeight = 11;
@@ -55,6 +56,7 @@ namespace EnterTheGuncave
             
             entities.Add(new Player(new Vector2(50, 50)));
             entities.Add(new WalkingEnemy(new Vector2(128, 80)));
+            entities.Add(new Stone(new Vector2(100, 100)));
         }
 
         protected override void Update(GameTime gameTime)

@@ -109,7 +109,7 @@ namespace EnterTheGuncave.Entities.Allies
             {
                 if (collider.checkCollision(entity) != null)
                 {
-                //    velocity = -velocity;
+                    //    velocity = -velocity;
                 }
             }
         }
