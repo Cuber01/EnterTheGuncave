@@ -4,11 +4,11 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/arrow.png</File>
-    <File>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/bullet.png</File>
-    <File>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/enemy.png</File>
-    <File>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/player.png</File>
-    <File>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/stone.png</File>
+    <File>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/images/arrow.png</File>
+    <File>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/images/bullet.png</File>
+    <File>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/images/enemy.png</File>
+    <File>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/images/player.png</File>
+    <File>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/images/stone.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

@@ -92,44 +92,44 @@ namespace EnterTheGuncave.Entities.Allies
         private void move()
         {
             Vector2 newPosition = position + velocity * speed;
-
-
+            
+                
             if (CollisionUtils.checkCollisionAtPos(collider, newPosition))
             {
-                return;
+                    // int xo = 0;
+                    // int dx; int dy;
+                    // dx = (velocity.X < 0) ? -1: 1;
+                    // dy = (velocity.Y < 0) ? -1: 1;                    
+                    //
+                    // for (int x = (int)position.X; x <= newPosition.X; x++)// to musi by petla while z dx
+                    // {
+                    //     if (CollisionUtils.checkCollisionAtPos(collider, new Vector2(x, newPosition.Y)))
+                    //     {
+                    //         // position = new Vector2(x , newPosition.Y);                            
+                    //         xo = x;
+                    //         break;
+                    //     }
+                    //
+                    // }
+                    //
+                    // for (int y = (int)position.X; y <= newPosition.X; y++)// to musi by petla while z dy
+                    // {
+                    //     if (CollisionUtils.checkCollisionAtPos(collider, new Vector2(newPosition.X, y)))
+                    //     {
+                    //         // position = new Vector2(x , newPosition.Y);                            
+                    //         position = new Vector2(xo , y);
+                    //         break;
+                    //     }
+                    //
+                    // }
+                    //
+                    return;
+            }
+            else
+            {
+                position = newPosition;    
             }
             
-            //     if (position.X < newPosition.X && (int)position.Y == (int)newPosition.Y)
-            //     {
-            //         for (int x = (int)position.X; x <= newPosition.X; x++)
-            //         {
-            //             drawPixel(x, position.Y, color);
-            //         }
-            //     }
-            //     else if (position.X > newPosition.X && (int)position.Y == (int)newPosition.Y)
-            //     {
-            //         for (int x = (int)position.X; x >= newPosition.X; x--)
-            //         {
-            //             drawPixel(x, position.Y, color);
-            //         }
-            //     }
-            //     else if (position.X == newPosition.X && (int) position.Y < (int)newPosition.Y)
-            //     {
-            //         for (int y = (int)position.Y; y <= newPosition.Y; y++)
-            //         {
-            //             drawPixel(position.X, y, color);
-            //         }
-            //     }
-            //     else if (position.X == newPosition.X && position.Y > newPosition.Y)
-            //     {
-            //         for (int y = (int)position.Y; y >= newPosition.Y; y--)
-            //         {
-            //             drawPixel(position.X, position.Y, color);
-            //         }
-            //     }
-           // }
-
-            position = newPosition;
         }
         
         /* ---------------- COLLISION ------------------ */
