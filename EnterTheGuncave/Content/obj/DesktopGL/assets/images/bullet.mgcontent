@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/player.png</SourceFile>
-  <SourceTime>2021-12-06T10:35:15.551466+01:00</SourceTime>
-  <DestFile>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/bin/DesktopGL/assets/player.xnb</DestFile>
-  <DestTime>2021-12-06T14:26:38.7889737+01:00</DestTime>
+  <SourceFile>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/images/bullet.png</SourceFile>
+  <SourceTime>2021-12-09T21:41:43.0769459+01:00</SourceTime>
+  <DestFile>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/bin/DesktopGL/assets/images/bullet.xnb</DestFile>
+  <DestTime>2021-12-16T17:35:22.2254184+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2021-04-25T20:26:29.1786286+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
