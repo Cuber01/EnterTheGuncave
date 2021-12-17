@@ -4,14 +4,10 @@ namespace EnterTheGuncave.Content
 {
     public struct Level
     {
-        public int[] data;
-        public List<mapPoint> points;
-
-        public Level(int[] data, List<mapPoint> points)
-        {
-            this.points = points;
-            this.data = data;
-        }
+        public int height { get; set; }
+        public int[] data { get; set; }
+        public List<mapPoint> points { get; set; }
+        
     }
 
     public struct mapPoint
