@@ -67,7 +67,10 @@ namespace EnterTheGuncave
             return pixelPosition;
         }
 
-
+        public static string readFile(string path)
+        {
+            return System.IO.File.ReadAllText(path);
+        }
         
     }
 }

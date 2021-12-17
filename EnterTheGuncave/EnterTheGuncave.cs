@@ -64,30 +64,31 @@ namespace EnterTheGuncave
 
             Input.updateKeyboardState();
             Input.updateMouseState();
-
-            foreach (Entity spawn in entitiesToBeSpawned)
-            { 
-                entities.Add(spawn);
-            }
-            entitiesToBeSpawned.Clear();
-                
-                
-            foreach( Entity entity in entities )
-            { 
-                if (entity.dead)
-                {
-                    entitiesToBeKilled.Add(entity);
-                }
-                
-                entity.update();
-            }
-
-            foreach ( Entity victim in entitiesToBeKilled )
-            {
-                entities.Remove(victim);
-            }
-            entitiesToBeKilled.Clear();
-                
+            
+            
+            // foreach (Entity spawn in entitiesToBeSpawned)
+            // { 
+            //     entities.Add(spawn);
+            // }
+            // entitiesToBeSpawned.Clear();
+            //     
+            //     
+            // foreach( Entity entity in entities )
+            // { 
+            //     if (entity.dead)
+            //     {
+            //         entitiesToBeKilled.Add(entity);
+            //     }
+            //     
+            //     entity.update();
+            // }
+            //
+            // foreach ( Entity victim in entitiesToBeKilled )
+            // {
+            //     entities.Remove(victim);
+            // }
+            // entitiesToBeKilled.Clear();
+            //     
 
 
             base.Update(gameTime);
