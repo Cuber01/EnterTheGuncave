@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using EnterTheGuncave.Entities.Baddies;
 using EnterTheGuncave.Entities.Neutrals;
 using Microsoft.Xna.Framework;
 
@@ -45,9 +46,23 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
                 int colIndex = i % EnterTheGuncave.roomWidth;
 
                 EnterTheGuncave.entitiesToBeSpawned.Add(new Stone(new Vector2(colIndex * EnterTheGuncave.tileSize, currentCol * EnterTheGuncave.tileSize)));
+
+            }
+
+            foreach(var nonTileObj in rooms[index].Layers[1].Objects)
+            {
                 
+                switch (nonTileObj.Properties[0].Value)
+                {
+                    case 1:
+                    {
+                        EnterTheGuncave.entitiesToBeSpawned.Add(new WalkingEnemy(new Vector2((float)nonTileObj.X, (float)nonTileObj.Y)));
+                        break;
+                    }
+                }
                 
             }
+            
         }
         
 

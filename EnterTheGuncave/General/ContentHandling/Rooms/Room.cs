@@ -124,15 +124,15 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
         [JsonProperty("y")]
         public double Y { get; set; }
         
+        [JsonProperty("properties")]
+        public Property[] Properties { get; set; }
+        
         // [JsonProperty("name")]
         // public string Name { get; set; }
         
         // [JsonProperty("point")]
         // public bool Point { get; set; }
-        
-        // [JsonProperty("properties")]
-        // public Property[] Properties { get; set; }
-        
+
         // [JsonProperty("rotation")]
         // public long Rotation { get; set; }
         

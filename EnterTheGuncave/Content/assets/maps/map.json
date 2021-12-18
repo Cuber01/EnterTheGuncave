@@ -20,10 +20,22 @@
          "name":"Objects",
          "objects":[
                 {
-                 "id":1,
-                 "template":"..\/object.tx",
-                 "x":164.234495156297,
-                 "y":48.3211824627984
+                 "height":0,
+                 "id":2,
+                 "name":"",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"object_id",
+                         "type":"int",
+                         "value":1
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":172.666666666667,
+                 "y":46.6666666666667
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -32,7 +44,7 @@
          "y":0
         }],
  "nextlayerid":3,
- "nextobjectid":2,
+ "nextobjectid":3,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.2",
