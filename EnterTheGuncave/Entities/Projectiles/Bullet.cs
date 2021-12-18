@@ -6,8 +6,8 @@ namespace EnterTheGuncave.Entities.Projectiles
 {
     public class Bullet : Entity
     {
-        private Vector2 target;
-        private BulletStats stats;
+        private readonly Vector2 target;
+        private readonly BulletStats stats;
 
         public Bullet(int targetX, int targetY, Vector2 position, BulletStats stats)
         {

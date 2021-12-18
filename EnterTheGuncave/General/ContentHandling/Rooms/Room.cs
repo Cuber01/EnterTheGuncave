@@ -72,7 +72,7 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
     //     public string Target { get; set; }
     // }
 
-    public partial class Layer
+    public class Layer
     {
         [JsonProperty("data", NullValueHandling = NullValueHandling.Ignore)]
         public long[] Data { get; set; }
@@ -112,7 +112,7 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
 
     }
 
-    public partial class Object
+    public class Object
     {
 
         [JsonProperty("id")]
@@ -150,7 +150,7 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
         
     }
 
-    public partial class Property
+    public class Property
     {
         // [JsonProperty("name")]
         // public string Name { get; set; }
