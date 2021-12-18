@@ -1,13 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using EnterTheGuncave.Entities.Neutrals;
+using Microsoft.Xna.Framework;
 
 namespace EnterTheGuncave.General.ContentHandling.Rooms
 {
     public static class RoomLoader
     {
-        public static List<Room> rooms = new List<Room>();
-
+        private static List<Room> rooms = new List<Room>();
+        private static int realRoomWidth = EnterTheGuncave.roomWidth - 2;
+        private static int realRoomHeight = EnterTheGuncave.roomHeight - 2;
+        
         public static void loadAllRooms()
         {
 
@@ -21,6 +25,17 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
                 rooms.Add(loadRoom(file));
             }
             
+        }
+
+        public static void playRoom(int index)
+        {
+            foreach (var l in rooms[index].Layers[0].Data )
+            {
+                if (l != 0)
+                {
+                    EnterTheGuncave.entitiesToBeSpawned.Add(new Stone(new Vector2(l * EnterTheGuncave.tileSize, 0)));
+                }
+            }
         }
         
         

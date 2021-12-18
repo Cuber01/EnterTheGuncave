@@ -58,6 +58,11 @@ namespace EnterTheGuncave
             entities.Add(new Player(new Vector2(50, 50)));
            // entities.Add(new WalkingEnemy(new Vector2(128, 80)));
             entities.Add(new Stone(new Vector2(100, 100)));
+            
+            
+            RoomLoader.loadAllRooms();
+            RoomLoader.playRoom(0);
+
         }
 
         protected override void Update(GameTime gameTime)
@@ -66,30 +71,29 @@ namespace EnterTheGuncave
             Input.updateKeyboardState();
             Input.updateMouseState();
             
-            RoomLoader.loadAllRooms();
-            // foreach (Entity spawn in entitiesToBeSpawned)
-            // { 
-            //     entities.Add(spawn);
-            // }
-            // entitiesToBeSpawned.Clear();
-            //     
-            //     
-            // foreach( Entity entity in entities )
-            // { 
-            //     if (entity.dead)
-            //     {
-            //         entitiesToBeKilled.Add(entity);
-            //     }
-            //     
-            //     entity.update();
-            // }
-            //
-            // foreach ( Entity victim in entitiesToBeKilled )
-            // {
-            //     entities.Remove(victim);
-            // }
-            // entitiesToBeKilled.Clear();
-            //     
+            foreach (Entity spawn in entitiesToBeSpawned)
+            { 
+                entities.Add(spawn);
+            }
+            entitiesToBeSpawned.Clear();
+                
+                
+            foreach( Entity entity in entities )
+            { 
+                if (entity.dead)
+                {
+                    entitiesToBeKilled.Add(entity);
+                }
+                
+                entity.update();
+            }
+            
+            foreach ( Entity victim in entitiesToBeKilled )
+            {
+                entities.Remove(victim);
+            }
+            entitiesToBeKilled.Clear();
+                
 
 
             base.Update(gameTime);
