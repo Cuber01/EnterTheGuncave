@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 
 namespace EnterTheGuncave.General.Collision
 {
-    public class CollisionUtils
+    public static class CollisionUtils
     {
         public static bool checkCollisionAtPos(Hitbox myHitbox, Vector2 myPosition)
         {

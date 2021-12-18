@@ -20,20 +20,8 @@
          "name":"Objects",
          "objects":[
                 {
-                 "height":0,
                  "id":1,
-                 "name":"",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"object_id",
-                         "type":"int",
-                         "value":1
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
+                 "template":"..\/object.tx",
                  "x":164.234495156297,
                  "y":48.3211824627984
                 }],
