@@ -2,112 +2,112 @@ using System.Globalization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-
-namespace QuickType
+namespace EnterTheGuncave.Content
 {
     public partial class LevelsMap
     {
         // [JsonProperty("compressionlevel")]
         // public long Compressionlevel { get; set; }
 
-        [JsonProperty("editorsettings")]
-        public Editorsettings Editorsettings { get; set; }
-
-        [JsonProperty("height")]
-        public long Height { get; set; }
-
-        [JsonProperty("infinite")]
-        public bool Infinite { get; set; }
+        // [JsonProperty("editorsettings")]
+        // public Editorsettings Editorsettings { get; set; }
+        
+        // [JsonProperty("height")]
+        // public long Height { get; set; }
+        
+        // [JsonProperty("infinite")]
+        // public bool Infinite { get; set; }
 
         [JsonProperty("layers")]
         public Layer[] Layers { get; set; }
 
-        [JsonProperty("nextlayerid")]
-        public long Nextlayerid { get; set; }
-
-        [JsonProperty("nextobjectid")]
-        public long Nextobjectid { get; set; }
-
-        [JsonProperty("orientation")]
-        public string Orientation { get; set; }
-
-        [JsonProperty("renderorder")]
-        public string Renderorder { get; set; }
-
-        [JsonProperty("tiledversion")]
-        public string Tiledversion { get; set; }
-
-        [JsonProperty("tileheight")]
-        public long Tileheight { get; set; }
-
-        [JsonProperty("tilesets")]
-        public Tileset[] Tilesets { get; set; }
-
-        [JsonProperty("tilewidth")]
-        public long Tilewidth { get; set; }
-
-        [JsonProperty("type")]
-        public string Type { get; set; }
-
-        [JsonProperty("version")]
-        public string Version { get; set; }
-
-        [JsonProperty("width")]
-        public long Width { get; set; }
+        // [JsonProperty("nextlayerid")]
+        // public long Nextlayerid { get; set; }
+        
+        // [JsonProperty("nextobjectid")]
+        // public long Nextobjectid { get; set; }
+        
+        // [JsonProperty("orientation")]
+        // public string Orientation { get; set; }
+        
+        // [JsonProperty("renderorder")]
+        // public string Renderorder { get; set; }
+        
+        // [JsonProperty("tiledversion")]
+        // public string Tiledversion { get; set; }
+        
+        // [JsonProperty("tileheight")]
+        // public long Tileheight { get; set; }
+        
+        // [JsonProperty("tilesets")]
+        // public Tileset[] Tilesets { get; set; }
+        
+        // [JsonProperty("tilewidth")]
+        // public long Tilewidth { get; set; }
+        
+        // [JsonProperty("type")]
+        // public string Type { get; set; }
+        
+        // [JsonProperty("version")]
+        // public string Version { get; set; }
+        
+        // [JsonProperty("width")]
+        // public long Width { get; set; }
     }
-
-    public partial class Editorsettings
-    {
-        [JsonProperty("export")]
-        public Export Export { get; set; }
-    }
-
-    public partial class Export
-    {
-        [JsonProperty("format")]
-        public string Format { get; set; }
-
-        [JsonProperty("target")]
-        public string Target { get; set; }
-    }
+    //
+    // public partial class Editorsettings
+    // {
+    //     [JsonProperty("export")]
+    //     public Export Export { get; set; }
+    // }
+    //
+    // public partial class Export
+    // {
+    //     [JsonProperty("format")]
+    //     public string Format { get; set; }
+    //
+    //     [JsonProperty("target")]
+    //     public string Target { get; set; }
+    // }
 
     public partial class Layer
     {
         [JsonProperty("data", NullValueHandling = NullValueHandling.Ignore)]
         public long[] Data { get; set; }
-
-        [JsonProperty("height", NullValueHandling = NullValueHandling.Ignore)]
-        public long? Height { get; set; }
-
-        [JsonProperty("id")]
-        public long Id { get; set; }
-
-        [JsonProperty("name")]
-        public string Name { get; set; }
-
-        [JsonProperty("opacity")]
-        public long Opacity { get; set; }
-
-        [JsonProperty("type")]
-        public string Type { get; set; }
-
-        [JsonProperty("visible")]
-        public bool Visible { get; set; }
-
-        [JsonProperty("width", NullValueHandling = NullValueHandling.Ignore)]
-        public long? Width { get; set; }
-
-        [JsonProperty("x")]
-        public long X { get; set; }
-
-        [JsonProperty("y")]
-        public long Y { get; set; }
-
-        [JsonProperty("draworder", NullValueHandling = NullValueHandling.Ignore)]
-        public string Draworder { get; set; }
-
+        
         [JsonProperty("objects", NullValueHandling = NullValueHandling.Ignore)]
         public Object[] Objects { get; set; }
+        
+        // [JsonProperty("height", NullValueHandling = NullValueHandling.Ignore)]
+        // public long? Height { get; set; }
+        
+        // [JsonProperty("id")]
+        // public long Id { get; set; }
+        
+        // [JsonProperty("name")]
+        // public string Name { get; set; }
+        
+        // [JsonProperty("opacity")]
+        // public long Opacity { get; set; }
+        
+        // [JsonProperty("type")]
+        // public string Type { get; set; }
+        
+        // [JsonProperty("visible")]
+        // public bool Visible { get; set; }
+        
+        // [JsonProperty("width", NullValueHandling = NullValueHandling.Ignore)]
+        // public long? Width { get; set; }
+        
+        // [JsonProperty("x")]
+        // public long X { get; set; }
+        
+        // [JsonProperty("y")]
+        // public long Y { get; set; }
+        
+        // [JsonProperty("draworder", NullValueHandling = NullValueHandling.Ignore)]
+        // public string Draworder { get; set; }
+
     }
 
     public partial class Object
@@ -148,11 +148,11 @@ namespace QuickType
 
     public partial class Property
     {
-        [JsonProperty("name")]
-        public string Name { get; set; }
-
-        [JsonProperty("type")]
-        public string Type { get; set; }
+        // [JsonProperty("name")]
+        // public string Name { get; set; }
+        //
+        // [JsonProperty("type")]
+        // public string Type { get; set; }
 
         [JsonProperty("value")]
         public long Value { get; set; }
@@ -169,12 +169,12 @@ namespace QuickType
 
     public partial class LevelsMap
     {
-        public static LevelsMap FromJson(string json) => JsonConvert.DeserializeObject<LevelsMap>(json, QuickType.Converter.Settings);
+        public static LevelsMap FromJson(string json) => JsonConvert.DeserializeObject<LevelsMap>(json, Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this LevelsMap self) => JsonConvert.SerializeObject(self, QuickType.Converter.Settings);
+        public static string ToJson(this LevelsMap self) => JsonConvert.SerializeObject(self, Converter.Settings);
     }
 
     internal static class Converter

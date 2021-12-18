@@ -65,7 +65,7 @@ namespace EnterTheGuncave
             Input.updateKeyboardState();
             Input.updateMouseState();
             
-            LevelLoader.loadLevel("/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/maps/native/map.json");
+            LevelLoader.loadLevel("/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/maps/map.json");
             // foreach (Entity spawn in entitiesToBeSpawned)
             // { 
             //     entities.Add(spawn);
