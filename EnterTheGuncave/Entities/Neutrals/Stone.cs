@@ -14,9 +14,15 @@ namespace EnterTheGuncave.Entities.Neutrals
             this.texture  = AssetLoader.textures["stone"];
             this.myWidth  = texture.Width  / EnterTheGuncave.scale;
             this.myHeight = texture.Height / EnterTheGuncave.scale;
+            this.tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
 
             this.team = dTeam.neutrals;
             this.collider = new Hitbox(position, myWidth, myHeight);
+        }
+
+        ~Stone()
+        {
+            EnterTheGuncave.currentRoom[tilePosition.X, tilePosition.Y] = 0;
         }
 
     }

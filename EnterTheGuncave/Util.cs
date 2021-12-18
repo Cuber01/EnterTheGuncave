@@ -36,6 +36,20 @@ namespace EnterTheGuncave
                 }
             }
             
+            prettyPrint2DArray(EnterTheGuncave.currentRoom);
+            for (int x = 0; x < EnterTheGuncave.currentRoom.GetLength(0); x++)
+            {
+                for(int y = 0; y < EnterTheGuncave.currentRoom.GetLength(1); y++)
+                {
+                    
+                    if (EnterTheGuncave.currentRoom[x, y] != 0)
+                    {
+                        map[x, y] = Int32.MaxValue;
+                    }
+                    
+                }
+            }
+            
             return map;
         }
 

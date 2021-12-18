@@ -4,6 +4,7 @@ using EnterTheGuncave.General.Collision;
 using EnterTheGuncave.General.ContentHandling.Assets;
 using Microsoft.Xna.Framework;
 
+// TODO pathfinding needs some checks
 namespace EnterTheGuncave.Entities.Baddies
 {
     public class WalkingEnemy : Entity
@@ -36,7 +37,9 @@ namespace EnterTheGuncave.Entities.Baddies
 
             checkCollision();
 
-            goToPoint(EnterTheGuncave.entities[0].position);
+            goToTile(whereToGo());
+
+            // goToPoint(EnterTheGuncave.entities[0].position);
             move();
             
             adjustColliderPosition();
@@ -63,13 +66,14 @@ namespace EnterTheGuncave.Entities.Baddies
         private void move()
         {
             Vector2 newPosition = position + velocity * stats.speed;
-
+            
             if (CollisionUtils.checkCollisionAtPos(collider, newPosition))
             {
                 return;
             }
             
             position = newPosition;
+
         }
 
         private Point whereToGo()

@@ -46,7 +46,7 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
                 int colIndex = i % EnterTheGuncave.roomWidth;
 
                 EnterTheGuncave.entitiesToBeSpawned.Add(new Stone(new Vector2(colIndex * EnterTheGuncave.tileSize, currentCol * EnterTheGuncave.tileSize)));
-
+                EnterTheGuncave.currentRoom[colIndex, currentCol] = Int32.MaxValue;
             }
 
             foreach(var nonTileObj in rooms[index].Layers[1].Objects)

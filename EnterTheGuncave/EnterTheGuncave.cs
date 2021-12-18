@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using EnterTheGuncave.Entities;
 using EnterTheGuncave.Entities.Allies;
+using EnterTheGuncave.Entities.Baddies;
 using EnterTheGuncave.General;
 using EnterTheGuncave.General.ContentHandling.Assets;
 using EnterTheGuncave.General.ContentHandling.Rooms;
@@ -11,14 +12,14 @@ namespace EnterTheGuncave
 {
     public class EnterTheGuncave : Game
     {
-        
         public static readonly List<Entity> entities = new List<Entity>();
         public static readonly List<Entity> entitiesToBeSpawned = new List<Entity>();
         private static readonly List<Entity> entitiesToBeKilled = new List<Entity>();
-
+        
         public const int roomWidth = 18;
         public const int roomHeight = 10;
-
+        public static int[,] currentRoom = new int[roomWidth, roomHeight];
+        
         public const int tileSize = 16;
         public const int scale = 4;
 
@@ -53,13 +54,13 @@ namespace EnterTheGuncave
             
             assetLoader.loadTextures();
             
-            entities.Add(new Player(new Vector2(50, 50)));
-           // entities.Add(new WalkingEnemy(new Vector2(128, 80)));
+            entities.Add(new Player(new Vector2(50, 100)));
+            // entities.Add(new WalkingEnemy(new Vector2(128, 80)));
             // entities.Add(new Stone(new Vector2(100, 100)));
             
             
             RoomLoader.loadAllRooms();
-            RoomLoader.playRoom(0);
+            RoomLoader.playRoom(1);
 
         }
 
