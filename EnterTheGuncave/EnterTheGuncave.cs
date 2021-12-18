@@ -19,7 +19,7 @@ namespace EnterTheGuncave
         private static readonly List<Entity> entitiesToBeKilled = new List<Entity>();
 
         public const int roomWidth = 18;
-        public const int roomHeight = 11;
+        public const int roomHeight = 10;
 
         public const int tileSize = 16;
         public const int scale = 4;

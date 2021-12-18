@@ -12,7 +12,7 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
         private static List<Room> rooms = new List<Room>();
         
         // TODO
-        private static int realRoomWidth = EnterTheGuncave.roomWidth - 2; 
+        private static int realRoomWidth = EnterTheGuncave.roomWidth; 
 
         public static void loadAllRooms()
         {
@@ -47,7 +47,14 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
                 int currentCol = i / realRoomWidth;
                 int colIndex = i % realRoomWidth;
 
+                // i
+                    // y = i % w 
+                    // x = i - w*y
+                        
+
                 EnterTheGuncave.entitiesToBeSpawned.Add(new Stone(new Vector2(colIndex * EnterTheGuncave.tileSize, currentCol * EnterTheGuncave.tileSize)));
+                
+                
             }
         }
         
