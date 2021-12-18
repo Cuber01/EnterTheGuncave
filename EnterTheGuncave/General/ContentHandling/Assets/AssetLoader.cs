@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace EnterTheGuncave.Content
+namespace EnterTheGuncave.General.ContentHandling.Assets
 {
     public class AssetLoader
     {

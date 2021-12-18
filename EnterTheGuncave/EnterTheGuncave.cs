@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
-using EnterTheGuncave.Content;
 using EnterTheGuncave.Entities;
 using EnterTheGuncave.Entities.Allies;
 using EnterTheGuncave.Entities.Baddies;
 using EnterTheGuncave.Entities.Neutrals;
 using EnterTheGuncave.General;
+using EnterTheGuncave.General.ContentHandling.Assets;
+using EnterTheGuncave.General.ContentHandling.Rooms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -65,7 +66,7 @@ namespace EnterTheGuncave
             Input.updateKeyboardState();
             Input.updateMouseState();
             
-            LevelLoader.loadAllLevels();
+            RoomLoader.loadAllRooms();
             // foreach (Entity spawn in entitiesToBeSpawned)
             // { 
             //     entities.Add(spawn);

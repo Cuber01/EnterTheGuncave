@@ -1,5 +1,5 @@
-using EnterTheGuncave.Content;
 using EnterTheGuncave.General.Collision;
+using EnterTheGuncave.General.ContentHandling.Assets;
 using Microsoft.Xna.Framework;
 
 namespace EnterTheGuncave.Entities.Projectiles

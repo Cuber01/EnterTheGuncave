@@ -2,9 +2,9 @@ using System.Globalization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace EnterTheGuncave.Content
+namespace EnterTheGuncave.General.ContentHandling.Rooms
 {
-    public partial class LevelsMap
+    public partial class Room
     {
         
         [JsonProperty("layers")]
@@ -169,14 +169,14 @@ namespace EnterTheGuncave.Content
         public string Source { get; set; }
     }
 
-    public partial class LevelsMap
+    public partial class Room
     {
-        public static LevelsMap FromJson(string json) => JsonConvert.DeserializeObject<LevelsMap>(json, Converter.Settings);
+        public static Room FromJson(string json) => JsonConvert.DeserializeObject<Room>(json, Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this LevelsMap self) => JsonConvert.SerializeObject(self, Converter.Settings);
+        public static string ToJson(this Room self) => JsonConvert.SerializeObject(self, Converter.Settings);
     }
 
     internal static class Converter

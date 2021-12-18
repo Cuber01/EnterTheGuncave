@@ -1,15 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Newtonsoft.Json;
 
-namespace EnterTheGuncave.Content
+namespace EnterTheGuncave.General.ContentHandling.Rooms
 {
-    public static class LevelLoader
+    public static class RoomLoader
     {
-        public static List<LevelsMap> levels = new List<LevelsMap>();
+        public static List<Room> rooms = new List<Room>();
 
-        public static void loadAllLevels()
+        public static void loadAllRooms()
         {
 
             // TODO cross platform path
@@ -19,17 +18,17 @@ namespace EnterTheGuncave.Content
                 
             foreach (string file in files)
             {
-                levels.Add(loadLevel(file));
+                rooms.Add(loadRoom(file));
             }
             
         }
         
         
-        private static LevelsMap loadLevel(string path)
+        private static Room loadRoom(string path)
         {
             string levelJSON = File.ReadAllText(path);
 
-            return LevelsMap.FromJson(levelJSON);
+            return Room.FromJson(levelJSON);
         }
 
     }

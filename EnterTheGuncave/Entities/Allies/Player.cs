@@ -1,7 +1,7 @@
-using EnterTheGuncave.Content;
 using EnterTheGuncave.Entities.Projectiles;
 using EnterTheGuncave.General;
 using EnterTheGuncave.General.Collision;
+using EnterTheGuncave.General.ContentHandling.Assets;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
