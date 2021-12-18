@@ -6,6 +6,10 @@ namespace EnterTheGuncave.Content
 {
     public partial class LevelsMap
     {
+        
+        [JsonProperty("layers")]
+        public Layer[] Layers { get; set; }
+        
         // [JsonProperty("compressionlevel")]
         // public long Compressionlevel { get; set; }
 
@@ -17,9 +21,6 @@ namespace EnterTheGuncave.Content
         
         // [JsonProperty("infinite")]
         // public bool Infinite { get; set; }
-
-        [JsonProperty("layers")]
-        public Layer[] Layers { get; set; }
 
         // [JsonProperty("nextlayerid")]
         // public long Nextlayerid { get; set; }
@@ -54,6 +55,7 @@ namespace EnterTheGuncave.Content
         // [JsonProperty("width")]
         // public long Width { get; set; }
     }
+    
     //
     // public partial class Editorsettings
     // {
@@ -158,7 +160,7 @@ namespace EnterTheGuncave.Content
         public long Value { get; set; }
     }
 
-    public partial class Tileset
+    public class Tileset
     {
         [JsonProperty("firstgid")]
         public long Firstgid { get; set; }
