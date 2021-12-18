@@ -114,38 +114,40 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
 
     public partial class Object
     {
-        [JsonProperty("height")]
-        public long Height { get; set; }
 
         [JsonProperty("id")]
         public long Id { get; set; }
-
-        [JsonProperty("name")]
-        public string Name { get; set; }
-
-        [JsonProperty("point")]
-        public bool Point { get; set; }
-
-        [JsonProperty("properties")]
-        public Property[] Properties { get; set; }
-
-        [JsonProperty("rotation")]
-        public long Rotation { get; set; }
-
-        [JsonProperty("type")]
-        public string Type { get; set; }
-
-        [JsonProperty("visible")]
-        public bool Visible { get; set; }
-
-        [JsonProperty("width")]
-        public long Width { get; set; }
 
         [JsonProperty("x")]
         public double X { get; set; }
 
         [JsonProperty("y")]
         public double Y { get; set; }
+        
+        // [JsonProperty("name")]
+        // public string Name { get; set; }
+        
+        // [JsonProperty("point")]
+        // public bool Point { get; set; }
+        
+        // [JsonProperty("properties")]
+        // public Property[] Properties { get; set; }
+        
+        // [JsonProperty("rotation")]
+        // public long Rotation { get; set; }
+        
+        // [JsonProperty("type")]
+        // public string Type { get; set; }
+        
+        // [JsonProperty("visible")]
+        // public bool Visible { get; set; }
+        
+        // [JsonProperty("width")]
+        // public long Width { get; set; }
+        //
+        // [JsonProperty("height")]
+        // public long Height { get; set; }
+        
     }
 
     public partial class Property

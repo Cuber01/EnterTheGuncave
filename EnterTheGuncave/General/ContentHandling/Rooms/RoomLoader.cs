@@ -4,14 +4,16 @@ using System.IO;
 using EnterTheGuncave.Entities.Neutrals;
 using Microsoft.Xna.Framework;
 
+
 namespace EnterTheGuncave.General.ContentHandling.Rooms
 {
     public static class RoomLoader
     {
         private static List<Room> rooms = new List<Room>();
-        private static int realRoomWidth = EnterTheGuncave.roomWidth - 2;
-        private static int realRoomHeight = EnterTheGuncave.roomHeight - 2;
         
+        // TODO
+        private static int realRoomWidth = EnterTheGuncave.roomWidth - 2; 
+
         public static void loadAllRooms()
         {
 
@@ -26,18 +28,6 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
             }
             
         }
-
-        public static void playRoom(int index)
-        {
-            foreach (var l in rooms[index].Layers[0].Data )
-            {
-                if (l != 0)
-                {
-                    EnterTheGuncave.entitiesToBeSpawned.Add(new Stone(new Vector2(l * EnterTheGuncave.tileSize, 0)));
-                }
-            }
-        }
-        
         
         private static Room loadRoom(string path)
         {
@@ -45,6 +35,22 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
 
             return Room.FromJson(levelJSON);
         }
+
+        public static void playRoom(int index)
+        {
+            
+            for(int i = 0; i < rooms[index].Layers[0].Data.Length; i++)
+            {
+                if (rooms[index].Layers[0].Data[i] == 0) continue;
+                
+                // seems alright
+                int currentCol = i / realRoomWidth;
+                int colIndex = i % realRoomWidth;
+
+                EnterTheGuncave.entitiesToBeSpawned.Add(new Stone(new Vector2(colIndex * EnterTheGuncave.tileSize, currentCol * EnterTheGuncave.tileSize)));
+            }
+        }
+        
 
     }
 }
