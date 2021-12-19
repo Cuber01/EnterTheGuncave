@@ -5,6 +5,8 @@ namespace EnterTheGuncave
 {
     public static class Util
     {
+        public static Random random = new Random();
+        
         public static void prettyPrint2DArray(int[,] array)
         {
                        
@@ -36,7 +38,6 @@ namespace EnterTheGuncave
                 }
             }
             
-            prettyPrint2DArray(EnterTheGuncave.currentRoom);
             for (int x = 0; x < EnterTheGuncave.currentRoom.GetLength(0); x++)
             {
                 for(int y = 0; y < EnterTheGuncave.currentRoom.GetLength(1); y++)
@@ -84,6 +85,11 @@ namespace EnterTheGuncave
         public static string readFile(string path)
         {
             return System.IO.File.ReadAllText(path);
+        }
+
+        public static bool randomBool(float chance)
+        {
+            return random.NextDouble() > chance;
         }
         
     }
