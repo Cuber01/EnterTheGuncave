@@ -92,5 +92,7 @@ namespace EnterTheGuncave
             return random.NextDouble() > chance;
         }
         
+        
+        
     }
 }

@@ -1,5 +1,3 @@
-using EnterTheGuncave.Entities.Projectiles;
-
 namespace EnterTheGuncave.Entities.Baddies
 {
     public struct EnemyStats
