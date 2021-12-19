@@ -4,6 +4,7 @@ using EnterTheGuncave.Entities.Allies;
 using EnterTheGuncave.General;
 using EnterTheGuncave.General.ContentHandling.Assets;
 using EnterTheGuncave.General.ContentHandling.Rooms;
+using EnterTheGuncave.General.DungeonGenerator;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -56,42 +57,44 @@ namespace EnterTheGuncave
             entities.Add(new Player(new Vector2(50, 100)));
             // entities.Add(new WalkingEnemy(new Vector2(128, 80)));
             // entities.Add(new Stone(new Vector2(100, 100)));
+            //
+            //
+            // RoomLoader.loadAllRooms();
+            // RoomLoader.playRoom(1);
             
-            
-            RoomLoader.loadAllRooms();
-            RoomLoader.playRoom(1);
+            DungeonGenerator.generate();
 
         }
 
         protected override void Update(GameTime gameTime)
         {
-
-            Input.updateKeyboardState();
-            Input.updateMouseState();
             
-            foreach (Entity spawn in entitiesToBeSpawned)
-            { 
-                entities.Add(spawn);
-            }
-            entitiesToBeSpawned.Clear();
-                
-                
-            foreach( Entity entity in entities )
-            { 
-                if (entity.dead)
-                {
-                    entitiesToBeKilled.Add(entity);
-                }
-                
-                entity.update();
-            }
-            
-            foreach ( Entity victim in entitiesToBeKilled )
-            {
-                entities.Remove(victim);
-            }
-            entitiesToBeKilled.Clear();
-                
+            // Input.updateKeyboardState();
+            // Input.updateMouseState();
+            //
+            // foreach (Entity spawn in entitiesToBeSpawned)
+            // { 
+            //     entities.Add(spawn);
+            // }
+            // entitiesToBeSpawned.Clear();
+            //     
+            //     
+            // foreach( Entity entity in entities )
+            // { 
+            //     if (entity.dead)
+            //     {
+            //         entitiesToBeKilled.Add(entity);
+            //     }
+            //     
+            //     entity.update();
+            // }
+            //
+            // foreach ( Entity victim in entitiesToBeKilled )
+            // {
+            //     entities.Remove(victim);
+            // }
+            // entitiesToBeKilled.Clear();
+            //     
 
 
             base.Update(gameTime);
@@ -99,20 +102,20 @@ namespace EnterTheGuncave
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Black);
-
-            spriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: scaleMatrix);
-
-            DrawUtils draw = new DrawUtils(GraphicsDevice, spriteBatch);
-            draw.drawGrid(Color.Gray);
-            
-            foreach( Entity entity in entities )
-            {
-                entity.draw();
-                entity.collider.draw(draw);
-            }
-
-            spriteBatch.End();
+            // GraphicsDevice.Clear(Color.Black);
+            //
+            // spriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: scaleMatrix);
+            //
+            // DrawUtils draw = new DrawUtils(GraphicsDevice, spriteBatch);
+            // draw.drawGrid(Color.Gray);
+            //
+            // foreach( Entity entity in entities )
+            // {
+            //     entity.draw();
+            //     entity.collider.draw(draw);
+            // }
+            //
+            // spriteBatch.End();
 
             base.Draw(gameTime);
         }

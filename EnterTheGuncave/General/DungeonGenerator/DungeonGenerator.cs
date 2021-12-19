@@ -9,28 +9,30 @@ namespace EnterTheGuncave.General.DungeonGenerator
         public static RoomPlan[,] floorMap = new RoomPlan[maxFloorWidth, maxFloorHeight];
         
         private static int roomCount;
-        private static int maxRooms;
+        private static int maxRooms = 10;
         
         private const int maxFloorWidth = 25;
         private const int maxFloorHeight = 25;
-        private static float doorChance = 0.5f;
+        private static readonly float doorChance = 0.5f;
 
         public static void generate()
         {
-            Point currentPos = new Point(maxFloorWidth / 2, maxFloorHeight / 2);
+            Point startingPos = new Point(maxFloorWidth / 2, maxFloorHeight / 2);
 
-            floorMap[currentPos.X, currentPos.Y] = new RoomPlan(new RoomInfo(
+            floorMap[startingPos.X, startingPos.Y] = new RoomPlan(new RoomInfo(
                 1,
                 dRoomType.start
                 ),
-                currentPos);
+                startingPos);
             
+            floorMap[startingPos.X, startingPos.Y].expand();
+
         }
         
         public class RoomPlan
         {
             private readonly Point mapPosition;
-            private RoomInfo roomInfo;
+            public RoomInfo roomInfo;
 
             private RoomPlan up;
             private RoomPlan down;
@@ -54,7 +56,7 @@ namespace EnterTheGuncave.General.DungeonGenerator
 
             private void expandInAllDirs()
             {
-                expandAtPoint(new Point(mapPosition.X, mapPosition.Y + 1), dDirection.up);
+                expandAtPoint(new Point(mapPosition.X, mapPosition.Y - 1), dDirection.up);
                 expandAtPoint(new Point(mapPosition.X, mapPosition.Y + 1), dDirection.down);
                 expandAtPoint(new Point(mapPosition.X + 1, mapPosition.Y), dDirection.right);
                 expandAtPoint(new Point(mapPosition.X - 1, mapPosition.Y), dDirection.left);
