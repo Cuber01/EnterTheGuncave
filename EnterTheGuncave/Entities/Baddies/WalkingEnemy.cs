@@ -18,7 +18,7 @@ namespace EnterTheGuncave.Entities.Baddies
             this.position = position;
             this.team = dTeam.baddies;
             
-            this.texture = AssetLoader.textures["enemy"];
+            this.texture = AssetLoader.textures[dTextureKeys.enemy];
             this.myWidth  = texture.Width  / EnterTheGuncave.scale;
             this.myHeight = texture.Height / EnterTheGuncave.scale;
             
@@ -156,7 +156,7 @@ namespace EnterTheGuncave.Entities.Baddies
         public override void takeDamage(int dmg)
         {
             stats.hitpoints = stats.hitpoints - dmg;
-            this.texture = AssetLoader.textures["player"];
+            this.texture = AssetLoader.textures[dTextureKeys.player];
         }
         
     }

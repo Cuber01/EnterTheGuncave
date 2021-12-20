@@ -17,7 +17,7 @@ namespace EnterTheGuncave.Entities.Allies
         public Player(Vector2 position)
         {
             this.position = position;
-            this.texture  = AssetLoader.textures["player"];
+            this.texture  = AssetLoader.textures[dTextureKeys.player];
             this.myWidth  = texture.Width  / EnterTheGuncave.scale;
             this.myHeight = texture.Height / EnterTheGuncave.scale;
 

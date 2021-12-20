@@ -2,11 +2,22 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
+public enum dTextureKeys
+{
+    player,
+    enemy,
+    arrow,
+    stone,
+    bullet,
+    wall1,
+    wall_corner1,
+}
+
 namespace EnterTheGuncave.General.ContentHandling.Assets
 {
     public class AssetLoader
     {
-        public static readonly Dictionary<string, Texture2D> textures = new Dictionary<string, Texture2D>();
+        public static readonly Dictionary<dTextureKeys, Texture2D> textures = new Dictionary<dTextureKeys, Texture2D>();
         private readonly ContentManager contentManager;
 
         public AssetLoader(ContentManager contentManager)
@@ -16,11 +27,11 @@ namespace EnterTheGuncave.General.ContentHandling.Assets
         
         public void loadTextures()
         {
-            textures.Add("player", contentManager.Load<Texture2D>("assets/images/player"));
-            textures.Add("enemy", contentManager.Load<Texture2D>("assets/images/enemy"));
-            textures.Add("arrow", contentManager.Load<Texture2D>("assets/images/arrow"));
-            textures.Add("stone", contentManager.Load<Texture2D>("assets/images/stone"));
-            textures.Add("bullet", contentManager.Load<Texture2D>("assets/images/bullet"));
+            textures.Add(dTextureKeys.player, contentManager.Load<Texture2D>("assets/images/player"));
+            textures.Add(dTextureKeys.enemy, contentManager.Load<Texture2D>("assets/images/enemy"));
+            textures.Add(dTextureKeys.arrow, contentManager.Load<Texture2D>("assets/images/arrow"));
+            textures.Add(dTextureKeys.stone, contentManager.Load<Texture2D>("assets/images/stone"));
+            textures.Add(dTextureKeys.bullet, contentManager.Load<Texture2D>("assets/images/bullet"));
         }
     }
 }

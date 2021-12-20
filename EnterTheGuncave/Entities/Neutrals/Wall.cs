@@ -5,24 +5,19 @@ using Microsoft.Xna.Framework;
 
 namespace EnterTheGuncave.Entities.Neutrals
 {
-    public class Stone : Entity
+    public class Wall : Entity
     {
 
-        public Stone(Vector2 position)
+        public Wall(Vector2 position, dTextureKeys key)
         {
             this.position = position;
-            this.texture  = AssetLoader.textures[dTextureKeys.stone];
+            this.texture  = AssetLoader.textures[key];
             this.myWidth  = texture.Width  / EnterTheGuncave.scale;
             this.myHeight = texture.Height / EnterTheGuncave.scale;
             this.tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
 
             this.team = dTeam.neutrals;
             this.collider = new Hitbox(position, myWidth, myHeight);
-        }
-
-        ~Stone()
-        {
-            EnterTheGuncave.currentRoom[tilePosition.X, tilePosition.Y] = 0;
         }
 
     }

@@ -9,8 +9,12 @@
     <File>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/images/enemy.png</File>
     <File>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/images/player.png</File>
     <File>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/images/stone.png</File>
+    <File>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/images/wall1.png</File>
+    <File>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/images/wall-corner1.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
