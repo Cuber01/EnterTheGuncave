@@ -10,7 +10,7 @@ namespace EnterTheGuncave.Entities.Allies
     public class Player : Entity
     {
 
-        private readonly float speed = 1.1f;
+        private readonly float speed = 1.4f;
         private readonly float friction = 0.65f;
         private readonly float maxVelocity = 6;
 
@@ -123,6 +123,8 @@ namespace EnterTheGuncave.Entities.Allies
                     //
                     // }
                     //
+
+                    (velocity.X, velocity.Y) = (0, 0);
                     return;
             }
             else
