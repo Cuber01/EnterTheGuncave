@@ -92,7 +92,11 @@ namespace EnterTheGuncave
             return random.NextDouble() > chance;
         }
         
-        
-        
+        public static float straightLineEquation(float x, float a, float b)
+        {
+            float y = a * x + b;
+            return y;
+        }
+
     }
 }

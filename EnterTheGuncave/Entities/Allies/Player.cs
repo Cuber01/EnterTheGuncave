@@ -10,7 +10,7 @@ namespace EnterTheGuncave.Entities.Allies
     public class Player : Entity
     {
 
-        private readonly float speed = 1.4f;
+        private readonly float speed = 1.1f;
         private readonly float friction = 0.65f;
         private readonly float maxVelocity = 6;
 
@@ -85,9 +85,10 @@ namespace EnterTheGuncave.Entities.Allies
 
         private void applyFriction()
         {
-            velocity.X = velocity.X * friction;
-            velocity.Y = velocity.Y * friction;
+            velocity.X *= friction;
+            velocity.Y *= friction;
         }
+
 
         private void move()
         {
@@ -96,36 +97,7 @@ namespace EnterTheGuncave.Entities.Allies
                 
             if (CollisionUtils.checkCollisionAtPos(collider, newPosition))
             {
-                    // int xo = 0;
-                    // int dx; int dy;
-                    // dx = (velocity.X < 0) ? -1: 1;
-                    // dy = (velocity.Y < 0) ? -1: 1;                    
-                    //
-                    // for (int x = (int)position.X; x <= newPosition.X; x++)// to musi by petla while z dx
-                    // {
-                    //     if (CollisionUtils.checkCollisionAtPos(collider, new Vector2(x, newPosition.Y)))
-                    //     {
-                    //         // position = new Vector2(x , newPosition.Y);                            
-                    //         xo = x;
-                    //         break;
-                    //     }
-                    //
-                    // }
-                    //
-                    // for (int y = (int)position.X; y <= newPosition.X; y++)// to musi by petla while z dy
-                    // {
-                    //     if (CollisionUtils.checkCollisionAtPos(collider, new Vector2(newPosition.X, y)))
-                    //     {
-                    //         // position = new Vector2(x , newPosition.Y);                            
-                    //         position = new Vector2(xo , y);
-                    //         break;
-                    //     }
-                    //
-                    // }
-                    //
-
-                    (velocity.X, velocity.Y) = (0, 0);
-                    return;
+                (velocity.X, velocity.Y) = (0, 0);
             }
             else
             {
@@ -136,89 +108,29 @@ namespace EnterTheGuncave.Entities.Allies
         
         /* ---------------- COLLISION ------------------ */
 
-        protected override void checkCollision()
-        {
-            foreach (Entity entity in EnterTheGuncave.entities)
-            {
-                if (collider.checkCollision(entity) != null)
-                {
-                    //    velocity = -velocity;
-                }
-            }
-        }
+        // protected override void checkCollision()
+        // {
+        //     foreach (Entity entity in EnterTheGuncave.entities)
+        //     {
+        //         if (collider.checkCollision(entity) != null)
+        //         {
+        //             //    velocity = -velocity;
+        //         }
+        //     }
+        // }
 
+        // private bool checkCollisionLines(DrawUtils draw)
+        // {
+        //     
+        //     float a = velocity.Y/velocity.X;
+        //     float b = position.Y - a * position.X;
+        //
+        //     draw.bersenhamLine(0, (int)Util.straightLineEquation(0,a,b), EnterTheGuncave.windowWidth, (int)Util.straightLineEquation(EnterTheGuncave.windowWidth,a,b), Color.Aqua);
+        //     //draw.bersenhamLine(0, (int)foo(0,a,b + entity.myWidth*scale), (int)windowWidth, (int)foo(windowWidth,a,b), Color.Aqua);
+        //     return false;
+        // }
 
 
 
     }
 }
-
-
-
-
-
-
-
-        // move for faster movement prototype
-        // private void move()
-        // {
-        //     Vector2 newPosition = position + velocity * speed;
-        //     
-        //     if (CollisionUtils.checkCollisionAtPos(collider, newPosition))
-        //     {
-        //         if (position.X < newPosition.X && (int)position.Y == (int)newPosition.Y)
-        //         {
-        //             
-        //             for (int x = (int)position.X; x <= newPosition.X; x++)
-        //             {
-        //                 if (CollisionUtils.checkCollisionAtPos(collider, new Vector2(x, newPosition.Y)))
-        //                 {
-        //                     position = new Vector2(x - 1, newPosition.Y);
-        //                     return;
-        //                 }
-        //             }
-        //             
-        //         }
-        //         else if (position.X > newPosition.X && (int)position.Y == (int)newPosition.Y)
-        //         {
-        //             
-        //             for (int x = (int)position.X; x >= newPosition.X; x--)
-        //             {
-        //                 if (CollisionUtils.checkCollisionAtPos(collider, new Vector2(x, newPosition.Y)))
-        //                 {
-        //                     position = new Vector2(x + 1, newPosition.Y);
-        //                     return;
-        //                 }
-        //             }
-        //             
-        //         }
-        //         else if ((int)position.X == (int)newPosition.X && (int)position.Y < (int)newPosition.Y)
-        //         {
-        //             
-        //             for (int y = (int)position.Y; y <= (int)newPosition.Y; y++)
-        //             {
-        //                 if (CollisionUtils.checkCollisionAtPos(collider, new Vector2(y, newPosition.Y)))
-        //                 {
-        //                     position = new Vector2(newPosition.X, y - 1);
-        //                     return;
-        //                 }
-        //             }
-        //             
-        //         }
-        //         else if ((int)position.X == (int)newPosition.X && position.Y > newPosition.Y)
-        //         {
-        //             
-        //             for (int y = (int)position.Y; y >= newPosition.Y; y--)
-        //             {
-        //                 if (CollisionUtils.checkCollisionAtPos(collider, new Vector2(y, newPosition.Y)))
-        //                 {
-        //                     position = new Vector2(newPosition.X, y + 1);
-        //                     return;
-        //                 }
-        //             }
-        //             
-        //         }
-        //     }
-        //
-        //     position = newPosition;
-        // }

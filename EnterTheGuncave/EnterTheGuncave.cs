@@ -23,7 +23,7 @@ namespace EnterTheGuncave
         public const int tileSize = 16;
         public const int scale = 4;
 
-        private const int windowWidth = roomWidth * tileSize * scale;
+        public const int windowWidth = roomWidth * tileSize * scale;
         private const int windowHeight = roomHeight * tileSize * scale;
 
         private readonly Matrix scaleMatrix = Matrix.CreateScale(scale, scale, 1.0f);
@@ -60,7 +60,7 @@ namespace EnterTheGuncave
             
             
             RoomLoader.loadAllRooms();
-            RoomLoader.playRoom(1);
+            //RoomLoader.playRoom(1);
             
            // DungeonGenerator.generate();
 
@@ -85,7 +85,7 @@ namespace EnterTheGuncave
                 {
                     entitiesToBeKilled.Add(entity);
                 }
-                
+
                 entity.update();
             }
             
@@ -102,6 +102,7 @@ namespace EnterTheGuncave
 
         protected override void Draw(GameTime gameTime)
         {
+            
             GraphicsDevice.Clear(Color.Black);
             
             spriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: scaleMatrix);

@@ -13,18 +13,18 @@ namespace EnterTheGuncave.Entities
         public dTeam team;
         public bool dead;
 
-        protected Vector2   velocity;
+        public Vector2   velocity;
         protected Texture2D texture;
         public    Hitbox    collider;
 
-        protected int myWidth;
+        public int myWidth;
         protected int myHeight;
 
         /* -------------------- MAIN -------------------- */
         
         public virtual void update() { }
 
-        public void draw()
+        public virtual void draw()
         {
             EnterTheGuncave.spriteBatch.Draw(texture, position, Color.White);
         }
