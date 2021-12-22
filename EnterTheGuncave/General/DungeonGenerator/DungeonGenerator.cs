@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Microsoft.Xna.Framework;
 
@@ -8,7 +9,8 @@ namespace EnterTheGuncave.General.DungeonGenerator
     public static class DungeonGenerator
     {
         public static RoomPlan[,] floorMap = new RoomPlan[maxFloorWidth, maxFloorHeight];
-        
+        private static List<RoomPlan> endRooms = new List<RoomPlan>();
+
         private static int roomCount;
         private static int minRooms = 20;
         private static int maxRooms = 50;
@@ -33,8 +35,23 @@ namespace EnterTheGuncave.General.DungeonGenerator
             while (!done)
             {
                 floorMap[startingPos.X, startingPos.Y].expand();
+                
                 if (roomCount >= minRooms)
                 {
+                    // Randomly choose special rooms from end rooms.
+                    int tresureRoomIndex = Util.random.Next(0, endRooms.Count);
+                    endRooms[tresureRoomIndex].roomInfo.roomType = dRoomType.treasure;
+                    
+                    // Make sure to remove it so we don't place 2 special rooms in one place.
+                    endRooms.RemoveAt(tresureRoomIndex);
+                    
+                    int bossRoomIndex = Util.random.Next(0, endRooms.Count);
+                    endRooms[bossRoomIndex].roomInfo.roomType = dRoomType.boss;
+                    
+                    endRooms.RemoveAt(bossRoomIndex);
+                    
+                    
+                    // We're finished!
                     done = true;
                 }
             }
@@ -83,7 +100,7 @@ namespace EnterTheGuncave.General.DungeonGenerator
                 // If you haven't expanded at all, mark myself as end room and don't try to expand children as they don't exist.
                 if (!expanded)
                 {
-                    roomInfo.roomType = dRoomType.treasure;
+                    endRooms.Add(this);
                     return;
                 }
                 
