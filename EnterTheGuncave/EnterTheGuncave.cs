@@ -4,7 +4,6 @@ using EnterTheGuncave.Entities.Allies;
 using EnterTheGuncave.General;
 using EnterTheGuncave.General.ContentHandling.Assets;
 using EnterTheGuncave.General.ContentHandling.Rooms;
-using EnterTheGuncave.General.DungeonGenerator;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -29,6 +28,7 @@ namespace EnterTheGuncave
         private readonly Matrix scaleMatrix = Matrix.CreateScale(scale, scale, 1.0f);
         private readonly GraphicsDeviceManager graphics;
         public static SpriteBatch spriteBatch;
+        DrawUtils draw;
 
         public EnterTheGuncave()
         {
@@ -44,6 +44,8 @@ namespace EnterTheGuncave
             graphics.ApplyChanges();
             
             base.Initialize();
+            
+            draw = new DrawUtils(GraphicsDevice, spriteBatch);
         }
 
         protected override void LoadContent()
@@ -60,6 +62,7 @@ namespace EnterTheGuncave
             
             
             RoomLoader.loadAllRooms();
+            RoomLoader.placeWalls();
             //RoomLoader.playRoom(1);
             
            // DungeonGenerator.generate();
@@ -107,7 +110,6 @@ namespace EnterTheGuncave
             
             spriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: scaleMatrix);
             
-            DrawUtils draw = new DrawUtils(GraphicsDevice, spriteBatch);
             draw.drawGrid(Color.Gray);
             
             foreach( Entity entity in entities )

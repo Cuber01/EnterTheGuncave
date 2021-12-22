@@ -64,6 +64,11 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
             }
             
         }
+
+        public static void placeWalls()
+        {
+            EnterTheGuncave.entities.Add(new Wall(new Vector2(0, 0), dTextureKeys.wall_corner1));
+        }
         
 
     }
