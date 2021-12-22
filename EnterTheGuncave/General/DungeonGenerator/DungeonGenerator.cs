@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using Microsoft.Xna.Framework;
 
 namespace EnterTheGuncave.General.DungeonGenerator
@@ -9,13 +10,13 @@ namespace EnterTheGuncave.General.DungeonGenerator
         public static RoomPlan[,] floorMap = new RoomPlan[maxFloorWidth, maxFloorHeight];
         
         private static int roomCount;
-        private const int minRooms = 20;
-        private const int maxRooms = 50;
+        private static int minRooms = 20;
+        private static int maxRooms = 50;
 
         private const int maxFloorWidth = 50;
         private const int maxFloorHeight = 50;
-        private const int maxNeighborCount = 1; // Neighbor count above which we don't generate a room in an empty cell
-        private const float doorChance = 0.5f;
+        private static int maxNeighborCount = 1;
+        private static float doorChance = 0.5f;
 
         public static void generate()
         {
@@ -41,6 +42,21 @@ namespace EnterTheGuncave.General.DungeonGenerator
             
             debugPrintDungeon();
 
+        }
+        
+        public static void setupGeneration(int minRoom=10, int maxRoom=20, int maxNeighbourCount=1, float dooorChance=0.5f)
+        {
+            Array.Clear(floorMap, 0, floorMap.Length);
+            
+            minRooms = minRoom;
+            maxRooms = maxRoom;
+            maxNeighborCount = maxNeighbourCount;
+            doorChance = dooorChance;
+        }
+
+        public static void clearMap()
+        {
+            Array.Clear(floorMap, 0, floorMap.Length);
         }
 
         public class RoomPlan
