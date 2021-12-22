@@ -31,7 +31,7 @@ namespace EnterTheGuncave.General.ContentHandling.Assets
             textures.Add(dTextureKeys.arrow, contentManager.Load<Texture2D>("assets/images/arrow"));
             textures.Add(dTextureKeys.stone, contentManager.Load<Texture2D>("assets/images/stone"));
             textures.Add(dTextureKeys.bullet, contentManager.Load<Texture2D>("assets/images/bullet"));
-            textures.Add(dTextureKeys.tiles1, contentManager.Load<Texture2D>("assets/images/bullet"));
+            textures.Add(dTextureKeys.tiles1, contentManager.Load<Texture2D>("assets/images/tiles1"));
         }
     }
 }

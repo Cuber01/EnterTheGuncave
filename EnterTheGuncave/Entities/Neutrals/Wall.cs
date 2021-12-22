@@ -33,8 +33,10 @@ namespace EnterTheGuncave.Entities.Neutrals
             this.position = position;
             this.direction = direction;
             this.texture  = AssetLoader.textures[dTextureKeys.tiles1];
-            this.myWidth  = texture.Width  / EnterTheGuncave.scale;
-            this.myHeight = texture.Height / EnterTheGuncave.scale;
+            
+            this.myWidth  = EnterTheGuncave.tileSize * EnterTheGuncave.scale; // Determining width using tileSize instead of texture width as usual
+            this.myHeight = EnterTheGuncave.tileSize * EnterTheGuncave.scale;
+            
             this.tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
 
             this.team = dTeam.neutrals;
