@@ -67,19 +67,44 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
 
         public static void placeWalls()
         {
+            float maxX = EnterTheGuncave.tileSize * (EnterTheGuncave.roomWidth - 1);
+            float maxY = EnterTheGuncave.tileSize * (EnterTheGuncave.roomHeight - 1);
+            
+            // Upleft corner
             EnterTheGuncave.entities.Add(new Wall(new Vector2(0, 0), dTileDirection.upleft));
 
+            // Up wall
             for (int i = 1; i < EnterTheGuncave.roomWidth - 1; i++)
             {
                 EnterTheGuncave.entities.Add(new Wall(new Vector2(EnterTheGuncave.tileSize * i, 0), dTileDirection.down));
             }
             
-            EnterTheGuncave.entities.Add(new Wall(new Vector2(EnterTheGuncave.tileSize * (EnterTheGuncave.roomWidth - 1), 0), dTileDirection.upright));
+            // Upright corner
+            EnterTheGuncave.entities.Add(new Wall(new Vector2(maxX, 0), dTileDirection.upright));
             
+            // Right wall
             for (int i = 1; i < EnterTheGuncave.roomHeight - 1; i++)
             {
-                EnterTheGuncave.entities.Add(new Wall(new Vector2(EnterTheGuncave.tileSize * (EnterTheGuncave.roomWidth - 1), EnterTheGuncave.tileSize * i), dTileDirection.left));
+                EnterTheGuncave.entities.Add(new Wall(new Vector2(maxX, EnterTheGuncave.tileSize * i), dTileDirection.left));
             }
+            
+            // Downright corner
+            EnterTheGuncave.entities.Add(new Wall(new Vector2(maxX, maxY), dTileDirection.downright));
+            
+            // Left wall
+            for (int i = 1; i < EnterTheGuncave.roomHeight - 1; i++)
+            {
+                EnterTheGuncave.entities.Add(new Wall(new Vector2(0, EnterTheGuncave.tileSize * i), dTileDirection.right));
+            }
+            
+            // Downleft corner
+            EnterTheGuncave.entities.Add(new Wall(new Vector2(0, maxY), dTileDirection.downleft));
+            
+            for (int i = 1; i < EnterTheGuncave.roomWidth - 1; i++)
+            {
+                EnterTheGuncave.entities.Add(new Wall(new Vector2(EnterTheGuncave.tileSize * i, maxY), dTileDirection.up));
+            }
+
             
         }
         

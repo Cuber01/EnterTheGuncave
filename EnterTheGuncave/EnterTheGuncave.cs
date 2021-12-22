@@ -22,7 +22,7 @@ namespace EnterTheGuncave
         public const int tileSize = 16;
         public const int scale = 4;
 
-        public const int windowWidth = roomWidth * tileSize * scale;
+        private const int windowWidth = roomWidth * tileSize * scale;
         private const int windowHeight = roomHeight * tileSize * scale;
 
         private readonly Matrix scaleMatrix = Matrix.CreateScale(scale, scale, 1.0f);
