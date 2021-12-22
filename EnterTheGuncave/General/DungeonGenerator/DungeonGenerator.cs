@@ -9,11 +9,12 @@ namespace EnterTheGuncave.General.DungeonGenerator
         public static RoomPlan[,] floorMap = new RoomPlan[maxFloorWidth, maxFloorHeight];
         
         private static int roomCount;
-        private static int maxRooms = 10;
-        
+        private const int maxRooms = 10;
+
         private const int maxFloorWidth = 25;
         private const int maxFloorHeight = 25;
-        private static readonly float doorChance = 0.5f;
+        private const int maxNeighborCount = 1; // Neighbor count above which we don't generate a room in an empty cell
+        private const float doorChance = 0.5f;
 
         public static void generate()
         {
@@ -26,6 +27,8 @@ namespace EnterTheGuncave.General.DungeonGenerator
                 startingPos);
             
             floorMap[startingPos.X, startingPos.Y].expand();
+            
+            debugPrintDungeon();
 
         }
         
@@ -73,9 +76,8 @@ namespace EnterTheGuncave.General.DungeonGenerator
                 {
                     return;
                 }
-
-                // TODO make variable
-                if (countNeighbors(newPos) > 1)
+                
+                if (countNeighbors(newPos) > maxNeighborCount)
                 {
                     return;
                 }
@@ -116,6 +118,29 @@ namespace EnterTheGuncave.General.DungeonGenerator
 
             }
             
+        }
+
+        private static void debugPrintDungeon()
+        {
+            string str = "";
+            
+            
+            for (int i = 0; i < floorMap.GetLength(0); i++)
+            {
+                for (int j = 0; j < floorMap.GetLength(1); j++)
+                {
+                    if (floorMap[i, j] != null)
+                    {
+                        str += floorMap[i, j].roomInfo.roomIndex;
+                    }
+                    else
+                    {
+                        str += '0';
+                    }
+                }
+            }
+
+            Util.stringToGrid(str);
         }
     }
 

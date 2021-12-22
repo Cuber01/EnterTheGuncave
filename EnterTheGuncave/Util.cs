@@ -98,5 +98,56 @@ namespace EnterTheGuncave
             return y;
         }
 
+        public static void stringToGrid(string str)
+        {
+            int l = str.Length;
+            int k = 0, row, column;
+            row = (int) Math.Floor(Math.Sqrt(l));
+            column = (int) Math.Ceiling(Math.Sqrt(l));
+ 
+            if (row * column < l)
+            {
+                row = column;
+            }
+ 
+            char [,]s = new char[row,column];
+            
+            for (int i = 0; i < row; i++)
+            {
+                for (int j = 0; j < column; j++)
+                {
+                    if(k < str.Length)
+                        s[i,j] = str[k];
+                    k++;
+                }
+            }
+            
+            for (int i = 0; i < row; i++)
+            {
+                for (int j = 0; j < column; j++)
+                {
+                    if (s[i, j] == 0)
+                    {
+                        break;
+                    }
+
+                    switch (s[i, j])
+                    {
+                        case '1': Console.ForegroundColor = ConsoleColor.Green;    break;
+                        case '2': Console.ForegroundColor = ConsoleColor.Yellow;   break;
+                        case '3': Console.ForegroundColor = ConsoleColor.Red;      break;
+                        case '4': Console.ForegroundColor = ConsoleColor.DarkBlue; break;
+                        default:
+                            Console.ResetColor();  break;
+                    }
+                    
+                    Console.Write(s[i, j]);
+                    Console.Write(' ');
+                }
+                Console.WriteLine("");
+            }
+        }
+        
+
     }
 }

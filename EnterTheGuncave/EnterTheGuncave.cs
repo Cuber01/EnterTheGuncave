@@ -4,6 +4,7 @@ using EnterTheGuncave.Entities.Allies;
 using EnterTheGuncave.General;
 using EnterTheGuncave.General.ContentHandling.Assets;
 using EnterTheGuncave.General.ContentHandling.Rooms;
+using EnterTheGuncave.General.DungeonGenerator;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -56,71 +57,71 @@ namespace EnterTheGuncave
             
             assetLoader.loadTextures();
             
-            entities.Add(new Player(new Vector2(50, 100)));
+            // entities.Add(new Player(new Vector2(50, 100)));
             // entities.Add(new WalkingEnemy(new Vector2(128, 80)));
             // entities.Add(new Stone(new Vector2(100, 100)));
             
             
-            RoomLoader.loadAllRooms();
-            RoomLoader.placeWalls();
+            //RoomLoader.loadAllRooms();
+           // RoomLoader.placeWalls();
             //RoomLoader.playRoom(1);
             
-           // DungeonGenerator.generate();
+            DungeonGenerator.generate();
 
         }
 
         protected override void Update(GameTime gameTime)
         {
             
-            Input.updateKeyboardState();
-            Input.updateMouseState();
-            
-            foreach (Entity spawn in entitiesToBeSpawned)
-            { 
-                entities.Add(spawn);
-            }
-            entitiesToBeSpawned.Clear();
-                
-                
-            foreach( Entity entity in entities )
-            { 
-                if (entity.dead)
-                {
-                    entitiesToBeKilled.Add(entity);
-                }
-
-                entity.update();
-            }
-            
-            foreach ( Entity victim in entitiesToBeKilled )
-            {
-                entities.Remove(victim);
-            }
-            entitiesToBeKilled.Clear();
-                
-
-
-            base.Update(gameTime);
+            // Input.updateKeyboardState();
+            // Input.updateMouseState();
+            //
+            // foreach (Entity spawn in entitiesToBeSpawned)
+            // { 
+            //     entities.Add(spawn);
+            // }
+            // entitiesToBeSpawned.Clear();
+            //     
+            //     
+            // foreach( Entity entity in entities )
+            // { 
+            //     if (entity.dead)
+            //     {
+            //         entitiesToBeKilled.Add(entity);
+            //     }
+            //
+            //     entity.update();
+            // }
+            //
+            // foreach ( Entity victim in entitiesToBeKilled )
+            // {
+            //     entities.Remove(victim);
+            // }
+            // entitiesToBeKilled.Clear();
+            //     
+            //
+            //
+            // base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            
-            GraphicsDevice.Clear(Color.Black);
-            
-            spriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: scaleMatrix);
-            
-            draw.drawGrid(Color.Gray);
-            
-            foreach( Entity entity in entities )
-            {
-                entity.draw();
-                entity.collider.draw(draw);
-            }
-            
-            spriteBatch.End();
-
-            base.Draw(gameTime);
+            //
+            // GraphicsDevice.Clear(Color.Black);
+            //
+            // spriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: scaleMatrix);
+            //
+            // draw.drawGrid(Color.Gray);
+            //
+            // foreach( Entity entity in entities )
+            // {
+            //     entity.draw();
+            //     entity.collider.draw(draw);
+            // }
+            //
+            // spriteBatch.End();
+            //
+            // base.Draw(gameTime);
         }
     }
 }

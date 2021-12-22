@@ -13,11 +13,11 @@ namespace EnterTheGuncave.Entities
         public dTeam team;
         public bool dead;
 
-        public Vector2   velocity;
+        public    Vector2   velocity;
         protected Texture2D texture;
         public    Hitbox    collider;
 
-        public int myWidth;
+        public int    myWidth;
         protected int myHeight;
 
         /* -------------------- MAIN -------------------- */
