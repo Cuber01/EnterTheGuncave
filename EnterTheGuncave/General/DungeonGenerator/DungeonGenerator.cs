@@ -62,8 +62,9 @@ namespace EnterTheGuncave.General.DungeonGenerator
         public class RoomPlan
         {
             private readonly Point mapPosition;
+            private bool expanded = false;
             public RoomInfo roomInfo;
-
+            
             private RoomPlan up;
             private RoomPlan down;
             private RoomPlan right;
@@ -78,6 +79,14 @@ namespace EnterTheGuncave.General.DungeonGenerator
             public void expand()
             {
                 expandInAllDirs();
+                
+                // If you haven't expanded at all, mark myself as end room and don't try to expand children as they don't exist.
+                if (!expanded)
+                {
+                    roomInfo.roomType = dRoomType.treasure;
+                    return;
+                }
+                
                 up?.expand();
                 down?.expand();
                 right?.expand();
@@ -129,6 +138,8 @@ namespace EnterTheGuncave.General.DungeonGenerator
                         left = floorMap[newPos.X, newPos.Y]; break;
                 }
 
+                expanded = true;
+
             }
 
             private int countNeighbors(Point cell)
@@ -158,7 +169,7 @@ namespace EnterTheGuncave.General.DungeonGenerator
                 {
                     if (floorMap[i, j] != null)
                     {
-                        str += floorMap[i, j].roomInfo.roomIndex;
+                        str += (int)floorMap[i, j].roomInfo.roomType;
                     }
                     else
                     {

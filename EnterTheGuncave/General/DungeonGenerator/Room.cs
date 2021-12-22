@@ -14,6 +14,7 @@ namespace EnterTheGuncave.General.DungeonGenerator
 
     public enum dRoomType
     {
+        empty,
         start,
         normal,
         treasure,

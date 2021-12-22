@@ -133,10 +133,10 @@ namespace EnterTheGuncave
 
                     switch (s[i, j])
                     {
-                        case '1': Console.ForegroundColor = ConsoleColor.Green;    break;
-                        case '2': Console.ForegroundColor = ConsoleColor.Yellow;   break;
-                        case '3': Console.ForegroundColor = ConsoleColor.Red;      break;
-                        case '4': Console.ForegroundColor = ConsoleColor.DarkBlue; break;
+                        case '1': Console.ForegroundColor = ConsoleColor.DarkBlue; break;
+                        case '2': Console.ForegroundColor = ConsoleColor.Green;   break;
+                        case '3': Console.ForegroundColor = ConsoleColor.Yellow;      break;
+                        case '4': Console.ForegroundColor = ConsoleColor.Red; break;
                         default:
                             Console.ResetColor();  break;
                     }
