@@ -9,29 +9,40 @@ namespace EnterTheGuncave.General.DungeonGenerator
         public static RoomPlan[,] floorMap = new RoomPlan[maxFloorWidth, maxFloorHeight];
         
         private static int roomCount;
-        private const int maxRooms = 10;
+        private const int minRooms = 20;
+        private const int maxRooms = 50;
 
-        private const int maxFloorWidth = 25;
-        private const int maxFloorHeight = 25;
+        private const int maxFloorWidth = 50;
+        private const int maxFloorHeight = 50;
         private const int maxNeighborCount = 1; // Neighbor count above which we don't generate a room in an empty cell
         private const float doorChance = 0.5f;
 
         public static void generate()
         {
             Point startingPos = new Point(maxFloorWidth / 2, maxFloorHeight / 2);
-
+            bool done = false;
+            
             floorMap[startingPos.X, startingPos.Y] = new RoomPlan(new RoomInfo(
                 1,
                 dRoomType.start
                 ),
                 startingPos);
+
+            // Do your job until it is done. Is it really that hard to understand?
+            while (!done)
+            {
+                floorMap[startingPos.X, startingPos.Y].expand();
+                if (roomCount >= minRooms)
+                {
+                    done = true;
+                }
+            }
             
-            floorMap[startingPos.X, startingPos.Y].expand();
             
             debugPrintDungeon();
 
         }
-        
+
         public class RoomPlan
         {
             private readonly Point mapPosition;
