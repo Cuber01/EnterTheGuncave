@@ -73,6 +73,14 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
             {
                 EnterTheGuncave.entities.Add(new Wall(new Vector2(EnterTheGuncave.tileSize * i, 0), dTileDirection.down));
             }
+            
+            EnterTheGuncave.entities.Add(new Wall(new Vector2(EnterTheGuncave.tileSize * (EnterTheGuncave.roomWidth - 1), 0), dTileDirection.upright));
+            
+            for (int i = 1; i < EnterTheGuncave.roomHeight - 1; i++)
+            {
+                EnterTheGuncave.entities.Add(new Wall(new Vector2(EnterTheGuncave.tileSize * (EnterTheGuncave.roomWidth - 1), EnterTheGuncave.tileSize * i), dTileDirection.left));
+            }
+            
         }
         
 

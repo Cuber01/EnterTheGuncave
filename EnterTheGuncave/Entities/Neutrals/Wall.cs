@@ -1,25 +1,26 @@
-using System.Collections.Generic;
 using EnterTheGuncave.Entities.Projectiles;
 using EnterTheGuncave.General.Collision;
 using EnterTheGuncave.General.ContentHandling.Assets;
 using EnterTheGuncave.General.ContentHandling.Rooms;
 using Microsoft.Xna.Framework;
+
+// Static imports. ono.
 using static EnterTheGuncave.EnterTheGuncave;
 
 namespace EnterTheGuncave.Entities.Neutrals
 {
     public class Wall : Entity
     {
-        private dTileDirection direction;
+        private readonly dTileDirection direction;
         
         // TODO this will initialize only once, right?
-        private static Rectangle[] spritesheetPositions =
+        private static readonly Rectangle[] spritesheetPositions =
         {
             // walls
-            new Rectangle(tileSize, tileSize * 2, tileSize, tileSize),                  // up
-            new Rectangle(tileSize, 0, tileSize, tileSize),                             // down
-            new Rectangle(0, tileSize, tileSize, tileSize),                             // right
-            new Rectangle(tileSize * 2, tileSize, tileSize, tileSize),                  // et cetera, see tileDirection.cs for details 
+            new Rectangle(tileSize,     tileSize * 2, tileSize, tileSize),   // up
+            new Rectangle(tileSize,     0,            tileSize, tileSize),   // down
+            new Rectangle(0,            tileSize,     tileSize, tileSize),   // right
+            new Rectangle(tileSize * 2, tileSize,     tileSize, tileSize),   // et cetera, see tileDirection.cs for details 
             
             // corners
             new Rectangle(tileSize * 2, 0, tileSize, tileSize),
@@ -34,8 +35,8 @@ namespace EnterTheGuncave.Entities.Neutrals
             this.direction = direction;
             this.texture  = AssetLoader.textures[dTextureKeys.tiles1];
             
-            this.myWidth  = EnterTheGuncave.tileSize * EnterTheGuncave.scale; // Determining width using tileSize instead of texture width as usual
-            this.myHeight = EnterTheGuncave.tileSize * EnterTheGuncave.scale;
+            this.myWidth  = EnterTheGuncave.tileSize / EnterTheGuncave.scale; // Determining width using tileSize instead of texture width as usual
+            this.myHeight = EnterTheGuncave.tileSize / EnterTheGuncave.scale;
             
             this.tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
 
