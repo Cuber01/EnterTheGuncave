@@ -9,8 +9,7 @@ public enum dTextureKeys
     arrow,
     stone,
     bullet,
-    wall1,
-    wall_corner1,
+    tiles1
 }
 
 namespace EnterTheGuncave.General.ContentHandling.Assets
@@ -32,8 +31,7 @@ namespace EnterTheGuncave.General.ContentHandling.Assets
             textures.Add(dTextureKeys.arrow, contentManager.Load<Texture2D>("assets/images/arrow"));
             textures.Add(dTextureKeys.stone, contentManager.Load<Texture2D>("assets/images/stone"));
             textures.Add(dTextureKeys.bullet, contentManager.Load<Texture2D>("assets/images/bullet"));
-            textures.Add(dTextureKeys.wall1, contentManager.Load<Texture2D>("assets/images/wall1"));
-            textures.Add(dTextureKeys.wall_corner1, contentManager.Load<Texture2D>("assets/images/wall_corner1"));
+            textures.Add(dTextureKeys.tiles1, contentManager.Load<Texture2D>("assets/images/bullet"));
         }
     }
 }
