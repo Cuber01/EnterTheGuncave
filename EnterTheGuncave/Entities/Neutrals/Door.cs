@@ -72,14 +72,9 @@ namespace EnterTheGuncave.Entities.Neutrals
                     player.mapPosition.X -= 1;
                     break;
             }
+            
+            RoomLoader.playRoom(DungeonGenerator.floorMap[player.mapPosition.X, player.mapPosition.Y].roomInfo.roomIndex);
 
-            // TODO remove this when doors won't generate on empty rooms
-            if (DungeonGenerator.floorMap[player.mapPosition.X, player.mapPosition.Y] != null)
-            {
-                RoomLoader.playRoom(DungeonGenerator.floorMap[player.mapPosition.X, player.mapPosition.Y].roomInfo.roomIndex);
-            }
-            
-            
             wentThroughMe = true;
             RoomLoader.changingRoom = true;
             Console.WriteLine("Hecc");

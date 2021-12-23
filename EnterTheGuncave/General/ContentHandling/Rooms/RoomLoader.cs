@@ -5,6 +5,7 @@ using EnterTheGuncave.Entities;
 using EnterTheGuncave.Entities.Allies;
 using EnterTheGuncave.Entities.Baddies;
 using EnterTheGuncave.Entities.Neutrals;
+using EnterTheGuncave.General.DungeonGenerator;
 using Microsoft.Xna.Framework;
 
 
@@ -44,6 +45,8 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
             
             clearRoom();
             placeDoors();
+            
+            
             (EnterTheGuncave.entities[0].position.X, EnterTheGuncave.entities[0].position.Y) = (50.0f, 50.0f);
             
             for(int i = 0; i < rooms[index].Layers[0].Data.Length; i++)
@@ -128,17 +131,32 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
 
         public static void placeDoors()
         {
+            Point playerMapPos = EnterTheGuncave.entities[0].mapPosition;
+            
             // Left
-            EnterTheGuncave.entities.Add(new Door(new Vector2(0, 5 * EnterTheGuncave.tileSize), dDirection.left));
+            if (DungeonGenerator.DungeonGenerator.floorMap[playerMapPos.X - 1, playerMapPos.Y] != null)
+            {
+                EnterTheGuncave.entities.Add(new Door(new Vector2(0, 5 * EnterTheGuncave.tileSize), dDirection.left));
+            }
             
             // Right
-            EnterTheGuncave.entities.Add(new Door(new Vector2(EnterTheGuncave.tileSize * (EnterTheGuncave.roomWidth - 1), 5 * EnterTheGuncave.tileSize), dDirection.right));
+            if (DungeonGenerator.DungeonGenerator.floorMap[playerMapPos.X + 1, playerMapPos.Y] != null)
+            {
+                EnterTheGuncave.entities.Add(new Door(new Vector2(EnterTheGuncave.tileSize * (EnterTheGuncave.roomWidth - 1), 5 * EnterTheGuncave.tileSize), dDirection.right));
+            }
             
             // Up
-            EnterTheGuncave.entities.Add(new Door(new Vector2(9 * EnterTheGuncave.tileSize, 0), dDirection.up));
-            
+            if (DungeonGenerator.DungeonGenerator.floorMap[playerMapPos.X, playerMapPos.Y - 1] != null)
+            {
+                EnterTheGuncave.entities.Add(new Door(new Vector2(9 * EnterTheGuncave.tileSize, 0), dDirection.up));
+            }
+
             // Down
-            EnterTheGuncave.entities.Add(new Door(new Vector2(9 * EnterTheGuncave.tileSize, EnterTheGuncave.tileSize * (EnterTheGuncave.roomHeight - 1)), dDirection.down));
+            if (DungeonGenerator.DungeonGenerator.floorMap[playerMapPos.X, playerMapPos.Y + 1] != null)
+            {
+                EnterTheGuncave.entities.Add(new Door(new Vector2(9 * EnterTheGuncave.tileSize, EnterTheGuncave.tileSize * (EnterTheGuncave.roomHeight - 1)), dDirection.down));
+            }
+
         }
         
 

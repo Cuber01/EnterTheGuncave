@@ -8,7 +8,7 @@ namespace EnterTheGuncave.General.DungeonGenerator
     
     public static class DungeonGenerator
     {
-        public static RoomPlan[,] floorMap = new RoomPlan[maxFloorWidth, maxFloorHeight];
+        public static  RoomPlan[,] floorMap = new RoomPlan[maxFloorWidth, maxFloorHeight];
         private static List<RoomPlan> endRooms = new List<RoomPlan>();
         public static Point startingPos;
 
