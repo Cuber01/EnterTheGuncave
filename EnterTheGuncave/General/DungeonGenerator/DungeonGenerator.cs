@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using Microsoft.Xna.Framework;
 
 namespace EnterTheGuncave.General.DungeonGenerator
@@ -11,6 +10,7 @@ namespace EnterTheGuncave.General.DungeonGenerator
         public static RoomPlan[,] floorMap = new RoomPlan[maxFloorWidth, maxFloorHeight];
         private static List<RoomPlan> endRooms = new List<RoomPlan>();
 
+        // TODO remember to keep limits which won't go out of bounds of floorMap
         private static int roomCount;
         private static int minRooms = 20;
         private static int maxRooms = 50;
