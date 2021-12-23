@@ -14,7 +14,7 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
     public static class RoomLoader
     {
         private static readonly List<Room> rooms = new List<Room>();
-        public static int roomCount;
+        public static int amountOfMaps;
         public static bool changingRoom = false;
 
         public static void loadAllRooms()
@@ -24,7 +24,7 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
             string path = String.Format("{0}home{0}cubeq{0}RiderProjects{0}EnterTheGuncave{0}EnterTheGuncave{0}Content{0}assets{0}maps{0}", Path.DirectorySeparatorChar);
 
             string[] files = Directory.GetFiles(path);
-            roomCount = files.Length;    
+            amountOfMaps = files.Length;    
             
             foreach (string file in files)
             {
