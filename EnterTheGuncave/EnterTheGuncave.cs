@@ -72,6 +72,7 @@ namespace EnterTheGuncave
            // RoomLoader.placeWalls();
            
             RoomLoader.playRoom(DungeonGenerator.floorMap[entities[0].mapPosition.X, entities[0].mapPosition.Y].roomInfo.roomIndex);
+            RoomLoader.placeDoors();
 
         }
 

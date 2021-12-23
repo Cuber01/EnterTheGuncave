@@ -106,7 +106,21 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
                 EnterTheGuncave.entities.Add(new Wall(new Vector2(EnterTheGuncave.tileSize * i, maxY), dTileDirection.up));
             }
 
+        }
+
+        public static void placeDoors()
+        {
+            // Left
+            EnterTheGuncave.entities.Add(new Door(new Vector2(0, 5 * EnterTheGuncave.tileSize), dDirection.left));
             
+            // Right
+            EnterTheGuncave.entities.Add(new Door(new Vector2(EnterTheGuncave.tileSize * (EnterTheGuncave.roomWidth - 1), 5 * EnterTheGuncave.tileSize), dDirection.right));
+            
+            // Up
+            EnterTheGuncave.entities.Add(new Door(new Vector2(9 * EnterTheGuncave.tileSize, 0), dDirection.up));
+            
+            // Down
+            EnterTheGuncave.entities.Add(new Door(new Vector2(9 * EnterTheGuncave.tileSize, EnterTheGuncave.tileSize * (EnterTheGuncave.roomHeight - 1)), dDirection.down));
         }
         
 
