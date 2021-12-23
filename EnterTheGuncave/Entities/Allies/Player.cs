@@ -97,11 +97,17 @@ namespace EnterTheGuncave.Entities.Allies
         private void move()
         {
             Vector2 newPosition = position + velocity * speed;
-            
+
+            Entity collidingBody = CollisionUtils.checkCollisionAtPos(collider, newPosition);
                 
-            if (CollisionUtils.checkCollisionAtPos(collider, newPosition))
+            if (collidingBody != null)
             {
                 (velocity.X, velocity.Y) = (0, 0);
+
+                if (collidingBody is Door)
+                {
+                    collidingBody.playerGoThrough();
+                }
             }
             else
             {

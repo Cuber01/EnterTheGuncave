@@ -6,7 +6,7 @@ namespace EnterTheGuncave.General.Collision
 {
     public static class CollisionUtils
     {
-        public static bool checkCollisionAtPos(Hitbox myHitbox, Vector2 myPosition)
+        public static Entity checkCollisionAtPos(Hitbox myHitbox, Vector2 myPosition)
         {
 
             foreach (Entity entity in EnterTheGuncave.entities)
@@ -20,13 +20,13 @@ namespace EnterTheGuncave.General.Collision
                         myPosition.Y < otherHitbox.position.Y + otherHitbox.height &&
                         myHitbox.height + myPosition.Y > otherHitbox.position.Y)
                     {
-                        return true;
+                        return entity;
                     }    
                 }
                       
             }
             
-            return false;
+            return null;
             
         }
     }

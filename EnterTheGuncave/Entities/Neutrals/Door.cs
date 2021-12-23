@@ -3,6 +3,7 @@ using EnterTheGuncave.Entities.Projectiles;
 using EnterTheGuncave.General.Collision;
 using EnterTheGuncave.General.ContentHandling.Assets;
 using EnterTheGuncave.General.ContentHandling.Rooms;
+using EnterTheGuncave.General.DungeonGenerator;
 using Microsoft.Xna.Framework;
 
 // Static imports. ono.
@@ -42,36 +43,31 @@ namespace EnterTheGuncave.Entities.Neutrals
         {
             EnterTheGuncave.spriteBatch.Draw(texture, position, spritesheetPositions[(int)direction], Color.White);
         }
-        
-        protected override void checkCollision()
-        {
-            foreach (Entity entity in EnterTheGuncave.entities)
-            {
-                if (!(entity is Player)) continue;
-                
-                if (collider.checkCollision(entity) != null)
-                {
-                    switch (direction)
-                    {
-                        case dDirection.up: 
-                            entity.mapPosition.Y -= 1; 
-                            break;
-                        
-                        case dDirection.down:
-                            entity.mapPosition.Y += 1;
-                            break;
-                        
-                        case dDirection.right:
-                            entity.mapPosition.X += 1;
-                            break;
-                        
-                        case dDirection.left:
-                            entity.mapPosition.X -= 1;
-                            break;
-                    }    
-                }
 
-            }
+        public override void playerGoThrough()
+        {
+            Entity player = entities[0];
+            
+            switch (direction)
+            {
+                case dDirection.up: 
+                    player.mapPosition.Y -= 1; 
+                    break;
+                        
+                case dDirection.down:
+                    player.mapPosition.Y += 1;
+                    break;
+                        
+                case dDirection.right:
+                    player.mapPosition.X += 1;
+                    break;
+                        
+                case dDirection.left:
+                    player.mapPosition.X -= 1;
+                    break;
+            }    
+                    
+            RoomLoader.playRoom(DungeonGenerator.floorMap[player.mapPosition.X, player.mapPosition.Y].roomInfo.roomIndex);
         }
     }
 }

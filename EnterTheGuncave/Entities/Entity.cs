@@ -43,5 +43,8 @@ namespace EnterTheGuncave.Entities
 
         public virtual void takeDamage(int dmg) {}
         
+        /* ------------------- DOOR --------------------- */
+        public virtual void playerGoThrough() {} 
+        
     }
 }
