@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using EnterTheGuncave.General.ContentHandling.Rooms;
 using Microsoft.Xna.Framework;
 
 namespace EnterTheGuncave.General.DungeonGenerator
@@ -9,6 +10,7 @@ namespace EnterTheGuncave.General.DungeonGenerator
     {
         public static RoomPlan[,] floorMap = new RoomPlan[maxFloorWidth, maxFloorHeight];
         private static List<RoomPlan> endRooms = new List<RoomPlan>();
+        public static Point startingPos;
 
         // TODO remember to keep limits which won't go out of bounds of floorMap
         private static int roomCount;
@@ -22,7 +24,7 @@ namespace EnterTheGuncave.General.DungeonGenerator
 
         public static void generate()
         {
-            Point startingPos = new Point(maxFloorWidth / 2, maxFloorHeight / 2);
+            startingPos = new Point(maxFloorWidth / 2, maxFloorHeight / 2);
             bool done = false;
             
             floorMap[startingPos.X, startingPos.Y] = new RoomPlan(new RoomInfo(
@@ -141,7 +143,7 @@ namespace EnterTheGuncave.General.DungeonGenerator
                 }
 
                 roomCount++;
-                floorMap[newPos.X, newPos.Y] = new RoomPlan(new RoomInfo(1, dRoomType.normal), newPos);
+                floorMap[newPos.X, newPos.Y] = new RoomPlan(new RoomInfo(Util.random.Next(0, RoomLoader.roomCount), dRoomType.normal), newPos);
 
                 switch (direction)
                 {
@@ -184,6 +186,7 @@ namespace EnterTheGuncave.General.DungeonGenerator
             {
                 for (int j = 0; j < floorMap.GetLength(1); j++)
                 {
+                    
                     if (floorMap[i, j] != null)
                     {
                         str += (int)floorMap[i, j].roomInfo.roomType;
@@ -192,6 +195,7 @@ namespace EnterTheGuncave.General.DungeonGenerator
                     {
                         str += '0';
                     }
+                    
                 }
             }
 

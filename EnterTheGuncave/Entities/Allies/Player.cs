@@ -2,6 +2,8 @@ using EnterTheGuncave.Entities.Projectiles;
 using EnterTheGuncave.General;
 using EnterTheGuncave.General.Collision;
 using EnterTheGuncave.General.ContentHandling.Assets;
+using EnterTheGuncave.General.ContentHandling.Rooms;
+using EnterTheGuncave.General.DungeonGenerator;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
@@ -9,7 +11,8 @@ namespace EnterTheGuncave.Entities.Allies
 {
     public class Player : Entity
     {
-
+        public Point mapPosition;
+        
         private readonly float speed = 1.1f;
         private readonly float friction = 0.65f;
         private readonly float maxVelocity = 6;
@@ -17,6 +20,8 @@ namespace EnterTheGuncave.Entities.Allies
         public Player(Vector2 position)
         {
             this.position = position;
+            this.mapPosition = DungeonGenerator.startingPos;
+            
             this.texture  = AssetLoader.textures[dTextureKeys.player];
             this.myWidth  = texture.Width  / EnterTheGuncave.scale;
             this.myHeight = texture.Height / EnterTheGuncave.scale;
