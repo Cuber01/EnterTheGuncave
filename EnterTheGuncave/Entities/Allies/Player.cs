@@ -1,3 +1,4 @@
+using EnterTheGuncave.Entities.Neutrals;
 using EnterTheGuncave.Entities.Projectiles;
 using EnterTheGuncave.General;
 using EnterTheGuncave.General.Collision;
@@ -11,8 +12,6 @@ namespace EnterTheGuncave.Entities.Allies
 {
     public class Player : Entity
     {
-        public Point mapPosition;
-        
         private readonly float speed = 1.1f;
         private readonly float friction = 0.65f;
         private readonly float maxVelocity = 6;
@@ -117,10 +116,15 @@ namespace EnterTheGuncave.Entities.Allies
         // {
         //     foreach (Entity entity in EnterTheGuncave.entities)
         //     {
-        //         if (collider.checkCollision(entity) != null)
+        //         
+        //         if (entity is Door)
         //         {
-        //             //    velocity = -velocity;
+        //             if (collider.checkCollision(entity) != null)
+        //             {
+        //             
+        //             }    
         //         }
+        //         
         //     }
         // }
 

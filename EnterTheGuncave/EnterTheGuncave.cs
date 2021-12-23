@@ -49,6 +49,10 @@ namespace EnterTheGuncave
             draw = new DrawUtils(GraphicsDevice, spriteBatch);
         }
 
+        // 1. Generate dungeon
+        // 2. Add player
+        // 3. Load rooms
+        // 4. Play a room
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -56,17 +60,18 @@ namespace EnterTheGuncave
             AssetLoader assetLoader = new AssetLoader(Content);
             
             assetLoader.loadTextures();
+           
+            DungeonGenerator.generate();
             
             entities.Add(new Player(new Vector2(50, 100)));
+            
             // entities.Add(new WalkingEnemy(new Vector2(128, 80)));
             // entities.Add(new Stone(new Vector2(100, 100)));
-            
-            
+
             RoomLoader.loadAllRooms();
            // RoomLoader.placeWalls();
-            RoomLoader.playRoom(0);
-
-            DungeonGenerator.generate();
+           
+            RoomLoader.playRoom(DungeonGenerator.floorMap[entities[0].mapPosition.X, entities[0].mapPosition.Y].roomInfo.roomIndex);
 
         }
 
