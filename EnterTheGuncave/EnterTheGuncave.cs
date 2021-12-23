@@ -49,9 +49,9 @@ namespace EnterTheGuncave
             draw = new DrawUtils(GraphicsDevice, spriteBatch);
         }
 
-        // 1. Generate dungeon
-        // 2. Add player
-        // 3. Load rooms
+        // 1. Load rooms
+        // 2. Generate dungeon
+        // 3. Add player
         // 4. Play a room
         protected override void LoadContent()
         {
