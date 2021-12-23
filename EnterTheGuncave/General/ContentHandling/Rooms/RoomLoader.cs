@@ -49,8 +49,10 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
             
             (EnterTheGuncave.entities[0].position.X, EnterTheGuncave.entities[0].position.Y) = (50.0f, 50.0f);
             
+            Console.WriteLine(index);
             for(int i = 0; i < rooms[index].Layers[0].Data.Length; i++)
             {
+                
                 if (rooms[index].Layers[0].Data[i] == 0) continue;
                 
                 int currentCol = i / EnterTheGuncave.roomWidth;

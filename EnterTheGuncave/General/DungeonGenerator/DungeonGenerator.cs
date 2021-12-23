@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using EnterTheGuncave.General.ContentHandling.Rooms;
 using Microsoft.Xna.Framework;
 
+// TODO room positions seem flipped towards what the debug print shows
+
 namespace EnterTheGuncave.General.DungeonGenerator
 {
     
@@ -59,7 +61,7 @@ namespace EnterTheGuncave.General.DungeonGenerator
             }
             
             
-            debugPrintDungeon();
+            //debugPrintDungeon();
 
         }
         
@@ -143,7 +145,7 @@ namespace EnterTheGuncave.General.DungeonGenerator
                 }
 
                 roomCount++;
-                floorMap[newPos.X, newPos.Y] = new RoomPlan(new RoomInfo(Util.random.Next(0, RoomLoader.roomCount), dRoomType.normal), newPos);
+                floorMap[newPos.X, newPos.Y] = new RoomPlan(new RoomInfo(Util.random.Next(0, RoomLoader.roomCount + 1), dRoomType.normal), newPos);
 
                 switch (direction)
                 {

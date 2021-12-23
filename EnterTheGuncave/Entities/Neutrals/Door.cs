@@ -14,8 +14,7 @@ namespace EnterTheGuncave.Entities.Neutrals
     public class Door : Entity
     {
         private readonly dDirection direction;
-        private bool wentThroughMe = false;
-        
+
         private static readonly Rectangle[] spritesheetPositions =
         {
             new Rectangle(0, 0, 16, 16),
@@ -47,10 +46,6 @@ namespace EnterTheGuncave.Entities.Neutrals
 
         public override void playerGoThrough()
         {
-            if (wentThroughMe)
-            {
-                return;
-            }
 
             Entity player = entities[0];
             
@@ -74,10 +69,9 @@ namespace EnterTheGuncave.Entities.Neutrals
             }
             
             RoomLoader.playRoom(DungeonGenerator.floorMap[player.mapPosition.X, player.mapPosition.Y].roomInfo.roomIndex);
-
-            wentThroughMe = true;
+            
             RoomLoader.changingRoom = true;
-            Console.WriteLine("Hecc");
+
         }
     }
 }
