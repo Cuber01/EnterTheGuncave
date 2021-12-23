@@ -14,7 +14,7 @@ namespace EnterTheGuncave.General.DungeonGenerator
         private static List<RoomPlan> endRooms = new List<RoomPlan>();
         public static Point startingPos;
 
-        // TODO remember to keep limits which won't go out of bounds of floorMap
+        // Remember to keep limits which won't go out of bounds of floorMap
         private static int roomCount;
         private static int minRooms = 20;
         private static int maxRooms = 50;

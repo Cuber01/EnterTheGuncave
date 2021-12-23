@@ -141,16 +141,16 @@ namespace EnterTheGuncave.Entities.Baddies
         
         /* ---------------- COLLISION ------------------ */
         
-        protected override void checkCollision()
-        {
-            foreach (Entity entity in EnterTheGuncave.entities)
-            {
-                if (collider.checkCollision(entity) != null)
-                {
-                    // TODO
-                }
-            }
-        }
+        // protected override void checkCollision()
+        // {
+        //     foreach (Entity entity in EnterTheGuncave.entities)
+        //     {
+        //         if (collider.checkCollision(entity) != null)
+        //         {
+        //             
+        //         }
+        //     }
+        // }
         
         /* ------------------- DAMAGE ------------------- */
 

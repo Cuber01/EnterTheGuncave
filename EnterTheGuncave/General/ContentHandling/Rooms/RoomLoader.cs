@@ -42,17 +42,13 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
 
         public static void playRoom(int index)
         {
-            
             clearRoom();
             placeDoors();
-            
-            
+
             (EnterTheGuncave.entities[0].position.X, EnterTheGuncave.entities[0].position.Y) = (50.0f, 50.0f);
             
-            Console.WriteLine(index);
             for(int i = 0; i < rooms[index].Layers[0].Data.Length; i++)
             {
-                
                 if (rooms[index].Layers[0].Data[i] == 0) continue;
                 
                 int currentCol = i / EnterTheGuncave.roomWidth;
@@ -82,7 +78,7 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
 
         public static void clearRoom()
         {
-
+            
             EnterTheGuncave.entities.RemoveAll(x => !(x is Player));
             EnterTheGuncave.entitiesToBeSpawned.Clear();
             EnterTheGuncave.entitiesToBeKilled.Clear();

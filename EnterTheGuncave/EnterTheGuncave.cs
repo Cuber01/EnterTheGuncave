@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using EnterTheGuncave.Entities;
 using EnterTheGuncave.Entities.Allies;
 using EnterTheGuncave.General;
@@ -66,11 +67,11 @@ namespace EnterTheGuncave
             DungeonGenerator.generate();
             
             entities.Add(new Player(new Vector2(50, 100)));
-            
+
             // entities.Add(new WalkingEnemy(new Vector2(128, 80)));
             // entities.Add(new Stone(new Vector2(100, 100)));
             // RoomLoader.placeWalls();
-           
+            
             RoomLoader.playRoom(DungeonGenerator.floorMap[entities[0].mapPosition.X, entities[0].mapPosition.Y].roomInfo.roomIndex);
             RoomLoader.placeDoors();
 
@@ -90,13 +91,15 @@ namespace EnterTheGuncave
 
             entitiesToBeSpawned.Clear();
 
-
+            // TODO objects don't update after roomClear
             foreach (Entity entity in entities) 
             {
                 if (entity.dead)
                 {
                     entitiesToBeKilled.Add(entity); 
                 }
+                
+                Console.WriteLine(entity);
                 
                 entity.update();    
                 
