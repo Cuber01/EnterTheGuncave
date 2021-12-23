@@ -3,7 +3,6 @@ using EnterTheGuncave.Entities.Projectiles;
 using EnterTheGuncave.General;
 using EnterTheGuncave.General.Collision;
 using EnterTheGuncave.General.ContentHandling.Assets;
-using EnterTheGuncave.General.ContentHandling.Rooms;
 using EnterTheGuncave.General.DungeonGenerator;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;

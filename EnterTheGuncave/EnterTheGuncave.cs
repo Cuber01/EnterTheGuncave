@@ -14,7 +14,7 @@ namespace EnterTheGuncave
     {
         public static readonly List<Entity> entities = new List<Entity>();
         public static readonly List<Entity> entitiesToBeSpawned = new List<Entity>();
-        private static readonly List<Entity> entitiesToBeKilled = new List<Entity>();
+        public static readonly List<Entity> entitiesToBeKilled = new List<Entity>();
 
         public const int roomWidth = 19;
         public const int roomHeight = 11;
@@ -81,32 +81,38 @@ namespace EnterTheGuncave
             
             Input.updateKeyboardState();
             Input.updateMouseState();
-            
+
+
             foreach (Entity spawn in entitiesToBeSpawned)
             { 
                 entities.Add(spawn);
             }
+
             entitiesToBeSpawned.Clear();
-                
-                
-            foreach( Entity entity in entities )
-            { 
+
+
+            foreach (Entity entity in entities) 
+            {
                 if (entity.dead)
                 {
-                    entitiesToBeKilled.Add(entity);
+                    entitiesToBeKilled.Add(entity); 
                 }
-            
-                entity.update();
-            }
-            
-            foreach ( Entity victim in entitiesToBeKilled )
-            {
-                entities.Remove(victim);
-            }
-            entitiesToBeKilled.Clear();
                 
-            
-            
+                entity.update();    
+                
+                if (RoomLoader.changingRoom)
+                {
+                    break;
+                }
+            }
+
+            foreach (Entity victim in entitiesToBeKilled)
+            {
+                    entities.Remove(victim);
+            }
+
+            entitiesToBeKilled.Clear();
+
             base.Update(gameTime);
         }
 

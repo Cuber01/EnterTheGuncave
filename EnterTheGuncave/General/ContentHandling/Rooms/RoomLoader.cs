@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using EnterTheGuncave.Entities;
+using EnterTheGuncave.Entities.Allies;
 using EnterTheGuncave.Entities.Baddies;
 using EnterTheGuncave.Entities.Neutrals;
 using Microsoft.Xna.Framework;
@@ -12,6 +14,7 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
     {
         private static readonly List<Room> rooms = new List<Room>();
         public static int roomCount;
+        public static bool changingRoom = false;
 
         public static void loadAllRooms()
         {
@@ -39,6 +42,10 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
         public static void playRoom(int index)
         {
             
+            clearRoom();
+            placeDoors();
+            (EnterTheGuncave.entities[0].position.X, EnterTheGuncave.entities[0].position.Y) = (50.0f, 50.0f);
+            
             for(int i = 0; i < rooms[index].Layers[0].Data.Length; i++)
             {
                 if (rooms[index].Layers[0].Data[i] == 0) continue;
@@ -63,7 +70,18 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
                 }
                 
             }
-            
+
+            changingRoom = false;
+
+        }
+
+        public static void clearRoom()
+        {
+
+            EnterTheGuncave.entities.RemoveAll(x => !(x is Player));
+            EnterTheGuncave.entitiesToBeSpawned.Clear();
+            EnterTheGuncave.entitiesToBeKilled.Clear();
+
         }
 
         public static void placeWalls()

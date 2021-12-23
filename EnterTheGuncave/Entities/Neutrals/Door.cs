@@ -1,4 +1,4 @@
-using EnterTheGuncave.Entities.Allies;
+using System;
 using EnterTheGuncave.Entities.Projectiles;
 using EnterTheGuncave.General.Collision;
 using EnterTheGuncave.General.ContentHandling.Assets;
@@ -14,6 +14,7 @@ namespace EnterTheGuncave.Entities.Neutrals
     public class Door : Entity
     {
         private readonly dDirection direction;
+        private bool wentThroughMe = false;
         
         private static readonly Rectangle[] spritesheetPositions =
         {
@@ -46,6 +47,11 @@ namespace EnterTheGuncave.Entities.Neutrals
 
         public override void playerGoThrough()
         {
+            if (wentThroughMe)
+            {
+                return;
+            }
+
             Entity player = entities[0];
             
             switch (direction)
@@ -65,9 +71,18 @@ namespace EnterTheGuncave.Entities.Neutrals
                 case dDirection.left:
                     player.mapPosition.X -= 1;
                     break;
-            }    
-                    
-            RoomLoader.playRoom(DungeonGenerator.floorMap[player.mapPosition.X, player.mapPosition.Y].roomInfo.roomIndex);
+            }
+
+            // TODO remove this when doors won't generate on empty rooms
+            if (DungeonGenerator.floorMap[player.mapPosition.X, player.mapPosition.Y] != null)
+            {
+                RoomLoader.playRoom(DungeonGenerator.floorMap[player.mapPosition.X, player.mapPosition.Y].roomInfo.roomIndex);
+            }
+            
+            
+            wentThroughMe = true;
+            RoomLoader.changingRoom = true;
+            Console.WriteLine("Hecc");
         }
     }
 }
