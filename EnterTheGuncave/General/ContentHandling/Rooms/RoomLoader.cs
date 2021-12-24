@@ -1,11 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using EnterTheGuncave.Entities;
 using EnterTheGuncave.Entities.Allies;
 using EnterTheGuncave.Entities.Baddies;
 using EnterTheGuncave.Entities.Neutrals;
-using EnterTheGuncave.General.DungeonGenerator;
 using Microsoft.Xna.Framework;
 
 
@@ -44,6 +42,7 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
         {
             clearRoom();
             placeDoors();
+            placeWalls();
 
             (EnterTheGuncave.entities[0].position.X, EnterTheGuncave.entities[0].position.Y) = (50.0f, 50.0f);
             
@@ -76,7 +75,7 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
 
         }
 
-        public static void clearRoom()
+        private static void clearRoom()
         {
             
             EnterTheGuncave.entities.RemoveAll(x => !(x is Player));
@@ -85,49 +84,127 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
 
         }
 
-        public static void placeWalls()
+        private static void placeWalls()
         {
             float maxX = EnterTheGuncave.tileSize * (EnterTheGuncave.roomWidth - 1);
             float maxY = EnterTheGuncave.tileSize * (EnterTheGuncave.roomHeight - 1);
+            Point playerMapPos = EnterTheGuncave.entities[0].mapPosition;
+
+            int roomHeightWithDoor = EnterTheGuncave.roomHeight - 1;
+            int roomWidthWithDoor = EnterTheGuncave.roomWidth - 1;
             
             // Upleft corner
             EnterTheGuncave.entities.Add(new Wall(new Vector2(0, 0), dTileDirection.upleft));
 
             // Up wall
-            for (int i = 1; i < EnterTheGuncave.roomWidth - 1; i++)
+            if (DungeonGenerator.DungeonGenerator.floorMap[playerMapPos.X, playerMapPos.Y - 1] == null)
             {
-                EnterTheGuncave.entities.Add(new Wall(new Vector2(EnterTheGuncave.tileSize * i, 0), dTileDirection.down));
+                for (int i = 1; i < EnterTheGuncave.roomWidth - 1; i++)
+                {
+                    EnterTheGuncave.entities.Add(new Wall(new Vector2(EnterTheGuncave.tileSize * i, 0),
+                        dTileDirection.down));
+                }
             }
-            
+            else
+            {
+                for (int i = 1; i < roomWidthWithDoor/2; i++)
+                {
+                    EnterTheGuncave.entities.Add(new Wall(new Vector2(EnterTheGuncave.tileSize * i, 0),
+                        dTileDirection.down));
+                }
+                
+                for (int i = roomWidthWithDoor/2 + 1; i < roomWidthWithDoor; i++)
+                {
+                    EnterTheGuncave.entities.Add(new Wall(new Vector2(EnterTheGuncave.tileSize * i, 0),
+                        dTileDirection.down));
+                }
+            }
+
             // Upright corner
             EnterTheGuncave.entities.Add(new Wall(new Vector2(maxX, 0), dTileDirection.upright));
             
             // Right wall
-            for (int i = 1; i < EnterTheGuncave.roomHeight - 1; i++)
+            if (DungeonGenerator.DungeonGenerator.floorMap[playerMapPos.X + 1, playerMapPos.Y] == null)
             {
-                EnterTheGuncave.entities.Add(new Wall(new Vector2(maxX, EnterTheGuncave.tileSize * i), dTileDirection.left));
+                for (int i = 1; i < EnterTheGuncave.roomHeight - 1; i++)
+                {
+                    EnterTheGuncave.entities.Add(new Wall(new Vector2(maxX, EnterTheGuncave.tileSize * i),
+                        dTileDirection.left));
+                }
             }
-            
+            else
+            {
+                for (int i = 1; i < roomHeightWithDoor/2; i++)
+                {
+                    EnterTheGuncave.entities.Add(new Wall(new Vector2(maxX, EnterTheGuncave.tileSize * i),
+                        dTileDirection.left));
+                }
+                
+                for (int i = roomHeightWithDoor/2 + 1; i < roomHeightWithDoor; i++)
+                {
+                    EnterTheGuncave.entities.Add(new Wall(new Vector2(maxX, EnterTheGuncave.tileSize * i),
+                        dTileDirection.left));
+                }
+            }
+
             // Downright corner
             EnterTheGuncave.entities.Add(new Wall(new Vector2(maxX, maxY), dTileDirection.downright));
             
             // Left wall
-            for (int i = 1; i < EnterTheGuncave.roomHeight - 1; i++)
+            if (DungeonGenerator.DungeonGenerator.floorMap[playerMapPos.X - 1, playerMapPos.Y] == null)
             {
-                EnterTheGuncave.entities.Add(new Wall(new Vector2(0, EnterTheGuncave.tileSize * i), dTileDirection.right));
+                for (int i = 1; i < EnterTheGuncave.roomHeight - 1; i++)
+                {
+                    EnterTheGuncave.entities.Add(new Wall(new Vector2(0, EnterTheGuncave.tileSize * i),
+                        dTileDirection.right));
+                }
             }
-            
+            else
+            {
+                for (int i = 1; i < roomHeightWithDoor/2; i++)
+                {
+                    EnterTheGuncave.entities.Add(new Wall(new Vector2(0, EnterTheGuncave.tileSize * i),
+                        dTileDirection.right));
+                }
+                
+                for (int i = roomHeightWithDoor/2 + 1; i < roomHeightWithDoor; i++)
+                {
+                    EnterTheGuncave.entities.Add(new Wall(new Vector2(0, EnterTheGuncave.tileSize * i),
+                        dTileDirection.right));
+                }
+                
+            }
+
             // Downleft corner
             EnterTheGuncave.entities.Add(new Wall(new Vector2(0, maxY), dTileDirection.downleft));
             
-            for (int i = 1; i < EnterTheGuncave.roomWidth - 1; i++)
+            // Down wall
+            if (DungeonGenerator.DungeonGenerator.floorMap[playerMapPos.X, playerMapPos.Y + 1] == null)
             {
-                EnterTheGuncave.entities.Add(new Wall(new Vector2(EnterTheGuncave.tileSize * i, maxY), dTileDirection.up));
+                for (int i = 1; i < EnterTheGuncave.roomWidth - 1; i++)
+                {
+                    EnterTheGuncave.entities.Add(new Wall(new Vector2(EnterTheGuncave.tileSize * i, maxY),
+                        dTileDirection.up));
+                }
+            }
+            else
+            {
+                for (int i = 1; i < roomWidthWithDoor/2; i++)
+                {
+                    EnterTheGuncave.entities.Add(new Wall(new Vector2(EnterTheGuncave.tileSize * i, maxY),
+                        dTileDirection.up));
+                }
+                
+                for (int i = roomWidthWithDoor/2 + 1; i < roomWidthWithDoor; i++)
+                {
+                    EnterTheGuncave.entities.Add(new Wall(new Vector2(EnterTheGuncave.tileSize * i, maxY),
+                        dTileDirection.up));
+                }
             }
 
         }
 
-        public static void placeDoors()
+        private static void placeDoors()
         {
             Point playerMapPos = EnterTheGuncave.entities[0].mapPosition;
             

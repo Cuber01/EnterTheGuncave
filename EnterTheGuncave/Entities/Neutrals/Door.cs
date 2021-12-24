@@ -1,4 +1,3 @@
-using System;
 using EnterTheGuncave.Entities.Projectiles;
 using EnterTheGuncave.General.Collision;
 using EnterTheGuncave.General.ContentHandling.Assets;
