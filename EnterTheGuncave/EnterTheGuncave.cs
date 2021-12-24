@@ -72,7 +72,7 @@ namespace EnterTheGuncave
             // entities.Add(new Stone(new Vector2(100, 100)));
             // RoomLoader.placeWalls();
             
-            RoomLoader.playRoom(DungeonGenerator.floorMap[entities[0].mapPosition.X, entities[0].mapPosition.Y].roomInfo.roomIndex);
+            RoomLoader.playRoom(DungeonGenerator.floorMap[entities[0].mapPosition.X, entities[0].mapPosition.Y].roomInfo.roomIndex, dDirection.center);
 
         }
 

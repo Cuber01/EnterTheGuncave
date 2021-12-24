@@ -5,6 +5,8 @@ namespace EnterTheGuncave
         up,
         down,
         right,
-        left
+        left,
+        center // Well it's not quite a direction but I need it
     }
+
 }

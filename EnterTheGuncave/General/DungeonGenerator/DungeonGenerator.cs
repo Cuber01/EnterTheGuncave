@@ -30,7 +30,7 @@ namespace EnterTheGuncave.General.DungeonGenerator
             bool done = false;
             
             floorMap[startingPos.X, startingPos.Y] = new RoomPlan(new RoomInfo(
-                1,
+                2,
                 dRoomType.start
                 ),
                 startingPos);

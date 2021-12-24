@@ -38,13 +38,13 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
             return Room.FromJson(levelJSON);
         }
 
-        public static void playRoom(int index)
+        public static void playRoom(int index, dDirection wherePlayerCameFrom)
         {
             clearRoom();
             placeDoors();
             placeWalls();
 
-            (EnterTheGuncave.entities[0].position.X, EnterTheGuncave.entities[0].position.Y) = (50.0f, 50.0f);
+            placePlayer(wherePlayerCameFrom);
             
             for(int i = 0; i < rooms[index].Layers[0].Data.Length; i++)
             {
@@ -72,6 +72,48 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
             }
 
             changingRoom = false;
+
+        }
+
+        private static void placePlayer(dDirection direction)
+        {
+            Vector2 playerPos = EnterTheGuncave.entities[0].position;
+            float offset = 2.0f;
+            
+            switch (direction)
+            {
+                case dDirection.up:
+                {
+                    (playerPos.X, playerPos.Y) = (EnterTheGuncave.roomWidth / 2 * EnterTheGuncave.tileSize, (EnterTheGuncave.roomHeight - 2) * EnterTheGuncave.tileSize - offset);
+                    break;
+                }
+                
+                case dDirection.down:
+                {
+                    (playerPos.X, playerPos.Y) = (EnterTheGuncave.roomWidth / 2 * EnterTheGuncave.tileSize, EnterTheGuncave.tileSize + offset);
+                    break;
+                }
+                    
+                case dDirection.left:
+                {
+                    (playerPos.X, playerPos.Y) = ((EnterTheGuncave.roomWidth - 2) * EnterTheGuncave.tileSize - offset, EnterTheGuncave.roomHeight/2  * EnterTheGuncave.tileSize);  
+                    break;
+                }
+                    
+                case dDirection.right:
+                {
+                    (playerPos.X, playerPos.Y) = (EnterTheGuncave.tileSize, EnterTheGuncave.roomHeight/2  * EnterTheGuncave.tileSize + offset);
+                    break;
+                }
+                    
+                case dDirection.center:
+                {
+                    (playerPos.X, playerPos.Y) = (EnterTheGuncave.roomWidth/2 * EnterTheGuncave.tileSize, EnterTheGuncave.roomHeight/2 * EnterTheGuncave.tileSize);
+                    break;
+                }
+            }    
+
+            EnterTheGuncave.entities[0].position = playerPos;
 
         }
 
