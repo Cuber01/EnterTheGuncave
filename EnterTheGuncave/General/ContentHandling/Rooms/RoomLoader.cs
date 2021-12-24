@@ -1,9 +1,11 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using EnterTheGuncave.Entities.Allies;
 using EnterTheGuncave.Entities.Baddies;
 using EnterTheGuncave.Entities.Neutrals;
+using EnterTheGuncave.General.DungeonGenerator;
 using Microsoft.Xna.Framework;
 
 
@@ -11,22 +13,52 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
 {
     public static class RoomLoader
     {
-        private static readonly List<Room> rooms = new List<Room>();
-        public static int amountOfMaps;
+        private static readonly List<Room> normalRooms  = new List<Room>();
+        private static readonly List<Room> treasureRooms = new List<Room>();
+        private static readonly List<Room> bossRooms    = new List<Room>();
+        private static readonly List<Room> startRooms    = new List<Room>();
+        
+        public static int normalRoomCount;
+        public static int treasureRoomCount;
+        public static int bossRoomCount;
+        public static int startRoomCount;
+        
         public static bool changingRoom = false;
 
         public static void loadAllRooms()
         {
             
-            // TODO cross platform path
-            string path = String.Format("{0}home{0}cubeq{0}RiderProjects{0}EnterTheGuncave{0}EnterTheGuncave{0}Content{0}assets{0}maps{0}", Path.DirectorySeparatorChar);
+            string mapPath = String.Format(".{0}Content{0}assets{0}maps{0}", Path.DirectorySeparatorChar);
 
-            string[] files = Directory.GetFiles(path);
-            amountOfMaps = files.Length;    
+            string[] normalRoomFiles   = Directory.GetFiles(mapPath + "normal");
+            string[] treasureRoomFiles = Directory.GetFiles(mapPath + "treasure");
+            string[] bossRoomFiles     = Directory.GetFiles(mapPath + "boss");
+            string[] startRoomFiles    = Directory.GetFiles(mapPath + "start");
             
-            foreach (string file in files)
+            normalRoomCount   = normalRoomFiles.Length;
+            treasureRoomCount = treasureRoomFiles.Length;
+            bossRoomCount     = bossRoomFiles.Length;
+            startRoomCount    = startRoomFiles.Length;
+            
+            // TODO solve this and it should be OK
+            foreach (string file in normalRoomFiles)
             {
-                rooms.Add(loadRoom(file));
+                normalRoomFiles.Add(loadRoom(file));
+            }
+            
+            foreach (string file in treasureRoomFiles)
+            {
+                ((IList)treasureRoomFiles).Add(loadRoom(file));
+            }
+            
+            foreach (string file in bossRoomFiles)
+            {
+                ((IList)bossRoomFiles).Add(loadRoom(file));
+            }
+            
+            foreach (string file in startRoomFiles)
+            {
+                ((IList)startRoomFiles).Add(loadRoom(file));
             }
             
         }
@@ -38,17 +70,29 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
             return Room.FromJson(levelJSON);
         }
 
-        public static void playRoom(int index, dDirection wherePlayerCameFrom)
+        public static void playRoom(int index, dRoomType roomType, dDirection wherePlayerCameFrom)
         {
+            // Clear the current room, place doors and walls in the new one
             clearRoom();
             placeDoors();
             placeWalls();
 
+            // Place the player according to where he came from (eg. if he came from the left, place him on the right)
             placePlayer(wherePlayerCameFrom);
-            
-            for(int i = 0; i < rooms[index].Layers[0].Data.Length; i++)
+
+            List<Room> allRoomsOfType = new List<Room>();
+
+            switch (roomType)
             {
-                if (rooms[index].Layers[0].Data[i] == 0) continue;
+                case dRoomType.normal:   allRoomsOfType  =  normalRooms; break;
+                case dRoomType.boss:     allRoomsOfType  =  bossRooms; break;
+                case dRoomType.treasure: allRoomsOfType  =  treasureRooms; break;
+                case dRoomType.start:    allRoomsOfType  =  startRooms; break;
+            }
+
+            for(int i = 0; i < allRoomsOfType[index].Layers[0].Data.Length; i++)
+            {
+                if (allRoomsOfType[index].Layers[0].Data[i] == 0) continue;
                 
                 int currentCol = i / EnterTheGuncave.roomWidth;
                 int colIndex = i % EnterTheGuncave.roomWidth;
@@ -57,7 +101,7 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
                 EnterTheGuncave.currentRoom[colIndex, currentCol] = Int32.MaxValue;
             }
 
-            foreach(var nonTileObj in rooms[index].Layers[1].Objects)
+            foreach(var nonTileObj in allRoomsOfType[index].Layers[1].Objects)
             {
                 
                 switch (nonTileObj.Properties[0].Value)

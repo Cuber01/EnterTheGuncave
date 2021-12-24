@@ -52,6 +52,8 @@ c) I don't want to get rid of guns because they're cool, and enemies with guns a
 
 Baby boss, probably easy. Taken from r/Bossfight.
 
-*Obama*
+**Inspirations I don't want to forget about**
 
-I refuse further elaboration.
+Gameplay and enemy design - Enter the Gungeon, The Binding of Isaac, ATIC ATAC
+
+Naming - Newspeak (Orwell)

@@ -67,7 +67,7 @@ namespace EnterTheGuncave.Entities.Neutrals
                     break;
             }
             
-            RoomLoader.playRoom(DungeonGenerator.floorMap[player.mapPosition.X, player.mapPosition.Y].roomInfo.roomIndex, direction);
+            RoomLoader.playRoom(DungeonGenerator.floorMap[player.mapPosition.X, player.mapPosition.Y].roomInfo.roomIndex, DungeonGenerator.floorMap[player.mapPosition.X, player.mapPosition.Y].roomInfo.roomType, direction);
             
             RoomLoader.changingRoom = true;
 
