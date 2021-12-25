@@ -45,7 +45,6 @@ namespace EnterTheGuncave.Entities.Neutrals
 
         public override void playerGoThrough()
         {
-
             Entity player = entities[0];
             
             switch (direction)
@@ -67,9 +66,9 @@ namespace EnterTheGuncave.Entities.Neutrals
                     break;
             }
             
-            RoomLoader.playRoom(DungeonGenerator.floorMap[player.mapPosition.X, player.mapPosition.Y].roomInfo.roomIndex, DungeonGenerator.floorMap[player.mapPosition.X, player.mapPosition.Y].roomInfo.roomType, direction);
-            
             RoomLoader.changingRoom = true;
+            
+            RoomLoader.playRoom(DungeonGenerator.floorMap[player.mapPosition.X, player.mapPosition.Y].roomInfo.roomIndex, DungeonGenerator.floorMap[player.mapPosition.X, player.mapPosition.Y].roomInfo.roomType, direction);
 
         }
     }
