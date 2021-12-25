@@ -30,7 +30,7 @@ namespace EnterTheGuncave.General.DungeonGenerator
             bool done = false;
             
             floorMap[startingPos.X, startingPos.Y] = new RoomPlan(new RoomInfo(
-                0,
+                    Util.random.Next(0, RoomLoader.startRoomCount),
                 dRoomType.start
                 ),
                 startingPos);
@@ -53,16 +53,49 @@ namespace EnterTheGuncave.General.DungeonGenerator
                     endRooms[bossRoomIndex].roomInfo.roomType = dRoomType.boss;
                     
                     endRooms.RemoveAt(bossRoomIndex);
-                    
-                    
+
                     // We're finished!
                     done = true;
                 }
             }
             
+            fillInRooms();
             
             //debugPrintDungeon();
 
+        }
+
+        private static void fillInRooms()
+        {
+            foreach (RoomPlan room in floorMap)
+            {
+                if (room == null) continue;
+
+                // Fill in rooms with random indexes for each type.
+                // Start rooms are assigned from the start.
+                switch (room.roomInfo.roomType)
+                {
+                    
+                    case dRoomType.normal:
+                    {
+                        room.roomInfo.roomIndex = Util.random.Next(0, RoomLoader.normalRoomCount);
+                        break;
+                    }
+
+                    case dRoomType.treasure:
+                    {
+                        room.roomInfo.roomIndex = Util.random.Next(0, RoomLoader.treasureRoomCount);
+                        break;
+                    }
+
+                    case dRoomType.boss:
+                    {
+                        room.roomInfo.roomIndex = Util.random.Next(0, RoomLoader.bossRoomCount);
+                        break;
+                    }
+                    
+                }
+            }
         }
         
         public static void setupGeneration(int minRoom=10, int maxRoom=20, int maxNeighbourCount=1, float dooorChance=0.5f)
