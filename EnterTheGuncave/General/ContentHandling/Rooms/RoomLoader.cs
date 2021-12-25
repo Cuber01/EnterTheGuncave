@@ -43,22 +43,22 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
             // TODO solve this and it should be OK
             foreach (string file in normalRoomFiles)
             {
-                normalRoomFiles.Add(loadRoom(file));
+                normalRooms.Add(loadRoom(file));
             }
             
             foreach (string file in treasureRoomFiles)
             {
-                ((IList)treasureRoomFiles).Add(loadRoom(file));
+                treasureRooms.Add(loadRoom(file));
             }
             
             foreach (string file in bossRoomFiles)
             {
-                ((IList)bossRoomFiles).Add(loadRoom(file));
+                bossRooms.Add(loadRoom(file));
             }
             
             foreach (string file in startRoomFiles)
             {
-                ((IList)startRoomFiles).Add(loadRoom(file));
+                startRooms.Add(loadRoom(file));
             }
             
         }

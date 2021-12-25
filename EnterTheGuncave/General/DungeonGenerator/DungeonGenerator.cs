@@ -30,7 +30,7 @@ namespace EnterTheGuncave.General.DungeonGenerator
             bool done = false;
             
             floorMap[startingPos.X, startingPos.Y] = new RoomPlan(new RoomInfo(
-                2,
+                0,
                 dRoomType.start
                 ),
                 startingPos);
@@ -145,8 +145,9 @@ namespace EnterTheGuncave.General.DungeonGenerator
                 }
 
                 roomCount++;
-                floorMap[newPos.X, newPos.Y] = new RoomPlan(new RoomInfo(Util.random.Next(0, RoomLoader.normalRoomCount), dRoomType.normal), newPos);
-
+                floorMap[newPos.X, newPos.Y] = new RoomPlan(new RoomInfo(0, dRoomType.normal), newPos);
+                //Util.random.Next(0, RoomLoader.normalRoomCount)
+                
                 switch (direction)
                 {
                     case dDirection.up:
