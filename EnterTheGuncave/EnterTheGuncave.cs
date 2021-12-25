@@ -92,27 +92,23 @@ namespace EnterTheGuncave
             }
 
             entitiesToBeSpawned.Clear();
-
-            // TODO objects don't update after roomClear
-            // RoomLoader.changingRoom is always true after changing the room!
-            try
+            
+            foreach (Entity entity in entities)
             {
-                foreach (Entity entity in entities)
+                if (entity.dead)
                 {
-                    if (entity.dead)
-                    {
-                        entitiesToBeKilled.Add(entity);
-                    }
-
-                    entity.update();
-
-                    if (RoomLoader.changingRoom)
-                    {
-                        break;
-                    }
+                    entitiesToBeKilled.Add(entity);
                 }
-            } catch {}
 
+                entity.update();
+                    
+                if (RoomLoader.changingRoom)
+                {
+                    RoomLoader.changingRoom = false;
+                    break;
+                }
+            }
+                
             foreach (Entity victim in entitiesToBeKilled)
             {
                     entities.Remove(victim);

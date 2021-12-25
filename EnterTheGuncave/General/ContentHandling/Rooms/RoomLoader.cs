@@ -115,8 +115,6 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
                 
             }
 
-            changingRoom = false;
-
         }
 
         private static void placePlayer(dDirection direction)
