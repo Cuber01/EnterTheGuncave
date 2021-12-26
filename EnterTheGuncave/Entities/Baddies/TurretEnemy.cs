@@ -1,17 +1,25 @@
-using System;
 using EnterTheGuncave.Entities.Projectiles;
 using EnterTheGuncave.General.Collision;
 using EnterTheGuncave.General.ContentHandling.Assets;
 using Microsoft.Xna.Framework;
 
-// TODO pathfinding needs some checks
-// Pathfinding itself works, but the enemy can't properly handle tile hitboxes which causes him to get stuck, should be fixed later on with collision fixes.
 namespace EnterTheGuncave.Entities.Baddies
 {
     public class TurretEnemy : Entity
     {
         private EnemyStats stats;
-        private PistolShooter shooter;
+        private readonly PistolShooter shooter;
+
+        private readonly ShooterStats shooterStats = new ShooterStats(
+            100,
+              1, 
+    new BulletStats(
+                1,
+            2,
+               500,
+               1,
+                      dTeam.baddies
+                ));
 
         public TurretEnemy(Vector2 position)
         {
@@ -21,7 +29,8 @@ namespace EnterTheGuncave.Entities.Baddies
             this.texture = AssetLoader.textures[dTextureKeys.enemy_turret];
             this.myWidth  = texture.Width  / EnterTheGuncave.scale;
             this.myHeight = texture.Height / EnterTheGuncave.scale;
-            
+
+            this.shooter = new PistolShooter(shooterStats);
             this.tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
             this.collider = new Hitbox(position, myWidth, myHeight);
 
@@ -32,25 +41,11 @@ namespace EnterTheGuncave.Entities.Baddies
 
         public override void update()
         {
-            shoot();
-        }
+            Vector2 target = new Vector2(EnterTheGuncave.entities[0].position.X, EnterTheGuncave.entities[0].position.Y);
 
-        // TODO
-        private int reload = 100;
-        private void shoot()
-        {
-            reload--;
-            if (!(reload <= 0))
-            {
-                return;
-            }
-
-            reload = 100;
-            int target_x = (int)EnterTheGuncave.entities[0].position.X;
-            int target_y = (int)EnterTheGuncave.entities[0].position.Y;
-                
-            EnterTheGuncave.entitiesToBeSpawned.Add(new Bullet(new Vector2(target_x, target_y), position, new BulletStats(1, 1, 500, 5, dTeam.baddies)));
+            shooter.update(position, target);
         }
+        
 
         /* ------------------- DAMAGE ------------------- */
 

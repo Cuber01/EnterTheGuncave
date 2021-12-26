@@ -43,7 +43,6 @@ namespace EnterTheGuncave.Entities.Projectiles
 
         private void handleLifetime()
         {
-            Console.WriteLine(stats.lifetime);
             stats.lifetime--;
 
             if (stats.lifetime <= 0)

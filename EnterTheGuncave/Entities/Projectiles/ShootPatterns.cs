@@ -5,28 +5,12 @@ namespace EnterTheGuncave.Entities.Projectiles
 {
     public class Shooter
     {
-        protected ShooterStats shooterStats;
+        protected ShooterStats stats;
 
-        private Vector2 gunPosition;
-        private Vector2 targetPosition;
+        protected Vector2 gunPosition;
+        protected Vector2 targetPosition;
         
-        private int currentReloadTime;
-        protected int reloadTime;
-        protected int accuracy;
-
-        // Returns whether we're ready to shoot or not. Not a very nice name but I couldn't find a better one.
-        private bool reload()
-        {
-            currentReloadTime--;
-
-            if (currentReloadTime <= 0)
-            {
-                return true;
-            }
-
-            return false;
-
-        }
+        protected int currentReloadTime;
         
         public void update(Vector2 gunPos, Vector2 targetPos)
         {
@@ -41,21 +25,35 @@ namespace EnterTheGuncave.Entities.Projectiles
             }
         }
         
+        // Returns whether we're ready to shoot or not. Not a very nice name but I couldn't find a better one.
+        private bool reload()
+        {
+            currentReloadTime--;
+
+            if (currentReloadTime <= 0)
+            {
+                currentReloadTime = stats.reloadTime;
+                return true;
+            }
+
+            return false;
+
+        }
+        
         protected virtual void shoot() {}
     }
     
     public class PistolShooter : Shooter
     {
-        public PistolShooter(int reloadTime, int accuracy, BulletStats bulletStats)
+        public PistolShooter(ShooterStats shooterStats)
         {
-            this.reloadTime  = reloadTime;
-            this.accuracy    = accuracy;
-            this.bulletStats = bulletStats;
+            this.stats = shooterStats;
+            this.currentReloadTime = shooterStats.reloadTime;
         }
 
         protected override void shoot()
         {
-            EnterTheGuncave.entitiesToBeSpawned.Add(new Bullet(targetPosition, gunPosition, bulletStats));
+            EnterTheGuncave.entitiesToBeSpawned.Add(new Bullet(targetPosition, gunPosition, stats.bulletStats));
         }
         
     }
