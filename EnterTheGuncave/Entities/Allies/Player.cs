@@ -79,10 +79,10 @@ namespace EnterTheGuncave.Entities.Allies
 
             if (Input.mouseWasClicked())
             {
-                int target_x = Input.mouseState.X / EnterTheGuncave.scale;
-                int target_y = Input.mouseState.Y / EnterTheGuncave.scale;
+                int targetX = Input.mouseState.X / EnterTheGuncave.scale;
+                int targetY = Input.mouseState.Y / EnterTheGuncave.scale;
                 
-                EnterTheGuncave.entitiesToBeSpawned.Add(new Bullet(target_x, target_y, position, new BulletStats(1, 1, 500, 5, dTeam.allies)));
+                EnterTheGuncave.entitiesToBeSpawned.Add(new Bullet(new Vector2(targetX, targetY),position, new BulletStats(1, 1, 500, 5, dTeam.allies)));
             }
         }
 

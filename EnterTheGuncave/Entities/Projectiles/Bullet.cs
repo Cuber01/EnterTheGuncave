@@ -10,14 +10,14 @@ namespace EnterTheGuncave.Entities.Projectiles
         private readonly Vector2 target;
         private BulletStats stats;
 
-        public Bullet(int targetX, int targetY, Vector2 position, BulletStats stats)
+        public Bullet(Vector2 targetPos, Vector2 position, BulletStats stats)
         {
             this.position = position;
             this.texture = AssetLoader.textures[dTextureKeys.bullet];
             this.myWidth  = texture.Width  / EnterTheGuncave.scale;
             this.myHeight = texture.Height / EnterTheGuncave.scale;
 
-            ( this.target.X, this.target.Y ) = ( targetX, targetY );
+            this.target = targetPos;
             this.stats = stats;
             
             this.collider = new Hitbox(position, myWidth, myHeight);

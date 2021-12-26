@@ -11,6 +11,7 @@ namespace EnterTheGuncave.Entities.Baddies
     public class TurretEnemy : Entity
     {
         private EnemyStats stats;
+        private PistolShooter shooter;
 
         public TurretEnemy(Vector2 position)
         {
@@ -36,7 +37,7 @@ namespace EnterTheGuncave.Entities.Baddies
 
         // TODO
         private int reload = 100;
-        public void shoot()
+        private void shoot()
         {
             reload--;
             if (!(reload <= 0))
@@ -48,7 +49,7 @@ namespace EnterTheGuncave.Entities.Baddies
             int target_x = (int)EnterTheGuncave.entities[0].position.X;
             int target_y = (int)EnterTheGuncave.entities[0].position.Y;
                 
-            EnterTheGuncave.entitiesToBeSpawned.Add(new Bullet(target_x, target_y, position, new BulletStats(1, 1, 500, 5, dTeam.baddies)));
+            EnterTheGuncave.entitiesToBeSpawned.Add(new Bullet(new Vector2(target_x, target_y), position, new BulletStats(1, 1, 500, 5, dTeam.baddies)));
         }
 
         /* ------------------- DAMAGE ------------------- */
