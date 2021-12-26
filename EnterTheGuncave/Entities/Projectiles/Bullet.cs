@@ -7,7 +7,7 @@ namespace EnterTheGuncave.Entities.Projectiles
     public class Bullet : Entity
     {
         private readonly Vector2 target;
-        private readonly BulletStats stats;
+        private BulletStats stats;
 
         public Bullet(int targetX, int targetY, Vector2 position, BulletStats stats)
         {
@@ -25,6 +25,8 @@ namespace EnterTheGuncave.Entities.Projectiles
 
         public override void update()
         {
+            handleLifetime();
+            
             move();
             
             checkCollision();
@@ -37,22 +39,32 @@ namespace EnterTheGuncave.Entities.Projectiles
             this.velocity.X = (target.X - position.X) / dist;
             this.velocity.Y = (target.Y - position.Y) / dist;
         }
+
+        private void handleLifetime()
+        {
+            stats.lifetime--;
+
+            if (stats.lifetime <= 0)
+            {
+                dead = true;
+            }
+        }
         
         protected override void checkCollision()
         {
             foreach (Entity entity in EnterTheGuncave.entities)
             {
-                if (collider.checkCollision(entity) != null)
+                if (collider.checkCollision(entity) == null) continue;
+                
+                if (entity.team == stats.team)
                 {
-                    if (entity.team == stats.team)
-                    {
-                        return;
-                    }
-
-                    entity.takeDamage(stats.damage);
-                    dead = true;
-
+                    return;
                 }
+
+                entity.takeDamage(stats.damage);
+
+                stats.penetration--;
+                dead = true;
             }
         }
         

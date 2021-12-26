@@ -133,18 +133,6 @@ namespace EnterTheGuncave.Entities.Allies
         //     }
         // }
 
-        // private bool checkCollisionLines(DrawUtils draw)
-        // {
-        //     
-        //     float a = velocity.Y/velocity.X;
-        //     float b = position.Y - a * position.X;
-        //
-        //     draw.bersenhamLine(0, (int)Util.straightLineEquation(0,a,b), EnterTheGuncave.windowWidth, (int)Util.straightLineEquation(EnterTheGuncave.windowWidth,a,b), Color.Aqua);
-        //     //draw.bersenhamLine(0, (int)foo(0,a,b + entity.myWidth*scale), (int)windowWidth, (int)foo(windowWidth,a,b), Color.Aqua);
-        //     return false;
-        // }
-
-
-
+        
     }
 }

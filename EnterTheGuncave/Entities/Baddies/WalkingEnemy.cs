@@ -68,10 +68,11 @@ namespace EnterTheGuncave.Entities.Baddies
         {
             Vector2 newPosition = position + velocity * stats.speed;
             
-            if (CollisionUtils.checkCollisionAtPos(collider, newPosition) == null)
-            {
-                return;
-            }
+            // TODO we're stopping here
+            // if (CollisionUtils.checkCollisionAtPos(collider, newPosition) == null)
+            // {
+            //     return;
+            // }
             
             position = newPosition;
 

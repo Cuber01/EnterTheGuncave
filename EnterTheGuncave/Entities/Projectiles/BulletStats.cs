@@ -12,7 +12,7 @@ namespace EnterTheGuncave.Entities.Projectiles
         }
         
         public readonly int speed;
-        public readonly int penetration;
+        public int penetration;
         public readonly int damage;
         public int lifetime;
         public dTeam team;
