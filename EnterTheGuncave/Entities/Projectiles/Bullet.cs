@@ -1,3 +1,4 @@
+using System;
 using EnterTheGuncave.General.Collision;
 using EnterTheGuncave.General.ContentHandling.Assets;
 using Microsoft.Xna.Framework;
@@ -42,6 +43,7 @@ namespace EnterTheGuncave.Entities.Projectiles
 
         private void handleLifetime()
         {
+            Console.WriteLine(stats.lifetime);
             stats.lifetime--;
 
             if (stats.lifetime <= 0)
@@ -56,7 +58,7 @@ namespace EnterTheGuncave.Entities.Projectiles
             {
                 if (collider.checkCollision(entity) == null) continue;
                 
-                if (entity.team == stats.team)
+                if (entity.team == stats.team || entity is Bullet)
                 {
                     return;
                 }

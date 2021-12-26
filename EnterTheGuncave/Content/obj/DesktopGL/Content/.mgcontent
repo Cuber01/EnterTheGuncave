@@ -7,12 +7,14 @@
     <File>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/images/arrow.png</File>
     <File>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/images/bullet.png</File>
     <File>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/images/enemy.png</File>
+    <File>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/images/enemy_turret.png</File>
     <File>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/images/pedestal.png</File>
     <File>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/images/player.png</File>
     <File>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/images/stone.png</File>
     <File>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/images/tiles1.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

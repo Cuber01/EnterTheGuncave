@@ -6,6 +6,7 @@ public enum dTextureKeys
 {
     player,
     enemy,
+    enemy_turret,
     arrow,
     stone,
     bullet,
@@ -34,6 +35,7 @@ namespace EnterTheGuncave.General.ContentHandling.Assets
             textures.Add(dTextureKeys.bullet,   contentManager.Load<Texture2D>("assets/images/bullet"));
             textures.Add(dTextureKeys.tiles1,   contentManager.Load<Texture2D>("assets/images/tiles1"));
             textures.Add(dTextureKeys.pedestal, contentManager.Load<Texture2D>("assets/images/pedestal"));
+            textures.Add(dTextureKeys.enemy_turret, contentManager.Load<Texture2D>("assets/images/enemy_turret"));
         }
     }
 }

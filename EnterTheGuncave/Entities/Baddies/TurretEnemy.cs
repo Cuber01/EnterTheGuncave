@@ -17,7 +17,7 @@ namespace EnterTheGuncave.Entities.Baddies
             this.position = position;
             this.team = dTeam.baddies;
             
-            this.texture = AssetLoader.textures[dTextureKeys.enemy];
+            this.texture = AssetLoader.textures[dTextureKeys.enemy_turret];
             this.myWidth  = texture.Width  / EnterTheGuncave.scale;
             this.myHeight = texture.Height / EnterTheGuncave.scale;
             
@@ -34,10 +34,19 @@ namespace EnterTheGuncave.Entities.Baddies
             shoot();
         }
 
+        // TODO
+        private int reload = 100;
         public void shoot()
         {
-            int target_x = (int)EnterTheGuncave.entities[0].position.X / EnterTheGuncave.scale;
-            int target_y = (int)EnterTheGuncave.entities[0].position.Y / EnterTheGuncave.scale;
+            reload--;
+            if (!(reload <= 0))
+            {
+                return;
+            }
+
+            reload = 100;
+            int target_x = (int)EnterTheGuncave.entities[0].position.X;
+            int target_y = (int)EnterTheGuncave.entities[0].position.Y;
                 
             EnterTheGuncave.entitiesToBeSpawned.Add(new Bullet(target_x, target_y, position, new BulletStats(1, 1, 500, 5, dTeam.baddies)));
         }

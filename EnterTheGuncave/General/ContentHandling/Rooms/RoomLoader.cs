@@ -107,6 +107,16 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
                     case 2: EnterTheGuncave.entitiesToBeSpawned.Add(new Pedestal
                             (new Vector2(colIndex * EnterTheGuncave.tileSize, currentCol * EnterTheGuncave.tileSize)));
                         break;
+                    
+                    case 4: EnterTheGuncave.entitiesToBeSpawned.Add(new WalkingEnemy
+                            (new Vector2(colIndex * EnterTheGuncave.tileSize, currentCol * EnterTheGuncave.tileSize)));
+                        break;
+                    
+                    case 5:
+                        EnterTheGuncave.entitiesToBeSpawned.Add(new TurretEnemy
+                            (new Vector2(colIndex * EnterTheGuncave.tileSize, currentCol * EnterTheGuncave.tileSize)));
+                        break;                
+                    
                 }
 
 
