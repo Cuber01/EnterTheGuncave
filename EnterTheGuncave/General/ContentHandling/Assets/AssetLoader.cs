@@ -9,7 +9,8 @@ public enum dTextureKeys
     arrow,
     stone,
     bullet,
-    tiles1
+    tiles1,
+    pedestal
 }
 
 namespace EnterTheGuncave.General.ContentHandling.Assets
@@ -26,12 +27,13 @@ namespace EnterTheGuncave.General.ContentHandling.Assets
         
         public void loadTextures()
         {
-            textures.Add(dTextureKeys.player, contentManager.Load<Texture2D>("assets/images/player"));
-            textures.Add(dTextureKeys.enemy, contentManager.Load<Texture2D>("assets/images/enemy"));
-            textures.Add(dTextureKeys.arrow, contentManager.Load<Texture2D>("assets/images/arrow"));
-            textures.Add(dTextureKeys.stone, contentManager.Load<Texture2D>("assets/images/stone"));
-            textures.Add(dTextureKeys.bullet, contentManager.Load<Texture2D>("assets/images/bullet"));
-            textures.Add(dTextureKeys.tiles1, contentManager.Load<Texture2D>("assets/images/tiles1"));
+            textures.Add(dTextureKeys.player,   contentManager.Load<Texture2D>("assets/images/player"));
+            textures.Add(dTextureKeys.enemy,    contentManager.Load<Texture2D>("assets/images/enemy"));
+            textures.Add(dTextureKeys.arrow,    contentManager.Load<Texture2D>("assets/images/arrow"));
+            textures.Add(dTextureKeys.stone,    contentManager.Load<Texture2D>("assets/images/stone"));
+            textures.Add(dTextureKeys.bullet,   contentManager.Load<Texture2D>("assets/images/bullet"));
+            textures.Add(dTextureKeys.tiles1,   contentManager.Load<Texture2D>("assets/images/tiles1"));
+            textures.Add(dTextureKeys.pedestal, contentManager.Load<Texture2D>("assets/images/pedestal"));
         }
     }
 }

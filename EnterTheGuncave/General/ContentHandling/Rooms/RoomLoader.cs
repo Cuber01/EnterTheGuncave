@@ -97,7 +97,19 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
                 int currentCol = i / EnterTheGuncave.roomWidth;
                 int colIndex = i % EnterTheGuncave.roomWidth;
 
-                EnterTheGuncave.entitiesToBeSpawned.Add(new Stone(new Vector2(colIndex * EnterTheGuncave.tileSize, currentCol * EnterTheGuncave.tileSize)));
+                switch (allRoomsOfType[index].Layers[0].Data[i])
+                {
+                    case 1:
+                        EnterTheGuncave.entitiesToBeSpawned.Add(new Stone(
+                            new Vector2(colIndex * EnterTheGuncave.tileSize, currentCol * EnterTheGuncave.tileSize)));
+                        break;
+                    
+                    case 2: EnterTheGuncave.entitiesToBeSpawned.Add(new Pedestal
+                            (new Vector2(colIndex * EnterTheGuncave.tileSize, currentCol * EnterTheGuncave.tileSize)));
+                        break;
+                }
+
+
                 EnterTheGuncave.currentRoom[colIndex, currentCol] = Int32.MaxValue;
             }
 
@@ -120,7 +132,7 @@ namespace EnterTheGuncave.General.ContentHandling.Rooms
         private static void placePlayer(dDirection direction)
         {
             Vector2 playerPos = EnterTheGuncave.entities[0].position;
-            float offset = 2.0f;
+            float offset = 0.0f; // TODO check
             
             switch (direction)
             {

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/images/arrow.png</SourceFile>
-  <SourceTime>2021-12-23T08:39:21.5918822+01:00</SourceTime>
-  <DestFile>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/bin/DesktopGL/assets/images/arrow.xnb</DestFile>
-  <DestTime>2021-12-26T09:39:56.4767669+01:00</DestTime>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/assets/images/pedestal.png</SourceFile>
+  <SourceTime>2021-12-26T09:32:55.6273069+01:00</SourceTime>
+  <DestFile>/home/cubeq/RiderProjects/EnterTheGuncave/EnterTheGuncave/Content/bin/DesktopGL/Content/assets/images/pedestal.xnb</DestFile>
+  <DestTime>2021-12-26T09:40:03.2764088+01:00</DestTime>
   <Importer>TextureImporter</Importer>
-  <ImporterTime>2021-04-25T20:26:29.1786286+02:00</ImporterTime>
+  <ImporterTime>2020-08-10T16:17:54+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
-  <ProcessorTime>2021-04-25T20:26:29.1786286+02:00</ProcessorTime>
+  <ProcessorTime>2020-08-10T16:17:54+02:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>255,0,255,255</Value>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using EnterTheGuncave.Entities;
 using EnterTheGuncave.Entities.Allies;
+using EnterTheGuncave.Entities.Baddies;
 using EnterTheGuncave.General;
 using EnterTheGuncave.General.ContentHandling.Assets;
 using EnterTheGuncave.General.ContentHandling.Rooms;
