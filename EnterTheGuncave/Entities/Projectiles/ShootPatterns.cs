@@ -12,15 +12,18 @@ namespace EnterTheGuncave.Entities.Projectiles
         
         protected int currentReloadTime;
         
-        public void update(Vector2 gunPos, Vector2 targetPos)
+        public void update(Vector2 gunPos, Vector2 targetPos, bool doWeShoot)
         {
             this.gunPosition = gunPos;
             this.targetPosition = targetPos;
             
             // Can we shoot?
-            if (reload())
+            if (reload() && doWeShoot)
             {
-                // Yes we can!
+                // Reset reload
+                currentReloadTime = stats.reloadTime;
+                
+                // Yes, we can!
                 shoot();
             }
         }
@@ -32,7 +35,6 @@ namespace EnterTheGuncave.Entities.Projectiles
 
             if (currentReloadTime <= 0)
             {
-                currentReloadTime = stats.reloadTime;
                 return true;
             }
 

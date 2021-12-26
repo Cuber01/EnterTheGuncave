@@ -7,10 +7,26 @@ using EnterTheGuncave.General.DungeonGenerator;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
+// TODO fix penetration idot
 namespace EnterTheGuncave.Entities.Allies
 {
     public class Player : Entity
     {
+        private readonly PistolShooter shooter;
+        private bool shoot;
+
+        private readonly ShooterStats shooterStats = new ShooterStats(
+            10,
+            1, 
+            new BulletStats(
+                1,
+                2,
+                500,
+                1,
+                dTeam.allies
+            ));
+        
+        
         private readonly float speed = 1.1f;
         private readonly float friction = 0.65f;
         private readonly float maxVelocity = 6;
@@ -24,6 +40,8 @@ namespace EnterTheGuncave.Entities.Allies
             this.myWidth  = texture.Width  / EnterTheGuncave.scale;
             this.myHeight = texture.Height / EnterTheGuncave.scale;
 
+            this.shooter = new PistolShooter(shooterStats);
+            
             this.team = dTeam.allies;
             this.collider = new Hitbox(position, myWidth, myHeight);
         }
@@ -33,7 +51,20 @@ namespace EnterTheGuncave.Entities.Allies
             tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
             
             reactToInput();
+
+            if (shoot)
+            {
+                int targetX = Input.mouseState.X / EnterTheGuncave.scale;
+                int targetY = Input.mouseState.Y / EnterTheGuncave.scale;
             
+                shooter.update(position, new Vector2(targetX, targetY), true);
+                shoot = false;
+            }
+            else
+            {
+                shooter.update(position, new Vector2(0, 0), false);
+            }
+
             applyFriction();
             move();
             
@@ -79,10 +110,7 @@ namespace EnterTheGuncave.Entities.Allies
 
             if (Input.mouseWasClicked())
             {
-                int targetX = Input.mouseState.X / EnterTheGuncave.scale;
-                int targetY = Input.mouseState.Y / EnterTheGuncave.scale;
-                
-                EnterTheGuncave.entitiesToBeSpawned.Add(new Bullet(new Vector2(targetX, targetY),position, new BulletStats(1, 1, 500, 5, dTeam.allies)));
+                shoot = true;
             }
         }
 

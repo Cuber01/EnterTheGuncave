@@ -43,7 +43,7 @@ namespace EnterTheGuncave.Entities.Baddies
         {
             Vector2 target = new Vector2(EnterTheGuncave.entities[0].position.X, EnterTheGuncave.entities[0].position.Y);
 
-            shooter.update(position, target);
+            shooter.update(position, target, true);
         }
         
 
