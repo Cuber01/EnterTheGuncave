@@ -110,15 +110,15 @@ namespace RGM.General.ContentHandling.Rooms
                                 new VampireMedkit() 
                             ));
                         break;
-                    
-                    case 4: RGM.entitiesToBeSpawned.Add(new WalkingEnemy
-                            (new Vector2(colIndex * RGM.tileSize, currentCol * RGM.tileSize)));
-                        break;
-                    
+
                     case 5:
                         RGM.entitiesToBeSpawned.Add(new TurretEnemy
                             (new Vector2(colIndex * RGM.tileSize, currentCol * RGM.tileSize)));
-                        break;                
+                        break;
+                    
+                    case 6: RGM.entitiesToBeSpawned.Add(new WalkingEnemy
+                            (new Vector2(colIndex * RGM.tileSize, currentCol * RGM.tileSize)));
+                        break;
                     
                 }
 
