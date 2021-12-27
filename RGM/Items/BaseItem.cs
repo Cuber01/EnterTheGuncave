@@ -34,7 +34,7 @@ namespace RGM.Items
 
         public override void pickedUp()
         {
-            ItemEventHandler.subscribe(this, dEvents.enemyKilled);
+            ItemEventHandler.subscribe(this, dEvents.testEvent);
         }
 
         public override void activate()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
@@ -52,6 +53,8 @@ namespace RGM.Entities.Allies
 
         public override void update()
         {
+            Console.WriteLine(health);
+            
             tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
             
             reactToInput();

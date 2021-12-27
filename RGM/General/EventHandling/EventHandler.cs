@@ -7,8 +7,8 @@ namespace RGM.General.EventHandling
 
     public static class ItemEventHandler
     {
-        private static List<dEvents> eventList = new List<dEvents>();
-        private static Dictionary<dEvents, BaseItem> subscribers = new Dictionary<dEvents, BaseItem>();
+        private static readonly List<dEvents> eventList = new List<dEvents>();
+        private static readonly Dictionary<dEvents, BaseItem> subscribers = new Dictionary<dEvents, BaseItem>();
 
         public static void checkEvents()
         {

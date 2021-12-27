@@ -7,6 +7,7 @@ using RGM.General;
 using RGM.General.ContentHandling.Assets;
 using RGM.General.ContentHandling.Rooms;
 using RGM.General.DungeonGenerator;
+using RGM.General.EventHandling;
 
 namespace RGM
 {
@@ -87,6 +88,8 @@ namespace RGM
             Input.updateKeyboardState();
             Input.updateMouseState();
 
+            ItemEventHandler.checkEvents();
+            ItemEventHandler.clearEvents();
 
             foreach (Entity spawn in entitiesToBeSpawned)
             { 

@@ -9,9 +9,9 @@ namespace RGM.Entities.Neutrals
     public class Pedestal : Entity
     {
         private BaseItem item;
-        private bool hasItem; 
+        private bool hasItem = true; 
         
-        private Vector2 itemPosition;
+        private readonly Vector2 itemPosition;
         
         public Pedestal(Vector2 position, BaseItem item)
         {

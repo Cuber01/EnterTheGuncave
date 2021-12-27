@@ -122,7 +122,6 @@ namespace RGM.General.ContentHandling.Rooms
                     
                 }
 
-
                 RGM.currentRoom[colIndex, currentCol] = Int32.MaxValue;
             }
 
