@@ -33,14 +33,14 @@ namespace RGM.Entities.Baddies
 
         public override void update()
         {
-            map = Util.fillInProximityMap(RGM.entities[0].tilePosition, map);
+            map = Util.fillInProximityMap(RGM.Player.tilePosition, map);
             tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
 
             checkCollision();
 
             goToTile(whereToGo());
 
-            // goToPoint(RGM.entities[0].position);
+            // goToPoint(RGM.Player.position);
             move();
             
             adjustColliderPosition();

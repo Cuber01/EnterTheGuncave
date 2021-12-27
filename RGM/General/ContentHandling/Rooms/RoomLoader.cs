@@ -141,7 +141,7 @@ namespace RGM.General.ContentHandling.Rooms
 
         private static void placePlayer(dDirection direction)
         {
-            Vector2 playerPos = RGM.entities[0].position;
+            Vector2 playerPos = RGM.Player.position;
             float offset = 0.0f; // TODO check
             
             switch (direction)
@@ -177,7 +177,7 @@ namespace RGM.General.ContentHandling.Rooms
                 }
             }    
 
-            RGM.entities[0].position = playerPos;
+            RGM.Player.position = playerPos;
 
         }
 
@@ -194,7 +194,7 @@ namespace RGM.General.ContentHandling.Rooms
         {
             float maxX = RGM.tileSize * (RGM.roomWidth - 1);
             float maxY = RGM.tileSize * (RGM.roomHeight - 1);
-            Point playerMapPos = RGM.entities[0].mapPosition;
+            Point playerMapPos = RGM.Player.mapPosition;
 
             int roomHeightWithDoor = RGM.roomHeight - 1;
             int roomWidthWithDoor = RGM.roomWidth - 1;
@@ -312,7 +312,7 @@ namespace RGM.General.ContentHandling.Rooms
 
         private static void placeDoors()
         {
-            Point playerMapPos = RGM.entities[0].mapPosition;
+            Point playerMapPos = RGM.Player.mapPosition;
             
             // Left
             if (DungeonGenerator.DungeonGenerator.floorMap[playerMapPos.X - 1, playerMapPos.Y] != null)

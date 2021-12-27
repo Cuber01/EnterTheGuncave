@@ -1,4 +1,4 @@
-namespace RGM.General.Items
+namespace RGM.General.EventsHandling
 {
     public enum Events
     {

@@ -2,20 +2,20 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-public enum dTextureKeys
-{
-    player,
-    enemy,
-    enemy_turret,
-    arrow,
-    stone,
-    bullet,
-    tiles1,
-    pedestal
-}
-
 namespace RGM.General.ContentHandling.Assets
 {
+    public enum dTextureKeys
+    {
+        player,
+        enemy,
+        enemy_turret,
+        arrow,
+        stone,
+        bullet,
+        tiles1,
+        pedestal
+    }
+
     public class AssetLoader
     {
         public static readonly Dictionary<dTextureKeys, Texture2D> textures = new Dictionary<dTextureKeys, Texture2D>();

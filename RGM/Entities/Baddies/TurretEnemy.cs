@@ -41,7 +41,7 @@ namespace RGM.Entities.Baddies
 
         public override void update()
         {
-            Vector2 target = new Vector2(RGM.entities[0].position.X, RGM.entities[0].position.Y);
+            Vector2 target = new Vector2(RGM.Player.position.X, RGM.Player.position.Y);
 
             shooter.update(position, target, true);
         }

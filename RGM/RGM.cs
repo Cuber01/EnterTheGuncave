@@ -12,6 +12,8 @@ namespace RGM
 {
     public class RGM : Game
     {
+        public Entity Player;
+
         public static readonly List<Entity> entities = new List<Entity>();
         public static readonly List<Entity> entitiesToBeSpawned = new List<Entity>();
         public static readonly List<Entity> entitiesToBeKilled = new List<Entity>();
@@ -66,6 +68,7 @@ namespace RGM
             DungeonGenerator.generate();
             
             entities.Add(new Player(new Vector2(50, 100)));
+            Player = entities[0];
 
             // entities.Add(new WalkingEnemy(new Vector2(128, 80)));
             // entities.Add(new Stone(new Vector2(100, 100)));
