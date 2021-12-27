@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using RGM.Items;
 
-namespace RGM.General.EventsHandling
+namespace RGM.General.EventHandling
 {
-    public class EventHandler
+    // G stands for Game because EventHandler is already taken :(
+    public static class GEventHandler
     {
         public static List<dEvents> eventList = new List<dEvents>();
         

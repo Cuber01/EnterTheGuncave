@@ -1,6 +1,7 @@
 using System;
-using System.Collections.Generic;
+using RGM.General.EventHandling;
 using Microsoft.Xna.Framework.Graphics;
+using RGM.General.ContentHandling.Assets;
 
 namespace RGM.Items
 {
@@ -20,6 +21,22 @@ namespace RGM.Items
         }
 
         public virtual void activate() { }
+    }
+
+    public class VampireMedkit : BaseItem
+    {
+        public VampireMedkit() : base(dItems.vampire_medkit, AssetLoader.textures[dTextureKeys.player])
+        {
+            this.name = "Vampire's Medkit";
+            this.description = "No One Heals Himself by Hurting Others. Unless you're a vampire.";
+
+            GEventHandler.subscribe(this, dEvents.enemyKilled);
+        }
+
+        public override void activate()
+        {
+            ItemEffects.modifyPlayerHealth(1);
+        }
     }
     
 }

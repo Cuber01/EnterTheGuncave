@@ -1,7 +1,8 @@
-namespace RGM.General.EventsHandling
+namespace RGM.General.EventHandling
 {
     public enum dEvents
     {
-        enemyKilled
+        enemyKilled,
+        itemPickedUp
     }
 }
