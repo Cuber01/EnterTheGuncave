@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace RGM.Items
@@ -5,14 +7,19 @@ namespace RGM.Items
     
     public class BaseItem
     {
+        public string name;
+        public string description;
+
         private Texture2D texture;
-        private dItems type;
+        private dItems item;
         
-        public BaseItem(dItems type, Texture2D texture)
+        public BaseItem(dItems item, Texture2D texture)
         {
-            this.type = type;
+            this.item = item;
             this.texture = texture;
         }
+
+        public virtual void activate() { }
     }
     
 }

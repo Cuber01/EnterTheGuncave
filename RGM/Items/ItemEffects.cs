@@ -1,10 +1,12 @@
+using System;
+
 namespace RGM.Items
 {
-    public static class Effects
+    public static class ItemEffects
     {
         public static void modifyPlayerHealth(int amount)
         {
-            
+            RGM.Player.health += amount;
         }
         
     }

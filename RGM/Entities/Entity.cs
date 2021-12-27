@@ -12,12 +12,13 @@ namespace RGM.Entities
         public Point   mapPosition;
         
         public dTeam team;
-        public bool dead;
+        public bool  dead;
 
         public    Vector2   velocity;
         protected Texture2D texture;
         public    Hitbox    collider;
-
+        public int health;
+        
         public int    myWidth;
         protected int myHeight;
 

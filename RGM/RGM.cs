@@ -12,7 +12,7 @@ namespace RGM
 {
     public class RGM : Game
     {
-        public Entity Player;
+        public static Entity Player;
 
         public static readonly List<Entity> entities = new List<Entity>();
         public static readonly List<Entity> entitiesToBeSpawned = new List<Entity>();

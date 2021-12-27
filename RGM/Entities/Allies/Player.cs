@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using RGM.Entities.Neutrals;
@@ -6,12 +7,15 @@ using RGM.General;
 using RGM.General.Collision;
 using RGM.General.ContentHandling.Assets;
 using RGM.General.DungeonGenerator;
+using RGM.Items;
 
 // TODO fix penetration idot
 namespace RGM.Entities.Allies
 {
     public class Player : Entity
     {
+        public List<BaseItem> inventory = new List<BaseItem>();
+
         private readonly PistolShooter shooter;
         private bool shoot;
 
@@ -33,6 +37,8 @@ namespace RGM.Entities.Allies
 
         public Player(Vector2 position)
         {
+            health = 6;
+
             this.position = position;
             this.mapPosition = DungeonGenerator.startingPos;
             
