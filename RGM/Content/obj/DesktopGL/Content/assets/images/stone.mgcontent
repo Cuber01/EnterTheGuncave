@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/stone.png</SourceFile>
-  <SourceTime>2021-12-06T10:36:31.65136+01:00</SourceTime>
+  <SourceTime>2021-12-27T11:30:26.4982051+01:00</SourceTime>
   <DestFile>/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/Content/assets/images/stone.xnb</DestFile>
-  <DestTime>2021-12-16T17:37:44.8839939+01:00</DestTime>
+  <DestTime>2021-12-27T15:29:21.5113294+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

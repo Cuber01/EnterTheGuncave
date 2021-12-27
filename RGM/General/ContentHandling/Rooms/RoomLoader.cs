@@ -7,6 +7,7 @@ using RGM.Entities.Allies;
 using RGM.Entities.Baddies;
 using RGM.Entities.Neutrals;
 using RGM.General.DungeonGenerator;
+using RGM.Items;
 
 
 namespace RGM.General.ContentHandling.Rooms
@@ -105,7 +106,9 @@ namespace RGM.General.ContentHandling.Rooms
                         break;
                     
                     case 2: RGM.entitiesToBeSpawned.Add(new Pedestal
-                            (new Vector2(colIndex * RGM.tileSize, currentCol * RGM.tileSize)));
+                            (new Vector2(colIndex * RGM.tileSize, currentCol * RGM.tileSize),
+                                new VampireMedkit() 
+                            ));
                         break;
                     
                     case 4: RGM.entitiesToBeSpawned.Add(new WalkingEnemy

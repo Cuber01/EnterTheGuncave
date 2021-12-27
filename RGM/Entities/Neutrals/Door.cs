@@ -43,7 +43,7 @@ namespace RGM.Entities.Neutrals
             RGM.spriteBatch.Draw(texture, position, spritesheetPositions[(int)direction], Color.White);
         }
 
-        public override void playerGoThrough()
+        public override void onPlayerCollision()
         {
             Entity player = entities[0];
             

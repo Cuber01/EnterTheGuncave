@@ -14,8 +14,6 @@ namespace RGM.Entities.Allies
 {
     public class Player : Entity
     {
-        public List<BaseItem> inventory = new List<BaseItem>();
-
         private readonly PistolShooter shooter;
         private bool shoot;
 
@@ -136,11 +134,8 @@ namespace RGM.Entities.Allies
             if (collidingBody != null)
             {
                 (velocity.X, velocity.Y) = (0, 0);
-
-                if (collidingBody is Door)
-                {
-                    collidingBody.playerGoThrough();
-                }
+                
+                collidingBody.onPlayerCollision();
             }
             else
             {

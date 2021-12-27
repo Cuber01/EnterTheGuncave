@@ -11,7 +11,7 @@ namespace RGM.Items
         public string name;
         public string description;
 
-        private Texture2D texture;
+        public Texture2D texture;
         private dItems item;
         
         public BaseItem(dItems item, Texture2D texture)
@@ -21,6 +21,7 @@ namespace RGM.Items
         }
 
         public virtual void activate() { }
+        public virtual void pickedUp() { }
     }
 
     public class VampireMedkit : BaseItem
@@ -28,9 +29,12 @@ namespace RGM.Items
         public VampireMedkit() : base(dItems.vampire_medkit, AssetLoader.textures[dTextureKeys.player])
         {
             this.name = "Vampire's Medkit";
-            this.description = "No One Heals Himself by Hurting Others. Unless you're a vampire.";
+            this.description = "No one heals himself by hurting others. Unless you're a vampire.";
+        }
 
-            GEventHandler.subscribe(this, dEvents.enemyKilled);
+        public override void pickedUp()
+        {
+            ItemEventHandler.subscribe(this, dEvents.enemyKilled);
         }
 
         public override void activate()
