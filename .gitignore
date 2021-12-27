@@ -1,10 +1,10 @@
 .git
-EnterTheGuncave/bin/*
-EnterTheGuncave/obj/*
-EnterTheGuncave.sln.DotSettings.user
-EnterTheGuncave.sln.DotSettings.user
-EnterTheGuncave.sln
-.idea/.idea.EnterTheGuncave/.idea/vcs.xml
+RGM/bin/*
+RGM/obj/*
+RGM.sln.DotSettings.user
+RGM.sln.DotSettings.user
+RGM.sln
+.idea/.idea.RGM/.idea/vcs.xml
 *.exe
 *.pdb
 *.dll

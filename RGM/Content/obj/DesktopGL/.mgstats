@@ -1,0 +1,9 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/arrow.png","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/images/arrow.xnb","TextureProcessor","Texture2DContent",230,4181,0.099577
+"/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/bullet.png","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/images/bullet.xnb","TextureProcessor","Texture2DContent",142,341,0.000703
+"/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/enemy.png","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/images/enemy.xnb","TextureProcessor","Texture2DContent",191,1109,0.000619
+"/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/enemy_turret.png","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/images/enemy_turret.xnb","TextureProcessor","Texture2DContent",174,1109,0.108071
+"/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/pedestal.png","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/images/pedestal.xnb","TextureProcessor","Texture2DContent",140,1109,0.000733
+"/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/player.png","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/images/player.xnb","TextureProcessor","Texture2DContent",161,1109,0.000543
+"/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/stone.png","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/images/stone.xnb","TextureProcessor","Texture2DContent",223,1109,0.000542
+"/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/tiles1.png","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/images/tiles1.xnb","TextureProcessor","Texture2DContent",213,9301,0.102416
