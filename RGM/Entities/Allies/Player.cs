@@ -53,8 +53,7 @@ namespace RGM.Entities.Allies
 
         public override void update()
         {
-            Console.WriteLine(health);
-            
+
             tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
             
             reactToInput();

@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using RGM.Entities.Projectiles;
 using RGM.General.Collision;
 using RGM.General.ContentHandling.Assets;
+using RGM.General.EventHandling;
 
 namespace RGM.Entities.Baddies
 {
@@ -38,6 +39,8 @@ namespace RGM.Entities.Baddies
             stats.heartDamage = 1;
             stats.hitpoints = 10;
         }
+        
+        
 
         public override void update()
         {
@@ -52,7 +55,18 @@ namespace RGM.Entities.Baddies
         public override void takeDamage(int dmg)
         {
             stats.hitpoints = stats.hitpoints - dmg;
-            this.texture = AssetLoader.textures[dTextureKeys.player];
+            checkDeath();
+        }
+
+        private void checkDeath()
+        {
+            
+            if(stats.hitpoints <= 0)
+            {
+                ItemEventHandler.fireEvent(dEvents.enemyKilled);
+                dead = true;
+            }
+            
         }
         
     }

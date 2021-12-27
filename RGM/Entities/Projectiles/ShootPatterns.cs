@@ -57,7 +57,7 @@ namespace RGM.Entities.Projectiles
         protected override void shoot()
         {
             // TODO rm
-            ItemEventHandler.fireEvent(dEvents.testEvent);
+            ItemEventHandler.fireEvent(dEvents.enemyKilled);
             
             RGM.entitiesToBeSpawned.Add(new Bullet(targetPosition, gunPosition, stats.bulletStats));
         }
