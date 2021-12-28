@@ -28,7 +28,7 @@ namespace RGM.Entities
         public bool dead;
         
         // If an entity with this set to true is alive, the doors shall be closed.
-        public bool closesDoors;
+        public bool isDangerous;
 
         /* -------------------- MAIN -------------------- */
 

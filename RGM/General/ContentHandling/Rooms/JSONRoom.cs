@@ -6,7 +6,7 @@ namespace RGM.General.ContentHandling.Rooms
 {
     public partial class Room
     {
-        
+
         [JsonProperty("layers")]
         public Layer[] Layers { get; set; }
         

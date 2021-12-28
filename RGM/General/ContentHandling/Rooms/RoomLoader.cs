@@ -112,11 +112,14 @@ namespace RGM.General.ContentHandling.Rooms
                         break;
 
                     case 5:
+                        RGM.enemiesInRoom++;
                         RGM.entitiesToBeSpawned.Add(new TurretEnemy
                             (new Vector2(colIndex * RGM.tileSize, currentCol * RGM.tileSize)));
                         break;
                     
-                    case 6: RGM.entitiesToBeSpawned.Add(new WalkingEnemy
+                    case 6:
+                        RGM.enemiesInRoom++;
+                        RGM.entitiesToBeSpawned.Add(new WalkingEnemy
                             (new Vector2(colIndex * RGM.tileSize, currentCol * RGM.tileSize)));
                         break;
                     
@@ -132,7 +135,15 @@ namespace RGM.General.ContentHandling.Rooms
                 {
                     case 1:
                     {
+                        RGM.enemiesInRoom++;
                         RGM.entitiesToBeSpawned.Add(new WalkingEnemy(new Vector2((float)nonTileObj.X, (float)nonTileObj.Y)));
+                        break;
+                    }
+                    
+                    case 2:
+                    {
+                        RGM.enemiesInRoom++;
+                        RGM.entitiesToBeSpawned.Add(new TurretEnemy(new Vector2((float)nonTileObj.X, (float)nonTileObj.Y)));
                         break;
                     }
                 }

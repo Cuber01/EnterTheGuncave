@@ -14,7 +14,7 @@ namespace RGM
     public class RGM : Game
     {
         public static Entity Player;
-        public bool doorsClosed;
+        public bool playerFighting;
 
         public static readonly List<Entity> entities = new List<Entity>();
         public static readonly List<Entity> entitiesToBeSpawned = new List<Entity>();
@@ -22,7 +22,9 @@ namespace RGM
 
         public const int roomWidth = 19;
         public const int roomHeight = 11;
-        public static int[,] currentRoom = new int[roomWidth, roomHeight];
+        
+        public static readonly int[,] currentRoom = new int[roomWidth, roomHeight];
+        public static int enemiesInRoom;
         
         public const int tileSize = 16;
         public const int scale = 4;
