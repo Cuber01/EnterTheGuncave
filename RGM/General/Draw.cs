@@ -63,8 +63,7 @@ namespace RGM.General
 			}
 			else
 			{
-				Console.WriteLine("Straight lines have straight coordinates. Dummy.");
-				Console.WriteLine("Exiting...");
+				throw new Exception("Straight lines have straight coordinates. Dummy.");
 			}
 
 

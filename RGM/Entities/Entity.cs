@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -13,15 +14,21 @@ namespace RGM.Entities
         public Point tilePosition;
         public Point mapPosition;
 
-        public dTeam team;
-        public bool dead;
-
-        public Vector2 velocity;
+        protected Vector2   velocity;
         protected Texture2D texture;
-        public Hitbox collider;
+        public    Hitbox    collider;
 
-        public int myWidth;
+        protected int myWidth;
         protected int myHeight;
+        
+        // Team determines stuff like ignoring bullet collision in the same team and more.
+        public dTeam team;
+        
+        // If this is set to true, the entity will be removed.
+        public bool dead;
+        
+        // If an entity with this set to true is alive, the doors shall be closed.
+        public bool closesDoors;
 
         /* -------------------- MAIN -------------------- */
 
@@ -53,6 +60,13 @@ namespace RGM.Entities
 
         // TODO tmp
         public int health;
+        
+        /* ------------------- DOOR ---------------------- */
+
+        public virtual void closeDoor()
+        {
+            throw new Exception("You're not quite supposed to call closeDoor on a non Door, you see?");
+        }
 
     }
 }

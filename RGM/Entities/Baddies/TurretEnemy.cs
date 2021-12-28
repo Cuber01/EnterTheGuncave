@@ -26,6 +26,7 @@ namespace RGM.Entities.Baddies
         {
             this.position = position;
             this.team = dTeam.baddies;
+            this.closesDoors = true;
             
             this.texture = AssetLoader.textures[dTextureKeys.enemy_turret];
             this.myWidth  = texture.Width  / RGM.scale;
