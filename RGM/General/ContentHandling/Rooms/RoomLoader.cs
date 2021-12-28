@@ -155,31 +155,30 @@ namespace RGM.General.ContentHandling.Rooms
         private static void placePlayer(dDirection direction)
         {
             Vector2 playerPos = RGM.Player.position;
-            float offset = 0.0f; // TODO check
-            
+
             switch (direction)
             {
                 case dDirection.up:
                 {
-                    (playerPos.X, playerPos.Y) = (RGM.roomWidth / 2 * RGM.tileSize, (RGM.roomHeight - 2) * RGM.tileSize - offset);
+                    (playerPos.X, playerPos.Y) = (RGM.roomWidth / 2 * RGM.tileSize, (RGM.roomHeight - 2) * RGM.tileSize);
                     break;
                 }
                 
                 case dDirection.down:
                 {
-                    (playerPos.X, playerPos.Y) = (RGM.roomWidth / 2 * RGM.tileSize, RGM.tileSize + offset);
+                    (playerPos.X, playerPos.Y) = (RGM.roomWidth / 2 * RGM.tileSize, RGM.tileSize);
                     break;
                 }
                     
                 case dDirection.left:
                 {
-                    (playerPos.X, playerPos.Y) = ((RGM.roomWidth - 2) * RGM.tileSize - offset, RGM.roomHeight/2  * RGM.tileSize);  
+                    (playerPos.X, playerPos.Y) = ((RGM.roomWidth - 2) * RGM.tileSize, RGM.roomHeight/2  * RGM.tileSize);  
                     break;
                 }
                     
                 case dDirection.right:
                 {
-                    (playerPos.X, playerPos.Y) = (RGM.tileSize, RGM.roomHeight/2  * RGM.tileSize + offset);
+                    (playerPos.X, playerPos.Y) = (RGM.tileSize, RGM.roomHeight/2  * RGM.tileSize);
                     break;
                 }
                     
