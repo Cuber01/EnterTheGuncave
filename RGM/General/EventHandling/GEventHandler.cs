@@ -8,7 +8,7 @@ namespace RGM.General.EventHandling
     public static class GEventHandler
     {
         private static readonly List<dEvents> eventList = new List<dEvents>();
-        private static readonly Dictionary<dEvents, Action<dEvents>> subscribers = new Dictionary<dEvents, Action<dEvents>>();
+        private static readonly Dictionary<dEvents, List<Action<dEvents>>> subscribers = new Dictionary<dEvents, List<Action<dEvents>>>();
 
         public static void checkEvents()
         {
@@ -19,7 +19,12 @@ namespace RGM.General.EventHandling
                 {
                     if (subscriber.Key == e)
                     {
-                        subscriber.Value(e);
+
+                        foreach (Action<dEvents> action in subscriber.Value)
+                        {
+                            action(e);
+                        }
+
                     }
                 }
                 
@@ -28,7 +33,13 @@ namespace RGM.General.EventHandling
         
         public static void subscribe(Action<dEvents> action, dEvents e)
         {
-            subscribers.Add(e, action);
+            if (!subscribers.TryGetValue(e, out var list))
+            {
+                list = new List<Action<dEvents>>();
+                subscribers.Add(e, list);
+            }
+
+            list.Add(action);
         }
         
         public static void clearEvents()

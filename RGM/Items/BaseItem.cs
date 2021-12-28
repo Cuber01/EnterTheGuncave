@@ -28,8 +28,7 @@ namespace RGM.Items
     public class VampireMedkit : BaseItem
     {
         private int enemiesKilled;
-        
-        
+
         public VampireMedkit() : base(dItems.vampire_medkit, AssetLoader.textures[dTextureKeys.player])
         {
             this.name = "Vampire Bullets";
