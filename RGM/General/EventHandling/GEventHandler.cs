@@ -8,10 +8,18 @@ namespace RGM.General.EventHandling
     public static class GEventHandler
     {
         private static readonly List<dEvents> eventList = new List<dEvents>();
+        private static readonly List<dEvents> eventsToBeFired = new List<dEvents>();
+
         private static readonly Dictionary<dEvents, List<Action<dEvents>>> subscribers = new Dictionary<dEvents, List<Action<dEvents>>>();
 
-        public static void checkEvents()
+        public static void update()
         {
+            foreach (dEvents e in eventsToBeFired)
+            {
+                fireEvent(e);
+            }
+            eventsToBeFired.Clear();
+            
             foreach (dEvents e in eventList)
             {
                 
@@ -29,6 +37,7 @@ namespace RGM.General.EventHandling
                 }
                 
             }
+
         }
         
         public static void subscribe(Action<dEvents> action, dEvents e)
@@ -51,5 +60,11 @@ namespace RGM.General.EventHandling
         {
             eventList.Add(e);
         }
+
+        public static void queueFiringEvent(dEvents e)
+        {
+            eventsToBeFired.Add(e);
+        }
+        
     }
 }

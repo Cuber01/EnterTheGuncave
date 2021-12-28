@@ -1,5 +1,5 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/arrow.png","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/Content/assets/images/arrow.xnb","TextureProcessor","Texture2DContent",230,4181,0.1947537
+"/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/arrow.png","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/Content/assets/images/arrow.xnb","TextureProcessor","Texture2DContent",361,6229,0.1587733
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/bullet.png","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/Content/assets/images/bullet.xnb","TextureProcessor","Texture2DContent",142,341,0.0199232
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/enemy_turret.png","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/Content/assets/images/enemy_turret.xnb","TextureProcessor","Texture2DContent",174,1109,0.0005548
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/enemy.png","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/Content/assets/images/enemy.xnb","TextureProcessor","Texture2DContent",191,1109,0.0034369

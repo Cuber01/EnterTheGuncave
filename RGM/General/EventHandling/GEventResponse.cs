@@ -13,7 +13,14 @@ namespace RGM.General.EventHandling
         private static void enemyKillResponse(dEvents e)
         {
             RGM.enemiesInRoom--;
+
+            if (RGM.enemiesInRoom <= 0)
+            {
+                GEventHandler.queueFiringEvent(dEvents.roomClear);
+            }
         }
+
+
         
     }
 }

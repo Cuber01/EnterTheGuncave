@@ -93,7 +93,7 @@ namespace RGM
             Input.updateKeyboardState();
             Input.updateMouseState();
 
-            GEventHandler.checkEvents();
+            GEventHandler.update();
             GEventHandler.clearEvents();
 
             foreach (Entity spawn in entitiesToBeSpawned)
