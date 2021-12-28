@@ -2,6 +2,7 @@ using System;
 using RGM.General.EventHandling;
 using Microsoft.Xna.Framework.Graphics;
 using RGM.General.ContentHandling.Assets;
+using EventHandler = RGM.General.EventHandling.EventHandler;
 
 namespace RGM.Items
 {
@@ -20,7 +21,7 @@ namespace RGM.Items
             this.texture = texture;
         }
 
-        public virtual void activate() { }
+        public virtual void activate(dEvents e) { }
         public virtual void pickedUp() { }
     }
 
@@ -38,10 +39,10 @@ namespace RGM.Items
 
         public override void pickedUp()
         {
-            ItemEventHandler.subscribe(this, dEvents.enemyKilled);
+            EventHandler.subscribe(this, dEvents.enemyKilled);
         }
 
-        public override void activate()
+        public override void activate(dEvents e)
         {
             enemiesKilled++;
 
@@ -50,7 +51,7 @@ namespace RGM.Items
                 enemiesKilled = 0;
                 ItemEffects.modifyPlayerHealth(1);
             }
-            
+
         }
     }
     

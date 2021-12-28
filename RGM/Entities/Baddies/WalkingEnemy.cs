@@ -4,6 +4,7 @@ using RGM.Entities.Projectiles;
 using RGM.General.Collision;
 using RGM.General.ContentHandling.Assets;
 using RGM.General.EventHandling;
+using EventHandler = RGM.General.EventHandling.EventHandler;
 
 // TODO pathfinding needs some checks
 // Pathfinding itself works, but the enemy can't properly handle tile hitboxes which causes him to get stuck, should be fixed later on with collision fixes.
@@ -168,7 +169,7 @@ namespace RGM.Entities.Baddies
             
             if(stats.hitpoints <= 0)
             {
-                ItemEventHandler.fireEvent(dEvents.enemyKilled);
+                EventHandler.fireEvent(dEvents.enemyKilled);
                 dead = true;
             }
             

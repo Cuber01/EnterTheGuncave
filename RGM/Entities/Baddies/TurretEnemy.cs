@@ -64,7 +64,7 @@ namespace RGM.Entities.Baddies
             
             if(stats.hitpoints <= 0)
             {
-                ItemEventHandler.fireEvent(dEvents.enemyKilled);
+                EventHandler.fireEvent(dEvents.enemyKilled);
                 dead = true;
             }
             
