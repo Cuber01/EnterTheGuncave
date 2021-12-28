@@ -4,8 +4,8 @@ using RGM.Items;
 
 namespace RGM.General.EventHandling
 {
-
-    public static class EventHandler
+    // G stands for General. Or Game. Or Global. Choose your favourite.
+    public static class GEventHandler
     {
         private static readonly List<dEvents> eventList = new List<dEvents>();
         private static readonly Dictionary<dEvents, Action<dEvents>> subscribers = new Dictionary<dEvents, Action<dEvents>>();
@@ -26,9 +26,9 @@ namespace RGM.General.EventHandling
             }
         }
         
-        public static void subscribe(BaseItem item, dEvents e)
+        public static void subscribe(Action<dEvents> action, dEvents e)
         {
-            subscribers.Add(e, item.activate);
+            subscribers.Add(e, action);
         }
         
         public static void clearEvents()
