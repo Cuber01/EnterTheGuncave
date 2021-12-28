@@ -2,7 +2,6 @@ using System;
 using RGM.General.EventHandling;
 using Microsoft.Xna.Framework.Graphics;
 using RGM.General.ContentHandling.Assets;
-using EventHandler = RGM.General.EventHandling.EventHandler;
 
 namespace RGM.Items
 {
@@ -39,7 +38,7 @@ namespace RGM.Items
 
         public override void pickedUp()
         {
-            EventHandler.subscribe(this, dEvents.enemyKilled);
+            GEventHandler.subscribe(activate, dEvents.enemyKilled);
         }
 
         public override void activate(dEvents e)

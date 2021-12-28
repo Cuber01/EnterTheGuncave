@@ -53,6 +53,8 @@ namespace RGM
             base.Initialize();
             
             draw = new DrawUtils(GraphicsDevice, spriteBatch);
+            
+            GEventResponse.subscribeGeneralMethods();
         }
 
         // 1. Load rooms
@@ -91,8 +93,8 @@ namespace RGM
             Input.updateKeyboardState();
             Input.updateMouseState();
 
-            EventHandler.checkEvents();
-            EventHandler.clearEvents();
+            GEventHandler.checkEvents();
+            GEventHandler.clearEvents();
 
             foreach (Entity spawn in entitiesToBeSpawned)
             { 

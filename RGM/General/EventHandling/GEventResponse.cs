@@ -2,12 +2,15 @@ using System;
 
 namespace RGM.General.EventHandling
 {
-    public static class EventResponse
+    public static class GEventResponse
     {
+
+        public static void subscribeGeneralMethods()
+        {
+            GEventHandler.subscribe(enemyKillResponse, dEvents.enemyKilled);
+        }
         
-        public static void subscribe
-        
-        public static void enemyKillResponse(dEvents e)
+        private static void enemyKillResponse(dEvents e)
         {
             RGM.enemiesInRoom--;
         }
