@@ -7,6 +7,7 @@ using RGM.Entities.Allies;
 using RGM.Entities.Baddies;
 using RGM.Entities.Neutrals;
 using RGM.General.DungeonGenerator;
+using RGM.General.EventHandling;
 using RGM.Items;
 
 
@@ -73,9 +74,8 @@ namespace RGM.General.ContentHandling.Rooms
 
         public static void playRoom(int index, dRoomType roomType, dDirection wherePlayerCameFrom)
         {
-            // Clear the current room, place doors and walls in the new one
+            // Clear the current room, place walls in the new one
             clearRoom();
-            placeDoors();
             placeWalls();
 
             // Place the player according to where he came from (eg. if he came from the left, place him on the right)
@@ -149,6 +149,9 @@ namespace RGM.General.ContentHandling.Rooms
                 }
                 
             }
+            
+            // Place door. If there are no enemies, doors shall be open, if there are, they shall be closed.
+            placeDoors(RGM.enemiesInRoom <= 0);
 
         }
 
@@ -199,6 +202,8 @@ namespace RGM.General.ContentHandling.Rooms
             RGM.entities.RemoveAll(x => !(x is Player));
             RGM.entitiesToBeSpawned.Clear();
             RGM.entitiesToBeKilled.Clear();
+
+            RGM.enemiesInRoom = 0;
 
         }
 
@@ -322,32 +327,32 @@ namespace RGM.General.ContentHandling.Rooms
 
         }
 
-        private static void placeDoors()
+        private static void placeDoors(bool open)
         {
             Point playerMapPos = RGM.Player.mapPosition;
             
             // Left
             if (DungeonGenerator.DungeonGenerator.floorMap[playerMapPos.X - 1, playerMapPos.Y] != null)
             {
-                RGM.entities.Add(new Door(new Vector2(0, 5 * RGM.tileSize), dDirection.left));
+                RGM.entities.Add(new Door(new Vector2(0, 5 * RGM.tileSize), dDirection.left, open));
             }
             
             // Right
             if (DungeonGenerator.DungeonGenerator.floorMap[playerMapPos.X + 1, playerMapPos.Y] != null)
             {
-                RGM.entities.Add(new Door(new Vector2(RGM.tileSize * (RGM.roomWidth - 1), 5 * RGM.tileSize), dDirection.right));
+                RGM.entities.Add(new Door(new Vector2(RGM.tileSize * (RGM.roomWidth - 1), 5 * RGM.tileSize), dDirection.right, open));
             }
             
             // Up
             if (DungeonGenerator.DungeonGenerator.floorMap[playerMapPos.X, playerMapPos.Y - 1] != null)
             {
-                RGM.entities.Add(new Door(new Vector2(9 * RGM.tileSize, 0), dDirection.up));
+                RGM.entities.Add(new Door(new Vector2(9 * RGM.tileSize, 0), dDirection.up, open));
             }
 
             // Down
             if (DungeonGenerator.DungeonGenerator.floorMap[playerMapPos.X, playerMapPos.Y + 1] != null)
             {
-                RGM.entities.Add(new Door(new Vector2(9 * RGM.tileSize, RGM.tileSize * (RGM.roomHeight - 1)), dDirection.down));
+                RGM.entities.Add(new Door(new Vector2(9 * RGM.tileSize, RGM.tileSize * (RGM.roomHeight - 1)), dDirection.down, open));
             }
 
         }

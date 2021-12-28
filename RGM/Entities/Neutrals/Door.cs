@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Xna.Framework;
 using RGM.Entities.Projectiles;
 using RGM.General.Collision;
@@ -14,7 +15,7 @@ namespace RGM.Entities.Neutrals
     public class Door : Entity
     {
         private readonly dDirection direction;
-        private bool isOpen = false;
+        private bool isOpen;
 
         private static readonly Rectangle[] spritesheetPositions =
         {
@@ -26,7 +27,7 @@ namespace RGM.Entities.Neutrals
             new Rectangle(32, 0, 16, 16) // Closed.
         };
 
-        public Door(Vector2 position, dDirection direction)
+        public Door(Vector2 position, dDirection direction, bool isOpen)
         {
             this.position = position;
             this.direction = direction;
@@ -37,7 +38,8 @@ namespace RGM.Entities.Neutrals
             this.myHeight = RGM.tileSize / RGM.scale;
             
             this.tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
-
+            this.isOpen = isOpen;
+            
             this.team = dTeam.neutrals;
             this.collider = new Hitbox(position, myWidth, myHeight);
             
@@ -57,10 +59,17 @@ namespace RGM.Entities.Neutrals
                 Color.White);
         }
 
+        public override void update()
+        {
+            Console.WriteLine(isOpen);
+        }
+
         public override void onPlayerCollision()
         {
+
             // If the door is closed, don't go anywhere.
-            if (!isOpen)
+            // WARNING: When I do !isOpen, program doesn't seem to enter this method at all. This may be a C# problem I suppose?
+            if (isOpen == false)
             {
                 return;
             }

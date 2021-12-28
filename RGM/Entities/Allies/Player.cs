@@ -136,7 +136,7 @@ namespace RGM.Entities.Allies
             if (collidingBody != null)
             {
                 (velocity.X, velocity.Y) = (0, 0);
-                
+
                 collidingBody.onPlayerCollision();
             }
             else
