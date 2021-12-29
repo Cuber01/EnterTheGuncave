@@ -17,15 +17,14 @@ namespace RGM.General.Collision
     
     public class Collision
     {
-        private static bool isCollision(float new_position_x, float new_position_y, Vector2 cp, string rel_position)
+        private static bool isCollision(float new_position_x, float new_position_y, Vector2 cp, dDirection rel_position)
         {
-            if (rel_position == null) return false;
-
-            // TODO ENUM
-            bool collision = (rel_position == "Left"   && new_position_x >= cp.X) ||
-                             (rel_position == "Top"    && new_position_y <= cp.Y) ||
-                             (rel_position == "Right"  && new_position_x <= cp.X) ||
-                             (rel_position == "Bottom" && new_position_y >= cp.Y);
+            if (rel_position == dDirection.none) return false;
+            
+            bool collision = (rel_position == dDirection.left   && new_position_x >= cp.X) ||
+                             (rel_position == dDirection.up    && new_position_y <= cp.Y) ||
+                             (rel_position == dDirection.right  && new_position_x <= cp.X) ||
+                             (rel_position == dDirection.down && new_position_y >= cp.Y);
 
             return collision;
         }
@@ -46,41 +45,34 @@ namespace RGM.General.Collision
 
             dSides sides = posRelative(x, y, ox, oy, ow, oh);
 
-            bool found = false;
-            
             Vector2 cp = new Vector2(0, 0);
             dDirection position = dDirection.none; // TODO check
-            
-            // TODO elseif
-            if (found == false && sides.left)
+
+            if (sides.left)
             {
                 if (left_cp.Y >= oy && left_cp.Y <= oy + oh)
                 {
-                    found = true;
                     cp = left_cp;
                     position = dDirection.left;
                 }
-            } else if (found == false && sides.top)
+            } else if (sides.top)
             {
                 if (top_cp.X >= ox && top_cp.X <= ox + ow)
                 {
-                    found = true;
                     cp = top_cp;
                     position = dDirection.up;
                 }
-            } else if (found == false && sides.right)
+            } else if (sides.right)
             {
                 if (right_cp.Y >= oy && right_cp.Y <= oy + oh)
                 {
-                    found = true;
                     cp = right_cp;
                     position = dDirection.right;
                 }
-            } else if (found == false  && sides.bottom)
+            } else if (sides.bottom)
             {
                 if (bottom_cp.X >= ox && bottom_cp.X <= ox + ow)
                 {
-                    found = true;
                     cp = bottom_cp;
                     position = dDirection.down;
                 }
