@@ -59,10 +59,10 @@ namespace RGM.Entities.Neutrals
                 Color.White);
         }
 
-        public override void update()
-        {
-            Console.WriteLine(isOpen);
-        }
+        // public override void update()
+        // {
+        //     Console.WriteLine(isOpen);
+        // }
 
         public override void onPlayerCollision()
         {

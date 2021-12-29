@@ -2,13 +2,13 @@ namespace RGM
 {
     public enum dDirection
     {
-        up,
-        down,
-        right,
-        left,
+        up = 0,
+        down = 1,
+        right = 2,
+        left = 3,
         
-        center, // Well it's not quite a direction but I need it
-        none
+        center = 4, // Well it's not quite a direction but I need it
+        none = 5
     }
     
     public struct dSides

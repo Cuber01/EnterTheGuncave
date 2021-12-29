@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Xna.Framework;
 
 namespace RGM.General.Collision
@@ -10,8 +11,8 @@ namespace RGM.General.Collision
             this.cp = cp;
         }
         
-        private dDirection relPosition;
-        private Vector2 cp;
+        public dDirection relPosition;
+        public Vector2 cp;
     }
     
     
@@ -28,8 +29,8 @@ namespace RGM.General.Collision
 
             return collision;
         }
-        
-        dTrajectoryRV catchingTrajectory(float x, float y, float sx, float sy, float ox, float oy, float ow, float oh)
+
+        public static dTrajectoryRV catchingTrajectory(float x, float y, float sx, float sy, float ox, float oy, float ow, float oh)
         {
             // calculate line equasion
             if (sx == 0) sx = (float)0.00000000001; // add anything
@@ -40,7 +41,7 @@ namespace RGM.General.Collision
             Vector2 top_cp = crossingPoint(s_line.X, s_line.Y, 0, oy + oh);
 
             Vector2 right_cp = new Vector2(ox + ow, f(ox + ow, s_line.X, s_line.Y));
-                x:
+                
             Vector2 bottom_cp = crossingPoint(s_line.X, s_line.Y, 0, oy);
 
             dSides sides = posRelative(x, y, ox, oy, ow, oh);
@@ -104,40 +105,44 @@ namespace RGM.General.Collision
             return new dTrajectoryRV(position, cp);
         }
 
-        Vector2 crossingPoint(float a1, float b1, float a2, float b2)
+        static Vector2 crossingPoint(float a1, float b1, float a2, float b2)
         {
             float rv_x = (b2 - b1) / (a1 - a2);
 
             return new Vector2(rv_x, a1 * rv_x + b1);
         }
 
-        dSides posRelative(float x1, float y1, float x2, float y2, float w2, float h2)
+        public static dSides posRelative(float x1, float y1, float x2, float y2, float w2, float h2)
         {
             bool L = x1 <= x2;
             bool R = x1 >= x2 + w2;
             bool T = y1 >= y2 + h2;
             bool B = y1 <= y2;
 
-            //
-            //
+            
+            
             // if (L)
             // {
-            //     line(x2, y2, x2, y2 + h2);
+            //     Console.WriteLine("Left");
+            //  //   RGM.draw.bersenhamLine((int)x2, (int)y2, (int)x2, (int)(y2 + h2), Color.Wheat);
             // }
             //
             // if (T)
             // {
-            //     line(x2, y2 + h2, x2 + w2, y2 + h2);
+            //     Console.WriteLine("top");
+            //   //  RGM.draw.bersenhamLine((int)x2, (int)(y2 + h2), (int)(x2 + w2), (int)(y2 + h2), Color.Wheat);
             // }
             //
             // if (R)
             // {
-            //     line(x2 + w2, y2, x2 + w2, y2 + h2);
+            //     Console.WriteLine("right");
+            //   //  RGM.draw.bersenhamLine((int)(x2 + w2), (int)y2, (int)(x2 + w2), (int)(y2 + h2), Color.Wheat);
             // }
             //
             // if (B)
             // {
-            //     line(x2, y2, x2 + w2, y2);
+            //     Console.WriteLine("bottom");
+            //    // RGM.draw.bersenhamLine((int)x2, (int)y2, (int)(x2 + w2), (int)y2, Color.Wheat);
             // }
 
             return new dSides(T, B, R, L);

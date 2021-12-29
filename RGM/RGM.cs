@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using RGM.Entities;
 using RGM.Entities.Allies;
+using RGM.Entities.Neutrals;
 using RGM.General;
 using RGM.General.ContentHandling.Assets;
 using RGM.General.ContentHandling.Rooms;
@@ -35,7 +36,7 @@ namespace RGM
         private readonly Matrix scaleMatrix = Matrix.CreateScale(scale, scale, 1.0f);
         private readonly GraphicsDeviceManager graphics;
         public static SpriteBatch spriteBatch;
-        DrawUtils draw;
+        public static DrawUtils draw;
 
         public RGM()
         {
@@ -77,12 +78,12 @@ namespace RGM
             Player = entities[0];
 
             // entities.Add(new WalkingEnemy(new Vector2(128, 80)));
-            // entities.Add(new Stone(new Vector2(100, 100)));
+            entities.Add(new Stone(new Vector2(100, 100)));
             // RoomLoader.placeWalls();
             
-            RoomLoader.playRoom(DungeonGenerator.floorMap[entities[0].mapPosition.X, entities[0].mapPosition.Y].roomInfo.roomIndex, 
-                                DungeonGenerator.floorMap[entities[0].mapPosition.X, entities[0].mapPosition.Y].roomInfo.roomType, 
-                                dDirection.center);
+            // RoomLoader.playRoom(DungeonGenerator.floorMap[entities[0].mapPosition.X, entities[0].mapPosition.Y].roomInfo.roomIndex, 
+            //                     DungeonGenerator.floorMap[entities[0].mapPosition.X, entities[0].mapPosition.Y].roomInfo.roomType, 
+            //                     dDirection.center);
             
 
         }
