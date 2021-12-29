@@ -17,8 +17,11 @@ namespace RGM.General.Collision
                 if (myHitbox != otherHitbox && !(entity is Bullet))
                 {
 
-                    dTrajectoryRV a = (Collision.catchingTrajectory(myPosition.X, myPosition.Y, myVelocity.X, myVelocity.Y, otherHitbox.position.X, otherHitbox.position.Y,
-                        otherHitbox.width, otherHitbox.height));
+                    dTrajectoryRV a = (Collision.catchingTrajectory(
+                        myPosition.X + myHitbox.width/2, myPosition.Y + myHitbox.height/2, myVelocity.X, myVelocity.Y, 
+                        otherHitbox.position.X - myHitbox.width/2, otherHitbox.position.Y - myHitbox.height/2, 
+                        otherHitbox.width + myHitbox.width, otherHitbox.height + myHitbox.height)
+                        );
 
                     Console.Write((int)a.relPosition + (string)" ");
                     Console.Write(a.cp + "\n");

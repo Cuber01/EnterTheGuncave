@@ -32,8 +32,9 @@ namespace RGM.General.Collision
 
         public static dTrajectoryRV catchingTrajectory(float x, float y, float sx, float sy, float ox, float oy, float ow, float oh)
         {
-            // calculate line equasion
-            if (sx == 0) sx = (float)0.00000000001; // add anything
+            // Calculate line equasion
+            if (sx == 0) sx = (float)0.0001; // Add anything
+            
             Vector2 s_line  = straightLine(x, y, x + sx, y + sy);
 
             Vector2 left_cp = new Vector2(ox, f(ox, s_line.X, s_line.Y));

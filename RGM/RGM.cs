@@ -142,7 +142,7 @@ namespace RGM
             foreach( Entity entity in entities )
             {
                 entity.draw();
-                //entity.collider.draw(draw);
+                entity.collider.draw(draw);
             }
             
             spriteBatch.End();
