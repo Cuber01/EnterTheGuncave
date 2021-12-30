@@ -18,14 +18,28 @@ namespace RGM.General.Collision
     
     public class Collision
     {
-        private static bool isCollision(float new_position_x, float new_position_y, Vector2 cp, dDirection rel_position)
+        public static bool isCollision(float new_position_x, float new_position_y, Vector2 cp, dDirection rel_position)
         {
-            if (rel_position == dDirection.none) return false;
-            
-            bool collision = (rel_position == dDirection.left   && new_position_x >= cp.X) ||
-                             (rel_position == dDirection.up    && new_position_y <= cp.Y) ||
-                             (rel_position == dDirection.right  && new_position_x <= cp.X) ||
-                             (rel_position == dDirection.down && new_position_y >= cp.Y);
+            bool collision = false;
+
+            if (rel_position == dDirection.none)
+            {
+                return collision;                
+            }
+
+            if (cp.X==0 && cp.Y==0 )
+            {
+                return collision;                
+            }
+
+
+            if ((rel_position == dDirection.left && new_position_x >= cp.X) ||
+                (rel_position == dDirection.up && new_position_y <= cp.Y) ||
+                (rel_position == dDirection.right && new_position_x <= cp.X) ||
+                (rel_position == dDirection.down && new_position_y >= cp.Y))
+            {
+                collision = true;
+            };
 
             return collision;
         }
@@ -81,8 +95,8 @@ namespace RGM.General.Collision
             }
 
             //helpers
-            // draw_vector(x, y, x + sx, y + sy);
-            // drawStraightLine(x, s_line.a, s_line.b);
+            // // draw_vector(x, y, x + sx, y + sy);
+            // RGM.draw.bersenhamLine((int)x, (int)y, (int)s_line.X, (int)s_line.Y, Color.Aqua);
             // // Helpers crossing points
             // strokeWeight(0.1);
             // fill(color("rgb(255,255,0)"));

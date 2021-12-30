@@ -130,8 +130,8 @@ namespace RGM.Entities.Allies
         private void move()
         {
             Vector2 newPosition = position + velocity * speed;
-
-            Entity collidingBody = CollisionUtils.checkCollisionAtPos(collider, newPosition, velocity);
+            
+            Entity collidingBody = CollisionUtils.checkCollisionAtPos(collider, position, velocity * speed);
                 
             if (collidingBody != null)
             {

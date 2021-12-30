@@ -22,11 +22,19 @@ namespace RGM.General
 		// PRIMITIVE DRAWING
 		// This section contains methods which draw reusable shapes, lines and other objects.
 		
-		private void drawPixel(int x, int y, Color color)
+		public void drawPixel(int x, int y, Color color)
 		{
 			spriteBatch.Draw(pixel, new Vector2(x, y), color);
 		}
 
+		public void drawCircle(int x, int y, int r, Color color)
+		{
+			for (double i = 0; i < 2 * 3.141516; i =  i + 0.1)
+			{
+				drawPixel((int)(x + r * Math.Sin(i)), (int)(y + r * Math.Cos(i)), color);
+			}
+		}
+		
 		private void drawStraightLine(int x1, int y1, int x2, int y2, Color color)
 		{
 			if (x1 == x2 && y1 == y2)

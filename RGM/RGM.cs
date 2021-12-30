@@ -96,6 +96,8 @@ namespace RGM
 
             GEventHandler.update();
             GEventHandler.clearEvents();
+            
+            spriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: scaleMatrix);
 
             foreach (Entity spawn in entitiesToBeSpawned)
             { 
@@ -126,6 +128,8 @@ namespace RGM
             }
 
             entitiesToBeKilled.Clear();
+            
+            spriteBatch.End();
 
             base.Update(gameTime);
         }
@@ -133,7 +137,7 @@ namespace RGM
         protected override void Draw(GameTime gameTime)
         {
             
-            GraphicsDevice.Clear(Color.Black);
+            //GraphicsDevice.Clear(Color.Black);
             
             spriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: scaleMatrix);
             
