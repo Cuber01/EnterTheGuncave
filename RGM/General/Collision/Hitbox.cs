@@ -13,8 +13,8 @@ namespace RGM.General.Collision
         public Hitbox(Vector2 position, int width, int height)
         {
             this.position = position;
-            this.width = width * RGM.scale;
-            this.height = height * RGM.scale;
+            this.width = width;
+            this.height = height;
         }
 
         public Entity checkCollision(Entity otherEntity)

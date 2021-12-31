@@ -35,8 +35,8 @@ namespace RGM.Entities.Neutrals
             this.direction = direction;
             this.texture  = AssetLoader.textures[dTextureKeys.tiles1];
             
-            this.myWidth  = RGM.tileSize / RGM.scale; // Determining width using tileSize instead of texture width as usual
-            this.myHeight = RGM.tileSize / RGM.scale;
+            this.myWidth  = RGM.tileSize; // Determining width using tileSize instead of texture width as usual
+            this.myHeight = RGM.tileSize;
             
             this.tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
 

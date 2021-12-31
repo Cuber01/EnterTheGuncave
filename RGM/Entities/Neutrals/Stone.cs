@@ -12,8 +12,8 @@ namespace RGM.Entities.Neutrals
         {
             this.position = position;
             this.texture  = AssetLoader.textures[dTextureKeys.stone];
-            this.myWidth  = texture.Width  / RGM.scale;
-            this.myHeight = texture.Height / RGM.scale;
+            this.myWidth  = 16;
+            this.myHeight = 16; //TODO
             this.tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
 
             this.team = dTeam.neutrals;

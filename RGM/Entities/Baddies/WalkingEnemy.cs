@@ -22,8 +22,8 @@ namespace RGM.Entities.Baddies
             this.isDangerous = true;
             
             this.texture = AssetLoader.textures[dTextureKeys.enemy];
-            this.myWidth  = texture.Width  / RGM.scale;
-            this.myHeight = texture.Height / RGM.scale;
+            this.myWidth  = texture.Width;
+            this.myHeight = texture.Height;
             
             this.collider = new Hitbox(position, myWidth, myHeight);
 

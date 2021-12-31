@@ -17,8 +17,8 @@ namespace RGM.Entities.Neutrals
         {
             this.position = position;
             this.texture  = AssetLoader.textures[dTextureKeys.pedestal];
-            this.myWidth  = texture.Width  / RGM.scale;
-            this.myHeight = texture.Height / RGM.scale;
+            this.myWidth  = texture.Width;
+            this.myHeight = texture.Height;
             this.tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
 
             this.item = item;

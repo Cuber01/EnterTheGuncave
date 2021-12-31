@@ -30,7 +30,7 @@ namespace RGM.Entities.Allies
             ));
         
         
-        private readonly float speed = 1.1f;
+        private readonly float speed = 1f;
         private readonly float friction = 0.65f;
         private readonly float maxVelocity = 6;
 
@@ -42,8 +42,8 @@ namespace RGM.Entities.Allies
             this.mapPosition = DungeonGenerator.startingPos;
             
             this.texture  = AssetLoader.textures[dTextureKeys.player];
-            this.myWidth  = texture.Width  / RGM.scale;
-            this.myHeight = texture.Height / RGM.scale;
+            this.myWidth  = texture.Width;
+            this.myHeight = texture.Height;
 
             this.shooter = new PistolShooter(shooterStats);
             
@@ -131,18 +131,44 @@ namespace RGM.Entities.Allies
         {
             Vector2 newPosition = position + velocity * speed;
             
+            // (Entity, Vector2) collidingBody = CollisionUtils.checkCollisionAtPos(collider, position, velocity * speed);
+            //     
+            // if (collidingBody.Item1 != null)
+            // {
+            //     (velocity.X, velocity.Y) = (0, 0);
+            //
+            //     collidingBody.Item1.onPlayerCollision();
+            //     position = new Vector2(collidingBody.Item2.X + myWidth/2, collidingBody.Item2.Y + myHeight/2);    
+            // }
+            // else
+            // {
+            //     position = newPosition;    
+            // }
+            
             Entity collidingBody = CollisionUtils.checkCollisionAtPos(collider, position, velocity * speed);
-                
+            
             if (collidingBody != null)
             {
                 (velocity.X, velocity.Y) = (0, 0);
-
+            
                 collidingBody.onPlayerCollision();
             }
             else
             {
                 position = newPosition;    
             }
+                
+            // if (collidingBody.Item1 != null)
+            // {
+            //     (velocity.X, velocity.Y) = (0, 0);
+            //
+            //     collidingBody.Item1.onPlayerCollision();
+            //     position = new Vector2(collidingBody.Item2.X + myWidth/2, collidingBody.Item2.Y + myHeight/2);    
+            // }
+            // else
+            // {
+            //     position = newPosition;    
+            // }
             
         }
         

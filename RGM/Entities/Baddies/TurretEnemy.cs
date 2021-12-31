@@ -29,8 +29,8 @@ namespace RGM.Entities.Baddies
             this.isDangerous = true;
             
             this.texture = AssetLoader.textures[dTextureKeys.enemy_turret];
-            this.myWidth  = texture.Width  / RGM.scale;
-            this.myHeight = texture.Height / RGM.scale;
+            this.myWidth  = texture.Width;
+            this.myHeight = texture.Height;
 
             this.shooter = new PistolShooter(shooterStats);
             this.tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);

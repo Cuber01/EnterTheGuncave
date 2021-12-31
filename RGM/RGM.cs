@@ -78,12 +78,12 @@ namespace RGM
             Player = entities[0];
 
             // entities.Add(new WalkingEnemy(new Vector2(128, 80)));
-            entities.Add(new Stone(new Vector2(100, 100)));
+            // entities.Add(new Stone(new Vector2(100, 100)));
             // RoomLoader.placeWalls();
             
-            // RoomLoader.playRoom(DungeonGenerator.floorMap[entities[0].mapPosition.X, entities[0].mapPosition.Y].roomInfo.roomIndex, 
-            //                     DungeonGenerator.floorMap[entities[0].mapPosition.X, entities[0].mapPosition.Y].roomInfo.roomType, 
-            //                     dDirection.center);
+            RoomLoader.playRoom(DungeonGenerator.floorMap[entities[0].mapPosition.X, entities[0].mapPosition.Y].roomInfo.roomIndex, 
+                                DungeonGenerator.floorMap[entities[0].mapPosition.X, entities[0].mapPosition.Y].roomInfo.roomType, 
+                                dDirection.center);
             
 
         }
@@ -97,7 +97,7 @@ namespace RGM
             GEventHandler.update();
             GEventHandler.clearEvents();
             
-            spriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: scaleMatrix);
+            //spriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: scaleMatrix);
 
             foreach (Entity spawn in entitiesToBeSpawned)
             { 
@@ -129,7 +129,7 @@ namespace RGM
 
             entitiesToBeKilled.Clear();
             
-            spriteBatch.End();
+            //spriteBatch.End();
 
             base.Update(gameTime);
         }
@@ -137,7 +137,7 @@ namespace RGM
         protected override void Draw(GameTime gameTime)
         {
             
-            //GraphicsDevice.Clear(Color.Black);
+            GraphicsDevice.Clear(Color.Black);
             
             spriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: scaleMatrix);
             

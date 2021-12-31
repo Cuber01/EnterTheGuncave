@@ -14,8 +14,8 @@ namespace RGM.Entities.Projectiles
         {
             this.position = position;
             this.texture = AssetLoader.textures[dTextureKeys.bullet];
-            this.myWidth  = texture.Width  / RGM.scale;
-            this.myHeight = texture.Height / RGM.scale;
+            this.myWidth  = texture.Width;
+            this.myHeight = texture.Height;
 
             this.target = targetPos;
             this.stats = stats;

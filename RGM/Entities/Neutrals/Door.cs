@@ -34,8 +34,8 @@ namespace RGM.Entities.Neutrals
             this.texture  = AssetLoader.textures[dTextureKeys.arrow];
             
             // Determining width using tileSize instead of texture width as usual
-            this.myWidth  = RGM.tileSize / RGM.scale; 
-            this.myHeight = RGM.tileSize / RGM.scale;
+            this.myWidth  = RGM.tileSize; 
+            this.myHeight = RGM.tileSize;
             
             this.tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
             this.isOpen = isOpen;
