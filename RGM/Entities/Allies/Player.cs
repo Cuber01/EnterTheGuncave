@@ -1,20 +1,20 @@
-using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using RGM.Entities.Neutrals;
 using RGM.Entities.Projectiles;
 using RGM.General;
 using RGM.General.Collision;
 using RGM.General.ContentHandling.Assets;
 using RGM.General.DungeonGenerator;
-using RGM.Items;
 
 // TODO fix penetration idot
 namespace RGM.Entities.Allies
 {
     public class Player : Entity
     {
+        private static readonly Dictionary<Rectangle, int> animation;
+
+
         private readonly PistolShooter shooter;
         private bool shoot;
 
@@ -42,8 +42,8 @@ namespace RGM.Entities.Allies
             this.mapPosition = DungeonGenerator.startingPos;
             
             this.texture  = AssetLoader.textures[dTextureKeys.player];
-            this.myWidth  = texture.Width;
-            this.myHeight = texture.Height;
+            this.myWidth  = 6;
+            this.myHeight = 7;
 
             this.shooter = new PistolShooter(shooterStats);
             

@@ -1,5 +1,3 @@
-using System;
-
 namespace RGM.Items
 {
     public static class ItemEffects

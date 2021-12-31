@@ -1,4 +1,3 @@
-using System;
 using RGM.General.EventHandling;
 using Microsoft.Xna.Framework.Graphics;
 using RGM.General.ContentHandling.Assets;

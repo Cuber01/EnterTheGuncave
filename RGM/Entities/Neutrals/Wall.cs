@@ -34,9 +34,27 @@ namespace RGM.Entities.Neutrals
             this.position = position;
             this.direction = direction;
             this.texture  = AssetLoader.textures[dTextureKeys.tiles1];
-            
-            this.myWidth  = RGM.tileSize; // Determining width using tileSize instead of texture width as usual
+
             this.myHeight = RGM.tileSize;
+            this.myWidth = RGM.tileSize;
+
+            if (direction == dTileDirection.up)
+            {
+                
+                this.collider = new Hitbox(new Vector2(position.X, position.Y + 2), myWidth, myHeight + 2);
+                
+            } else if (direction == dTileDirection.down)
+            {
+                
+                this.collider = new Hitbox(position, myWidth, myHeight - 2);
+                
+            }
+            if ((int)direction >= 4)
+            {
+                this.myWidth  = RGM.tileSize; 
+                this.myHeight = RGM.tileSize;
+            }
+            
             
             this.tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
 

@@ -1,5 +1,3 @@
-using System;
-
 namespace RGM.General.EventHandling
 {
     public static class GEventResponse

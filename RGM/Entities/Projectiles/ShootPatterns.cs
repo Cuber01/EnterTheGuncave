@@ -1,6 +1,4 @@
-using System.Data;
 using Microsoft.Xna.Framework;
-using RGM.General.EventHandling;
 
 namespace RGM.Entities.Projectiles
 {

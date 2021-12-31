@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using RGM.Entities;
 using RGM.Entities.Allies;
-using RGM.Entities.Neutrals;
 using RGM.General;
 using RGM.General.ContentHandling.Assets;
 using RGM.General.ContentHandling.Rooms;
@@ -27,8 +26,8 @@ namespace RGM
         public static readonly int[,] currentRoom = new int[roomWidth, roomHeight];
         public static int enemiesInRoom;
         
-        public const int tileSize = 16;
-        public const int scale = 4;
+        public const int tileSize = 8;
+        public const int scale = 8;
 
         private const int windowWidth = roomWidth * tileSize * scale;
         private const int windowHeight = roomHeight * tileSize * scale;
@@ -146,7 +145,7 @@ namespace RGM
             foreach( Entity entity in entities )
             {
                 entity.draw();
-                entity.collider.draw(draw);
+                //entity.collider.draw(draw);
             }
             
             spriteBatch.End();

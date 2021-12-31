@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using RGM.Items;
 
 namespace RGM.General.EventHandling
 {

@@ -1,4 +1,3 @@
-using System;
 using Microsoft.Xna.Framework;
 using RGM.Entities;
 using RGM.Entities.Projectiles;

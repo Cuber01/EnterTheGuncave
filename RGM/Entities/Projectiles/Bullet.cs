@@ -1,4 +1,3 @@
-using System;
 using Microsoft.Xna.Framework;
 using RGM.General.Collision;
 using RGM.General.ContentHandling.Assets;
