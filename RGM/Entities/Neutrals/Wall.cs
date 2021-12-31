@@ -38,28 +38,18 @@ namespace RGM.Entities.Neutrals
             this.myHeight = RGM.tileSize;
             this.myWidth = RGM.tileSize;
 
-            if (direction == dTileDirection.up)
+            switch (direction)
             {
-                
-                this.collider = new Hitbox(new Vector2(position.X, position.Y + 2), myWidth, myHeight + 2);
-                
-            } else if (direction == dTileDirection.down)
-            {
-                
-                this.collider = new Hitbox(position, myWidth, myHeight - 2);
-                
+                case dTileDirection.up:    this.collider     = new Hitbox(new Vector2(position.X, position.Y + 2), myWidth, myHeight - 2); break;
+                case dTileDirection.down:  this.collider     = new Hitbox(position, myWidth, myHeight - 2); break;
+                case dTileDirection.left:  this.collider     = new Hitbox(new Vector2(position.X + 2, position.Y), myWidth, myHeight); break;
+                case dTileDirection.right: this.collider     = new Hitbox(position, myWidth - 2, myHeight); break;
+                default: this.collider = new Hitbox(position, myWidth, myHeight); break;
             }
-            if ((int)direction >= 4)
-            {
-                this.myWidth  = RGM.tileSize; 
-                this.myHeight = RGM.tileSize;
-            }
-            
             
             this.tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
 
             this.team = dTeam.neutrals;
-            this.collider = new Hitbox(position, myWidth, myHeight);
         }
 
         public override void draw()
