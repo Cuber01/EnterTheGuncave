@@ -18,12 +18,12 @@ namespace RGM.Entities.Neutrals
 
         private static readonly Rectangle[] spritesheetPositions =
         {
-            new Rectangle(0, 0, 16, 16),
-            new Rectangle(0, 16, 16, 16),
-            new Rectangle(16, 16, 16, 16),
-            new Rectangle(16, 0, 16, 16),
+            new Rectangle(0,            0,            RGM.tileSize, RGM.tileSize),
+            new Rectangle(0,            RGM.tileSize, RGM.tileSize, RGM.tileSize),
+            new Rectangle(RGM.tileSize, RGM.tileSize, RGM.tileSize, RGM.tileSize),
+            new Rectangle(RGM.tileSize, 0,            RGM.tileSize, RGM.tileSize),
             
-            new Rectangle(32, 0, 16, 16) // Closed.
+            new Rectangle(RGM.tileSize*2, 0, RGM.tileSize, RGM.tileSize) // Closed.
         };
 
         public Door(Vector2 position, dDirection direction, bool isOpen)

@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using RGM.Entities.Projectiles;
 using RGM.General;
+using RGM.General.Animation;
 using RGM.General.Collision;
 using RGM.General.ContentHandling.Assets;
 using RGM.General.DungeonGenerator;
@@ -12,9 +13,20 @@ namespace RGM.Entities.Allies
 {
     public class Player : Entity
     {
-        private static readonly Dictionary<Rectangle, int> animation;
+        private static readonly Dictionary<Rectangle, int> animation = new Dictionary<Rectangle, int>()
+        {
+            {
+                new Rectangle(0, 0, 6, 7), 50
+            },
+           
+            {
+                new Rectangle(6, 0, 6, 7), 50
+            }
+            
+        };
 
 
+        private readonly Animator animator;
         private readonly PistolShooter shooter;
         private bool shoot;
 
@@ -46,6 +58,7 @@ namespace RGM.Entities.Allies
             this.myHeight = 7;
 
             this.shooter = new PistolShooter(shooterStats);
+            this.animator = new Animator(texture, animation);
             
             this.team = dTeam.allies;
             this.collider = new Hitbox(position, myWidth, myHeight);
@@ -170,6 +183,11 @@ namespace RGM.Entities.Allies
             //     position = newPosition;    
             // }
             
+        }
+
+        public override void draw()
+        {
+            animator.draw(position);
         }
         
         /* ---------------- COLLISION ------------------ */

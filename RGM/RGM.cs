@@ -140,7 +140,7 @@ namespace RGM
             
             spriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: scaleMatrix);
             
-            // draw.drawGrid(Color.Gray);
+            //draw.drawGrid(Color.Gray);
             
             foreach( Entity entity in entities )
             {
