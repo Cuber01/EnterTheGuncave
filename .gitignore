@@ -1,9 +1,6 @@
 .git
 RGM/bin/*
 RGM/obj/*
-RGM.sln.DotSettings.user
-RGM.sln.DotSettings.user
-RGM.sln
 .idea/.idea.RGM/.idea/vcs.xml
 *.exe
 *.pdb
