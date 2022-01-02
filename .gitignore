@@ -1,6 +1,5 @@
 .git
 RGM/bin/*
-RGM/obj/*
 .idea/.idea.RGM/.idea/vcs.xml
 *.exe
 *.pdb
