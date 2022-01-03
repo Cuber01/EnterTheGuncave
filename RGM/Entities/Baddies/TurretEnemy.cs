@@ -74,7 +74,11 @@ namespace RGM.Entities.Baddies
             {
                 GEventHandler.fireEvent(dEvents.enemyKilled);
                 dead = true;
+                
+                return;
             }
+            
+            GEventHandler.fireEvent(dEvents.enemyHurt);
             
         }
         

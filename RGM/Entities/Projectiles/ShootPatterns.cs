@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using RGM.General.EventHandling;
 
 namespace RGM.Entities.Projectiles
 {
@@ -54,9 +55,8 @@ namespace RGM.Entities.Projectiles
 
         protected override void shoot()
         {
-            // TODO rm
-            //GEventHandler.fireEvent(dEvents.enemyKilled);
-            
+            GEventHandler.fireEvent(dEvents.shoot);
+
             RGM.entitiesToBeSpawned.Add(new Bullet(targetPosition, gunPosition, stats.bulletStats));
         }
         
