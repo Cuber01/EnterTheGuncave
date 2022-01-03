@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -41,8 +42,7 @@ namespace RGM.General.Animation
 
     public class ComplexAnimator
     {
-
-
+        private int animationNmb;
         private int timeToNextFrame;
         private int currentFrame;
         
@@ -54,19 +54,25 @@ namespace RGM.General.Animation
             this.spritesheet = spritesheet;
             this.frames = frames;
         }
-        
-        public void draw(Vector2 position, int animationNumber)
+
+        public void changeAnimation(int newAnimationNmb)
         {
-            int animationNmb = animationNumber;
+            this.animationNmb = newAnimationNmb;
+        }
+        
+        public void draw(Vector2 position)
+        {
+            
             
             if (timeToNextFrame <= 0)
             {
                 currentFrame++;
 
-                if (currentFrame > frames.Count - 1)
+                if (currentFrame > frames[animationNmb].Count - 1)
                 {
                     currentFrame = 0;
                 }
+
 
                 timeToNextFrame = frames[animationNmb].ElementAt(currentFrame).Value;
             }

@@ -16,72 +16,79 @@ namespace RGM.Entities.Neutrals
 {
     public class Door : Entity
     {
-        private readonly Dictionary<Rectangle, int> animation;
-        private readonly SimpleAnimator _simpleAnimator;
+        private readonly List<Dictionary<Rectangle, int>> animation;
+        private readonly ComplexAnimator animator;
 
         private readonly dDirection direction;
+        
+        private int openingTimer = 20;
         private bool isOpen;
-
-        private static readonly Rectangle[] spritesheetPositions =
-        {
-            new Rectangle(0, 0, 8, 8),
-            new Rectangle(0, 8, 8, 8),
-            new Rectangle(0, 16, 8, 8),
-            new Rectangle(0, 24, 8, 8),
-
-            new Rectangle(RGM.tileSize * 2, 0, RGM.tileSize, RGM.tileSize) // Closed.
-        };
+        private bool isOpening;
 
         public Door(Vector2 position, dDirection direction, bool isOpen)
         {
+            // Set direction and position
             this.position = position;
             this.direction = direction;
 
+            // Get texture
             this.texture = AssetLoader.textures[dTextureKeys.arrow];
 
+            // Choose a set of animations depending on our direction
             switch (direction)
             {
                 case dDirection.left:
-                    animation = anim_left;
+                    animation = animations_left;
                     break;
                 case dDirection.right:
-                    animation = anim_right;
+                    animation = animations_right;
                     break;
                 case dDirection.up:
-                    animation = anim_up;
+                    animation = animations_up;
                     break;
                 case dDirection.down:
-                    animation = anim_down;
+                    animation = animations_down;
                     break;
             }
 
+            // Create an animator
+            this.animator = new ComplexAnimator(texture, animation);
 
-            this._simpleAnimator = new SimpleAnimator(texture, animation);
-
+            // Calculate tile position
             this.myWidth = RGM.tileSize;
             this.myHeight = RGM.tileSize;
-
             this.tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
+            
+            // Setup open state
             this.isOpen = isOpen;
+            this.animator.changeAnimation(isOpen ? 0 : 1);
 
+            // Setup collider and colliding teams
             this.team = dTeam.neutrals;
             this.collider = new Hitbox(position, myWidth, myHeight);
 
+            // Subscribe for roomClear event, if it happens, doors shall open
             GEventHandler.subscribe(open, dEvents.roomClear);
         }
 
         private void open(dEvents e)
         {
-            isOpen = true;
+            isOpening = true;
+            animator.changeAnimation(2);
         }
 
         public override void draw()
         {
-            // RGM.spriteBatch.Draw(texture, position,
-            //     isOpen ? spritesheetPositions[(int)direction] : 
-            //              spritesheetPositions[4], 
-            //     Color.White);
-            _simpleAnimator.draw(position);
+            if (isOpening) openingTimer--;
+
+            if (openingTimer <= 0)
+            {
+                isOpen = true;
+                animator.changeAnimation(0);
+            }
+            
+            animator.draw(position);
+
         }
 
         public override void onPlayerCollision()
@@ -128,7 +135,7 @@ namespace RGM.Entities.Neutrals
         private static readonly Dictionary<Rectangle, int> closed_right = new Dictionary<Rectangle, int>()  { { new Rectangle(0, 16, 8, 8), Int32.MaxValue } };
         private static readonly Dictionary<Rectangle, int> closed_left  = new Dictionary<Rectangle, int>()  { { new Rectangle(0, 24, 8, 8), Int32.MaxValue } };
 
-        private static readonly Dictionary<Rectangle, int> opened_up = new Dictionary<Rectangle, int>      { { new Rectangle(24, 0, 8, 8), Int32.MaxValue } };
+        private static readonly Dictionary<Rectangle, int> opened_up    = new Dictionary<Rectangle, int>      { { new Rectangle(24, 0, 8, 8), Int32.MaxValue } };
         private static readonly Dictionary<Rectangle, int> opened_down  = new Dictionary<Rectangle, int>() { { new Rectangle(24, 8, 8, 8 ), Int32.MaxValue } };
         private static readonly Dictionary<Rectangle, int> opened_right = new Dictionary<Rectangle, int>() { { new Rectangle(24, 16, 8, 8), Int32.MaxValue } };
         private static readonly Dictionary<Rectangle, int> opened_left  = new Dictionary<Rectangle, int>() { { new Rectangle(24, 24, 8, 8), Int32.MaxValue } };
