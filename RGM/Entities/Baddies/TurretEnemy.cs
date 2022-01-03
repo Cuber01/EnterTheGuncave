@@ -30,8 +30,7 @@ namespace RGM.Entities.Baddies
         {
             this.position = position;
             this.team = dTeam.baddies;
-            this.isDangerous = true;
-            
+
             this.texture  = AssetLoader.textures[dTextureKeys.enemy_turret];
             this.myWidth  = 8;
             this.myHeight = 8;

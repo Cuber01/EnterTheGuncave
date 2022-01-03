@@ -19,8 +19,7 @@ namespace RGM.Entities.Baddies
         {
             this.position = position;
             this.team = dTeam.baddies;
-            this.isDangerous = true;
-            
+
             this.texture = AssetLoader.textures[dTextureKeys.enemy];
             this.myWidth  = texture.Width;
             this.myHeight = texture.Height;
