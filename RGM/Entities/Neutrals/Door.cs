@@ -128,10 +128,10 @@ namespace RGM.Entities.Neutrals
         private static readonly Dictionary<Rectangle, int> closed_right = new Dictionary<Rectangle, int>()  { { new Rectangle(0, 16, 8, 8), Int32.MaxValue } };
         private static readonly Dictionary<Rectangle, int> closed_left  = new Dictionary<Rectangle, int>()  { { new Rectangle(0, 24, 8, 8), Int32.MaxValue } };
 
-        private static readonly Dictionary<Rectangle, int> open_up = new Dictionary<Rectangle, int>      { { new Rectangle(24, 0, 8, 8), Int32.MaxValue } };
-        private static readonly Dictionary<Rectangle, int> open_down  = new Dictionary<Rectangle, int>() { { new Rectangle(24, 8, 8, 8 ), Int32.MaxValue } };
-        private static readonly Dictionary<Rectangle, int> open_right = new Dictionary<Rectangle, int>() { { new Rectangle(24, 16, 8, 8), Int32.MaxValue } };
-        private static readonly Dictionary<Rectangle, int> open_left  = new Dictionary<Rectangle, int>() { { new Rectangle(24, 24, 8, 8), Int32.MaxValue } };
+        private static readonly Dictionary<Rectangle, int> opened_up = new Dictionary<Rectangle, int>      { { new Rectangle(24, 0, 8, 8), Int32.MaxValue } };
+        private static readonly Dictionary<Rectangle, int> opened_down  = new Dictionary<Rectangle, int>() { { new Rectangle(24, 8, 8, 8 ), Int32.MaxValue } };
+        private static readonly Dictionary<Rectangle, int> opened_right = new Dictionary<Rectangle, int>() { { new Rectangle(24, 16, 8, 8), Int32.MaxValue } };
+        private static readonly Dictionary<Rectangle, int> opened_left  = new Dictionary<Rectangle, int>() { { new Rectangle(24, 24, 8, 8), Int32.MaxValue } };
         
         private static readonly Dictionary<Rectangle, int> anim_up = new Dictionary<Rectangle, int>()
         {
@@ -199,9 +199,30 @@ namespace RGM.Entities.Neutrals
         
         private static readonly List<Dictionary<Rectangle, int>> animations_up = new List<Dictionary<Rectangle, int>>()
         {
-            open_up,
+            opened_up,
             closed_up,
             anim_up
+        };
+        
+        private static readonly List<Dictionary<Rectangle, int>> animations_down = new List<Dictionary<Rectangle, int>>()
+        {
+            opened_down,
+            closed_down,
+            anim_down
+        };
+        
+        private static readonly List<Dictionary<Rectangle, int>> animations_right = new List<Dictionary<Rectangle, int>>()
+        {
+            opened_right,
+            closed_right,
+            anim_right
+        };
+        
+        private static readonly List<Dictionary<Rectangle, int>> animations_left = new List<Dictionary<Rectangle, int>>()
+        {
+            opened_left,
+            closed_left,
+            anim_left
         };
 
         
