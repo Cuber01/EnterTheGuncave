@@ -8,6 +8,7 @@ using RGM.General.ContentHandling.Assets;
 using RGM.General.ContentHandling.Rooms;
 using RGM.General.DungeonGenerator;
 using RGM.General.EventHandling;
+using RGM.General.Sound;
 
 namespace RGM
 {
@@ -64,10 +65,12 @@ namespace RGM
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
             AssetLoader assetLoader = new AssetLoader(Content);
             
             assetLoader.loadTextures();
+            assetLoader.loadSounds();
+            
+            SoundManager.init();
            
             RoomLoader.loadAllRooms();
             

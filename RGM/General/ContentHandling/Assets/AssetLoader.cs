@@ -32,10 +32,10 @@ namespace RGM.General.ContentHandling.Assets
         
         public void loadSounds()
         {
-            sfx.Add(dSoundKeys.enemy_die, contentManager.Load<SoundEffect>("assets/sound/sfx/wav/"));
-            sfx.Add(dSoundKeys.enemy_hurt, contentManager.Load<SoundEffect>("assets/sound/sfx/wav/"));
-            sfx.Add(dSoundKeys.enemy_hurt2, contentManager.Load<SoundEffect>("assets/sound/sfx/wav/"));
-            sfx.Add(dSoundKeys.shoot, contentManager.Load<SoundEffect>("assets/sound/sfx/wav/"));
+            sfx.Add(dSoundKeys.enemy_die, contentManager.Load<SoundEffect>("assets/sounds/sfx/wav/enemy_die"));
+            sfx.Add(dSoundKeys.enemy_hurt, contentManager.Load<SoundEffect>("assets/sounds/sfx/wav/enemy_hurt"));
+            sfx.Add(dSoundKeys.enemy_hurt2, contentManager.Load<SoundEffect>("assets/sounds/sfx/wav/enemy_hurt2"));
+            sfx.Add(dSoundKeys.shoot, contentManager.Load<SoundEffect>("assets/sounds/sfx/wav/shoot"));
         }
     }
 }
