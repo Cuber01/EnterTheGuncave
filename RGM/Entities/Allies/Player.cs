@@ -14,7 +14,7 @@ namespace RGM.Entities.Allies
     public class Player : Entity
     {
     
-        private readonly Animator animator;
+        private readonly SimpleAnimator _simpleAnimator;
         private readonly PistolShooter shooter;
         private bool shoot;
 
@@ -46,7 +46,7 @@ namespace RGM.Entities.Allies
             this.myHeight = 7;
 
             this.shooter = new PistolShooter(shooterStats);
-            this.animator = new Animator(texture, animation);
+            this._simpleAnimator = new SimpleAnimator(texture, animation);
             
             this.team = dTeam.allies;
             this.collider = new Hitbox(position, myWidth, myHeight);
@@ -175,7 +175,7 @@ namespace RGM.Entities.Allies
 
         public override void draw()
         {
-            animator.draw(position);
+            _simpleAnimator.draw(position);
         }
         
         /* ---------------- COLLISION ------------------ */

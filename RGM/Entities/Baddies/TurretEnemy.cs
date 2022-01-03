@@ -11,7 +11,7 @@ namespace RGM.Entities.Baddies
     public class TurretEnemy : Entity
     {
         
-        private readonly Animator animator;
+        private readonly SimpleAnimator _simpleAnimator;
         private EnemyStats stats;
         private readonly PistolShooter shooter;
 
@@ -36,7 +36,7 @@ namespace RGM.Entities.Baddies
             this.myWidth  = 8;
             this.myHeight = 8;
 
-            this.animator = new Animator(texture, animation);
+            this._simpleAnimator = new SimpleAnimator(texture, animation);
 
             this.shooter = new PistolShooter(shooterStats);
             this.tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
@@ -56,7 +56,7 @@ namespace RGM.Entities.Baddies
 
         public override void draw()
         {
-            animator.draw(position);
+            _simpleAnimator.draw(position);
         }
 
 
