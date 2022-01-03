@@ -12,8 +12,38 @@
     <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/player.png</File>
     <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/stone.png</File>
     <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/tiles1.png</File>
+    <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/sounds/sfx/wav/choose.wav</File>
+    <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/sounds/sfx/wav/click.wav</File>
+    <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/sounds/sfx/wav/enemy_die.wav</File>
+    <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/sounds/sfx/wav/enemy_hurt.wav</File>
+    <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/sounds/sfx/wav/enemy_hurt2.wav</File>
+    <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/sounds/sfx/wav/explosion.wav</File>
+    <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/sounds/sfx/wav/health_pickup.wav</File>
+    <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/sounds/sfx/wav/locked.wav</File>
+    <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/sounds/sfx/wav/pickup_coin.wav</File>
+    <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/sounds/sfx/wav/player_death.wav</File>
+    <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/sounds/sfx/wav/player_hit.wav</File>
+    <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/sounds/sfx/wav/powerup.wav</File>
+    <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/sounds/sfx/wav/rocket.wav</File>
+    <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/sounds/sfx/wav/select.wav</File>
+    <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/sounds/sfx/wav/shoot.wav</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

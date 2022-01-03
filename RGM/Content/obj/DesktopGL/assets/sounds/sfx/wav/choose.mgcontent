@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/sounds/sfx/wav/choose.wav</SourceFile>
+  <SourceTime>2021-12-30T12:03:37.0072307+01:00</SourceTime>
+  <DestFile>/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/sounds/sfx/wav/choose.xnb</DestFile>
+  <DestTime>2022-01-03T17:17:12.997065+01:00</DestTime>
+  <Importer>WavImporter</Importer>
+  <ImporterTime>2021-04-25T20:26:29.1786286+02:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2021-04-25T20:26:29.1786286+02:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

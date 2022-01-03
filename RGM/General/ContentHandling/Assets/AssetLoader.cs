@@ -37,5 +37,10 @@ namespace RGM.General.ContentHandling.Assets
             textures.Add(dTextureKeys.pedestal, contentManager.Load<Texture2D>("assets/images/pedestal"));
             textures.Add(dTextureKeys.enemy_turret, contentManager.Load<Texture2D>("assets/images/enemy_turret"));
         }
+
+        public void loadSounds()
+        {
+            
+        }
     }
 }
