@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using RGM.Entities.Projectiles;
+using RGM.General.Animation;
 using RGM.General.Collision;
 using RGM.General.ContentHandling.Assets;
 using RGM.General.EventHandling;
@@ -8,11 +10,13 @@ namespace RGM.Entities.Baddies
 {
     public class TurretEnemy : Entity
     {
+        
+        private readonly Animator animator;
         private EnemyStats stats;
         private readonly PistolShooter shooter;
 
         private readonly ShooterStats shooterStats = new ShooterStats(
-            100,
+            260,
               1, 
     new BulletStats(
                 1,
@@ -28,9 +32,11 @@ namespace RGM.Entities.Baddies
             this.team = dTeam.baddies;
             this.isDangerous = true;
             
-            this.texture = AssetLoader.textures[dTextureKeys.enemy_turret];
-            this.myWidth  = texture.Width;
-            this.myHeight = texture.Height;
+            this.texture  = AssetLoader.textures[dTextureKeys.enemy_turret];
+            this.myWidth  = 8;
+            this.myHeight = 8;
+
+            this.animator = new Animator(texture, animation);
 
             this.shooter = new PistolShooter(shooterStats);
             this.tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
@@ -41,15 +47,18 @@ namespace RGM.Entities.Baddies
             stats.hitpoints = 10;
         }
         
-        
-
         public override void update()
         {
             Vector2 target = new Vector2(RGM.Player.position.X, RGM.Player.position.Y);
 
             shooter.update(position, target, true);
         }
-        
+
+        public override void draw()
+        {
+            animator.draw(position);
+        }
+
 
         /* ------------------- DAMAGE ------------------- */
 
@@ -69,6 +78,44 @@ namespace RGM.Entities.Baddies
             }
             
         }
+        
+        /* ----------------- ANIMATION ------------------- */
+        
+        private static readonly Dictionary<Rectangle, int> animation = new Dictionary<Rectangle, int>()
+        {
+            {
+                new Rectangle(0, 0, 8, 10), 50
+            },
+           
+            {
+                new Rectangle(8, 0, 8, 10), 50
+            },
+            
+            {
+                new Rectangle(16, 0, 8, 10), 50
+            },
+
+            {
+                new Rectangle(24, 0, 8, 10), 50
+            },
+            
+            {
+                new Rectangle(32, 0, 8, 10), 5
+            },
+            
+            {
+                new Rectangle(40, 0, 8, 10), 5
+            },
+            
+            {
+                new Rectangle(48, 0, 8, 10), 5
+            },
+            
+            {
+                new Rectangle(56, 0, 8, 10), 50
+            },
+            
+        };
         
     }
 }

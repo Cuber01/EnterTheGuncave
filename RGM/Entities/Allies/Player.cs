@@ -13,19 +13,7 @@ namespace RGM.Entities.Allies
 {
     public class Player : Entity
     {
-        private static readonly Dictionary<Rectangle, int> animation = new Dictionary<Rectangle, int>()
-        {
-            {
-                new Rectangle(0, 0, 6, 7), 50
-            },
-           
-            {
-                new Rectangle(6, 0, 6, 7), 50
-            }
-            
-        };
-
-
+    
         private readonly Animator animator;
         private readonly PistolShooter shooter;
         private bool shoot;
@@ -207,6 +195,22 @@ namespace RGM.Entities.Allies
         //         
         //     }
         // }
+        
+        /* ----------------- ANIMATION ----------------- */
+        
+        private static readonly Dictionary<Rectangle, int> animation = new Dictionary<Rectangle, int>()
+        {
+            {
+                new Rectangle(0, 0, 6, 7), 50
+            },
+           
+            {
+                new Rectangle(6, 0, 6, 7), 50
+            }
+            
+        };
+
+
 
         
     }
