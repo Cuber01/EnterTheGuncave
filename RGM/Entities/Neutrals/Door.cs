@@ -32,7 +32,7 @@ namespace RGM.Entities.Neutrals
             this.direction = direction;
 
             // Get texture
-            this.texture = AssetLoader.textures[dTextureKeys.arrow];
+            this.texture = AssetLoader.textures[dTextureKeys.door];
 
             // Choose a set of animations depending on our direction
             switch (direction)

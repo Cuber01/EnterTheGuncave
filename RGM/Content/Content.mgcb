@@ -13,18 +13,6 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin assets/images/arrow.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=0,0,0,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:assets/images/arrow.png
-
 #begin assets/images/bullet.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -36,6 +24,42 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:assets/images/bullet.png
+
+#begin assets/images/bullet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/images/bullet.png
+
+#begin assets/images/door.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/images/door.png
+
+#begin assets/images/enemy.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/images/enemy.gif
 
 #begin assets/images/enemy.png
 /importer:TextureImporter
@@ -49,6 +73,30 @@
 /processorParam:TextureFormat=Color
 /build:assets/images/enemy.png
 
+#begin assets/images/enemy.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/images/enemy.png
+
+#begin assets/images/enemy_turret.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/images/enemy_turret.gif
+
 #begin assets/images/enemy_turret.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -61,10 +109,46 @@
 /processorParam:TextureFormat=Color
 /build:assets/images/enemy_turret.png
 
+#begin assets/images/enemy_turret.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/images/enemy_turret.png
+
+#begin assets/images/extras.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/images/extras.png
+
 #begin assets/images/pedestal.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=0,0,0,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/images/pedestal.png
+
+#begin assets/images/pedestal.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
 /processorParam:ColorKeyEnabled=True
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
@@ -85,10 +169,58 @@
 /processorParam:TextureFormat=Color
 /build:assets/images/player.png
 
+#begin assets/images/player.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/images/player.png
+
+#begin assets/images/player_walk.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/images/player_walk.gif
+
+#begin assets/images/satryn.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/images/satryn.png
+
 #begin assets/images/stone.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=0,0,0,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/images/stone.png
+
+#begin assets/images/stone.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
 /processorParam:ColorKeyEnabled=True
 /processorParam:GenerateMipmaps=False
 /processorParam:PremultiplyAlpha=True
@@ -109,11 +241,35 @@
 /processorParam:TextureFormat=Color
 /build:assets/images/tiles1.png
 
+#begin assets/images/tiles1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:assets/images/tiles1.png
+
 #begin assets/sounds/sfx/wav/choose.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:assets/sounds/sfx/wav/choose.wav
+
+#begin assets/sounds/sfx/wav/choose.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:assets/sounds/sfx/wav/choose.wav
+
+#begin assets/sounds/sfx/wav/click.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:assets/sounds/sfx/wav/click.wav
 
 #begin assets/sounds/sfx/wav/click.wav
 /importer:WavImporter
@@ -127,11 +283,29 @@
 /processorParam:Quality=Best
 /build:assets/sounds/sfx/wav/enemy_die.wav
 
+#begin assets/sounds/sfx/wav/enemy_die.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:assets/sounds/sfx/wav/enemy_die.wav
+
 #begin assets/sounds/sfx/wav/enemy_hurt.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:assets/sounds/sfx/wav/enemy_hurt.wav
+
+#begin assets/sounds/sfx/wav/enemy_hurt.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:assets/sounds/sfx/wav/enemy_hurt.wav
+
+#begin assets/sounds/sfx/wav/enemy_hurt2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:assets/sounds/sfx/wav/enemy_hurt2.wav
 
 #begin assets/sounds/sfx/wav/enemy_hurt2.wav
 /importer:WavImporter
@@ -145,11 +319,29 @@
 /processorParam:Quality=Best
 /build:assets/sounds/sfx/wav/explosion.wav
 
+#begin assets/sounds/sfx/wav/explosion.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:assets/sounds/sfx/wav/explosion.wav
+
 #begin assets/sounds/sfx/wav/health_pickup.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:assets/sounds/sfx/wav/health_pickup.wav
+
+#begin assets/sounds/sfx/wav/health_pickup.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:assets/sounds/sfx/wav/health_pickup.wav
+
+#begin assets/sounds/sfx/wav/locked.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:assets/sounds/sfx/wav/locked.wav
 
 #begin assets/sounds/sfx/wav/locked.wav
 /importer:WavImporter
@@ -163,11 +355,29 @@
 /processorParam:Quality=Best
 /build:assets/sounds/sfx/wav/pickup_coin.wav
 
+#begin assets/sounds/sfx/wav/pickup_coin.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:assets/sounds/sfx/wav/pickup_coin.wav
+
 #begin assets/sounds/sfx/wav/player_death.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:assets/sounds/sfx/wav/player_death.wav
+
+#begin assets/sounds/sfx/wav/player_death.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:assets/sounds/sfx/wav/player_death.wav
+
+#begin assets/sounds/sfx/wav/player_hit.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:assets/sounds/sfx/wav/player_hit.wav
 
 #begin assets/sounds/sfx/wav/player_hit.wav
 /importer:WavImporter
@@ -181,6 +391,18 @@
 /processorParam:Quality=Best
 /build:assets/sounds/sfx/wav/powerup.wav
 
+#begin assets/sounds/sfx/wav/powerup.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:assets/sounds/sfx/wav/powerup.wav
+
+#begin assets/sounds/sfx/wav/rocket.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:assets/sounds/sfx/wav/rocket.wav
+
 #begin assets/sounds/sfx/wav/rocket.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -192,6 +414,18 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:assets/sounds/sfx/wav/select.wav
+
+#begin assets/sounds/sfx/wav/select.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:assets/sounds/sfx/wav/select.wav
+
+#begin assets/sounds/sfx/wav/shoot.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:assets/sounds/sfx/wav/shoot.wav
 
 #begin assets/sounds/sfx/wav/shoot.wav
 /importer:WavImporter
