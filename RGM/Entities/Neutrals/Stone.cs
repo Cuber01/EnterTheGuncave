@@ -29,7 +29,7 @@ namespace RGM.Entities.Neutrals
             this.textureNmb = Util.random.Next(0, 2);
             
             this.myWidth  = RGM.tileSize;
-            this.myHeight = RGM.tileSize; //TODO
+            this.myHeight = RGM.tileSize;
 
             this.team = dTeam.neutrals;
             this.collider = new Hitbox(position, myWidth, myHeight);

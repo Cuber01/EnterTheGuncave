@@ -40,7 +40,6 @@ namespace RGM.General.ContentHandling.Rooms
             bossRoomCount     = bossRoomFiles.Length;
             startRoomCount    = startRoomFiles.Length;
             
-            // TODO solve this and it should be OK
             foreach (string file in normalRoomFiles)
             {
                 normalRooms.Add(loadRoom(file));

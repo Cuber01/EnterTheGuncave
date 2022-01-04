@@ -13,7 +13,6 @@ namespace RGM.Entities.Neutrals
     {
         private readonly dTileDirection direction;
         
-        // TODO this will initialize only once, right?
         private static readonly Rectangle[] spritesheetPositions =
         {
             // walls

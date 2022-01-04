@@ -56,9 +56,6 @@ namespace RGM.Entities
         
         public List<BaseItem> inventory = new List<BaseItem>();
 
-        // TODO tmp
-        public int health;
-        
         /* ------------------- DOOR ---------------------- */
 
         public virtual void closeDoor()

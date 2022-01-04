@@ -8,7 +8,6 @@ using RGM.General.Collision;
 using RGM.General.ContentHandling.Assets;
 using RGM.General.DungeonGenerator;
 
-// TODO fix penetration idot
 namespace RGM.Entities.Allies
 {
     public class Player : Entity
@@ -36,8 +35,6 @@ namespace RGM.Entities.Allies
 
         public Player(Vector2 position)
         {
-            health = 6;
-
             this.position = position;
             this.mapPosition = DungeonGenerator.startingPos;
             
