@@ -57,6 +57,9 @@ namespace RGM.General.Animation
 
         public void changeAnimation(int newAnimationNmb)
         {
+            currentFrame = 0;
+            timeToNextFrame = frames[newAnimationNmb].ElementAt(currentFrame).Value;
+            
             this.animationNmb = newAnimationNmb;
         }
         
