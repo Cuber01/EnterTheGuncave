@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using RGM.General.ContentHandling.Assets;
 using RGM.General.EventHandling;
 
 namespace RGM.Entities.Projectiles
@@ -6,6 +7,7 @@ namespace RGM.Entities.Projectiles
     public class Shooter
     {
         protected ShooterStats stats;
+        protected dTextureKeys textureKey;
 
         protected Vector2 gunPosition;
         protected Vector2 targetPosition;
@@ -47,9 +49,10 @@ namespace RGM.Entities.Projectiles
     
     public class PistolShooter : Shooter
     {
-        public PistolShooter(ShooterStats shooterStats)
+        public PistolShooter(ShooterStats shooterStats, dTextureKeys textureKey)
         {
             this.stats = shooterStats;
+            this.textureKey = textureKey;
             this.currentReloadTime = shooterStats.reloadTime;
         }
 
@@ -57,7 +60,7 @@ namespace RGM.Entities.Projectiles
         {
             GEventHandler.fireEvent(dEvents.shoot);
 
-            RGM.entitiesToBeSpawned.Add(new Bullet(targetPosition, gunPosition, stats.bulletStats));
+            RGM.entitiesToBeSpawned.Add(new Bullet(targetPosition, gunPosition, stats.bulletStats, textureKey));
         }
         
     }

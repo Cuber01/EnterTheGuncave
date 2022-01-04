@@ -7,14 +7,14 @@ namespace RGM.Entities.Projectiles
 {
     public class Bullet : Entity
     {
-        private List<Entity> alreadyHit = new List<Entity>();
+        private readonly List<Entity> alreadyHit = new List<Entity>();
         private readonly Vector2 target;
         private BulletStats stats;
 
-        public Bullet(Vector2 targetPos, Vector2 position, BulletStats stats)
+        public Bullet(Vector2 targetPos, Vector2 position, BulletStats stats, dTextureKeys textureKey)
         {
             this.position = position;
-            this.texture = AssetLoader.textures[dTextureKeys.bullet];
+            this.texture = AssetLoader.textures[textureKey];
             this.myWidth  = texture.Width;
             this.myHeight = texture.Height;
 

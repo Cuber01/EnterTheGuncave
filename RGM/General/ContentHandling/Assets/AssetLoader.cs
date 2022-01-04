@@ -24,7 +24,8 @@ namespace RGM.General.ContentHandling.Assets
             textures.Add(dTextureKeys.enemy,    contentManager.Load<Texture2D>("assets/images/enemy"));
             textures.Add(dTextureKeys.door,    contentManager.Load<Texture2D>("assets/images/arrow"));
             textures.Add(dTextureKeys.stone,    contentManager.Load<Texture2D>("assets/images/stone"));
-            textures.Add(dTextureKeys.bullet,   contentManager.Load<Texture2D>("assets/images/bullet"));
+            textures.Add(dTextureKeys.player_bullet,   contentManager.Load<Texture2D>("assets/images/player_bullet"));
+            textures.Add(dTextureKeys.enemy_bullet,   contentManager.Load<Texture2D>("assets/images/enemy_bullet"));
             textures.Add(dTextureKeys.tiles1,   contentManager.Load<Texture2D>("assets/images/tiles1"));
             textures.Add(dTextureKeys.pedestal, contentManager.Load<Texture2D>("assets/images/pedestal"));
             textures.Add(dTextureKeys.enemy_turret, contentManager.Load<Texture2D>("assets/images/enemy_turret"));

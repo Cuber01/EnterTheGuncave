@@ -7,7 +7,8 @@ namespace RGM.General.ContentHandling.Assets
         enemy_turret,
         door,
         stone,
-        bullet,
+        player_bullet,
+        enemy_bullet,
         tiles1,
         pedestal
     }

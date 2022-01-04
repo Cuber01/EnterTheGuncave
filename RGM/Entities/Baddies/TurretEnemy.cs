@@ -37,7 +37,7 @@ namespace RGM.Entities.Baddies
 
             this._simpleAnimator = new SimpleAnimator(texture, animation);
 
-            this.shooter = new PistolShooter(shooterStats);
+            this.shooter = new PistolShooter(shooterStats, dTextureKeys.enemy_bullet);
             this.tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
             this.collider = new Hitbox(position, myWidth, myHeight);
 

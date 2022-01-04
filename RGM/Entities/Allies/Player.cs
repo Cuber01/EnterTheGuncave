@@ -42,7 +42,7 @@ namespace RGM.Entities.Allies
             this.myWidth  = 6;
             this.myHeight = 7;
 
-            this.shooter = new PistolShooter(shooterStats);
+            this.shooter = new PistolShooter(shooterStats, dTextureKeys.player_bullet);
             this.animator = new SimpleAnimator(texture, animation);
             
             this.team = dTeam.allies;

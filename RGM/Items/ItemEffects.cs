@@ -4,7 +4,7 @@ namespace RGM.Items
     {
         public static void modifyPlayerHealth(int amount)
         {
-            RGM.Player.health += amount;
+            //RGM.Player.health += amount;
         }
 
 
