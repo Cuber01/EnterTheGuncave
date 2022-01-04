@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework.Input;
 
+// Input should be handled with out event handle so we can rebing buttons instead of hardcoding them. The thing is, I don't want to rebind buttons.
 namespace RGM.General
 {
     public static class Input

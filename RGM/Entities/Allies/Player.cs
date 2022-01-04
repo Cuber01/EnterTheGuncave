@@ -82,7 +82,7 @@ namespace RGM.Entities.Allies
         {
             if (!(velocity.Y < -maxVelocity))
             {
-                if (Input.keyboardState.IsKeyDown(Keys.Up))
+                if (Input.keyboardState.IsKeyDown(Keys.W))
                 {
                     velocity.Y -= 1 * speed;
                 }
@@ -90,7 +90,7 @@ namespace RGM.Entities.Allies
 
             if (!(velocity.Y > maxVelocity))
             {
-                if (Input.keyboardState.IsKeyDown(Keys.Down))
+                if (Input.keyboardState.IsKeyDown(Keys.S))
                 {
                     velocity.Y += 1 * speed;
                 }
@@ -98,7 +98,7 @@ namespace RGM.Entities.Allies
 
             if (!(velocity.X < -maxVelocity))
             {
-                if (Input.keyboardState.IsKeyDown(Keys.Right))
+                if (Input.keyboardState.IsKeyDown(Keys.D))
                 {
                     velocity.X += 1 * speed;
                 }
@@ -106,7 +106,7 @@ namespace RGM.Entities.Allies
 
             if (!(velocity.X > maxVelocity))
             {
-                if (Input.keyboardState.IsKeyDown(Keys.Left))
+                if (Input.keyboardState.IsKeyDown(Keys.A))
                 {
                     velocity.X -= 1 * speed;
                 }
