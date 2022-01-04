@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using RGM.General.Collision;
 using RGM.General.ContentHandling.Assets;
@@ -6,6 +7,7 @@ namespace RGM.Entities.Projectiles
 {
     public class Bullet : Entity
     {
+        private List<Entity> alreadyHit = new List<Entity>();
         private readonly Vector2 target;
         private BulletStats stats;
 
@@ -55,16 +57,19 @@ namespace RGM.Entities.Projectiles
             foreach (Entity entity in RGM.entities)
             {
                 if (collider.checkCollision(entity) == null) continue;
+                if (entity.team == stats.team || entity is Bullet) continue;
+                if (alreadyHit.Contains(entity)) continue;
                 
-                if (entity.team == stats.team || entity is Bullet)
-                {
-                    return;
-                }
-
                 entity.takeDamage(stats.damage);
+                alreadyHit.Add(entity);
 
                 stats.penetration--;
-                dead = true;
+
+                if (stats.penetration <= 0)
+                {
+                    dead = true;    
+                }
+                
             }
         }
         
