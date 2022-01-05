@@ -1,6 +1,8 @@
+using Microsoft.Xna.Framework;
 using RGM.General.EventHandling;
 using Microsoft.Xna.Framework.Graphics;
 using RGM.General.ContentHandling.Assets;
+using RGM.General.Graphics;
 
 namespace RGM.Items
 {
@@ -36,6 +38,9 @@ namespace RGM.Items
 
         public override void pickedUp()
         {
+            FontRenderer.textQueue.Add(new textInfo(name,        200, new Vector2(RGM.windowXMiddle, RGM.windowYMiddle - 300), dFontKeys.pico8_big));
+            FontRenderer.textQueue.Add(new textInfo(description, 200, new Vector2(RGM.windowXMiddle, RGM.windowYMiddle - 250), dFontKeys.pico8_small));
+            
             GEventHandler.subscribe(activate, dEvents.enemyKilled);
         }
 

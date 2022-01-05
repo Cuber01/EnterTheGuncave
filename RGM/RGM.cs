@@ -35,6 +35,9 @@ namespace RGM
         private const int windowWidth = roomWidth * tileSize * scale;
         private const int windowHeight = roomHeight * tileSize * scale;
 
+        public const int windowYMiddle = (windowWidth / 2);
+        public const int windowXMiddle = (windowWidth / 2);
+
         private readonly Matrix scaleMatrix = Matrix.CreateScale(scale, scale, 1.0f);
         private readonly GraphicsDeviceManager graphics;
         public static SpriteBatch spriteBatch;
@@ -159,7 +162,7 @@ namespace RGM
             
             spriteBatch.Begin();
             
-            FontRenderer.renderText("Coping", new Vector2(100, 100), dFontKeys.pico8_big);
+            FontRenderer.renderQueue();
             
             spriteBatch.End();
             

@@ -5,35 +5,50 @@ using RGM.General.ContentHandling.Assets;
 
 namespace RGM.General.Graphics
 {
-    public struct textInfo
+    public class textInfo
     {
-        
-        public textInfo(string text, Vector2 position, dFontKeys font)
+        public textInfo(string text, int time, Vector2 position, dFontKeys font)
         {
             this.text = text;
             this.position = position;
             this.font = font;
+            this.time = time;
         }
         
         public readonly string text;
         public readonly Vector2 position;
         public readonly dFontKeys font;
+        public int time;
 
     }
 
     public static class FontRenderer
     {
-        private static List<textInfo> textQueue = new List<textInfo>();
+        public static List<textInfo> textQueue = new List<textInfo>();
+        private static List<textInfo> dissappearingTextQueue = new List<textInfo>();
 
         public static void renderQueue()
         {
-            foreach (var text in textQueue)
+            foreach (var info in textQueue)
             {
-                renderText(text.text, text.position, text.font);
+                renderText(info.text, info.position, info.font);
+                info.time--;
+                
+                if (info.time <= 0)
+                {
+                    dissappearingTextQueue.Add(info);
+                }
             }
+
+            foreach (var info in dissappearingTextQueue)
+            {
+                textQueue.Remove(info);
+            }
+            dissappearingTextQueue.Clear();
+ 
         }
-        
-        private static void renderText(string text, Vector2 position, dFontKeys font)
+
+        public static void renderText(string text, Vector2 position, dFontKeys font)
         {
             SpriteFont spriteFont = AssetLoader.fonts[font];
             
