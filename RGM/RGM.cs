@@ -8,6 +8,8 @@ using RGM.General.ContentHandling.Assets;
 using RGM.General.ContentHandling.Rooms;
 using RGM.General.DungeonGenerator;
 using RGM.General.EventHandling;
+using RGM.General.Graphics;
+using RGM.General.Input;
 using RGM.General.Sound;
 
 namespace RGM
@@ -69,6 +71,7 @@ namespace RGM
             
             assetLoader.loadTextures();
             assetLoader.loadSounds();
+            assetLoader.loadFonts();
             
             SoundManager.init();
            
@@ -148,8 +151,15 @@ namespace RGM
             foreach( Entity entity in entities )
             {
                 entity.draw();
+                
                 //entity.collider.draw(draw);
             }
+
+            spriteBatch.End();
+            
+            spriteBatch.Begin();
+            
+            FontRenderer.renderText("Coping", new Vector2(100, 100), dFontKeys.pico8_big);
             
             spriteBatch.End();
             

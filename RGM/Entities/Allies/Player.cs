@@ -7,6 +7,7 @@ using RGM.General.Animation;
 using RGM.General.Collision;
 using RGM.General.ContentHandling.Assets;
 using RGM.General.DungeonGenerator;
+using RGM.General.Input;
 
 namespace RGM.Entities.Allies
 {

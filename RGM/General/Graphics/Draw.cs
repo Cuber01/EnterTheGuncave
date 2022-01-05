@@ -2,7 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace RGM.General
+namespace RGM.General.Graphics
 {
 	public class DrawUtils
 	{

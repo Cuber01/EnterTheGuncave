@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/fonts/PICO8-small.spritefont</SourceFile>
+  <SourceTime>2022-01-05T19:24:21.1232105+01:00</SourceTime>
+  <DestFile>/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/fonts/PICO8-small.xnb</DestFile>
+  <DestTime>2022-01-05T19:36:13.8327381+01:00</DestTime>
+  <Importer>FontDescriptionImporter</Importer>
+  <ImporterTime>2021-04-25T20:26:29.1786286+02:00</ImporterTime>
+  <Processor>FontDescriptionProcessor</Processor>
+  <ProcessorTime>2021-04-25T20:26:29.1786286+02:00</ProcessorTime>
+  <Parameters>
+    <Key>PremultiplyAlpha</Key>
+    <Value>True</Value>
+  </Parameters>
+  <Parameters>
+    <Key>TextureFormat</Key>
+    <Value>Compressed</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

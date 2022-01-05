@@ -85,3 +85,6 @@
 /home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/tiles.png
 /home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/tiles.tsx
 /home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/File.spritefont
+/home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/fonts/PICO8.xnb
+/home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/fonts/PICO8-big.xnb
+/home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/fonts/PICO8-small.xnb

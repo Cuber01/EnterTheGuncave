@@ -10,6 +10,7 @@ namespace RGM.General.ContentHandling.Assets
     {
         public static readonly Dictionary<dTextureKeys, Texture2D> textures = new Dictionary<dTextureKeys, Texture2D>();
         public static readonly Dictionary<dSoundKeys, SoundEffect> sfx = new Dictionary<dSoundKeys, SoundEffect>();
+        public static readonly Dictionary<dFontKeys, SpriteFont> fonts = new Dictionary<dFontKeys, SpriteFont>();
         
         private readonly ContentManager contentManager;
 
@@ -37,6 +38,12 @@ namespace RGM.General.ContentHandling.Assets
             sfx.Add(dSoundKeys.enemy_hurt,  contentManager.Load<SoundEffect>("assets/sounds/sfx/wav/enemy_hurt"));
             sfx.Add(dSoundKeys.enemy_hurt2, contentManager.Load<SoundEffect>("assets/sounds/sfx/wav/enemy_hurt2"));
             sfx.Add(dSoundKeys.shoot,       contentManager.Load<SoundEffect>("assets/sounds/sfx/wav/shoot"));
+        }
+
+        public void loadFonts()
+        {
+            fonts.Add(dFontKeys.pico8_big, contentManager.Load<SpriteFont>("assets/fonts/PICO8-big"));
+            fonts.Add(dFontKeys.pico8_small, contentManager.Load<SpriteFont>("assets/fonts/PICO8-small"));
         }
     }
 }

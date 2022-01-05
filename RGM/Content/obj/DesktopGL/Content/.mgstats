@@ -1,4 +1,6 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"/home/cubeq/RiderProjects/RGM/RGM/Content/assets/fonts/PICO8-big.spritefont","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/Content/assets/fonts/PICO8-big.xnb","FontDescriptionProcessor","SpriteFontContent",2008,136226,0.2242362
+"/home/cubeq/RiderProjects/RGM/RGM/Content/assets/fonts/PICO8-small.spritefont","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/Content/assets/fonts/PICO8-small.xnb","FontDescriptionProcessor","SpriteFontContent",2008,37922,0.0258153
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/fonts/PICO8.ttf","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/Content/assets/fonts/PICO8.ttf","CopyItem","File",11648,11648,0.0005441
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/door.png","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/Content/assets/images/door.xnb","TextureProcessor","Texture2DContent",273,4181,0.1674356
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/enemy_bullet.png","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/Content/assets/images/enemy_bullet.xnb","TextureProcessor","Texture2DContent",127,149,0.000608
@@ -56,4 +58,3 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/sounds/sfx/wav/shoot.wav","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/Content/assets/sounds/sfx/wav/shoot.xnb","SoundEffectProcessor","SoundEffectContent",6630,6691,0.0143785
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/tiles.png","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/Content/assets/tiles.png","CopyItem","File",548,548,7.23E-05
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/tiles.tsx","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/Content/assets/tiles.tsx","CopyItem","File",218,218,6.65E-05
-"/home/cubeq/RiderProjects/RGM/RGM/Content/File.spritefont","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/Content/File.spritefont","CopyItem","File",2008,2008,6.89E-05

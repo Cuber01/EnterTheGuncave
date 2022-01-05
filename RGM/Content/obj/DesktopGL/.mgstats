@@ -1,6 +1,7 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"/home/cubeq/RiderProjects/RGM/RGM/Content/assets/fonts/PICO8.spritefont","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/fonts/PICO8.xnb","FontDescriptionProcessor","SpriteFontContent",2012,37905,0.196654
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/fonts/PICO8.ttf","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/fonts/PICO8.ttf","CopyItem","File",11648,11648,0.000484
+"/home/cubeq/RiderProjects/RGM/RGM/Content/assets/fonts/PICO8-big.spritefont","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/fonts/PICO8-big.xnb","FontDescriptionProcessor","SpriteFontContent",2008,136209,0.224623
+"/home/cubeq/RiderProjects/RGM/RGM/Content/assets/fonts/PICO8-small.spritefont","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/fonts/PICO8-small.xnb","FontDescriptionProcessor","SpriteFontContent",2008,37905,0.046296
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/door.png","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/images/door.xnb","TextureProcessor","Texture2DContent",273,4181,0.108141
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/enemy.png","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/images/enemy.xnb","TextureProcessor","Texture2DContent",238,1845,0.000625
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/enemy_bullet.png","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/images/enemy_bullet.xnb","TextureProcessor","Texture2DContent",127,149,0.078166

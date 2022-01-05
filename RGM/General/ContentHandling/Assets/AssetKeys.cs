@@ -31,5 +31,11 @@ namespace RGM.General.ContentHandling.Assets
         shoot,
         locked,
     }
+
+    public enum dFontKeys
+    {
+        pico8_big,
+        pico8_small
+    }
     
 }

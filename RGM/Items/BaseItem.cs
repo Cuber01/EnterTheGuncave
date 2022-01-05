@@ -24,11 +24,11 @@ namespace RGM.Items
     }
 
     // Heal every 10 kills
-    public class VampireMedkit : BaseItem
+    public class BloodChalice : BaseItem
     {
         private int enemiesKilled;
 
-        public VampireMedkit() : base(dItems.vampire_medkit, AssetLoader.textures[dTextureKeys.player])
+        public BloodChalice() : base(dItems.vampire_medkit, AssetLoader.textures[dTextureKeys.player])
         {
             this.name = "Vampire Bullets";
             this.description = "No one heals himself by hurting others. Unless you're a vampire.";

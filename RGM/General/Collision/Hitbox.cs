@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using RGM.Entities;
+using RGM.General.Graphics;
 
 namespace RGM.General.Collision
 {
