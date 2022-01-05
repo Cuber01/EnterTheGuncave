@@ -1,4 +1,5 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"/home/cubeq/RiderProjects/RGM/RGM/Content/assets/fonts/PICO8.spritefont","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/fonts/PICO8.xnb","FontDescriptionProcessor","SpriteFontContent",2012,37905,0.196654
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/fonts/PICO8.ttf","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/fonts/PICO8.ttf","CopyItem","File",11648,11648,0.000484
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/door.png","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/images/door.xnb","TextureProcessor","Texture2DContent",273,4181,0.108141
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/enemy.png","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/images/enemy.xnb","TextureProcessor","Texture2DContent",238,1845,0.000625
@@ -22,7 +23,7 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/maps/normal/map1.json","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/maps/normal/map1.json","CopyItem","File",1453,1453,0.000263
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/maps/normal/map2.json","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/maps/normal/map2.json","CopyItem","File",1453,1453,0.00022
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/maps/normal/map3.json","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/maps/normal/map3.json","CopyItem","File",1453,1453,0.00022
-"/home/cubeq/RiderProjects/RGM/RGM/Content/assets/maps/start/start1.json","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/maps/start/start1.json","CopyItem","File",1457,1457,0.000325
+"/home/cubeq/RiderProjects/RGM/RGM/Content/assets/maps/start/start1.json","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/maps/start/start1.json","CopyItem","File",1457,1457,0.000436
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/maps/treasure/trasure1.json","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/maps/treasure/trasure1.json","CopyItem","File",1457,1457,0.00038
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/sounds/sfx/native/choose.bfxrsound","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/sounds/sfx/native/choose.bfxrsound","CopyItem","File",106,106,0.000371
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/sounds/sfx/native/click.sfxrsound","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/sounds/sfx/native/click.sfxrsound","CopyItem","File",105,105,0.000111
@@ -56,4 +57,3 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/sounds/sfx/wav/shoot.wav","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/sounds/sfx/wav/shoot.xnb","SoundEffectProcessor","SoundEffectContent",6630,6691,0.014639
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/tiles.png","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/tiles.png","CopyItem","File",548,548,0.000293
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/tiles.tsx","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/tiles.tsx","CopyItem","File",218,218,9.6E-05
-"/home/cubeq/RiderProjects/RGM/RGM/Content/File.spritefont","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/File.spritefont","CopyItem","File",2008,2008,0.000546
