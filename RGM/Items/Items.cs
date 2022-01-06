@@ -91,4 +91,34 @@ namespace RGM.Items
         }
     }
     
+    public class Knife : BaseItem
+    {
+        public Knife() : base(dItems.knife, AssetLoader.textures[dTextureKeys.knife])
+        {
+            this.name = "Knife";
+            this.description = "Increased damage.";
+        }
+
+        public override void pickedUp()
+        {
+            base.pickedUp();
+
+            activate();
+        }
+
+        public override void activate(dEvents e = dEvents.none)
+        {
+            ItemEffects.modifyPlayerStats(new EntityStats(
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ));
+        }
+    }
+    
 }
