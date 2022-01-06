@@ -1,5 +1,7 @@
+using System;
 using RGM.Entities.Baddies;
 using RGM.Entities.Projectiles;
+using RGM.General.ContentHandling.Assets;
 
 namespace RGM.Items
 {
@@ -8,6 +10,11 @@ namespace RGM.Items
         public static void modifyPlayerHealth(int amount)
         {
             RGM.Player.stats.hitpoints += amount;
+        }
+
+        public static void changePlayerShooter(Type shooter)
+        {
+            RGM.Player.shooter = Activator.CreateInstance(shooter, RGM.Player.shooterStats, dTextureKeys.player_bullet) as Shooter;
         }
 
         public static void modifyPlayerStats(EntityStats statChange)

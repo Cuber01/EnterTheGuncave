@@ -6,6 +6,7 @@ namespace RGM.Items
         medkit,
         arrow,
         determination,
-        knife
+        knife,
+        shotgun
     }
 }

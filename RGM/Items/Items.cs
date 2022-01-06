@@ -1,5 +1,6 @@
 using RGM.General.EventHandling;
 using RGM.Entities.Baddies;
+using RGM.Entities.Projectiles;
 using RGM.General.ContentHandling.Assets;
 
 namespace RGM.Items
@@ -148,6 +149,27 @@ namespace RGM.Items
                 0,
                 0
             ));
+        }
+    }
+    
+    public class Shotgun : BaseItem
+    {
+        public Shotgun() : base(dItems.shotgun, AssetLoader.textures[dTextureKeys.shotgun])
+        {
+            this.name = "Shotgun";
+            this.description = "Makes you go guns and blazing.";
+        }
+
+        public override void pickedUp()
+        {
+            base.pickedUp();
+
+            activate();
+        }
+
+        public override void activate(dEvents e = dEvents.none)
+        {
+            ItemEffects.changePlayerShooter(typeof(PistolShooter));
         }
     }
     

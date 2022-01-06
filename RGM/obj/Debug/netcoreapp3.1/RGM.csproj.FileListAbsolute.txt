@@ -88,3 +88,9 @@
 /home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/fonts/PICO8.xnb
 /home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/fonts/PICO8-big.xnb
 /home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/fonts/PICO8-small.xnb
+/home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/images/heart.xnb
+/home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/images/items/shotgun.xnb
+/home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/images/other/enemy.xnb
+/home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/images/other/enemy_turret.xnb
+/home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/images/other/palette.xnb
+/home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/images/other/player_walk.xnb

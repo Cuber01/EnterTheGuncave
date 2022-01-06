@@ -18,7 +18,6 @@ namespace RGM
     public class RGM : Game
     {
         public static Entity Player;
-        public bool playerFighting;
 
         public static readonly List<Entity> entities = new List<Entity>();
         public static readonly List<Entity> entitiesToBeSpawned = new List<Entity>();
@@ -41,11 +40,12 @@ namespace RGM
 
         public static readonly List<Type> allItems = new List<Type>()
         {
-            typeof(BloodChalice),
-            typeof(Arrow),
-            typeof(Medkit),
-            typeof(Determination),
-            typeof(Knife)
+            // typeof(BloodChalice),
+            // typeof(Arrow),
+            // typeof(Medkit),
+            // typeof(Determination),
+            // typeof(Knife)
+            typeof(Shotgun)
         };
         
         private readonly Matrix scaleMatrix = Matrix.CreateScale(scale, scale, 1.0f);

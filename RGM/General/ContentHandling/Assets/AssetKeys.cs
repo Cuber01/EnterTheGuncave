@@ -16,7 +16,8 @@ namespace RGM.General.ContentHandling.Assets
         blood_chalice,
         determination,
         knife,
-        medkit
+        medkit,
+        shotgun
     }
     
     public enum dSoundKeys

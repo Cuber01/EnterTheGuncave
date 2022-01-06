@@ -15,9 +15,7 @@ namespace RGM.Entities.Allies
     
         private readonly SimpleAnimator animator;
         private bool shoot;
-        
-        private readonly ShooterStats shooterStats;
-        
+
         // (
         // 10,
         // 1, 

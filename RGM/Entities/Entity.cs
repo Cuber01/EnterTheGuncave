@@ -12,7 +12,9 @@ namespace RGM.Entities
     public class Entity
     {
         public EntityStats stats;
+        
         public Shooter shooter;
+        public ShooterStats shooterStats;
         
         public Vector2 position;
         public Point tilePosition;
