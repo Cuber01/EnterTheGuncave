@@ -22,7 +22,12 @@ namespace RGM.Items
         }
 
         public virtual void activate(dEvents e) { }
-        public virtual void pickedUp() { }
+
+        public virtual void pickedUp()
+        {
+            FontRenderer.textQueue.Add(new textInfo(name,        200, new Vector2(RGM.windowXMiddle, RGM.windowYMiddle - 300), dFontKeys.pico8_big));
+            FontRenderer.textQueue.Add(new textInfo(description, 200, new Vector2(RGM.windowXMiddle, RGM.windowYMiddle - 250), dFontKeys.pico8_small));
+        }
     }
 
     // Heal every 10 kills
@@ -32,14 +37,13 @@ namespace RGM.Items
 
         public BloodChalice() : base(dItems.vampire_medkit, AssetLoader.textures[dTextureKeys.player])
         {
-            this.name = "Vampire Bullets";
+            this.name = "Blood Chalice";
             this.description = "No one heals himself by hurting others. Unless you're a vampire.";
         }
 
         public override void pickedUp()
         {
-            FontRenderer.textQueue.Add(new textInfo(name,        200, new Vector2(RGM.windowXMiddle, RGM.windowYMiddle - 300), dFontKeys.pico8_big));
-            FontRenderer.textQueue.Add(new textInfo(description, 200, new Vector2(RGM.windowXMiddle, RGM.windowYMiddle - 250), dFontKeys.pico8_small));
+            base.pickedUp();
             
             GEventHandler.subscribe(activate, dEvents.enemyKilled);
         }

@@ -60,7 +60,14 @@ namespace RGM.Entities.Projectiles
         {
             GEventHandler.fireEvent(dEvents.shoot);
 
-            RGM.entitiesToBeSpawned.Add(new Bullet(targetPosition, gunPosition, stats.bulletStats, textureKey));
+            RGM.entitiesToBeSpawned.Add(new Bullet(new Vector2(
+                targetPosition.X + Util.randomPositiveOrNegative(stats.spread, 0.5f),
+                targetPosition.Y + Util.randomPositiveOrNegative(stats.spread, 0.5f)
+                ), 
+                
+                gunPosition, 
+                stats.bulletStats, 
+                textureKey));
         }
         
     }

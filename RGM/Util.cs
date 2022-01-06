@@ -91,6 +91,20 @@ namespace RGM
         {
             return random.NextDouble() > chance;
         }
+
+        public static int randomPositiveOrNegative(int number, float chance)
+        {
+            bool positive = randomBool(chance);
+
+            if (positive)
+            {
+                return Math.Abs(number);
+            }
+            else
+            {
+                return -Math.Abs(number);
+            }
+        }
         
         public static float straightLineEquation(float x, float a, float b)
         {

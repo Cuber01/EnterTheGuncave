@@ -11,7 +11,7 @@ namespace RGM.Entities.Baddies
 {
     public class WalkingEnemy : Entity
     {
-        private EnemyStats stats;
+        private EntityStats stats;
         
         private int[,] map = new int[RGM.roomWidth, RGM.roomHeight];
 
@@ -27,7 +27,7 @@ namespace RGM.Entities.Baddies
             this.collider = new Hitbox(position, myWidth, myHeight);
 
             stats.speed = 1;
-            stats.heartDamage = 1;
+            stats.damage = 1;
             stats.hitpoints = 10;
         }
 

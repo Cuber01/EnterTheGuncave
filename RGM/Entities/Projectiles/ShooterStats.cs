@@ -2,16 +2,16 @@ namespace RGM.Entities.Projectiles
 {
     public struct ShooterStats
     {
-        public ShooterStats(int reloadTime, int accuracy, BulletStats bulletStats)
+        public ShooterStats(int reloadTime, int spread, BulletStats bulletStats)
         {
             this.reloadTime = reloadTime;
-            this.accuracy = accuracy;
+            this.spread = spread;
             this.bulletStats = bulletStats;
         }
         
         public BulletStats bulletStats;
         
         public readonly int reloadTime;
-        public int accuracy;
+        public int spread;
     }
 }

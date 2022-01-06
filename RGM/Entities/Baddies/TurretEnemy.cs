@@ -11,40 +11,60 @@ namespace RGM.Entities.Baddies
     public class TurretEnemy : Entity
     {
         
-        private readonly SimpleAnimator _simpleAnimator;
-        private EnemyStats stats;
+        private readonly SimpleAnimator animator;
         private readonly PistolShooter shooter;
 
-        private readonly ShooterStats shooterStats = new ShooterStats(
-            260,
-              1, 
-    new BulletStats(
-                1,
-            2,
-               500,
-               1,
-                      dTeam.baddies
-                ));
+        private EntityStats stats;
+        private readonly ShooterStats shooterStats;
 
         public TurretEnemy(Vector2 position)
         {
+            // Position
             this.position = position;
+            this.tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
+            
+            // Team
             this.team = dTeam.baddies;
 
+            // Drawing
             this.texture  = AssetLoader.textures[dTextureKeys.enemy_turret];
             this.myWidth  = 8;
             this.myHeight = 8;
 
-            this._simpleAnimator = new SimpleAnimator(texture, animation);
+            this.animator = new SimpleAnimator(texture, animation);
 
-            this.shooter = new PistolShooter(shooterStats, dTextureKeys.enemy_bullet);
-            this.tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
+            // Collision            
             this.collider = new Hitbox(position, myWidth, myHeight);
 
+            // Stats
             stats.speed = 0;
-            stats.heartDamage = 1;
+            stats.damage = 1;
             stats.hitpoints = 10;
+
+            stats.penetration = 1;
+            stats.bulletSpeed = 1;
+            stats.range = 200;
+            stats.reloadTime = 260;
+            stats.spread = 1;
+            
+            this.shooterStats = new ShooterStats(
+                stats.reloadTime,
+                stats.spread, 
+            
+                new BulletStats(
+                    stats.bulletSpeed,
+                    stats.penetration,
+                    stats.range,
+                    stats.damage,
+                    team
+                )  
+            );
+            
+            this.shooter = new PistolShooter(shooterStats, dTextureKeys.enemy_bullet);
+
         }
+
+
         
         public override void update()
         {
@@ -55,7 +75,7 @@ namespace RGM.Entities.Baddies
 
         public override void draw()
         {
-            _simpleAnimator.draw(position);
+            animator.draw(position);
         }
 
 
