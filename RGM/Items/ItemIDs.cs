@@ -2,8 +2,7 @@ namespace RGM.Items
 {
     public enum dItems
     {
-        vampire_medkit,
-        internet,
-        sweets,
+        blood_chalice,
+        medkit
     }
 }

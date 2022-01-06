@@ -62,7 +62,7 @@ namespace RGM.Entities.Allies
 
             stats.penetration = 1;
             stats.bulletSpeed = 1;
-            stats.range = 200;
+            stats.range = 100;
             stats.reloadTime = 25;
             stats.spread = 1;
             

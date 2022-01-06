@@ -2,6 +2,8 @@ namespace RGM.General.EventHandling
 {
     public enum dEvents
     {
+        none,
+        
         enemyKilled,
         roomClear,
         

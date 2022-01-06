@@ -10,7 +10,13 @@ namespace RGM.General.ContentHandling.Assets
         player_bullet,
         enemy_bullet,
         tiles1,
-        pedestal
+        pedestal,
+        
+        arrow,
+        blood_chalice,
+        determination,
+        knife,
+        medkit
     }
     
     public enum dSoundKeys
