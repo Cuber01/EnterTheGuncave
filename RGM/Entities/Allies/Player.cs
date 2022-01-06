@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using RGM.Entities.Baddies;
 using RGM.Entities.Projectiles;
 using RGM.General;
 using RGM.General.Animation;
@@ -18,17 +19,20 @@ namespace RGM.Entities.Allies
         private readonly PistolShooter shooter;
         private bool shoot;
 
-        private readonly ShooterStats shooterStats = new ShooterStats(
-            10,
-            1, 
-            new BulletStats(
-                1,
-                2,
-                500,
-                1,
-                dTeam.allies
-            ));
+        private readonly EntityStats stats;
+        private readonly ShooterStats shooterStats;
         
+        // (
+        // 10,
+        // 1, 
+        // new BulletStats(
+        //     1,
+        //     2,
+        //     500,
+        //     1,
+        // dTeam.allies
+        // ));
+
         
         private readonly float speed = 1f;
         private readonly float friction = 0.65f;
@@ -36,18 +40,48 @@ namespace RGM.Entities.Allies
 
         public Player(Vector2 position)
         {
+            // Position
             this.position = position;
             this.mapPosition = DungeonGenerator.startingPos;
             
+            // Drawing
             this.texture  = AssetLoader.textures[dTextureKeys.player];
             this.myWidth  = 6;
             this.myHeight = 7;
-
-            this.shooter = new PistolShooter(shooterStats, dTextureKeys.player_bullet);
+            
             this.animator = new SimpleAnimator(texture, animation);
             
+            // Collision
             this.team = dTeam.allies;
             this.collider = new Hitbox(position, myWidth, myHeight);
+            
+            // Stats
+            stats.speed = 1;
+            stats.damage = 1;
+            stats.hitpoints = 5;
+
+            stats.penetration = 1;
+            stats.bulletSpeed = 1;
+            stats.range = 200;
+            stats.reloadTime = 25;
+            stats.spread = 1;
+            
+            this.shooterStats = new ShooterStats(
+                stats.reloadTime,
+                stats.spread, 
+            
+                new BulletStats(
+                    stats.bulletSpeed,
+                    stats.penetration,
+                    stats.range,
+                    stats.damage,
+                    team
+                )  
+            );
+            
+            
+            this.shooter = new PistolShooter(shooterStats, dTextureKeys.player_bullet);
+
         }
 
         public override void update()
