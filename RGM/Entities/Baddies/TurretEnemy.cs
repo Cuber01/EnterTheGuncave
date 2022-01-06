@@ -13,8 +13,7 @@ namespace RGM.Entities.Baddies
         
         private readonly SimpleAnimator animator;
         private readonly PistolShooter shooter;
-
-        private EntityStats stats;
+        
         private readonly ShooterStats shooterStats;
 
         public TurretEnemy(Vector2 position)

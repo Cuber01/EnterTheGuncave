@@ -16,10 +16,8 @@ namespace RGM.Entities.Allies
     {
     
         private readonly SimpleAnimator animator;
-        private readonly PistolShooter shooter;
         private bool shoot;
-
-        private readonly EntityStats stats;
+        
         private readonly ShooterStats shooterStats;
         
         // (
@@ -78,7 +76,6 @@ namespace RGM.Entities.Allies
                     team
                 )  
             );
-            
             
             this.shooter = new PistolShooter(shooterStats, dTextureKeys.player_bullet);
 

@@ -29,6 +29,11 @@ namespace RGM.Entities.Projectiles
                 shoot();
             }
         }
+
+        public void changeStats(ShooterStats stats)
+        {
+            this.stats = stats;
+        }
         
         // Returns whether we're ready to shoot or not. Not a very nice name but I couldn't find a better one.
         private bool reload()

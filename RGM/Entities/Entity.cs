@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using RGM.Entities.Baddies;
 using RGM.Entities.Projectiles;
 using RGM.General.Collision;
 using RGM.Items;
@@ -10,6 +11,9 @@ namespace RGM.Entities
 {
     public class Entity
     {
+        public EntityStats stats;
+        public Shooter shooter;
+        
         public Vector2 position;
         public Point tilePosition;
         public Point mapPosition;

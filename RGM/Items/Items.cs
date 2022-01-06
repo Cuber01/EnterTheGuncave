@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using RGM.General.EventHandling;
 using Microsoft.Xna.Framework.Graphics;
+using RGM.Entities.Baddies;
 using RGM.General.ContentHandling.Assets;
 using RGM.General.Graphics;
 
@@ -57,6 +58,36 @@ namespace RGM.Items
         public override void activate(dEvents e = dEvents.none)
         {
             ItemEffects.modifyPlayerHealth(5);
+        }
+    }
+    
+    public class Arrow : BaseItem
+    {
+        public Arrow() : base(dItems.arrow, AssetLoader.textures[dTextureKeys.arrow])
+        {
+            this.name = "Arrow";
+            this.description = "Increased bullet penetration.";
+        }
+
+        public override void pickedUp()
+        {
+            base.pickedUp();
+
+            activate();
+        }
+
+        public override void activate(dEvents e = dEvents.none)
+        {
+            ItemEffects.modifyPlayerStats(new EntityStats(
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0
+            ));
         }
     }
     
