@@ -91,6 +91,7 @@ namespace RGM.Items
         }
     }
     
+    // +1 damage
     public class Knife : BaseItem
     {
         public Knife() : base(dItems.knife, AssetLoader.textures[dTextureKeys.knife])
@@ -114,6 +115,37 @@ namespace RGM.Items
                 0,
                 0,
                 0,
+                0,
+                0,
+                0
+            ));
+        }
+    }
+    
+    // +50 range
+    public class Determination : BaseItem
+    {
+        public Determination() : base(dItems.determination, AssetLoader.textures[dTextureKeys.determination])
+        {
+            this.name = "Determination";
+            this.description = "Makes your bullets determined and live longer.";
+        }
+
+        public override void pickedUp()
+        {
+            base.pickedUp();
+
+            activate();
+        }
+
+        public override void activate(dEvents e = dEvents.none)
+        {
+            ItemEffects.modifyPlayerStats(new EntityStats(
+                0,
+                0,
+                0,
+                0,
+                50,
                 0,
                 0,
                 0
