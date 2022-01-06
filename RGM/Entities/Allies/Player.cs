@@ -1,9 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using RGM.Entities.Baddies;
 using RGM.Entities.Projectiles;
-using RGM.General;
 using RGM.General.Animation;
 using RGM.General.Collision;
 using RGM.General.ContentHandling.Assets;

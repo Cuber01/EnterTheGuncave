@@ -104,7 +104,7 @@ namespace RGM.General.ContentHandling.Rooms
                     
                     case 2: RGM.entitiesToBeSpawned.Add(new Pedestal
                             (new Vector2(colIndex * RGM.tileSize, currentCol * RGM.tileSize),
-                                new BloodChalice() 
+                                Activator.CreateInstance(RGM.allItems[Util.random.Next(0, RGM.allItems.Count)]) as BaseItem
                             ));
                         break;
 

@@ -1,9 +1,6 @@
-using Microsoft.Xna.Framework;
 using RGM.General.EventHandling;
-using Microsoft.Xna.Framework.Graphics;
 using RGM.Entities.Baddies;
 using RGM.General.ContentHandling.Assets;
-using RGM.General.Graphics;
 
 namespace RGM.Items
 {
@@ -61,6 +58,7 @@ namespace RGM.Items
         }
     }
     
+    // Penetration + 1
     public class Arrow : BaseItem
     {
         public Arrow() : base(dItems.arrow, AssetLoader.textures[dTextureKeys.arrow])

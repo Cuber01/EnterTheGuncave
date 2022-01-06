@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using RGM.Entities;
 using RGM.Entities.Allies;
-using RGM.General;
 using RGM.General.ContentHandling.Assets;
 using RGM.General.ContentHandling.Rooms;
 using RGM.General.DungeonGenerator;
@@ -11,6 +11,7 @@ using RGM.General.EventHandling;
 using RGM.General.Graphics;
 using RGM.General.Input;
 using RGM.General.Sound;
+using RGM.Items;
 
 namespace RGM
 {
@@ -38,6 +39,15 @@ namespace RGM
         public const int windowYMiddle = (windowWidth / 2);
         public const int windowXMiddle = (windowWidth / 2);
 
+        public static readonly List<Type> allItems = new List<Type>()
+        {
+            typeof(BloodChalice),
+            typeof(Arrow),
+            typeof(Medkit),
+            typeof(Determination),
+            typeof(Knife)
+        };
+        
         private readonly Matrix scaleMatrix = Matrix.CreateScale(scale, scale, 1.0f);
         private readonly GraphicsDeviceManager graphics;
         public static SpriteBatch spriteBatch;
@@ -46,12 +56,17 @@ namespace RGM
         public RGM()
         {
             graphics = new GraphicsDeviceManager(this);
+
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+            
+
         }
 
         protected override void Initialize()
         {
+            
+            
             graphics.PreferredBackBufferWidth  = windowWidth;  
             graphics.PreferredBackBufferHeight = windowHeight; 
             graphics.ApplyChanges();
