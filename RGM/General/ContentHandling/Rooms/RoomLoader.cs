@@ -70,6 +70,7 @@ namespace RGM.General.ContentHandling.Rooms
             return Room.FromJson(levelJSON);
         }
 
+        // This code is absolute trash.
         public static void playRoom(int index, dRoomType roomType, dDirection wherePlayerCameFrom)
         {
             // Clear the current room, place walls in the new one
@@ -89,6 +90,25 @@ namespace RGM.General.ContentHandling.Rooms
                 case dRoomType.start:    allRoomsOfType  =  startRooms; break;
             }
 
+            if (!allRoomsOfType[index].setItems)
+            {
+                foreach (var obj in allRoomsOfType[index].Layers[1].Objects)
+                {
+                    foreach(var propert in obj.Properties)
+                    {
+                    
+                        if (propert.Name == "item")
+                        {
+                            propert.Value = Util.random.Next(0, RGM.allItems.Count - 1);
+                        }
+                    
+                    }
+                }
+
+                allRoomsOfType[index].setItems = true;
+            }
+            
+
             for(int i = 0; i < allRoomsOfType[index].Layers[0].Data.Length; i++)
             {
                 if (allRoomsOfType[index].Layers[0].Data[i] == 0) continue;
@@ -105,16 +125,9 @@ namespace RGM.General.ContentHandling.Rooms
                     
                     case 2: RGM.entitiesToBeSpawned.Add(new Pedestal
                             (new Vector2(colIndex * RGM.tileSize, currentCol * RGM.tileSize),
-                                Activator.CreateInstance(RGM.allItems[Util.random.Next(0, RGM.allItems.Count)]) as BaseItem
+                                Util.random.Next(0, RGM.allItems.Count)
                             ));
                         break;
-                    
-                    // // Empty pedestal
-                    // case 3: RGM.entitiesToBeSpawned.Add(new Pedestal
-                    //     (new Vector2(colIndex * RGM.tileSize, currentCol * RGM.tileSize),
-                    //         null
-                    //     ));
-                    //     break;
 
                     case 5:
                         RGM.enemiesInRoom++;
@@ -179,10 +192,6 @@ namespace RGM.General.ContentHandling.Rooms
                         foreach (Entity entity in RGM.entitiesToBeSpawned)
                         {
 
-                            // if (entity is Pedestal)
-                            // {
-                            //     Console.WriteLine("based");
-                            // }
                             switch (entity)
                             {
                                 case Pedestal pedestal:
@@ -204,6 +213,45 @@ namespace RGM.General.ContentHandling.Rooms
             // Place door. If there are no enemies, doors shall be open, if there are, they shall be closed.
             placeDoors(RGM.enemiesInRoom <= 0);
 
+        }
+
+        public static void exitRoom(int index, dRoomType roomType)
+        {
+            List<Room> allRoomsOfType = new List<Room>();
+            int item = 9999;
+
+            switch (roomType)
+            {
+                case dRoomType.normal:   allRoomsOfType  =  normalRooms; break;
+                case dRoomType.boss:     allRoomsOfType  =  bossRooms; break;
+                case dRoomType.treasure: allRoomsOfType  =  treasureRooms; break;
+                case dRoomType.start:    allRoomsOfType  =  startRooms; break;
+            }
+
+            foreach (var entity in RGM.entities)
+            {
+
+                switch (entity)
+                {
+                    case Pedestal pedestal:
+                    {
+                        item = pedestal.itemIndex;
+                        break;
+                    }
+                }
+                
+            }
+
+            foreach (var obj in allRoomsOfType[index].Layers[1].Objects)
+            {
+                foreach (var propert in obj.Properties)
+                {
+                    if (propert.Name == "item")
+                    {
+                        propert.Value = item;
+                    }
+                }
+            }
         }
 
         // private static void saveRoom(Point savePlace)

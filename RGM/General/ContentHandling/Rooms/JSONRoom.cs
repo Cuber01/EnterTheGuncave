@@ -9,49 +9,51 @@ namespace RGM.General.ContentHandling.Rooms
 
         [JsonProperty("layers")]
         public Layer[] Layers { get; set; }
-        
+
+        public bool setItems = false;
+
         // [JsonProperty("compressionlevel")]
         // public long Compressionlevel { get; set; }
 
         // [JsonProperty("editorsettings")]
         // public Editorsettings Editorsettings { get; set; }
-        
+
         // [JsonProperty("height")]
         // public long Height { get; set; }
-        
+
         // [JsonProperty("infinite")]
         // public bool Infinite { get; set; }
 
         // [JsonProperty("nextlayerid")]
         // public long Nextlayerid { get; set; }
-        
+
         // [JsonProperty("nextobjectid")]
         // public long Nextobjectid { get; set; }
-        
+
         // [JsonProperty("orientation")]
         // public string Orientation { get; set; }
-        
+
         // [JsonProperty("renderorder")]
         // public string Renderorder { get; set; }
-        
+
         // [JsonProperty("tiledversion")]
         // public string Tiledversion { get; set; }
-        
+
         // [JsonProperty("tileheight")]
         // public long Tileheight { get; set; }
-        
+
         // [JsonProperty("tilesets")]
         // public Tileset[] Tilesets { get; set; }
-        
+
         // [JsonProperty("tilewidth")]
         // public long Tilewidth { get; set; }
-        
+
         // [JsonProperty("type")]
         // public string Type { get; set; }
-        
+
         // [JsonProperty("version")]
         // public string Version { get; set; }
-        
+
         // [JsonProperty("width")]
         // public long Width { get; set; }
     }

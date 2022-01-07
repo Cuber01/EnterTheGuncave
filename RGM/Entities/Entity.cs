@@ -18,6 +18,7 @@ namespace RGM.Entities
         
         public Vector2 position;
         public Point tilePosition;
+        
         public Point mapPosition;
 
         protected Vector2   velocity;

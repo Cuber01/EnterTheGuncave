@@ -10,11 +10,13 @@ namespace RGM.Entities.Neutrals
     public class Pedestal : Entity
     {
         public BaseItem item;
+        public int itemIndex = 0;
+        
         private bool hasItem = true; 
         
         private readonly Vector2 itemPosition;
         
-        public Pedestal(Vector2 position, BaseItem item)
+        public Pedestal(Vector2 position, int itemIndex)
         {
             this.position = position;
             this.texture  = AssetLoader.textures[dTextureKeys.pedestal];
@@ -22,12 +24,14 @@ namespace RGM.Entities.Neutrals
             this.myHeight = texture.Height;
             this.tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
 
-            this.item = item;
+            this.itemIndex = itemIndex;
 
-            if (item == null)
+            if (itemIndex == 9999)
             {
                 hasItem = false;
             }
+
+            this.item = Activator.CreateInstance(RGM.allItems[itemIndex]) as BaseItem;
             
             this.itemPosition = new Vector2(position.X, position.Y - 5);
             

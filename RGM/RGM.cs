@@ -40,11 +40,11 @@ namespace RGM
 
         public static readonly List<Type> allItems = new List<Type>()
         {
-            // typeof(BloodChalice),
-            // typeof(Arrow),
-            // typeof(Medkit),
-            // typeof(Determination),
-            // typeof(Knife)
+            typeof(BloodChalice),
+            typeof(Arrow),
+            typeof(Medkit),
+            typeof(Determination),
+            typeof(Knife),
             typeof(ShotgunItem)
         };
         
@@ -59,7 +59,6 @@ namespace RGM
 
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            
 
         }
 
