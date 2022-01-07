@@ -101,7 +101,11 @@ namespace RGM.Entities.Neutrals
             }
 
             Entity player = entities[0];
-            Point oldMapPosition = player.mapPosition;
+            
+            RoomLoader.exitRoom(
+                DungeonGenerator.floorMap[player.mapPosition.X, player.mapPosition.Y].roomInfo.roomIndex,
+                DungeonGenerator.floorMap[player.mapPosition.X, player.mapPosition.Y].roomInfo.roomType
+            );
 
             switch (direction)
             {
@@ -126,12 +130,7 @@ namespace RGM.Entities.Neutrals
                 DungeonGenerator.floorMap[player.mapPosition.X, player.mapPosition.Y].roomInfo.roomIndex,
                 DungeonGenerator.floorMap[player.mapPosition.X, player.mapPosition.Y].roomInfo.roomType, direction
             );
-            
-            RoomLoader.exitRoom(
-                DungeonGenerator.floorMap[oldMapPosition.X, oldMapPosition.Y].roomInfo.roomIndex,
-                DungeonGenerator.floorMap[oldMapPosition.X, oldMapPosition.Y].roomInfo.roomType
-            );
-            
+
             RoomLoader.changingRoom = true;
         }
 

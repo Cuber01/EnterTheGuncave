@@ -7,7 +7,7 @@ using RGM.Entities.Allies;
 using RGM.Entities.Baddies;
 using RGM.Entities.Neutrals;
 using RGM.General.DungeonGenerator;
-using RGM.Items;
+
 
 
 namespace RGM.General.ContentHandling.Rooms
@@ -73,6 +73,8 @@ namespace RGM.General.ContentHandling.Rooms
         // This code is absolute trash.
         public static void playRoom(int index, dRoomType roomType, dDirection wherePlayerCameFrom)
         {
+            int myItemIndex = 0;
+
             // Clear the current room, place walls in the new one
             clearRoom();
             placeWalls();
@@ -89,24 +91,29 @@ namespace RGM.General.ContentHandling.Rooms
                 case dRoomType.treasure: allRoomsOfType  =  treasureRooms; break;
                 case dRoomType.start:    allRoomsOfType  =  startRooms; break;
             }
+            
 
-            if (!allRoomsOfType[index].setItems)
+            foreach (var obj in allRoomsOfType[index].Layers[1].Objects)
             {
-                foreach (var obj in allRoomsOfType[index].Layers[1].Objects)
+                foreach(var propert in obj.Properties)
                 {
-                    foreach(var propert in obj.Properties)
+                
+                    if (propert.Name == "item")
                     {
-                    
-                        if (propert.Name == "item")
+                        
+                        if (!allRoomsOfType[index].setItems)
                         {
                             propert.Value = Util.random.Next(0, RGM.allItems.Count - 1);
+                            allRoomsOfType[index].setItems = true;
                         }
-                    
+                        
+                        myItemIndex = (int)propert.Value;
+                        
                     }
+                
                 }
-
-                allRoomsOfType[index].setItems = true;
             }
+
             
 
             for(int i = 0; i < allRoomsOfType[index].Layers[0].Data.Length; i++)
@@ -125,8 +132,8 @@ namespace RGM.General.ContentHandling.Rooms
                     
                     case 2: RGM.entitiesToBeSpawned.Add(new Pedestal
                             (new Vector2(colIndex * RGM.tileSize, currentCol * RGM.tileSize),
-                                Util.random.Next(0, RGM.allItems.Count)
-                            ));
+                                myItemIndex)
+                            );
                         break;
 
                     case 5:
@@ -169,41 +176,24 @@ namespace RGM.General.ContentHandling.Rooms
                             }
                         }
                         
-                    } else if (propert.Name == "item")
-                    {
-                        
-                        Type itemInLevel;
-                        
-                        switch (propert.Value)
-                        {
-                            case 9999:
-                            {
-                                itemInLevel = null;
-                                break;
-                            }
-
-                            default:
-                            {
-                                itemInLevel = RGM.allItems[(int)propert.Value];
-                                break;
-                            }
-                        }
-
-                        foreach (Entity entity in RGM.entitiesToBeSpawned)
-                        {
-
-                            switch (entity)
-                            {
-                                case Pedestal pedestal:
-                                {
-                                    pedestal.setItem(itemInLevel);
-                                    break;
-                                }
-                            }
-                            
-                        }
-                        
-                    }
+                    } //else if (propert.Name == "item")
+                    // {
+                    //     // TODO
+                    //     foreach (Entity entity in RGM.entitiesToBeSpawned)
+                    //     {
+                    //
+                    //         switch (entity)
+                    //         {
+                    //             case Pedestal pedestal:
+                    //             {
+                    //                 //pedestal.setItem(myItemIndex);
+                    //                 break;
+                    //             }
+                    //         }
+                    //         
+                    //     }
+                    //     
+                    // }
                 }
                 
                 
@@ -252,6 +242,7 @@ namespace RGM.General.ContentHandling.Rooms
                     }
                 }
             }
+            
         }
 
         // private static void saveRoom(Point savePlace)

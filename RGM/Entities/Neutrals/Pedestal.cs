@@ -26,12 +26,15 @@ namespace RGM.Entities.Neutrals
 
             this.itemIndex = itemIndex;
 
-            if (itemIndex == 9999)
+            if (itemIndex != 9999)
+            {
+                this.item = Activator.CreateInstance(RGM.allItems[itemIndex]) as BaseItem;
+            }
+            else
             {
                 hasItem = false;
             }
-
-            this.item = Activator.CreateInstance(RGM.allItems[itemIndex]) as BaseItem;
+            
             
             this.itemPosition = new Vector2(position.X, position.Y - 5);
             
@@ -39,9 +42,9 @@ namespace RGM.Entities.Neutrals
             this.collider = new Hitbox(position, myWidth, myHeight);
         }
 
-        public void setItem(Type newItem)
+        public void setItem(int newItemIndex)
         {
-            if (newItem is null)
+            if (newItemIndex == 9999)
             {
                 this.item = null;
                 hasItem = false;
@@ -49,7 +52,7 @@ namespace RGM.Entities.Neutrals
                 return;
             }
 
-            this.item = Activator.CreateInstance(newItem) as BaseItem;
+            this.item = Activator.CreateInstance(RGM.allItems[newItemIndex]) as BaseItem;
             hasItem = true;
         }
 
@@ -61,6 +64,7 @@ namespace RGM.Entities.Neutrals
                 item.pickedUp();
                 RGM.Player.inventory.Add(item);
                 item = null;
+                itemIndex = 9999;
                 
                 hasItem = false;
             }
