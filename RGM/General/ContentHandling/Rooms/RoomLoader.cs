@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
-using RGM.Entities;
 using RGM.Entities.Allies;
 using RGM.Entities.Baddies;
 using RGM.Entities.Neutrals;
@@ -14,6 +13,8 @@ namespace RGM.General.ContentHandling.Rooms
 {
     public static class RoomLoader
     {
+        public static int[,] clearedRooms = new int[DungeonGenerator.DungeonGenerator.maxFloorWidth, DungeonGenerator.DungeonGenerator.maxFloorWidth];
+        
         private static readonly List<Room> normalRooms  = new List<Room>();
         private static readonly List<Room> treasureRooms = new List<Room>();
         private static readonly List<Room> bossRooms    = new List<Room>();
@@ -137,12 +138,16 @@ namespace RGM.General.ContentHandling.Rooms
                         break;
 
                     case 5:
+                        if (clearedRooms[RGM.Player.mapPosition.X, RGM.Player.mapPosition.X] == 1) break;
+
                         RGM.enemiesInRoom++;
                         RGM.entitiesToBeSpawned.Add(new TurretEnemy
                             (new Vector2(colIndex * RGM.tileSize, currentCol * RGM.tileSize)));
                         break;
                     
                     case 6:
+                        if (clearedRooms[RGM.Player.mapPosition.X, RGM.Player.mapPosition.X] == 1) break;
+                        
                         RGM.enemiesInRoom++;
                         RGM.entitiesToBeSpawned.Add(new WalkingEnemy
                             (new Vector2(colIndex * RGM.tileSize, currentCol * RGM.tileSize)));

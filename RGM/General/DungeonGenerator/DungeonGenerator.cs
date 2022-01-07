@@ -19,8 +19,8 @@ namespace RGM.General.DungeonGenerator
         private static int minRooms = 20;
         private static int maxRooms = 50;
 
-        private const int maxFloorWidth = 50;
-        private const int maxFloorHeight = 50;
+        public const int maxFloorWidth = 50;
+        public const int maxFloorHeight = 50;
         private static int maxNeighborCount = 1;
         private static float doorChance = 0.5f;
 

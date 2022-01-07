@@ -1,3 +1,5 @@
+using RGM.General.ContentHandling.Rooms;
+
 namespace RGM.General.EventHandling
 {
     public static class GEventResponse
@@ -6,6 +8,7 @@ namespace RGM.General.EventHandling
         public static void subscribeGeneralMethods()
         {
             GEventHandler.subscribe(enemyKillResponse, dEvents.enemyKilled);
+            GEventHandler.subscribe(roomClearResponse, dEvents.roomClear);
         }
         
         private static void enemyKillResponse(dEvents e)
@@ -16,6 +19,11 @@ namespace RGM.General.EventHandling
             {
                 GEventHandler.queueFiringEvent(dEvents.roomClear);
             }
+        }
+        
+        private static void roomClearResponse(dEvents e)
+        {
+            RoomLoader.clearedRooms[RGM.Player.mapPosition.X, RGM.Player.mapPosition.Y] = 1;
         }
 
 
