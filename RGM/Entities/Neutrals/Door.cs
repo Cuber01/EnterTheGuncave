@@ -121,6 +121,7 @@ namespace RGM.Entities.Neutrals
                     break;
             }
 
+
             RoomLoader.playRoom(
                 DungeonGenerator.floorMap[player.mapPosition.X, player.mapPosition.Y].roomInfo.roomIndex,
                 DungeonGenerator.floorMap[player.mapPosition.X, player.mapPosition.Y].roomInfo.roomType, direction);

@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Xna.Framework;
 using RGM.Entities.Projectiles;
 using RGM.General.Collision;
@@ -32,6 +33,20 @@ namespace RGM.Entities.Neutrals
             
             this.team = dTeam.neutrals;
             this.collider = new Hitbox(position, myWidth, myHeight);
+        }
+
+        public void setItem(Type newItem)
+        {
+            if (newItem is null)
+            {
+                this.item = null;
+                hasItem = false;
+                
+                return;
+            }
+
+            this.item = Activator.CreateInstance(newItem) as BaseItem;
+            hasItem = true;
         }
 
         public override void onPlayerCollision()

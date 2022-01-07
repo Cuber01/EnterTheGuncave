@@ -152,9 +152,9 @@ namespace RGM.General.ContentHandling.Rooms
 
     public class Property
     {
-        // [JsonProperty("name")]
-        // public string Name { get; set; }
-        //
+        [JsonProperty("name")]
+        public string Name { get; set; }
+        
         // [JsonProperty("type")]
         // public string Type { get; set; }
 

@@ -146,7 +146,7 @@ namespace RGM
                 
             foreach (Entity victim in entitiesToBeKilled)
             {
-                    entities.Remove(victim);
+                entities.Remove(victim);
             }
 
             entitiesToBeKilled.Clear();

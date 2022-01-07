@@ -109,12 +109,12 @@ namespace RGM.General.ContentHandling.Rooms
                             ));
                         break;
                     
-                    // Empty pedestal
-                    case 3: RGM.entitiesToBeSpawned.Add(new Pedestal
-                        (new Vector2(colIndex * RGM.tileSize, currentCol * RGM.tileSize),
-                            null
-                        ));
-                        break;
+                    // // Empty pedestal
+                    // case 3: RGM.entitiesToBeSpawned.Add(new Pedestal
+                    //     (new Vector2(colIndex * RGM.tileSize, currentCol * RGM.tileSize),
+                    //         null
+                    //     ));
+                    //     break;
 
                     case 5:
                         RGM.enemiesInRoom++;
@@ -130,29 +130,74 @@ namespace RGM.General.ContentHandling.Rooms
                     
                 }
 
-                //TODO this seems to be useless?
-                RGM.currentRoom[colIndex, currentCol] = Int32.MaxValue; 
             }
 
             foreach(var nonTileObj in allRoomsOfType[index].Layers[1].Objects)
             {
-                
-                switch (nonTileObj.Properties[0].Value)
+                foreach (var propert in nonTileObj.Properties)
                 {
-                    case 1:
+                    if (propert.Name == "object_id")
                     {
-                        RGM.enemiesInRoom++;
-                        RGM.entitiesToBeSpawned.Add(new WalkingEnemy(new Vector2((float)nonTileObj.X, (float)nonTileObj.Y)));
-                        break;
-                    }
+                        
+                        switch (propert.Value)
+                        {
+                            case 1:
+                            {
+                                RGM.enemiesInRoom++;
+                                RGM.entitiesToBeSpawned.Add(new WalkingEnemy(new Vector2((float)nonTileObj.X, (float)nonTileObj.Y)));
+                                break;
+                            }
                     
-                    case 2:
+                            case 2:
+                            {
+                                RGM.enemiesInRoom++;
+                                RGM.entitiesToBeSpawned.Add(new TurretEnemy(new Vector2((float)nonTileObj.X, (float)nonTileObj.Y)));
+                                break;
+                            }
+                        }
+                        
+                    } else if (propert.Name == "item")
                     {
-                        RGM.enemiesInRoom++;
-                        RGM.entitiesToBeSpawned.Add(new TurretEnemy(new Vector2((float)nonTileObj.X, (float)nonTileObj.Y)));
-                        break;
+                        
+                        Type itemInLevel;
+                        
+                        switch (propert.Value)
+                        {
+                            case 9999:
+                            {
+                                itemInLevel = null;
+                                break;
+                            }
+
+                            default:
+                            {
+                                itemInLevel = RGM.allItems[(int)propert.Value];
+                                break;
+                            }
+                        }
+
+                        foreach (Entity entity in RGM.entitiesToBeSpawned)
+                        {
+
+                            // if (entity is Pedestal)
+                            // {
+                            //     Console.WriteLine("based");
+                            // }
+                            switch (entity)
+                            {
+                                case Pedestal pedestal:
+                                {
+                                    pedestal.setItem(itemInLevel);
+                                    break;
+                                }
+                            }
+                            
+                        }
+                        
                     }
                 }
+                
+                
                 
             }
             
@@ -161,55 +206,55 @@ namespace RGM.General.ContentHandling.Rooms
 
         }
 
-        private static void saveRoom(Point savePlace)
-        {
-            long[,] savedRoom2D = new long[RGM.roomWidth, RGM.roomHeight];
-            long[] savedRoom = new long[RGM.roomWidth * RGM.roomHeight];
-
-            // Do note that we're ignoring enemies because they have to be dead in order to leave the room.
-            foreach (Entity entity in RGM.entities)
-            {
-                switch (entity)
-                {
-                    case Stone stone:
-                    {
-                        savedRoom2D[entity.tilePosition.X, entity.tilePosition.Y] = 1;
-                        break;
-                    }
-
-                    // TODO We gotta convert pedestals to full tiled objects
-                    case Pedestal pedestal:
-                    {
-
-                        if (pedestal.item != null)
-                        {
-                            savedRoom2D[entity.tilePosition.X, entity.tilePosition.Y] = 2;
-                        }
-                        else
-                        {
-                            savedRoom2D[entity.tilePosition.X, entity.tilePosition.Y] = 3;
-                        }
-
-                        break;
-                    }
-
-                }
-            }
-
-            for (int i = 0; i < savedRoom2D.GetLength(0); i++)
-            {
-                for (int j = 0; j < savedRoom2D.GetLength(1); j++)
-                {    
-                    
-                    if (savedRoom2D[i, j] == 0) continue;
-
-                    int pos1D = i + j;
-
-                    savedRoom2D[i, j] = savedRoom[pos1D];
-
-                }
-            }
-        }
+        // private static void saveRoom(Point savePlace)
+        // {
+        //     long[,] savedRoom2D = new long[RGM.roomWidth, RGM.roomHeight];
+        //     long[] savedRoom = new long[RGM.roomWidth * RGM.roomHeight];
+        //
+        //     // Do note that we're ignoring enemies because they have to be dead in order to leave the room.
+        //     foreach (Entity entity in RGM.entities)
+        //     {
+        //         switch (entity)
+        //         {
+        //             case Stone stone:
+        //             {
+        //                 savedRoom2D[entity.tilePosition.X, entity.tilePosition.Y] = 1;
+        //                 break;
+        //             }
+        //
+        //             // TODO We gotta convert pedestals to full tiled objects
+        //             case Pedestal pedestal:
+        //             {
+        //
+        //                 if (pedestal.item != null)
+        //                 {
+        //                     savedRoom2D[entity.tilePosition.X, entity.tilePosition.Y] = 2;
+        //                 }
+        //                 else
+        //                 {
+        //                     savedRoom2D[entity.tilePosition.X, entity.tilePosition.Y] = 3;
+        //                 }
+        //
+        //                 break;
+        //             }
+        //
+        //         }
+        //     }
+        //
+        //     for (int i = 0; i < savedRoom2D.GetLength(0); i++)
+        //     {
+        //         for (int j = 0; j < savedRoom2D.GetLength(1); j++)
+        //         {    
+        //             
+        //             if (savedRoom2D[i, j] == 0) continue;
+        //
+        //             int pos1D = i + j;
+        //
+        //             savedRoom2D[i, j] = savedRoom[pos1D];
+        //
+        //         }
+        //     }
+        // }
 
         private static void placePlayer(dDirection direction)
         {
