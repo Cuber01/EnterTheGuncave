@@ -176,24 +176,7 @@ namespace RGM.General.ContentHandling.Rooms
                             }
                         }
                         
-                    } //else if (propert.Name == "item")
-                    // {
-                    //     // TODO
-                    //     foreach (Entity entity in RGM.entitiesToBeSpawned)
-                    //     {
-                    //
-                    //         switch (entity)
-                    //         {
-                    //             case Pedestal pedestal:
-                    //             {
-                    //                 //pedestal.setItem(myItemIndex);
-                    //                 break;
-                    //             }
-                    //         }
-                    //         
-                    //     }
-                    //     
-                    // }
+                    } 
                 }
                 
                 
@@ -244,56 +227,6 @@ namespace RGM.General.ContentHandling.Rooms
             }
             
         }
-
-        // private static void saveRoom(Point savePlace)
-        // {
-        //     long[,] savedRoom2D = new long[RGM.roomWidth, RGM.roomHeight];
-        //     long[] savedRoom = new long[RGM.roomWidth * RGM.roomHeight];
-        //
-        //     // Do note that we're ignoring enemies because they have to be dead in order to leave the room.
-        //     foreach (Entity entity in RGM.entities)
-        //     {
-        //         switch (entity)
-        //         {
-        //             case Stone stone:
-        //             {
-        //                 savedRoom2D[entity.tilePosition.X, entity.tilePosition.Y] = 1;
-        //                 break;
-        //             }
-        //
-        //             // TODO We gotta convert pedestals to full tiled objects
-        //             case Pedestal pedestal:
-        //             {
-        //
-        //                 if (pedestal.item != null)
-        //                 {
-        //                     savedRoom2D[entity.tilePosition.X, entity.tilePosition.Y] = 2;
-        //                 }
-        //                 else
-        //                 {
-        //                     savedRoom2D[entity.tilePosition.X, entity.tilePosition.Y] = 3;
-        //                 }
-        //
-        //                 break;
-        //             }
-        //
-        //         }
-        //     }
-        //
-        //     for (int i = 0; i < savedRoom2D.GetLength(0); i++)
-        //     {
-        //         for (int j = 0; j < savedRoom2D.GetLength(1); j++)
-        //         {    
-        //             
-        //             if (savedRoom2D[i, j] == 0) continue;
-        //
-        //             int pos1D = i + j;
-        //
-        //             savedRoom2D[i, j] = savedRoom[pos1D];
-        //
-        //         }
-        //     }
-        // }
 
         private static void placePlayer(dDirection direction)
         {
