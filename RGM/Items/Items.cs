@@ -152,9 +152,9 @@ namespace RGM.Items
         }
     }
     
-    public class Shotgun : BaseItem
+    public class ShotgunItem : BaseItem
     {
-        public Shotgun() : base(dItems.shotgun, AssetLoader.textures[dTextureKeys.shotgun])
+        public ShotgunItem() : base(dItems.shotgun, AssetLoader.textures[dTextureKeys.shotgun])
         {
             this.name = "Shotgun";
             this.description = "Makes you go guns and blazing.";
@@ -169,7 +169,17 @@ namespace RGM.Items
 
         public override void activate(dEvents e = dEvents.none)
         {
-            ItemEffects.changePlayerShooter(typeof(PistolShooter));
+            ItemEffects.changePlayerShooter(typeof(Shotgun));
+            ItemEffects.modifyPlayerStats(new EntityStats(
+                0,
+                0,
+                0,
+                2,
+                -50,
+                100,
+                0,
+                0
+            ));
         }
     }
     

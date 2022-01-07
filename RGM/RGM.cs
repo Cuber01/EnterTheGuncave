@@ -45,7 +45,7 @@ namespace RGM
             // typeof(Medkit),
             // typeof(Determination),
             // typeof(Knife)
-            typeof(Shotgun)
+            typeof(ShotgunItem)
         };
         
         private readonly Matrix scaleMatrix = Matrix.CreateScale(scale, scale, 1.0f);

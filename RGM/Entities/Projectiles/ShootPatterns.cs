@@ -52,9 +52,9 @@ namespace RGM.Entities.Projectiles
         protected virtual void shoot() {}
     }
     
-    public class PistolShooter : Shooter
+    public class Pistol : Shooter
     {
-        public PistolShooter(ShooterStats shooterStats, dTextureKeys textureKey)
+        public Pistol(ShooterStats shooterStats, dTextureKeys textureKey)
         {
             this.stats = shooterStats;
             this.textureKey = textureKey;
@@ -73,6 +73,36 @@ namespace RGM.Entities.Projectiles
                 gunPosition, 
                 stats.bulletStats, 
                 textureKey));
+        }
+        
+    }
+    
+    public class Shotgun : Shooter
+    {
+        private const int bulletAmount = 5;
+        
+        public Shotgun(ShooterStats shooterStats, dTextureKeys textureKey)
+        {
+            this.stats = shooterStats;
+            this.textureKey = textureKey;
+            this.currentReloadTime = shooterStats.reloadTime;
+        }
+
+        protected override void shoot()
+        {
+            GEventHandler.fireEvent(dEvents.shoot);
+
+            for (int i = 0; i <= bulletAmount; i++)
+            {
+                RGM.entitiesToBeSpawned.Add(new Bullet(new Vector2(
+                        targetPosition.X + Util.randomPositiveOrNegative(stats.spread, 0.5f),
+                        targetPosition.Y + Util.randomPositiveOrNegative(stats.spread, 0.5f)
+                    ),
+
+                    gunPosition,
+                    stats.bulletStats,
+                    textureKey));
+            }
         }
         
     }

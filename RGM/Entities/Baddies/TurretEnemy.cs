@@ -12,7 +12,7 @@ namespace RGM.Entities.Baddies
     {
         
         private readonly SimpleAnimator animator;
-        private readonly PistolShooter shooter;
+        private readonly Pistol shooter;
         
         private readonly ShooterStats shooterStats;
 
@@ -59,7 +59,7 @@ namespace RGM.Entities.Baddies
                 )  
             );
             
-            this.shooter = new PistolShooter(shooterStats, dTextureKeys.enemy_bullet);
+            this.shooter = new Pistol(shooterStats, dTextureKeys.enemy_bullet);
 
         }
 

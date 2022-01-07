@@ -73,7 +73,7 @@ namespace RGM.Entities.Allies
                 )  
             );
             
-            this.shooter = new PistolShooter(shooterStats, dTextureKeys.player_bullet);
+            this.shooter = new Pistol(shooterStats, dTextureKeys.player_bullet);
 
         }
 
