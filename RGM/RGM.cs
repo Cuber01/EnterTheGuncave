@@ -51,7 +51,7 @@ namespace RGM
         private readonly Matrix scaleMatrix = Matrix.CreateScale(scale, scale, 1.0f);
         private readonly GraphicsDeviceManager graphics;
         public static SpriteBatch spriteBatch;
-        public static DrawUtils draw;
+        private static DrawUtils draw;
 
         public RGM()
         {
@@ -65,8 +65,7 @@ namespace RGM
 
         protected override void Initialize()
         {
-            
-            
+
             graphics.PreferredBackBufferWidth  = windowWidth;  
             graphics.PreferredBackBufferHeight = windowHeight; 
             graphics.ApplyChanges();

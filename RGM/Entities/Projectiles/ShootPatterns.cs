@@ -106,4 +106,38 @@ namespace RGM.Entities.Projectiles
         }
         
     }
+    
+    public class RingeOfBullets : Shooter
+    {
+        private const int bulletAmount = 3;
+        
+        
+        public RingeOfBullets(ShooterStats shooterStats, dTextureKeys textureKey)
+        {
+            this.stats = shooterStats;
+            this.textureKey = textureKey;
+            this.currentReloadTime = shooterStats.reloadTime;
+        }
+
+        protected override void shoot()
+        {
+            GEventHandler.fireEvent(dEvents.shoot);
+
+            for (int i = 0; i <= bulletAmount; i++)
+            {
+                RGM.entitiesToBeSpawned.Add(new Bullet(new Vector2(
+                        targetPosition.X + Util.randomPositiveOrNegative(stats.spread, 0.5f),
+                        targetPosition.Y + Util.randomPositiveOrNegative(stats.spread, 0.5f)
+                    ),
+
+                    gunPosition,
+                    stats.bulletStats,
+                    textureKey));
+            }
+        }
+        
+    }
+    
+    
+    
 }

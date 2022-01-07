@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
+using RGM.Entities;
 using RGM.Entities.Allies;
 using RGM.Entities.Baddies;
 using RGM.Entities.Neutrals;
@@ -107,6 +108,13 @@ namespace RGM.General.ContentHandling.Rooms
                                 Activator.CreateInstance(RGM.allItems[Util.random.Next(0, RGM.allItems.Count)]) as BaseItem
                             ));
                         break;
+                    
+                    // Empty pedestal
+                    case 3: RGM.entitiesToBeSpawned.Add(new Pedestal
+                        (new Vector2(colIndex * RGM.tileSize, currentCol * RGM.tileSize),
+                            null
+                        ));
+                        break;
 
                     case 5:
                         RGM.enemiesInRoom++;
@@ -122,7 +130,8 @@ namespace RGM.General.ContentHandling.Rooms
                     
                 }
 
-                RGM.currentRoom[colIndex, currentCol] = Int32.MaxValue;
+                //TODO this seems to be useless?
+                RGM.currentRoom[colIndex, currentCol] = Int32.MaxValue; 
             }
 
             foreach(var nonTileObj in allRoomsOfType[index].Layers[1].Objects)
@@ -150,6 +159,56 @@ namespace RGM.General.ContentHandling.Rooms
             // Place door. If there are no enemies, doors shall be open, if there are, they shall be closed.
             placeDoors(RGM.enemiesInRoom <= 0);
 
+        }
+
+        private static void saveRoom(Point savePlace)
+        {
+            long[,] savedRoom2D = new long[RGM.roomWidth, RGM.roomHeight];
+            long[] savedRoom = new long[RGM.roomWidth * RGM.roomHeight];
+
+            // Do note that we're ignoring enemies because they have to be dead in order to leave the room.
+            foreach (Entity entity in RGM.entities)
+            {
+                switch (entity)
+                {
+                    case Stone stone:
+                    {
+                        savedRoom2D[entity.tilePosition.X, entity.tilePosition.Y] = 1;
+                        break;
+                    }
+
+                    // TODO We gotta convert pedestals to full tiled objects
+                    case Pedestal pedestal:
+                    {
+
+                        if (pedestal.item != null)
+                        {
+                            savedRoom2D[entity.tilePosition.X, entity.tilePosition.Y] = 2;
+                        }
+                        else
+                        {
+                            savedRoom2D[entity.tilePosition.X, entity.tilePosition.Y] = 3;
+                        }
+
+                        break;
+                    }
+
+                }
+            }
+
+            for (int i = 0; i < savedRoom2D.GetLength(0); i++)
+            {
+                for (int j = 0; j < savedRoom2D.GetLength(1); j++)
+                {    
+                    
+                    if (savedRoom2D[i, j] == 0) continue;
+
+                    int pos1D = i + j;
+
+                    savedRoom2D[i, j] = savedRoom[pos1D];
+
+                }
+            }
         }
 
         private static void placePlayer(dDirection direction)

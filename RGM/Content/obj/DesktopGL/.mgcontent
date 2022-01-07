@@ -14,6 +14,7 @@
     <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/items/arrow.png</File>
     <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/items/blood_chalice.png</File>
     <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/items/determination.png</File>
+    <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/items/gun_ring.png</File>
     <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/items/knife.png</File>
     <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/items/medkit.png</File>
     <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/items/shotgun.png</File>
@@ -43,6 +44,7 @@
     <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/sounds/sfx/wav/shoot.wav</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

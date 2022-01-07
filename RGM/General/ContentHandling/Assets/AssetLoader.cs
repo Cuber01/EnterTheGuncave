@@ -38,7 +38,8 @@ namespace RGM.General.ContentHandling.Assets
             textures.Add(dTextureKeys.determination,    contentManager.Load<Texture2D>("assets/images/items/determination"));
             textures.Add(dTextureKeys.knife,            contentManager.Load<Texture2D>("assets/images/items/knife"));
             textures.Add(dTextureKeys.medkit,           contentManager.Load<Texture2D>("assets/images/items/medkit"));
-            textures.Add(dTextureKeys.shotgun,           contentManager.Load<Texture2D>("assets/images/items/shotgun"));
+            textures.Add(dTextureKeys.shotgun,          contentManager.Load<Texture2D>("assets/images/items/shotgun"));
+            textures.Add(dTextureKeys.gun_ring,         contentManager.Load<Texture2D>("assets/images/items/gun_ring"));
         }
         
         public void loadSounds()

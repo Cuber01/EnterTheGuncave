@@ -10,9 +10,9 @@ namespace RGM.General.DungeonGenerator
     
     public static class DungeonGenerator
     {
-        public static  RoomPlan[,] floorMap = new RoomPlan[maxFloorWidth, maxFloorHeight];
+        public  static readonly RoomPlan[,] floorMap = new RoomPlan[maxFloorWidth, maxFloorHeight];
         private static readonly List<RoomPlan> endRooms = new List<RoomPlan>();
-        public static Point startingPos;
+        public  static Point startingPos;
 
         // Remember to keep limits which won't go out of bounds of floorMap
         private static int roomCount;

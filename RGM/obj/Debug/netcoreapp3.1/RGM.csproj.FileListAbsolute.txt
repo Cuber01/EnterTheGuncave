@@ -94,3 +94,4 @@
 /home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/images/other/enemy_turret.xnb
 /home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/images/other/palette.xnb
 /home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/images/other/player_walk.xnb
+/home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/images/items/gun_ring.xnb

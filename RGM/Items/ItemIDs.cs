@@ -7,6 +7,7 @@ namespace RGM.Items
         arrow,
         determination,
         knife,
-        shotgun
+        shotgun,
+        gun_ring
     }
 }

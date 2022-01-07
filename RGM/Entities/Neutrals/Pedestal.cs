@@ -8,7 +8,7 @@ namespace RGM.Entities.Neutrals
 {
     public class Pedestal : Entity
     {
-        private BaseItem item;
+        public BaseItem item;
         private bool hasItem = true; 
         
         private readonly Vector2 itemPosition;
@@ -22,6 +22,12 @@ namespace RGM.Entities.Neutrals
             this.tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
 
             this.item = item;
+
+            if (item == null)
+            {
+                hasItem = false;
+            }
+            
             this.itemPosition = new Vector2(position.X, position.Y - 5);
             
             this.team = dTeam.neutrals;

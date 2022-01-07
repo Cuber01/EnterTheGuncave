@@ -17,7 +17,8 @@ namespace RGM.General.ContentHandling.Assets
         determination,
         knife,
         medkit,
-        shotgun
+        shotgun,
+        gun_ring
     }
     
     public enum dSoundKeys
