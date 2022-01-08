@@ -48,6 +48,8 @@ namespace RGM.General.ContentHandling.Assets
             sfx.Add(dSoundKeys.enemy_hurt,  contentManager.Load<SoundEffect>("assets/sounds/sfx/wav/enemy_hurt"));
             sfx.Add(dSoundKeys.enemy_hurt2, contentManager.Load<SoundEffect>("assets/sounds/sfx/wav/enemy_hurt2"));
             sfx.Add(dSoundKeys.shoot,       contentManager.Load<SoundEffect>("assets/sounds/sfx/wav/shoot"));
+            sfx.Add(dSoundKeys.player_hit,       contentManager.Load<SoundEffect>("assets/sounds/sfx/wav/player_hit"));
+            sfx.Add(dSoundKeys.player_death,       contentManager.Load<SoundEffect>("assets/sounds/sfx/wav/player_death"));
         }
 
         public void loadFonts()

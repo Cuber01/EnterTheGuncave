@@ -130,6 +130,8 @@ namespace RGM
         protected override void Draw(GameTime gameTime)
         {
 
+            GraphicsDevice.Clear(Color.Black);
+            
             if (!gameOver)
             {
                 drawGame();
@@ -190,8 +192,6 @@ namespace RGM
         private void drawGame()
         {
             // Main
-            GraphicsDevice.Clear(Color.Black);
-            
             spriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: scaleMatrix);
             
             //draw.drawGrid(Color.Gray);
@@ -215,6 +215,7 @@ namespace RGM
 
         private void drawGameOver()
         {
+
             // Fonts
             spriteBatch.Begin();
             
