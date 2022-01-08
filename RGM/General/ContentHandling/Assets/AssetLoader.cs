@@ -30,7 +30,7 @@ namespace RGM.General.ContentHandling.Assets
             textures.Add(dTextureKeys.tiles1,          contentManager.Load<Texture2D>("assets/images/tiles1"));
             textures.Add(dTextureKeys.pedestal,        contentManager.Load<Texture2D>("assets/images/pedestal"));
             textures.Add(dTextureKeys.enemy_turret,    contentManager.Load<Texture2D>("assets/images/enemy_turret"));
-            
+            textures.Add(dTextureKeys.heart,           contentManager.Load<Texture2D>("assets/images/heart"));
 
             
             textures.Add(dTextureKeys.arrow,            contentManager.Load<Texture2D>("assets/images/items/arrow"));
@@ -44,17 +44,17 @@ namespace RGM.General.ContentHandling.Assets
         
         public void loadSounds()
         {
-            sfx.Add(dSoundKeys.enemy_die,   contentManager.Load<SoundEffect>("assets/sounds/sfx/wav/enemy_die"));
-            sfx.Add(dSoundKeys.enemy_hurt,  contentManager.Load<SoundEffect>("assets/sounds/sfx/wav/enemy_hurt"));
-            sfx.Add(dSoundKeys.enemy_hurt2, contentManager.Load<SoundEffect>("assets/sounds/sfx/wav/enemy_hurt2"));
-            sfx.Add(dSoundKeys.shoot,       contentManager.Load<SoundEffect>("assets/sounds/sfx/wav/shoot"));
-            sfx.Add(dSoundKeys.player_hit,       contentManager.Load<SoundEffect>("assets/sounds/sfx/wav/player_hit"));
-            sfx.Add(dSoundKeys.player_death,       contentManager.Load<SoundEffect>("assets/sounds/sfx/wav/player_death"));
+            sfx.Add(dSoundKeys.enemy_die,     contentManager.Load<SoundEffect>("assets/sounds/sfx/wav/enemy_die"));
+            sfx.Add(dSoundKeys.enemy_hurt,    contentManager.Load<SoundEffect>("assets/sounds/sfx/wav/enemy_hurt"));
+            sfx.Add(dSoundKeys.enemy_hurt2,   contentManager.Load<SoundEffect>("assets/sounds/sfx/wav/enemy_hurt2"));
+            sfx.Add(dSoundKeys.shoot,         contentManager.Load<SoundEffect>("assets/sounds/sfx/wav/shoot"));
+            sfx.Add(dSoundKeys.player_hit,    contentManager.Load<SoundEffect>("assets/sounds/sfx/wav/player_hit"));
+            sfx.Add(dSoundKeys.player_death,  contentManager.Load<SoundEffect>("assets/sounds/sfx/wav/player_death"));
         }
 
         public void loadFonts()
         {
-            fonts.Add(dFontKeys.pico8_big, contentManager.Load<SpriteFont>("assets/fonts/PICO8-big"));
+            fonts.Add(dFontKeys.pico8_big,   contentManager.Load<SpriteFont>("assets/fonts/PICO8-big"));
             fonts.Add(dFontKeys.pico8_small, contentManager.Load<SpriteFont>("assets/fonts/PICO8-small"));
         }
     }

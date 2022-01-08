@@ -6,10 +6,10 @@ namespace RGM.General.EventHandling
         
         enemyKilled,
         playerKilled,
-        playerHurt,
         roomClear,
         
-        // As of 03.01.2022 used only for sound
+        // Used only for sound
+        playerHurt,
         enemyHurt,
         shoot
     }

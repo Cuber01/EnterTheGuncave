@@ -11,6 +11,7 @@ namespace RGM.General.ContentHandling.Assets
         enemy_bullet,
         tiles1,
         pedestal,
+        heart,
         
         arrow,
         blood_chalice,

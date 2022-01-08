@@ -53,7 +53,7 @@ namespace RGM.Entities.Allies
             // Stats
             stats.speed = 1;
             stats.damage = 1;
-            stats.hitpoints = 1;
+            stats.hitpoints = 5;
 
             stats.penetration = 1;
             stats.bulletSpeed = 1;

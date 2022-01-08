@@ -202,6 +202,8 @@ namespace RGM
                 
                 //entity.collider.draw(draw);
             }
+            
+            
 
             spriteBatch.End();
             
