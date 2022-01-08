@@ -18,6 +18,8 @@ namespace RGM
     public class RGM : Game
     {
         public static Entity Player;
+        private textInfo playerHP;
+        
         public static bool gameOver = false;
 
         public static readonly List<Entity> entities = new List<Entity>();
@@ -100,15 +102,16 @@ namespace RGM
             entities.Add(new Player(new Vector2(50, 100)));
             Player = entities[0];
 
-            // entities.Add(new WalkingEnemy(new Vector2(128, 80)));
-            // entities.Add(new Stone(new Vector2(100, 100)));
-            // RoomLoader.placeWalls();
-            
             RoomLoader.playRoom(DungeonGenerator.floorMap[entities[0].mapPosition.X, entities[0].mapPosition.Y].roomInfo.roomIndex, 
                                 DungeonGenerator.floorMap[entities[0].mapPosition.X, entities[0].mapPosition.Y].roomInfo.roomType, 
                                 dDirection.center);
-            
 
+            playerHP = new textInfo(Player.stats.hitpoints.ToString(),
+                1, true,
+                new Vector2(15 * scale, 5 * scale),
+                dFontKeys.pico8_big, Color.Red
+            );
+            
         }
 
         protected override void Update(GameTime gameTime)
@@ -183,7 +186,12 @@ namespace RGM
                 entities.Remove(victim);
             }
 
+            playerHP.text = Player.stats.hitpoints.ToString();
+
             entitiesToBeKilled.Clear();
+
+            FontRenderer.dissappearingTextQueue.Add(playerHP);
+            FontRenderer.textQueue.Add(playerHP);
 
             //spriteBatch.End();
 
@@ -203,7 +211,8 @@ namespace RGM
                 //entity.collider.draw(draw);
             }
             
-            
+            // Heart GUI
+            spriteBatch.Draw(AssetLoader.textures[dTextureKeys.heart], new Vector2(2, 2), Color.White);
 
             spriteBatch.End();
             
@@ -217,7 +226,6 @@ namespace RGM
 
         private void drawGameOver()
         {
-
             // Fonts
             spriteBatch.Begin();
             
@@ -229,13 +237,16 @@ namespace RGM
         private void updateGameOver()
         {
             FontRenderer.textQueue.Add(new textInfo("Game Over!",
-                1, true,new Vector2(RGM.windowXMiddle, RGM.windowYMiddle - 300), dFontKeys.pico8_big));
+                1, true,new Vector2(RGM.windowXMiddle, RGM.windowYMiddle - 300),
+                dFontKeys.pico8_big, Color.White));
             
             FontRenderer.textQueue.Add(new textInfo("Restart to try again.",
-                1, true,new Vector2(RGM.windowXMiddle, RGM.windowYMiddle - 250), dFontKeys.pico8_small));
+                1, true,new Vector2(RGM.windowXMiddle, RGM.windowYMiddle - 250),
+                dFontKeys.pico8_small, Color.White));
             
             FontRenderer.textQueue.Add(new textInfo("(No, I really don't have restart implemented, go away.)",
-                1, true, new Vector2(RGM.windowXMiddle, RGM.windowYMiddle - 200), dFontKeys.pico8_small));
+                1, true, new Vector2(RGM.windowXMiddle, RGM.windowYMiddle - 200), 
+                dFontKeys.pico8_small, Color.White));
         }
     }
 }

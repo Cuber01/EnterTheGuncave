@@ -24,8 +24,8 @@ namespace RGM.Items
 
         public virtual void pickedUp()
         {
-            FontRenderer.textQueue.Add(new textInfo(name,        200, false, new Vector2(RGM.windowXMiddle, RGM.windowYMiddle - 300), dFontKeys.pico8_big));
-            FontRenderer.textQueue.Add(new textInfo(description, 200, false, new Vector2(RGM.windowXMiddle, RGM.windowYMiddle - 250), dFontKeys.pico8_small));
+            FontRenderer.textQueue.Add(new textInfo(name,        200, false, new Vector2(RGM.windowXMiddle, RGM.windowYMiddle - 300), dFontKeys.pico8_big, Color.White));
+            FontRenderer.textQueue.Add(new textInfo(description, 200, false, new Vector2(RGM.windowXMiddle, RGM.windowYMiddle - 250), dFontKeys.pico8_small, Color.White));
         }
     }
     
