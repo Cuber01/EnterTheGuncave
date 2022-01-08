@@ -40,12 +40,13 @@ namespace RGM
 
         public static readonly List<Type> allItems = new List<Type>()
         {
-            typeof(BloodChalice),
-            typeof(Arrow),
-            typeof(Medkit),
-            typeof(Determination),
-            typeof(Knife),
-            typeof(ShotgunItem)
+            // typeof(BloodChalice),
+            // typeof(Arrow),
+            // typeof(Medkit),
+            // typeof(Determination),
+            // typeof(Knife),
+            // typeof(ShotgunItem),
+            typeof(GunRing)
         };
         
         private readonly Matrix scaleMatrix = Matrix.CreateScale(scale, scale, 1.0f);

@@ -183,4 +183,35 @@ namespace RGM.Items
         }
     }
     
+    public class GunRing : BaseItem
+    {
+        public GunRing() : base(dItems.gun_ring, AssetLoader.textures[dTextureKeys.gun_ring])
+        {
+            this.name = "Gun Ring";
+            this.description = "With a tiny gun.";
+        }
+
+        public override void pickedUp()
+        {
+            base.pickedUp();
+
+            activate();
+        }
+
+        public override void activate(dEvents e = dEvents.none)
+        {
+            ItemEffects.changePlayerShooter(typeof(RingeOfBullets));
+            ItemEffects.modifyPlayerStats(new EntityStats(
+                0,
+                0,
+                0,
+                0,
+                0,
+                20,
+                0,
+                0
+            ));
+        }
+    }
+    
 }

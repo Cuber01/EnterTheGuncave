@@ -29,7 +29,7 @@ namespace RGM.General.Graphics
 
 		public void drawCircle(int x, int y, int r, Color color)
 		{
-			for (double i = 0; i < 2 * 3.141516; i =  i + 0.1)
+			for (double i = 0; i < 2 * Math.PI; i =  i + 0.1)
 			{
 				drawPixel((int)(x + r * Math.Sin(i)), (int)(y + r * Math.Cos(i)), color);
 			}

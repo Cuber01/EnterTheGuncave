@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Xna.Framework;
 using RGM.General.ContentHandling.Assets;
 using RGM.General.EventHandling;
@@ -109,8 +110,8 @@ namespace RGM.Entities.Projectiles
     
     public class RingeOfBullets : Shooter
     {
-        private const int bulletAmount = 3;
-        
+        private const int r = 3;
+        private const int tr = 8;
         
         public RingeOfBullets(ShooterStats shooterStats, dTextureKeys textureKey)
         {
@@ -123,16 +124,15 @@ namespace RGM.Entities.Projectiles
         {
             GEventHandler.fireEvent(dEvents.shoot);
 
-            for (int i = 0; i <= bulletAmount; i++)
+            for (double i = 0; i < 2 * Math.PI; i =  i + 0.1)
             {
-                RGM.entitiesToBeSpawned.Add(new Bullet(new Vector2(
-                        targetPosition.X + Util.randomPositiveOrNegative(stats.spread, 0.5f),
-                        targetPosition.Y + Util.randomPositiveOrNegative(stats.spread, 0.5f)
-                    ),
-
-                    gunPosition,
+                RGM.entitiesToBeSpawned.Add(new Bullet(
+                    new Vector2((float)(gunPosition.X + tr * Math.Sin(i)), (float)(gunPosition.Y + tr * Math.Cos(i))),
+                     new Vector2((float)(gunPosition.X + r * Math.Sin(i)), (float)(gunPosition.Y + r * Math.Cos(i))),
                     stats.bulletStats,
-                    textureKey));
+                    textureKey
+                ));
+                
             }
         }
         
