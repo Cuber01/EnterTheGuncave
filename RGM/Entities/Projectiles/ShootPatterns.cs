@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using RGM.General.ContentHandling.Assets;
 using RGM.General.EventHandling;
 
+
 namespace RGM.Entities.Projectiles
 {
     public class Shooter
@@ -124,7 +125,7 @@ namespace RGM.Entities.Projectiles
         {
             GEventHandler.fireEvent(dEvents.shoot);
 
-            for (double i = 0; i < 2 * Math.PI; i =  i + 0.1)
+            for (double i = 0; i < 2 * Math.PI; i += 2 * (Math.PI / 6))
             {
                 RGM.entitiesToBeSpawned.Add(new Bullet(
                     new Vector2((float)(gunPosition.X + tr * Math.Sin(i)), (float)(gunPosition.Y + tr * Math.Cos(i))),
