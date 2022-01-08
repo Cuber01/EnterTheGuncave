@@ -6,6 +6,7 @@ using RGM.General.Animation;
 using RGM.General.Collision;
 using RGM.General.ContentHandling.Assets;
 using RGM.General.DungeonGenerator;
+using RGM.General.EventHandling;
 using RGM.General.Input;
 
 namespace RGM.Entities.Allies
@@ -52,7 +53,7 @@ namespace RGM.Entities.Allies
             // Stats
             stats.speed = 1;
             stats.damage = 1;
-            stats.hitpoints = 5;
+            stats.hitpoints = 1;
 
             stats.penetration = 1;
             stats.bulletSpeed = 1;
@@ -195,6 +196,27 @@ namespace RGM.Entities.Allies
             // {
             //     position = newPosition;    
             // }
+            
+        }
+
+        public override void takeDamage(int dmg)
+        {
+            stats.hitpoints = stats.hitpoints - dmg;
+            checkDeath();
+        }
+
+        private void checkDeath()
+        {
+            
+            if(stats.hitpoints <= 0)
+            {
+                GEventHandler.fireEvent(dEvents.playerKilled);
+                dead = true;
+                
+                return;
+            }
+            
+            GEventHandler.fireEvent(dEvents.playerHurt);
             
         }
 

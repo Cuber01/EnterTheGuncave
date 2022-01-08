@@ -9,6 +9,8 @@ namespace RGM.General.Sound
         {
             GEventHandler.subscribe(enemyHurt, dEvents.enemyHurt);
             GEventHandler.subscribe(enemyKilled, dEvents.enemyKilled);
+            GEventHandler.subscribe(playerHurt, dEvents.playerHurt);
+            GEventHandler.subscribe(playerKilled, dEvents.playerKilled);
             GEventHandler.subscribe(shoot, dEvents.shoot);
         }
 
@@ -34,6 +36,16 @@ namespace RGM.General.Sound
         private static void enemyKilled(dEvents e)
         {
             AssetLoader.sfx[dSoundKeys.enemy_die].Play();
+        }
+        
+        private static void playerHurt(dEvents e)
+        {
+            AssetLoader.sfx[dSoundKeys.player_hit].Play();
+        }
+        
+        private static void playerKilled(dEvents e)
+        {
+            AssetLoader.sfx[dSoundKeys.player_death].Play();
         }
         
         

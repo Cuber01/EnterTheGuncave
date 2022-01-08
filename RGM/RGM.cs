@@ -18,6 +18,7 @@ namespace RGM
     public class RGM : Game
     {
         public static Entity Player;
+        public static bool gameOver = false;
 
         public static readonly List<Entity> entities = new List<Entity>();
         public static readonly List<Entity> entitiesToBeSpawned = new List<Entity>();
@@ -40,12 +41,12 @@ namespace RGM
 
         public static readonly List<Type> allItems = new List<Type>()
         {
-            // typeof(BloodChalice),
-            // typeof(Arrow),
-            // typeof(Medkit),
-            // typeof(Determination),
-            // typeof(Knife),
-            // typeof(ShotgunItem),
+            typeof(BloodChalice),
+            typeof(Arrow),
+            typeof(Medkit),
+            typeof(Determination),
+            typeof(Knife),
+            typeof(ShotgunItem),
             typeof(GunRing)
         };
         
@@ -112,22 +113,53 @@ namespace RGM
 
         protected override void Update(GameTime gameTime)
         {
+
+            if (!gameOver)
+            {
+                updateGame();
+            }
+            else
+            {
+                updateGameOver();
+            }
             
+            base.Update(gameTime);
+            
+        }
+
+        protected override void Draw(GameTime gameTime)
+        {
+
+            if (!gameOver)
+            {
+                drawGame();
+            }
+            else
+            {
+                drawGameOver();
+            }
+            
+            base.Draw(gameTime);
+            
+        }
+
+        private void updateGame()
+        {
             Input.updateKeyboardState();
             Input.updateMouseState();
 
             GEventHandler.update();
             GEventHandler.clearEvents();
-            
+
             //spriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: scaleMatrix);
 
             foreach (Entity spawn in entitiesToBeSpawned)
-            { 
+            {
                 entities.Add(spawn);
             }
 
             entitiesToBeSpawned.Clear();
-            
+
             foreach (Entity entity in entities)
             {
                 if (entity.dead)
@@ -136,29 +168,28 @@ namespace RGM
                 }
 
                 entity.update();
-                    
+
                 if (RoomLoader.changingRoom)
                 {
                     RoomLoader.changingRoom = false;
                     break;
                 }
             }
-                
+
             foreach (Entity victim in entitiesToBeKilled)
             {
                 entities.Remove(victim);
             }
 
             entitiesToBeKilled.Clear();
-            
+
             //spriteBatch.End();
 
-            base.Update(gameTime);
         }
 
-        protected override void Draw(GameTime gameTime)
+        private void drawGame()
         {
-            
+            // Main
             GraphicsDevice.Clear(Color.Black);
             
             spriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: scaleMatrix);
@@ -174,14 +205,34 @@ namespace RGM
 
             spriteBatch.End();
             
+            // Fonts
             spriteBatch.Begin();
             
             FontRenderer.renderQueue();
             
             spriteBatch.End();
+        }
+
+        private void drawGameOver()
+        {
+            // Fonts
+            spriteBatch.Begin();
             
-            base.Draw(gameTime);
+            FontRenderer.renderQueue();
             
+            spriteBatch.End();
+        }
+        
+        private void updateGameOver()
+        {
+            FontRenderer.textQueue.Add(new textInfo("Game Over!",
+                1, true,new Vector2(RGM.windowXMiddle, RGM.windowYMiddle - 300), dFontKeys.pico8_big));
+            
+            FontRenderer.textQueue.Add(new textInfo("Restart to try again.",
+                1, true,new Vector2(RGM.windowXMiddle, RGM.windowYMiddle - 250), dFontKeys.pico8_small));
+            
+            FontRenderer.textQueue.Add(new textInfo("(No, I really don't have restart implemented, go away.)",
+                1, true, new Vector2(RGM.windowXMiddle, RGM.windowYMiddle - 200), dFontKeys.pico8_small));
         }
     }
 }

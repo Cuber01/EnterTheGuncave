@@ -5,13 +5,15 @@ namespace RGM.General.EventHandling
     public static class GEventResponse
     {
 
+        // Sound event reponse is in SoundManager.cs
         public static void subscribeGeneralMethods()
         {
-            GEventHandler.subscribe(enemyKillResponse, dEvents.enemyKilled);
+            GEventHandler.subscribe(enemyKilledResponse, dEvents.enemyKilled);
             GEventHandler.subscribe(roomClearResponse, dEvents.roomClear);
+            GEventHandler.subscribe(playerKilledResponse, dEvents.playerKilled);
         }
         
-        private static void enemyKillResponse(dEvents e)
+        private static void enemyKilledResponse(dEvents e)
         {
             RGM.enemiesInRoom--;
 
@@ -26,7 +28,12 @@ namespace RGM.General.EventHandling
             RoomLoader.clearedRooms[RGM.Player.mapPosition.X, RGM.Player.mapPosition.Y] = 1;
         }
 
+        private static void playerKilledResponse(dEvents e)
+        {
+            RGM.gameOver = true;
+        }
 
-        
+
+
     }
 }

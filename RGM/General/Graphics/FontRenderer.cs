@@ -7,17 +7,25 @@ namespace RGM.General.Graphics
 {
     public class textInfo
     {
-        public textInfo(string text, int time, Vector2 position, dFontKeys font)
+        public textInfo(string text, int time, bool forever, Vector2 position, dFontKeys font)
         {
             this.text = text;
             this.position = position;
             this.font = font;
             this.time = time;
+            this.forever = forever;
+
+            if (this.forever)
+            {
+                time = 1;
+            }
+
         }
         
         public readonly string text;
         public readonly Vector2 position;
         public readonly dFontKeys font;
+        public bool forever;
         public int time;
 
     }
@@ -32,8 +40,12 @@ namespace RGM.General.Graphics
             foreach (var info in textQueue)
             {
                 renderText(info.text, info.position, info.font);
-                info.time--;
-                
+
+                if (!info.forever)
+                {
+                    info.time--;
+                }
+
                 if (info.time <= 0)
                 {
                     dissappearingTextQueue.Add(info);
