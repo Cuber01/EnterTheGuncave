@@ -11,7 +11,7 @@ namespace RGM.Entities.Baddies
 {
     public class WalkingEnemy : Entity
     {
-        private EntityStats stats;
+        private new EntityStats stats;
         
         private int[,] map = new int[RGM.roomWidth, RGM.roomHeight];
 

@@ -8,7 +8,7 @@ using RGM.General.EventHandling;
 
 namespace RGM.Entities.Baddies
 {
-    public class TurretEnemy : Entity
+    public class Boss : Entity
     {
         
         private readonly SimpleAnimator animator;
@@ -16,7 +16,7 @@ namespace RGM.Entities.Baddies
         
         private new readonly ShooterStats shooterStats;
 
-        public TurretEnemy(Vector2 position)
+        public Boss(Vector2 position)
         {
             // Position
             this.position = position;

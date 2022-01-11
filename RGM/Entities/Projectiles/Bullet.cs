@@ -9,7 +9,7 @@ namespace RGM.Entities.Projectiles
     {
         private readonly List<Entity> alreadyHit = new List<Entity>();
         private readonly Vector2 target;
-        private BulletStats stats;
+        private new BulletStats stats;
 
         public Bullet(Vector2 targetPos, Vector2 position, BulletStats stats, dTextureKeys textureKey)
         {

@@ -27,7 +27,13 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/maps/normal/map1.json","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/maps/normal/map1.json","CopyItem","File",1453,1453,0.000263
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/maps/normal/map2.json","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/maps/normal/map2.json","CopyItem","File",1453,1453,0.00022
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/maps/normal/map3.json","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/maps/normal/map3.json","CopyItem","File",1453,1453,0.00022
-"/home/cubeq/RiderProjects/RGM/RGM/Content/assets/maps/start/start1.json","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/maps/start/start1.json","CopyItem","File",1457,1457,0.000436
+"/home/cubeq/RiderProjects/RGM/RGM/Content/assets/maps/normal/map4.json","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/maps/normal/map4.json","CopyItem","File",1457,1457,0.000674
+"/home/cubeq/RiderProjects/RGM/RGM/Content/assets/maps/normal/map5.json","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/maps/normal/map5.json","CopyItem","File",1457,1457,0.000148
+"/home/cubeq/RiderProjects/RGM/RGM/Content/assets/maps/normal/map6.json","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/maps/normal/map6.json","CopyItem","File",1457,1457,0.000106
+"/home/cubeq/RiderProjects/RGM/RGM/Content/assets/maps/normal/map7.json","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/maps/normal/map7.json","CopyItem","File",1457,1457,0.000105
+"/home/cubeq/RiderProjects/RGM/RGM/Content/assets/maps/normal/map8.json","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/maps/normal/map8.json","CopyItem","File",1457,1457,0.000103
+"/home/cubeq/RiderProjects/RGM/RGM/Content/assets/maps/normal/map9.json","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/maps/normal/map9.json","CopyItem","File",1457,1457,0.000111
+"/home/cubeq/RiderProjects/RGM/RGM/Content/assets/maps/start/start1.json","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/maps/start/start1.json","CopyItem","File",2184,2184,0.000139
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/maps/treasure/trasure1.json","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/maps/treasure/trasure1.json","CopyItem","File",1457,1457,0.00038
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/sounds/sfx/native/choose.bfxrsound","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/sounds/sfx/native/choose.bfxrsound","CopyItem","File",106,106,0.000371
 "/home/cubeq/RiderProjects/RGM/RGM/Content/assets/sounds/sfx/native/click.sfxrsound","/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/assets/sounds/sfx/native/click.sfxrsound","CopyItem","File",105,105,0.000111

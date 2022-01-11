@@ -102,18 +102,6 @@
 /processorParam:TextureFormat=Color
 /build:assets/images/items/arrow.png
 
-#begin assets/images/items/arrow.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:assets/images/items/arrow.png
-
 #begin assets/images/items/blood_chalice.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -125,30 +113,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:assets/images/items/blood_chalice.png
-
-#begin assets/images/items/blood_chalice.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:assets/images/items/blood_chalice.png
-
-#begin assets/images/items/determination.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:assets/images/items/determination.png
 
 #begin assets/images/items/determination.png
 /importer:TextureImporter
@@ -186,18 +150,6 @@
 /processorParam:TextureFormat=Color
 /build:assets/images/items/knife.png
 
-#begin assets/images/items/knife.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:assets/images/items/knife.png
-
 #begin assets/images/items/medkit.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -209,30 +161,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:assets/images/items/medkit.png
-
-#begin assets/images/items/medkit.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:assets/images/items/medkit.png
-
-#begin assets/images/items/shotgun.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:assets/images/items/shotgun.png
 
 #begin assets/images/items/shotgun.png
 /importer:TextureImporter
@@ -365,6 +293,24 @@
 
 #begin assets/maps/normal/map3.json
 /copy:assets/maps/normal/map3.json
+
+#begin assets/maps/normal/map4.json
+/copy:assets/maps/normal/map4.json
+
+#begin assets/maps/normal/map5.json
+/copy:assets/maps/normal/map5.json
+
+#begin assets/maps/normal/map6.json
+/copy:assets/maps/normal/map6.json
+
+#begin assets/maps/normal/map7.json
+/copy:assets/maps/normal/map7.json
+
+#begin assets/maps/normal/map8.json
+/copy:assets/maps/normal/map8.json
+
+#begin assets/maps/normal/map9.json
+/copy:assets/maps/normal/map9.json
 
 #begin assets/maps/start/start1.json
 /copy:assets/maps/start/start1.json

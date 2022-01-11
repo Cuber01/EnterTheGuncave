@@ -95,3 +95,9 @@
 /home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/images/other/palette.xnb
 /home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/images/other/player_walk.xnb
 /home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/images/items/gun_ring.xnb
+/home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/maps/normal/map4.json
+/home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/maps/normal/map5.json
+/home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/maps/normal/map6.json
+/home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/maps/normal/map7.json
+/home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/maps/normal/map8.json
+/home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/maps/normal/map9.json
