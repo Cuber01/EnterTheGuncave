@@ -38,7 +38,7 @@ namespace RGM.Entities.Baddies
             // Stats
             stats.speed = 0;
             stats.damage = 1;
-            stats.hitpoints = 10;
+            stats.hitpoints = 5;
 
             stats.penetration = 1;
             stats.bulletSpeed = 1;

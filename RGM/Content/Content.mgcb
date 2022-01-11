@@ -315,8 +315,23 @@
 #begin assets/maps/start/start1.json
 /copy:assets/maps/start/start1.json
 
+#begin assets/maps/start/start2.json
+/copy:assets/maps/start/start2.json
+
+#begin assets/maps/start/start3.json
+/copy:assets/maps/start/start3.json
+
 #begin assets/maps/treasure/trasure1.json
 /copy:assets/maps/treasure/trasure1.json
+
+#begin assets/maps/treasure/treasure1.json
+/copy:assets/maps/treasure/treasure1.json
+
+#begin assets/maps/treasure/treasure2.json
+/copy:assets/maps/treasure/treasure2.json
+
+#begin assets/maps/treasure/treasure3.json
+/copy:assets/maps/treasure/treasure3.json
 
 #begin assets/sounds/sfx/native/choose.bfxrsound
 /copy:assets/sounds/sfx/native/choose.bfxrsound
