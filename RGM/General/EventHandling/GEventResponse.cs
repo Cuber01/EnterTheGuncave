@@ -34,7 +34,7 @@ namespace RGM.General.EventHandling
 
         private static void playerKilledResponse(dEvents e)
         {
-            RGM.gameOver = true;
+            RGM.gameState = dGameState.game_over;
         }
 
 
