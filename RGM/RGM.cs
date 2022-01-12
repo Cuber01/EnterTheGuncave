@@ -252,8 +252,27 @@ namespace RGM
             
             spriteBatch.End();
         }
-        
-        
+
+        private void drawGameWon()
+        {
+            // Fonts
+            spriteBatch.Begin();
+            
+            FontRenderer.renderQueue();
+            
+            spriteBatch.End();
+        }
+
+        private void updateGameWon()
+        {
+            FontRenderer.textQueue.Add(new textInfo("You won!",
+                1, true,new Vector2(RGM.windowXMiddle, RGM.windowYMiddle - 300),
+                dFontKeys.pico8_big, Color.White));
+            
+            FontRenderer.textQueue.Add(new textInfo("GG, you're very special, really.",
+                1, true,new Vector2(RGM.windowXMiddle, RGM.windowYMiddle - 250),
+                dFontKeys.pico8_small, Color.White));
+        }
 
         private void drawGameOver()
         {
