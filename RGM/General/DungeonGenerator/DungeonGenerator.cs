@@ -213,7 +213,7 @@ namespace RGM.General.DungeonGenerator
             
         }
 
-        private static void debugPrintDungeon()
+        public static void debugPrintDungeon()
         {
             string str = "";
             

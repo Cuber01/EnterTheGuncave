@@ -25,7 +25,11 @@ namespace RGM.General.EventHandling
         
         private static void roomClearResponse(dEvents e)
         {
+
+            //DungeonGenerator.DungeonGenerator.debugPrintDungeon();
+            
             RoomLoader.clearedRooms[RGM.Player.mapPosition.X, RGM.Player.mapPosition.Y] = 1;
+            // Util.prettyPrint2DArray(RoomLoader.clearedRooms);
         }
 
         private static void playerKilledResponse(dEvents e)

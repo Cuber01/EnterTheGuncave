@@ -13,7 +13,7 @@ namespace RGM.General.ContentHandling.Rooms
 {
     public static class RoomLoader
     {
-        public static int[,] clearedRooms = new int[DungeonGenerator.DungeonGenerator.maxFloorWidth, DungeonGenerator.DungeonGenerator.maxFloorWidth];
+        public static readonly int[,] clearedRooms = new int[DungeonGenerator.DungeonGenerator.maxFloorWidth, DungeonGenerator.DungeonGenerator.maxFloorWidth];
         
         private static readonly List<Room> normalRooms  = new List<Room>();
         private static readonly List<Room> treasureRooms = new List<Room>();
@@ -146,11 +146,11 @@ namespace RGM.General.ContentHandling.Rooms
                         break;
                     
                     case 6:
-                        if (clearedRooms[RGM.Player.mapPosition.X, RGM.Player.mapPosition.X] == 1) break;
-                        
-                        RGM.enemiesInRoom++;
-                        RGM.entitiesToBeSpawned.Add(new WalkingEnemy
-                            (new Vector2(colIndex * RGM.tileSize, currentCol * RGM.tileSize)));
+                        // if (clearedRooms[RGM.Player.mapPosition.X, RGM.Player.mapPosition.X] == 1) break;
+                        //
+                        // RGM.enemiesInRoom++;
+                        // RGM.entitiesToBeSpawned.Add(new WalkingEnemy
+                        //     (new Vector2(colIndex * RGM.tileSize, currentCol * RGM.tileSize)));
                         break;
                     
                 }

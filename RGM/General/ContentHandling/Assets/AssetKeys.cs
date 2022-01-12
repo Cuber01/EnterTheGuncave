@@ -12,6 +12,7 @@ namespace RGM.General.ContentHandling.Assets
         tiles1,
         pedestal,
         heart,
+        exit,
         
         arrow,
         blood_chalice,

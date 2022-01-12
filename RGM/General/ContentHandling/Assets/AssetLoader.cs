@@ -31,7 +31,7 @@ namespace RGM.General.ContentHandling.Assets
             textures.Add(dTextureKeys.pedestal,        contentManager.Load<Texture2D>("assets/images/pedestal"));
             textures.Add(dTextureKeys.enemy_turret,    contentManager.Load<Texture2D>("assets/images/enemy_turret"));
             textures.Add(dTextureKeys.heart,           contentManager.Load<Texture2D>("assets/images/heart"));
-
+            textures.Add(dTextureKeys.exit,            contentManager.Load<Texture2D>("assets/images/exit"));
             
             textures.Add(dTextureKeys.arrow,            contentManager.Load<Texture2D>("assets/images/items/arrow"));
             textures.Add(dTextureKeys.blood_chalice,    contentManager.Load<Texture2D>("assets/images/items/blood_chalice"));

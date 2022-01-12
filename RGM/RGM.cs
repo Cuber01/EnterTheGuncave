@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using RGM.Entities;
 using RGM.Entities.Allies;
+using RGM.General;
 using RGM.General.ContentHandling.Assets;
 using RGM.General.ContentHandling.Rooms;
 using RGM.General.DungeonGenerator;
@@ -19,8 +20,8 @@ namespace RGM
     {
         public static Entity Player;
         private textInfo playerHP;
-        
-        public static bool gameOver = false;
+
+        public static dGameState gameState = dGameState.playing;
 
         public static readonly List<Entity> entities = new List<Entity>();
         public static readonly List<Entity> entitiesToBeSpawned = new List<Entity>();
@@ -43,13 +44,13 @@ namespace RGM
 
         public static readonly List<Type> allItems = new List<Type>()
         {
-            typeof(BloodChalice),
-            typeof(Arrow),
-            typeof(Medkit),
-            typeof(Determination),
+            // typeof(BloodChalice),
+            // typeof(Arrow),
+            // typeof(Medkit),
+            // typeof(Determination),
             typeof(Knife),
-            typeof(ShotgunItem),
-            typeof(GunRing)
+            // typeof(ShotgunItem),
+            // typeof(GunRing)
         };
         
         private readonly Matrix scaleMatrix = Matrix.CreateScale(scale, scale, 1.0f);
@@ -117,15 +118,29 @@ namespace RGM
         protected override void Update(GameTime gameTime)
         {
 
-            if (!gameOver)
+            switch (gameState)
             {
-                updateGame();
+                
+                case dGameState.playing:
+                {
+                    updateGame();
+                    break;
+                }
+                
+                case dGameState.game_over:
+                {
+                    updateGameOver();
+                    break;
+                }
+                
+                case dGameState.won:
+                {
+                    updateGameWon();
+                    break;
+                }
+                
             }
-            else
-            {
-                updateGameOver();
-            }
-            
+
             base.Update(gameTime);
             
         }
@@ -135,15 +150,29 @@ namespace RGM
 
             GraphicsDevice.Clear(Color.Black);
             
-            if (!gameOver)
+            switch (gameState)
             {
-                drawGame();
-            }
-            else
-            {
-                drawGameOver();
-            }
+                
+                case dGameState.playing:
+                {
+                    drawGame();
+                    break;
+                }
+                
+                case dGameState.game_over:
+                {
+                    drawGameOver();
+                    break;
+                }
             
+                case dGameState.won:
+                {
+                    drawGameWon();
+                    break;
+                }
+                
+            }
+                
             base.Draw(gameTime);
             
         }
@@ -223,6 +252,8 @@ namespace RGM
             
             spriteBatch.End();
         }
+        
+        
 
         private void drawGameOver()
         {
