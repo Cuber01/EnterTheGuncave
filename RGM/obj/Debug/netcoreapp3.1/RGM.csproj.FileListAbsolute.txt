@@ -106,3 +106,4 @@
 /home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/maps/treasure/treasure1.json
 /home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/maps/treasure/treasure2.json
 /home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/maps/treasure/treasure3.json
+/home/cubeq/RiderProjects/RGM/RGM/bin/Debug/netcoreapp3.1/Content/assets/images/exit.xnb

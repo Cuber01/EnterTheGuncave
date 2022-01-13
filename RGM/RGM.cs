@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using RGM.Entities;
 using RGM.Entities.Allies;
+using RGM.Entities.Neutrals;
 using RGM.General;
 using RGM.General.ContentHandling.Assets;
 using RGM.General.ContentHandling.Rooms;
@@ -102,6 +103,8 @@ namespace RGM
             
             entities.Add(new Player(new Vector2(50, 100)));
             Player = entities[0];
+            
+            entitiesToBeSpawned.Add(new Exit(new Vector2(100, 100)));
 
             RoomLoader.playRoom(DungeonGenerator.floorMap[entities[0].mapPosition.X, entities[0].mapPosition.Y].roomInfo.roomIndex, 
                                 DungeonGenerator.floorMap[entities[0].mapPosition.X, entities[0].mapPosition.Y].roomInfo.roomType, 
@@ -117,7 +120,7 @@ namespace RGM
 
         protected override void Update(GameTime gameTime)
         {
-
+            
             switch (gameState)
             {
                 
@@ -179,6 +182,7 @@ namespace RGM
 
         private void updateGame()
         {
+
             Input.updateKeyboardState();
             Input.updateMouseState();
 

@@ -10,6 +10,7 @@
     <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/enemy.png</File>
     <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/enemy_bullet.png</File>
     <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/enemy_turret.png</File>
+    <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/exit.png</File>
     <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/heart.png</File>
     <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/items/arrow.png</File>
     <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/images/items/blood_chalice.png</File>
@@ -44,6 +45,7 @@
     <File>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/sounds/sfx/wav/shoot.wav</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
