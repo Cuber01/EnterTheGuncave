@@ -78,7 +78,7 @@ namespace RGM.General.ContentHandling.Rooms
 
             // Clear the current room, place walls in the new one
             clearRoom();
-            placeWalls();
+            // placeWalls();
 
             // Place the player according to where he came from (eg. if he came from the left, place him on the right)
             placePlayer(wherePlayerCameFrom);
@@ -137,21 +137,21 @@ namespace RGM.General.ContentHandling.Rooms
                             );
                         break;
 
-                    case 5:
-                        if (clearedRooms[RGM.Player.mapPosition.X, RGM.Player.mapPosition.X] == 1) break;
+                    // case 5:
+                    //     if (clearedRooms[RGM.Player.mapPosition.X, RGM.Player.mapPosition.X] == 1) break;
 
-                        RGM.enemiesInRoom++;
-                        RGM.entitiesToBeSpawned.Add(new TurretEnemy
-                            (new Vector2(colIndex * RGM.tileSize, currentCol * RGM.tileSize)));
-                        break;
+                    //     RGM.enemiesInRoom++;
+                    //     RGM.entitiesToBeSpawned.Add(new TurretEnemy
+                    //         (new Vector2(colIndex * RGM.tileSize, currentCol * RGM.tileSize)));
+                    //     break;
                     
-                    case 6:
-                        if (clearedRooms[RGM.Player.mapPosition.X, RGM.Player.mapPosition.X] == 1) break;
+                    // case 6:
+                    //     if (clearedRooms[RGM.Player.mapPosition.X, RGM.Player.mapPosition.X] == 1) break;
                         
-                        RGM.enemiesInRoom++;
-                        RGM.entitiesToBeSpawned.Add(new WalkingEnemy
-                            (new Vector2(colIndex * RGM.tileSize, currentCol * RGM.tileSize)));
-                        break;
+                    //     RGM.enemiesInRoom++;
+                    //     RGM.entitiesToBeSpawned.Add(new WalkingEnemy
+                    //         (new Vector2(colIndex * RGM.tileSize, currentCol * RGM.tileSize)));
+                    //     break;
                     
                 }
 

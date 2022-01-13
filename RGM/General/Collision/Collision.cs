@@ -46,7 +46,7 @@ namespace RGM.General.Collision
         public static dTrajectoryRV catchingTrajectory(float x, float y, float sx, float sy, float ox, float oy, float ow, float oh)
         {
             // Calculate line equasion
-            if (sx == 0) sx = (float)0.0001; // Add anything
+            if (sx == 0) sx = (float)0.01; // Add anything
             
             Vector2 s_line  = straightLine(x, y, x + sx, y + sy);
 
@@ -60,31 +60,38 @@ namespace RGM.General.Collision
 
             dSides sides = posRelative(x, y, ox, oy, ow, oh);
 
+            
             Vector2 cp = new Vector2(0, 0);
-            dDirection position = dDirection.none; // TODO check
+            dDirection position = dDirection.none;
 
-            if (sides.left)
+            if (cp.X==0 && sides.left)
             {
                 if (left_cp.Y >= oy && left_cp.Y <= oy + oh)
                 {
                     cp = left_cp;
                     position = dDirection.left;
                 }
-            } else if (sides.top)
+            }
+            
+            if (cp.X==0 && sides.top)
             {
                 if (top_cp.X >= ox && top_cp.X <= ox + ow)
                 {
                     cp = top_cp;
                     position = dDirection.up;
                 }
-            } else if (sides.right)
+            }
+            
+            if (cp.X==0 && sides.right)
             {
                 if (right_cp.Y >= oy && right_cp.Y <= oy + oh)
                 {
                     cp = right_cp;
                     position = dDirection.right;
                 }
-            } else if (sides.bottom)
+            }
+            
+            if (cp.X==0 && sides.bottom)
             {
                 if (bottom_cp.X >= ox && bottom_cp.X <= ox + ow)
                 {
@@ -135,29 +142,29 @@ namespace RGM.General.Collision
 
             
             
-            // if (L)
-            // {
-            //     Console.WriteLine("Left");
-            //  //   RGM.draw.bersenhamLine((int)x2, (int)y2, (int)x2, (int)(y2 + h2), Color.Wheat);
-            // }
-            //
-            // if (T)
-            // {
-            //     Console.WriteLine("top");
-            //   //  RGM.draw.bersenhamLine((int)x2, (int)(y2 + h2), (int)(x2 + w2), (int)(y2 + h2), Color.Wheat);
-            // }
-            //
-            // if (R)
-            // {
-            //     Console.WriteLine("right");
-            //   //  RGM.draw.bersenhamLine((int)(x2 + w2), (int)y2, (int)(x2 + w2), (int)(y2 + h2), Color.Wheat);
-            // }
-            //
-            // if (B)
-            // {
-            //     Console.WriteLine("bottom");
-            //    // RGM.draw.bersenhamLine((int)x2, (int)y2, (int)(x2 + w2), (int)y2, Color.Wheat);
-            // }
+            if (L)
+            {
+                // Console.WriteLine("Left");
+               MyGlobals.canvas.line((int)x2, (int)y2, (int)x2, (int)(y2 + h2), Color.Wheat);
+            }
+            
+            if (T)
+            {
+                // Console.WriteLine("top");
+               MyGlobals.canvas.line((int)x2, (int)(y2 + h2), (int)(x2 + w2), (int)(y2 + h2), Color.Wheat);
+            }
+            
+            if (R)
+            {
+                // Console.WriteLine("right");
+               MyGlobals.canvas.line((int)(x2 + w2), (int)y2, (int)(x2 + w2), (int)(y2 + h2), Color.Wheat);
+            }
+            
+            if (B)
+            {
+                // Console.WriteLine("bottom");
+               MyGlobals.canvas.line((int)x2, (int)y2, (int)(x2 + w2), (int)y2, Color.Wheat);
+            }
 
             return new dSides(T, B, R, L);
 

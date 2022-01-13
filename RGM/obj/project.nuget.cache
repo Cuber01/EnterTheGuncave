@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "bLlGAxJOzpR62lgI1fICtYj+HmVX61fuV8oLe0klMdkWhvKh25rSwtKC/YVkIbWLE/bYb/ClB1qGsw2OnuopTA==",
+  "dgSpecHash": "dA5w/KHZVjzAPReuwlxTEmw3hprBaoWcnpCFHzxMKzLx3THuneCXxEVyj4XrWEfcmtPLQO8QHXADFM4z4d1uNg==",
   "success": true,
-  "projectFilePath": "/home/cubeq/RiderProjects/RGM/RGM/RGM.csproj",
+  "projectFilePath": "/home/aneta/DocWork/RGM/RGM/RGM.csproj",
   "expectedPackageFiles": [
-    "/home/cubeq/.nuget/packages/monogame.content.builder.task/3.8.0.1641/monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
-    "/home/cubeq/.nuget/packages/monogame.framework.desktopgl/3.8.0.1641/monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512",
-    "/home/cubeq/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512"
+    "/home/aneta/.nuget/packages/monogame.content.builder.task/3.8.0.1641/monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
+    "/home/aneta/.nuget/packages/monogame.framework.desktopgl/3.8.0.1641/monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512",
+    "/home/aneta/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,3 +1,5 @@
+using System;
+
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
@@ -8,6 +10,8 @@ using RGM.General.ContentHandling.Assets;
 using RGM.General.DungeonGenerator;
 using RGM.General.EventHandling;
 using RGM.General.Input;
+
+using Microsoft.Xna.Framework.Graphics;
 
 namespace RGM.Entities.Allies
 {
@@ -29,9 +33,9 @@ namespace RGM.Entities.Allies
         // ));
 
         
-        private readonly float speed = 1f;
+        private readonly float speed = 2f;
         private readonly float friction = 0.65f;
-        private readonly float maxVelocity = 6;
+        private readonly float maxVelocity = 1;
 
         public Player(Vector2 position)
         {
@@ -98,10 +102,11 @@ namespace RGM.Entities.Allies
                 shooter.update(position, new Vector2(0, 0), false);
             }
 
-            applyFriction();
+            // applyFriction();
+
+            // checkCollision();            
             move();
             
-            checkCollision();
             adjustColliderPosition();
         }
         
@@ -109,37 +114,29 @@ namespace RGM.Entities.Allies
 
         private void reactToInput()
         {
-            if (!(velocity.Y < -maxVelocity))
-            {
+
                 if (Input.keyboardState.IsKeyDown(Keys.W))
                 {
-                    velocity.Y -= 1 * speed;
-                }
-            }
+                    velocity.Y = -maxVelocity;
+                }else if (Input.keyboardState.IsKeyDown(Keys.S)){
 
-            if (!(velocity.Y > maxVelocity))
-            {
-                if (Input.keyboardState.IsKeyDown(Keys.S))
-                {
-                    velocity.Y += 1 * speed;
-                }
-            }
+                    velocity.Y = velocity.Y = maxVelocity;
+                }else{
 
-            if (!(velocity.X < -maxVelocity))
-            {
+                    velocity.Y = 0;
+                }
+
                 if (Input.keyboardState.IsKeyDown(Keys.D))
                 {
-                    velocity.X += 1 * speed;
-                }
-            }
-
-            if (!(velocity.X > maxVelocity))
-            {
-                if (Input.keyboardState.IsKeyDown(Keys.A))
+                    velocity.X = maxVelocity;
+                }else if (Input.keyboardState.IsKeyDown(Keys.A))
                 {
-                    velocity.X -= 1 * speed;
+
+                    velocity.X = -maxVelocity;;
+                }else{
+
+                    velocity.X = 0;
                 }
-            }
 
             if (Input.mouseWasClicked())
             {
@@ -153,10 +150,12 @@ namespace RGM.Entities.Allies
             velocity.Y *= friction;
         }
 
-
         private void move()
         {
-            Vector2 newPosition = position + velocity * speed;
+            // Console.WriteLine(velocity.X +" " +velocity.Y);
+
+
+            // Vector2 newPosition = position + velocity * speed;
             
             // (Entity, Vector2) collidingBody = CollisionUtils.checkCollisionAtPos(collider, position, velocity * speed);
             //     
@@ -172,10 +171,12 @@ namespace RGM.Entities.Allies
             //     position = newPosition;    
             // }
             
-            Entity collidingBody = CollisionUtils.checkCollisionAtPos(collider, position, velocity * speed);
+            ( Entity collidingBody, Vector2 newPosition ) = CollisionUtils.checkCollisionAtPos(collider, position, velocity, speed );
             
             if (collidingBody != null)
             {
+                position = newPosition;    
+
                 (velocity.X, velocity.Y) = (0, 0);
             
                 collidingBody.onPlayerCollision();
@@ -219,6 +220,8 @@ namespace RGM.Entities.Allies
             GEventHandler.fireEvent(dEvents.playerHurt);
             
         }
+
+    
 
         public override void draw()
         {

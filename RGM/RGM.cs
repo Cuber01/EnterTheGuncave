@@ -55,7 +55,7 @@ namespace RGM
         private readonly Matrix scaleMatrix = Matrix.CreateScale(scale, scale, 1.0f);
         private readonly GraphicsDeviceManager graphics;
         public static SpriteBatch spriteBatch;
-        private static DrawUtils draw;
+        public static DrawUtils draw;
 
         public RGM()
         {
@@ -145,18 +145,24 @@ namespace RGM
             }
             
             base.Draw(gameTime);
+
+              
             
         }
 
         private void updateGame()
         {
+//
+          //  spriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: scaleMatrix);
+            
+
             Input.updateKeyboardState();
             Input.updateMouseState();
 
             GEventHandler.update();
             GEventHandler.clearEvents();
 
-            //spriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: scaleMatrix);
+            spriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: scaleMatrix);
 
             foreach (Entity spawn in entitiesToBeSpawned)
             {
@@ -193,7 +199,7 @@ namespace RGM
             FontRenderer.dissappearingTextQueue.Add(playerHP);
             FontRenderer.textQueue.Add(playerHP);
 
-            //spriteBatch.End();
+            spriteBatch.End();
 
         }
 
@@ -203,14 +209,17 @@ namespace RGM
             spriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: scaleMatrix);
             
             //draw.drawGrid(Color.Gray);
+
             
             foreach( Entity entity in entities )
             {
                 entity.draw();
                 
-                //entity.collider.draw(draw);
+                entity.collider.draw(draw);
             }
-            
+
+            MyGlobals.canvas.draw(RGM.draw);                           
+
             // Heart GUI
             spriteBatch.Draw(AssetLoader.textures[dTextureKeys.heart], new Vector2(2, 2), Color.White);
 
@@ -220,6 +229,7 @@ namespace RGM
             spriteBatch.Begin();
             
             FontRenderer.renderQueue();
+
             
             spriteBatch.End();
         }

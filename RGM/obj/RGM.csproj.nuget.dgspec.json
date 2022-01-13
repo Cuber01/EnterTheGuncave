@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/cubeq/RiderProjects/RGM/RGM/RGM.csproj": {}
+    "/home/aneta/DocWork/RGM/RGM/RGM.csproj": {}
   },
   "projects": {
-    "/home/cubeq/RiderProjects/RGM/RGM/RGM.csproj": {
+    "/home/aneta/DocWork/RGM/RGM/RGM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/cubeq/RiderProjects/RGM/RGM/RGM.csproj",
+        "projectUniqueName": "/home/aneta/DocWork/RGM/RGM/RGM.csproj",
         "projectName": "RGM",
-        "projectPath": "/home/cubeq/RiderProjects/RGM/RGM/RGM.csproj",
-        "packagesPath": "/home/cubeq/.nuget/packages/",
-        "outputPath": "/home/cubeq/RiderProjects/RGM/RGM/obj/",
+        "projectPath": "/home/aneta/DocWork/RGM/RGM/RGM.csproj",
+        "packagesPath": "/home/aneta/.nuget/packages/",
+        "outputPath": "/home/aneta/DocWork/RGM/RGM/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/cubeq/.nuget/NuGet/NuGet.Config"
+          "/home/aneta/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -24,6 +24,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -35,6 +36,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "MonoGame.Content.Builder.Task": {
               "target": "Package",
@@ -64,7 +66,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.416/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
         }
       }
     }
