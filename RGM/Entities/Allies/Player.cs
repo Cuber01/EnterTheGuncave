@@ -21,6 +21,10 @@ namespace RGM.Entities.Allies
         private readonly float friction = 0.65f;
         private readonly float maxVelocity = 6;
 
+        private const int invincibilityTimeMax = 10;
+        private int invincibilityTime = 10;
+        private bool gotHit = false;
+        
         public Player(Vector2 position)
         {
             // Position
@@ -72,6 +76,11 @@ namespace RGM.Entities.Allies
             tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
             
             reactToInput();
+
+            if (gotHit)
+            {
+                handleInvincibility();
+            }
 
             if (shoot)
             {
@@ -145,21 +154,7 @@ namespace RGM.Entities.Allies
         private void move()
         {
             Vector2 newPosition = position + velocity * speed;
-            
-            // (Entity, Vector2) collidingBody = CollisionUtils.checkCollisionAtPos(collider, position, velocity * speed);
-            //     
-            // if (collidingBody.Item1 != null)
-            // {
-            //     (velocity.X, velocity.Y) = (0, 0);
-            //
-            //     collidingBody.Item1.onPlayerCollision();
-            //     position = new Vector2(collidingBody.Item2.X + myWidth/2, collidingBody.Item2.Y + myHeight/2);    
-            // }
-            // else
-            // {
-            //     position = newPosition;    
-            // }
-            
+
             Entity collidingBody = CollisionUtils.checkCollisionAtPos(collider, position, velocity * speed);
             
             if (collidingBody != null)
@@ -172,23 +167,26 @@ namespace RGM.Entities.Allies
             {
                 position = newPosition;    
             }
-                
-            // if (collidingBody.Item1 != null)
-            // {
-            //     (velocity.X, velocity.Y) = (0, 0);
-            //
-            //     collidingBody.Item1.onPlayerCollision();
-            //     position = new Vector2(collidingBody.Item2.X + myWidth/2, collidingBody.Item2.Y + myHeight/2);    
-            // }
-            // else
-            // {
-            //     position = newPosition;    
-            // }
-            
+
+        }
+
+        private void handleInvincibility()
+        {
+            invincibilityTime--;
+
+            if (invincibilityTime <= 0)
+            {
+                gotHit = false;
+            }
         }
 
         public override void takeDamage(int dmg)
         {
+            if (gotHit) return;
+            
+            gotHit = true;
+            invincibilityTime = invincibilityTimeMax;
+            
             stats.hitpoints = stats.hitpoints - dmg;
             checkDeath();
         }
