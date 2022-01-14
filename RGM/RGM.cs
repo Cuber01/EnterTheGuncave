@@ -103,8 +103,6 @@ namespace RGM
             
             entities.Add(new Player(new Vector2(50, 100)));
             Player = entities[0];
-            
-            entitiesToBeSpawned.Add(new Exit(new Vector2(100, 100)));
 
             RoomLoader.playRoom(DungeonGenerator.floorMap[entities[0].mapPosition.X, entities[0].mapPosition.Y].roomInfo.roomIndex, 
                                 DungeonGenerator.floorMap[entities[0].mapPosition.X, entities[0].mapPosition.Y].roomInfo.roomType, 

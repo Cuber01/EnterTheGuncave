@@ -136,6 +136,11 @@ namespace RGM.General.ContentHandling.Rooms
                                 myItemIndex)
                             );
                         break;
+                    
+                    case 3: RGM.entitiesToBeSpawned.Add(new Exit
+                            (new Vector2(colIndex * RGM.tileSize, currentCol * RGM.tileSize))
+                        );
+                        break;
 
                     case 5:
                         if (clearedRooms[RGM.Player.mapPosition.X, RGM.Player.mapPosition.X] == 1) break;

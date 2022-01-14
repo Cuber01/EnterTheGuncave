@@ -17,18 +17,6 @@ namespace RGM.Entities.Allies
         private readonly SimpleAnimator animator;
         private bool shoot;
 
-        // (
-        // 10,
-        // 1, 
-        // new BulletStats(
-        //     1,
-        //     2,
-        //     500,
-        //     1,
-        // dTeam.allies
-        // ));
-
-        
         private readonly float speed = 1f;
         private readonly float friction = 0.65f;
         private readonly float maxVelocity = 6;

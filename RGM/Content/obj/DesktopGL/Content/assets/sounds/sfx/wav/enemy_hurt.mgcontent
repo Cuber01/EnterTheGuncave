@@ -3,7 +3,7 @@
   <SourceFile>/home/cubeq/RiderProjects/RGM/RGM/Content/assets/sounds/sfx/wav/enemy_hurt.wav</SourceFile>
   <SourceTime>2021-12-30T12:02:10.6786378+01:00</SourceTime>
   <DestFile>/home/cubeq/RiderProjects/RGM/RGM/Content/bin/DesktopGL/Content/assets/sounds/sfx/wav/enemy_hurt.xnb</DestFile>
-  <DestTime>2022-01-03T17:20:47.0618122+01:00</DestTime>
+  <DestTime>2022-01-13T19:23:14.6386522+01:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54+02:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>
