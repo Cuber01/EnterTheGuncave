@@ -50,9 +50,9 @@ namespace RGM.Entities
 
         public virtual void onPlayerCollision() { }
 
-        protected void adjustColliderPosition()
+        protected void adjustColliderPosition(Vector2 pos)
         {
-            collider.position = this.position;
+            collider.position = pos;
         }
 
         /* ------------------- DAMAGE ------------------- */

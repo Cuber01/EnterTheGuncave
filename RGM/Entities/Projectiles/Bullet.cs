@@ -32,7 +32,7 @@ namespace RGM.Entities.Projectiles
             move();
             
             checkCollision();
-            adjustColliderPosition();
+            adjustColliderPosition(position);
         }
 
         private void goToPoint()

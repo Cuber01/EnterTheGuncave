@@ -90,7 +90,7 @@ namespace RGM.Entities.Allies
             move();
             
             checkCollision();
-            adjustColliderPosition();
+            adjustColliderPosition(position);
         }
         
         /* -------------- MOVEMENT --------------- */

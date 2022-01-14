@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using RGM.Entities.Projectiles;
+using RGM.General.Animation;
 using RGM.General.Collision;
 using RGM.General.ContentHandling.Assets;
 using RGM.General.EventHandling;
@@ -11,6 +13,7 @@ namespace RGM.Entities.Baddies
 {
     public class WalkingEnemy : Entity
     {
+        private readonly SimpleAnimator animator;
         private new EntityStats stats;
         
         private int[,] map = new int[RGM.roomWidth, RGM.roomHeight];
@@ -24,7 +27,8 @@ namespace RGM.Entities.Baddies
             this.myWidth  = texture.Width;
             this.myHeight = texture.Height;
             
-            this.collider = new Hitbox(position, myWidth, myHeight);
+            this.collider = new Hitbox(position, 9, 7);
+            this.animator = new SimpleAnimator(texture, animation);
 
             stats.speed = 1;
             stats.damage = 1;
@@ -44,7 +48,7 @@ namespace RGM.Entities.Baddies
             // goToPoint(RGM.Player.position);
             move();
             
-            adjustColliderPosition();
+            adjustColliderPosition(new Vector2(position.X+1, position.Y+2));
         }
         
         /* ---------------- MOVEMENT ------------------ */
@@ -70,13 +74,18 @@ namespace RGM.Entities.Baddies
             Vector2 newPosition = position + velocity * stats.speed;
             
             // TODO we're stopping here
-            // if (CollisionUtils.checkCollisionAtPos(collider, newPosition) == null)
-            // {
-            //     return;
-            // }
+            if (CollisionUtils.checkCollisionAtPos(collider, newPosition, velocity) == null)
+            {
+                return;
+            }
             
-            position = newPosition;
+            //position = newPosition;
 
+        }
+
+        public override void draw()
+        {
+            animator.draw(position);
         }
 
         private Point whereToGo()
@@ -175,6 +184,28 @@ namespace RGM.Entities.Baddies
             
             GEventHandler.fireEvent(dEvents.enemyHurt);
         }
+        
+        /* --------------------- ANIMATION ------------------- */
+        
+        private static readonly Dictionary<Rectangle, int> animation = new Dictionary<Rectangle, int>()
+        {
+            {
+                new Rectangle(0, 0, 11, 10), 200
+            },
+           
+            {
+                new Rectangle(11, 0, 11, 10), 200
+            },
+            
+            {
+                new Rectangle(22, 0, 11, 10), 200
+            },
+
+            {
+                new Rectangle(33, 0, 11, 10), 50
+            }
+
+        };
         
     }
 }

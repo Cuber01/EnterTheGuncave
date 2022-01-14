@@ -144,18 +144,18 @@ namespace RGM.General.ContentHandling.Rooms
 
                     case 5:
                         if (clearedRooms[RGM.Player.mapPosition.X, RGM.Player.mapPosition.X] == 1) break;
-
+                        
                         RGM.enemiesInRoom++;
-                        RGM.entitiesToBeSpawned.Add(new TurretEnemy
+                        RGM.entitiesToBeSpawned.Add(new WalkingEnemy
                             (new Vector2(colIndex * RGM.tileSize, currentCol * RGM.tileSize)));
                         break;
                     
                     case 6:
-                        // if (clearedRooms[RGM.Player.mapPosition.X, RGM.Player.mapPosition.X] == 1) break;
-                        //
-                        // RGM.enemiesInRoom++;
-                        // RGM.entitiesToBeSpawned.Add(new WalkingEnemy
-                        //     (new Vector2(colIndex * RGM.tileSize, currentCol * RGM.tileSize)));
+                        if (clearedRooms[RGM.Player.mapPosition.X, RGM.Player.mapPosition.X] == 1) break;
+
+                        RGM.enemiesInRoom++;
+                        RGM.entitiesToBeSpawned.Add(new TurretEnemy
+                            (new Vector2(colIndex * RGM.tileSize, currentCol * RGM.tileSize)));
                         break;
                     
                 }
