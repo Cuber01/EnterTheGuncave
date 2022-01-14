@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using RGM.Entities.Allies;
 using RGM.Entities.Projectiles;
 using RGM.General.Animation;
 using RGM.General.Collision;
@@ -30,22 +31,30 @@ namespace RGM.Entities.Baddies
             this.collider = new Hitbox(position, 9, 7);
             this.animator = new SimpleAnimator(texture, animation);
 
-            stats.speed = 1;
-            stats.damage = 1;
-            stats.hitpoints = 10;
+            stats = new EntityStats(
+                0.2f,
+                1,
+                5,
+                0,
+                0,
+                0,
+                0,
+                0
+                );
+            
         }
 
 
         public override void update()
         {
-            map = Util.fillInProximityMap(RGM.Player.tilePosition, map);
-            tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
+            // Cut pathfinding :(
+            
+            // map = Util.fillInProximityMap(RGM.Player.tilePosition, map);
+            // tilePosition = Util.pixelPositionToTilePosition(position, myWidth, myHeight);
 
-            checkCollision();
+            // goToTile(whereToGo());
 
-            goToTile(whereToGo());
-
-            // goToPoint(RGM.Player.position);
+            goToPoint(RGM.Player.position);
             move();
             
             adjustColliderPosition(new Vector2(position.X+1, position.Y+2));
@@ -72,14 +81,12 @@ namespace RGM.Entities.Baddies
         private void move()
         {
             Vector2 newPosition = position + velocity * stats.speed;
-            
-            // TODO we're stopping here
-            if (CollisionUtils.checkCollisionAtPos(collider, newPosition, velocity) == null)
+
+
+            if(CollisionUtils.checkCollisionAtPos(collider, newPosition, velocity) is Player || CollisionUtils.checkCollisionAtPos(collider, newPosition, velocity) is null)
             {
-                return;
+                position = newPosition;
             }
-            
-            //position = newPosition;
 
         }
 
@@ -149,21 +156,14 @@ namespace RGM.Entities.Baddies
 
             return newPosition;
         }
-        
-        /* ---------------- COLLISION ------------------ */
-        
-        // protected override void checkCollision()
-        // {
-        //     foreach (Entity entity in RGM.entities)
-        //     {
-        //         if (collider.checkCollision(entity) != null)
-        //         {
-        //             
-        //         }
-        //     }
-        // }
-        
+
         /* ------------------- DAMAGE ------------------- */
+
+        public override void onPlayerCollision()
+        {
+            // Ugly hacks say hello.
+            RGM.entities[0].takeDamage(stats.damage);
+        }
 
         public override void takeDamage(int dmg)
         {

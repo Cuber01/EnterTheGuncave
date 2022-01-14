@@ -2,7 +2,7 @@ namespace RGM.Entities.Baddies
 {
     public struct EntityStats
     {
-        public EntityStats(int speed, int damage, int hitpoints, int spread, int range, int reloadTime, int penetration, int bulletSpeed)
+        public EntityStats(float speed, int damage, int hitpoints, int spread, int range, int reloadTime, int penetration, int bulletSpeed)
         {
             this.speed = speed;
             this.damage = damage;
@@ -15,7 +15,7 @@ namespace RGM.Entities.Baddies
             this.bulletSpeed = bulletSpeed;
         }
 
-        public int speed;
+        public float speed;
         public int damage;
         public int hitpoints;
         
