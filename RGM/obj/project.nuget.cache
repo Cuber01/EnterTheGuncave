@@ -1,12 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "bLlGAxJOzpR62lgI1fICtYj+HmVX61fuV8oLe0klMdkWhvKh25rSwtKC/YVkIbWLE/bYb/ClB1qGsw2OnuopTA==",
+  "dgSpecHash": "POpVFoGi94pvwPvGceay35vXH/n4uH3wQRTD1066/Mx0/xE9W4r5kMTSBDe39hGOsMYTllqzOH64Myljv5Yw3w==",
   "success": true,
   "projectFilePath": "/home/cubeq/RiderProjects/RGM/RGM/RGM.csproj",
   "expectedPackageFiles": [
     "/home/cubeq/.nuget/packages/monogame.content.builder.task/3.8.0.1641/monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
     "/home/cubeq/.nuget/packages/monogame.framework.desktopgl/3.8.0.1641/monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512",
-    "/home/cubeq/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512"
+    "/home/cubeq/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
+    "/home/cubeq/.nuget/packages/microsoft.netcore.app.runtime.win-x64/3.1.22/microsoft.netcore.app.runtime.win-x64.3.1.22.nupkg.sha512",
+    "/home/cubeq/.nuget/packages/microsoft.netcore.app.runtime.linux-x64/3.1.22/microsoft.netcore.app.runtime.linux-x64.3.1.22.nupkg.sha512",
+    "/home/cubeq/.nuget/packages/microsoft.aspnetcore.app.runtime.win-x64/3.1.22/microsoft.aspnetcore.app.runtime.win-x64.3.1.22.nupkg.sha512",
+    "/home/cubeq/.nuget/packages/microsoft.aspnetcore.app.runtime.linux-x64/3.1.22/microsoft.aspnetcore.app.runtime.linux-x64.3.1.22.nupkg.sha512",
+    "/home/cubeq/.nuget/packages/microsoft.netcore.app.host.win-x64/3.1.22/microsoft.netcore.app.host.win-x64.3.1.22.nupkg.sha512"
   ],
   "logs": []
 }
