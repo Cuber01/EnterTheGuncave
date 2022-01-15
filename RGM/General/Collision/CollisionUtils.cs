@@ -2,16 +2,19 @@ using System;
 using Microsoft.Xna.Framework;
 using RGM.Entities;
 using RGM.Entities.Projectiles;
+using System.Collections.Generic;
+using RGM;
 
 namespace RGM.General.Collision
 {
     public static class CollisionUtils
     {
-        public static (Entity, Vector2) checkCollisionAtPos(Hitbox myHitbox, Vector2 myPosition, Vector2 myVelocity, float dt)
+        public static (Entity, Vector2, dDirection) checkCollisionAtPos(Hitbox myHitbox, Vector2 myPosition, Vector2 myVelocity, float dt)
         {
 
 
             Vector2 newPosition = myPosition + myVelocity * dt;
+            List<(Entity, Vector2, dDirection)> colisions= new List<(Entity, Vector2, dDirection)>();
 
             foreach (Entity entity in RGM.entities)
             {
@@ -85,25 +88,45 @@ namespace RGM.General.Collision
                     bool colision = false;
                     switch( a.relPosition ){
                         case dDirection.left:
-                            colision = ( newPosition.X + myHitbox.width/2 +1  >= (int)a.cp.X );
+                            colision = ( newPosition.X + myHitbox.width/2 - 1  >= (int)a.cp.X );
+                        if(colision){                            
+                            newPosition.X = a.cp.X - myHitbox.width / 2 - 1 ;
+                            newPosition.Y = a.cp.Y - myHitbox.height / 2 ;
+                        }
+
                         break;
                         case dDirection.up:
                             colision = ( newPosition.Y + myHitbox.height/2 -1 <= (int)a.cp.Y);
+                        if(colision){                            
+                            newPosition.X = a.cp.X - myHitbox.width / 2  ;
+                            newPosition.Y = a.cp.Y - myHitbox.height / 2 + 1;
+                        }
                         break;
                         case dDirection.right:
                             colision = ( newPosition.X + myHitbox.width/2 -1 <= (int)a.cp.X);
+                        if(colision){                            
+                            newPosition.X = a.cp.X - myHitbox.width / 2 + 2 ;
+                            newPosition.Y = a.cp.Y - myHitbox.height / 2 ;
+                        }
                         break;
                         case dDirection.down:
+                        
                             colision = ( newPosition.Y + myHitbox.height/2 +1 >= (int)a.cp.Y );
+                                                    if(colision){
+                            newPosition.X = a.cp.X - myHitbox.width / 2  ;
+                            newPosition.Y = a.cp.Y - myHitbox.height / 2 - 1 ;
+                                                    }
+
                         break;
                     }            
 
                         if(colision){
                             //return (entity, new Vector2(a.cp.X, a.cp.Y));
-                            newPosition.X = a.cp.X - myHitbox.width / 2;
-                            newPosition.Y = a.cp.Y - myHitbox.height / 2;
+                            // newPosition.X = a.cp.X - myHitbox.width / 2 - 1 ;
+                            // newPosition.Y = a.cp.Y - myHitbox.height / 2 +1 ;
 
-                            return (entity, newPosition);
+                            //return (entity, newPosition, a.relPosition);
+                            colisions.Add((entity, newPosition, a.relPosition) );
                             // return entity;
                         }
                     }
@@ -112,10 +135,52 @@ namespace RGM.General.Collision
 
             }
 
+        float calcDistance(Vector2 point1, Vector2 point2)
+        {
+            float dx = Math.Abs(point2.X - point1.X);
+            float dy = Math.Abs(point2.Y - point1.Y);
+            float dist = (float)Math.Sqrt(dx * dx + dy * dy);
+            return dist;
+        }
+
+
             //return (null, new Vector2(0, 0));
-            return (null, newPosition);
+            if( colisions.Count > 0 ){
+
+                if(colisions.Count>1){
+                    if(colisions.Count>2){
+                        throw new Exception("no to juz przesada" );
+                    }
+                    float min_distance = 1000;
+                    int index=0;
+                    int i = 0;
+                     Entity e;
+                       Vector2 pos;
+                       dDirection d;
+
+                    foreach( (Entity, Vector2, dDirection)c in  colisions){
+                         (e,pos,d) = c;
+                         
+                        float distance = calcDistance( myPosition, e.collider.position );
+                        if( min_distance > distance ){
+                            min_distance = distance;
+                            index = i;                            
+                        }
+                        i++;
+                    }
+                    return colisions[index];
+                }
+                
+
+                return colisions[0];
+            }
+
+            return (null, newPosition, dDirection.none);
             // return null;
 
         }
     }
+
+
+
 }

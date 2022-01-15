@@ -33,7 +33,7 @@ namespace RGM.Entities.Allies
         // ));
 
         
-        private readonly float speed = 2f;
+        private readonly float speed = 1f;
         private readonly float friction = 0.65f;
         private readonly float maxVelocity = 1;
 
@@ -112,6 +112,8 @@ namespace RGM.Entities.Allies
         
         /* -------------- MOVEMENT --------------- */
 
+        private bool x_lock = false;
+
         private void reactToInput()
         {
 
@@ -126,6 +128,8 @@ namespace RGM.Entities.Allies
                     velocity.Y = 0;
                 }
 
+                // if( !this.x_lock ){
+                if(true){
                 if (Input.keyboardState.IsKeyDown(Keys.D))
                 {
                     velocity.X = maxVelocity;
@@ -136,6 +140,7 @@ namespace RGM.Entities.Allies
                 }else{
 
                     velocity.X = 0;
+                }
                 }
 
             if (Input.mouseWasClicked())
@@ -171,13 +176,32 @@ namespace RGM.Entities.Allies
             //     position = newPosition;    
             // }
             
-            ( Entity collidingBody, Vector2 newPosition ) = CollisionUtils.checkCollisionAtPos(collider, position, velocity, speed );
+            ( Entity collidingBody, Vector2 newPosition, dDirection relPosition ) = CollisionUtils.checkCollisionAtPos(collider, position, velocity, speed );
             
             if (collidingBody != null)
             {
                 position = newPosition;    
 
-                (velocity.X, velocity.Y) = (0, 0);
+                Console.WriteLine(new Random().NextDouble()+"colision\n");
+
+                // (velocity.X, velocity.Y) = (0, 0);
+
+                    switch( relPosition ){
+                        case dDirection.left:
+                           velocity.X = 0; 
+                           this.x_lock = true;
+                        break;
+                        case dDirection.up:
+                            velocity.Y=0;
+                        break;
+                        case dDirection.right:
+                            velocity.X = 0;
+                            this.x_lock = true;
+                        break;
+                        case dDirection.down:
+                            velocity.Y=0;
+                        break;
+                    }
             
                 collidingBody.onPlayerCollision();
             }

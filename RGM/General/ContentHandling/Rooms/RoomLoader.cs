@@ -78,7 +78,7 @@ namespace RGM.General.ContentHandling.Rooms
 
             // Clear the current room, place walls in the new one
             clearRoom();
-            // placeWalls();
+            placeWalls();
 
             // Place the player according to where he came from (eg. if he came from the left, place him on the right)
             placePlayer(wherePlayerCameFrom);

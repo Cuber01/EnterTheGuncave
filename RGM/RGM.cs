@@ -208,14 +208,14 @@ namespace RGM
             // Main
             spriteBatch.Begin(samplerState: SamplerState.PointClamp, transformMatrix: scaleMatrix);
             
-            //draw.drawGrid(Color.Gray);
+            // draw.drawGrid(Color.Gray);
 
             
             foreach( Entity entity in entities )
             {
                 entity.draw();
-                
                 entity.collider.draw(draw);
+                
             }
 
             MyGlobals.canvas.draw(RGM.draw);                           
